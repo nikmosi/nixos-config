@@ -100,6 +100,9 @@
     shellAliases = {
       v = "nvim";
       se = "sudoedit";
+      sw = "nh os switch";
+      upd = "nh os switch --update";
+      hms = "nh home switch";
     };
   };
   environment.sessionVariables = rec {
