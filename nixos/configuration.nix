@@ -83,6 +83,12 @@
   };
 
   programs.firefox.enable = true;
+  programs.nh = {
+    enable = true;
+    clean.enable = true;
+    clean.extraArgs = "--keep-since 7d --keep 12";
+    flake = "/home/nik/.flake";
+  };
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
