@@ -9,7 +9,7 @@
 
   outputs = { nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
-      my-host = nixpkgs.lib.nixosSystem {
+      nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           ./nixos/configuration.nix
@@ -18,7 +18,7 @@
     };
 
     homeConfigurations = {
-      my-user = home-manager.lib.homeManagerConfiguration {
+      nik = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home-manager/home.nix
