@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     fzf
     git
+    pre-commit
     stow
     cargo
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
