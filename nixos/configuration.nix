@@ -5,10 +5,10 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -17,7 +17,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Asia/Novosibirsk";
@@ -26,7 +26,10 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -43,7 +46,8 @@
   services.xserver.xkb.layout = "us";
   services.xserver.windowManager.qtile = {
     enable = true;
-    extraPackages = python312Packages: with python312Packages; [
+    extraPackages =
+      python312Packages: with python312Packages; [
         qtile-extras
         dateutils
         python-dotenv
@@ -53,7 +57,7 @@
         pydantic
         pydantic-settings
       ];
-};
+  };
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -76,7 +80,13 @@
   users.defaultUserShell = pkgs.fish;
   users.users.nik = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" "networkmanager" "nixos" "docker"]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "input"
+      "networkmanager"
+      "nixos"
+      "docker"
+    ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
     packages = with pkgs; [
       tree
@@ -118,27 +128,28 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     home-manager
-     xclip
-     xsel
-     # Editor
-     neovim
-     
-     # Shell
-     fish
-     starship
-     alacritty
+    home-manager
+    xclip
+    xsel
+    # Editor
+    neovim
 
-     # Utils
-     wget
-     fd
-     ripgrep
-     bat
-     git
-     clang
-     pinentry-qt 
-     tmux
-   ];
+    # Shell
+    fish
+    starship
+    alacritty
+
+    # Utils
+    nixfmt-rfc-style
+    wget
+    fd
+    ripgrep
+    bat
+    git
+    clang
+    pinentry-qt
+    tmux
+  ];
 
   programs.tmux = {
     enable = true;
@@ -195,9 +206,6 @@
       bind-key -T copy-mode-vi 'y' send -X copy-selection
     '';
   };
-
-
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
