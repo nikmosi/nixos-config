@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [
@@ -46,17 +46,7 @@
   services.xserver.xkb.layout = "us";
   services.xserver.windowManager.qtile = {
     enable = true;
-    extraPackages =
-      python312Packages: with python312Packages; [
-        qtile-extras
-        dateutils
-        python-dotenv
-        loguru
-        requests
-        yarl
-        pydantic
-        pydantic-settings
-      ];
+    extraPackages = python312Packages: config.qtileDeps;
   };
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 

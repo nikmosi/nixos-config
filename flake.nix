@@ -10,13 +10,35 @@
   outputs =
     { nixpkgs, home-manager, ... }:
     let
-      qtileExtraPackages = [ ];
+      system = "x86_64-linux";
+      pkgs = import nixpkgs { system = system; };
+      qtileDeps =
+        with pkgs.python312Packages;
+        [
+          qtile-extras
+          dateutils
+          python-dotenv
+          loguru
+          requests
+          yarl
+          pydantic
+          pydantic-settings
+        ];
     in
     {
+      devShell.x86_64-linux = pkgs.mkShell {
+        buildInputs = with pkgs.python312Packages; [
+          qtile
+          python
+        ] ++ qtileDeps;
+      };
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
+          inherit system;
           modules = [
+            {
+              config.qtileDeps = qtileDeps;
+            }
             ./nixos/configuration.nix
           ];
         };
@@ -24,7 +46,7 @@
 
       homeConfigurations = {
         nik = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          pkgs = nixpkgs.legacyPackages.${system};
           modules = [
             ./home-manager/home.nix
           ];
