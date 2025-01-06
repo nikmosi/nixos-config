@@ -35,10 +35,8 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
+          specialArgs = {inherit qtileDeps;};
           modules = [
-            {
-              config.qtileDeps = qtileDeps;
-            }
             ./nixos/configuration.nix
           ];
         };
