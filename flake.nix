@@ -26,7 +26,7 @@
         ];
     in
     {
-      devShell.x86_64-linux = pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShell {
         buildInputs = with pkgs.python312Packages; [
           qtile
           python
