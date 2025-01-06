@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     fzf
     git
+    rofi
     pre-commit
     stow
     cargo

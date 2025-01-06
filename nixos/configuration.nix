@@ -45,6 +45,7 @@
     enable = true;
     extraPackages = python312Packages: with python312Packages; [
         qtile-extras
+        dateutils
         python-dotenv
         loguru
         requests
