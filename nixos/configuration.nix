@@ -130,6 +130,7 @@
     alacritty
 
     # Utils
+    command-not-found
     nixfmt-rfc-style
     wget
     fd

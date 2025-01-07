@@ -20,6 +20,8 @@
   home.packages = with pkgs; [
     fzf
     git
+    maim
+    zbar
     rofi
     pre-commit
     stow

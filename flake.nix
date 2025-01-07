@@ -19,7 +19,7 @@
           dateutils
           python-dotenv
           loguru
-          requests
+          httpx
           yarl
           pydantic
           pydantic-settings
