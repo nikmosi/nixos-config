@@ -28,6 +28,7 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
+    weather-icons
 
     #pass
     pass
