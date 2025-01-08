@@ -29,6 +29,14 @@
     noto-fonts-cjk-sans
     noto-fonts-emoji
 
+    #pass
+    pass
+    passff-host
+    passExtensions.pass-update
+    passExtensions.pass-otp
+    passExtensions.pass-import
+    passExtensions.pass-genphrase
+
     
     fzf
     git
