@@ -139,6 +139,10 @@
     clang
     pinentry-qt
     tmux
+
+    # utils for tmux
+    bc
+    jq
   ];
 
   programs.tmux = {
@@ -149,7 +153,6 @@
       sensible
       vim-tmux-navigator
       tokyo-night-tmux
-      power-theme
       resurrect
       continuum
     ];

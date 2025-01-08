@@ -17,6 +17,17 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "JetBrainsMono"
+      ];
+    })
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+  ];
   home.packages = with pkgs; [
     fzf
     git
@@ -26,7 +37,6 @@
     pre-commit
     stow
     cargo
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     source-code-pro
     zoxide
     eza

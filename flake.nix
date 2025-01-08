@@ -12,30 +12,31 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { system = system; };
-      qtileDeps =
-        with pkgs.python312Packages;
-        [
-          qtile-extras
-          dateutils
-          python-dotenv
-          loguru
-          httpx
-          yarl
-          pydantic
-          pydantic-settings
-        ];
+      qtileDeps = with pkgs.python312Packages; [
+        qtile-extras
+        dateutils
+        python-dotenv
+        loguru
+        httpx
+        yarl
+        pydantic
+        pydantic-settings
+      ];
     in
     {
       devShells.${system}.default = pkgs.mkShell {
-        buildInputs = with pkgs.python312Packages; [
-          qtile
-          python
-        ] ++ qtileDeps;
+        buildInputs =
+          with pkgs.python312Packages;
+          [
+            qtile
+            python
+          ]
+          ++ qtileDeps;
       };
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = {inherit qtileDeps;};
+          specialArgs = { inherit qtileDeps; };
           modules = [
             ./nixos/configuration.nix
           ];
