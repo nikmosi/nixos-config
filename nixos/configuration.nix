@@ -99,6 +99,9 @@
   programs.fish = {
     enable = true;
     shellAliases = {
+      l = null;
+      ll = null;
+      ls = null;
       v = "nvim";
       se = "sudoedit";
       sw = "nh os switch";
