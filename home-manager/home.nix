@@ -17,7 +17,8 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  fonts.packages = with pkgs; [
+  home.packages = with pkgs; [
+    # fonts
     (nerdfonts.override {
       fonts = [
         "FiraCode"
@@ -27,8 +28,8 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
-  ];
-  home.packages = with pkgs; [
+
+    
     fzf
     git
     maim
