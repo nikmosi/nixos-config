@@ -107,9 +107,6 @@
   #
   #  /etc/profiles/per-user/nik/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    # EDITOR = "emacs";
-  };
   fonts.fontconfig.enable = true;
 
   programs.git = {
