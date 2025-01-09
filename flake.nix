@@ -32,6 +32,9 @@
             python
           ]
           ++ qtileDeps;
+        shellHook = ''
+          exec fish
+        '';
       };
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
