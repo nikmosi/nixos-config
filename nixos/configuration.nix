@@ -61,6 +61,7 @@
     alsa.enable = true;
     pulse.enable = true;
   };
+  services.greenclip.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
@@ -93,7 +94,7 @@
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-qt;
+    pinentryPackage = pkgs.pinentry-rofi;
 
   };
   programs.fish = {
@@ -140,7 +141,6 @@
     bat
     git
     clang
-    pinentry-qt
     tmux
 
     # utils for tmux
