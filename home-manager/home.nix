@@ -53,6 +53,7 @@
     docker-ls
     python312Packages.python-lsp-server
     pyright
+    ripdrag
 
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
