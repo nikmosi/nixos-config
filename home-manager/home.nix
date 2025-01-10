@@ -25,6 +25,7 @@
     passff-host
 
     rofi-pass
+    rofi-power-menu
     pinentry-rofi
     fzf
     maim
