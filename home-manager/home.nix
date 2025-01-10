@@ -7,6 +7,8 @@
   home.username = "nik";
   home.homeDirectory = "/home/nik";
   home.stateVersion = "24.11";
+  
+  services.greenclip.enable = true;
 
   home.packages = with pkgs; [
     # fonts
@@ -26,6 +28,7 @@
 
     rofi-pass
     pinentry-rofi
+    haskellPackages.greenclip
     fzf
     maim
     pre-commit
