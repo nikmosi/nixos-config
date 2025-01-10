@@ -119,6 +119,10 @@
     ];
   };
 
+  xdg.mime.defaultApplications = {
+    "inode/directory" = "ranger";
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
