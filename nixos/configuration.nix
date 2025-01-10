@@ -159,16 +159,14 @@
       resurrect
       continuum
     ];
-    extraConfigBeforePlugins = ''
+    extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
 
       set -g @resurrect-capture-pane-contents 'on'
       set -g @continuum-restore 'on'
       set -g @tmux_power_time_format '%H:%M'
       set -g @tmux_power_theme '#8AB5FA' # dark slate blue
-    '';
 
-    extraConfig = ''
       set -g default-terminal "screen-256color"
       set -g prefix C-j
 
