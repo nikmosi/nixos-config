@@ -5,6 +5,5 @@
     ./git.nix
     ./pass.nix
     ./ranger.nix
-    ./starship.nix
   ];
 }
