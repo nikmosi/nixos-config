@@ -24,10 +24,11 @@
     # pass
     passff-host
 
+    rofi-pass
+    pinentry-rofi
     fzf
     maim
     pre-commit
-    rofi
     source-code-pro
     stow
     zbar
