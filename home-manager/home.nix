@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -31,12 +31,7 @@
     weather-icons
 
     #pass
-    pass
     passff-host
-    passExtensions.pass-update
-    passExtensions.pass-otp
-    passExtensions.pass-import
-    passExtensions.pass-genphrase
 
     fzf
     git
@@ -109,6 +104,19 @@
   #  /etc/profiles/per-user/nik/etc/profile.d/hm-session-vars.sh
   #
   fonts.fontconfig.enable = true;
+
+  programs.password-store = {
+    enable = true;
+    package = pkgs.pass.withExtensions (exts: [
+      exts.pass-update
+      exts.pass-otp
+      exts.pass-import
+      exts.pass-genphrase
+    ]);
+    settings = {
+      PASSWORD_STORE_DIR = "${config.xdg.dataHome}/.password-store";
+    };
+  };
 
   programs.git = {
     enable = true;
