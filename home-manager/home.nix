@@ -7,7 +7,7 @@
   home.username = "nik";
   home.homeDirectory = "/home/nik";
   home.stateVersion = "24.11";
-  
+
   home.packages = with pkgs; [
     # fonts
     (nerdfonts.override {

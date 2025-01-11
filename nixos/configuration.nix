@@ -2,10 +2,11 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ qtileDeps, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
+    ./modules
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
@@ -39,89 +40,11 @@
   #   useXkbConfig = true; # use xkb.options in tty.
   # };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
-  services.xserver.windowManager.qtile = {
-    enable = true;
-    extraPackages = python312Packages: qtileDeps;
-  };
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  # hardware.pulseaudio.enable = true;
-  # OR
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
-  };
-  services.greenclip.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   virtualisation.docker.enable = true;
-  users.defaultUserShell = pkgs.fish;
-  users.users.nik = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "input"
-      "networkmanager"
-      "nixos"
-      "docker"
-    ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      tree
-    ];
-  };
-
-  programs.firefox.enable = true;
-  programs.nh = {
-    enable = true;
-    clean.enable = true;
-    clean.extraArgs = "--keep-since 7d --keep 12";
-    flake = "/home/nik/.flake";
-  };
-  programs.gnupg.agent = {
-    enable = true;
-    enableSSHSupport = true;
-    pinentryPackage = pkgs.pinentry-qt;
-
-  };
-  programs.fish = {
-    enable = true;
-    shellAliases = {
-      l = null;
-      ll = null;
-      ls = null;
-      v = "nvim";
-      se = "sudoedit";
-      sw = "nh os switch";
-      upd = "nh os switch --update";
-      hms = "nh home switch";
-    };
-  };
-  environment.sessionVariables = rec {
-    TERMINAL = "alacritty";
-    EDITOR = "nvim";
-    XDG_BIN_HOME = "$HOME/.local/bin";
-    PATH = [
-      "${XDG_BIN_HOME}"
-    ];
-  };
-
-  xdg.mime.defaultApplications = {
-    "inode/directory" = "ranger";
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
