@@ -1,5 +1,5 @@
 {
-  imoports = [
+  imports = [
     ./env.nix
     ./mime.nix
     ./programs.nix
