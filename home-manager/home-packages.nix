@@ -20,6 +20,7 @@
     playerctl
     ripgrep
     showmethekey
+    silicon
     mimeo
     udisks
     ueberzugpp
