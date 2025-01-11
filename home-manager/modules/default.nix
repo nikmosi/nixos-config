@@ -9,5 +9,6 @@
     ./ranger.nix
     ./rofi.nix
     ./starship.nix
+    ./tmux.nix
   ];
 }
