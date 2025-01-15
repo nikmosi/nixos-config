@@ -5,6 +5,10 @@
     videoDrivers = [ "nvidia" ];
     displayManager = {
       lightdm.enable = true;
+      startx.enable = true;
+      sessionCommands = ''
+        xrandr --output DP-0 --mode 2560x1440 --rate 165
+      '';
     };
 
     # Configure keymap in X11
