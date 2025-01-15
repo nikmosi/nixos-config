@@ -2,6 +2,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    steam-run-free
 
     imv
     mpv
