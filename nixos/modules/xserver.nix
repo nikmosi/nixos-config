@@ -2,7 +2,7 @@
 {
   services.xserver = {
     enable = true;
-    videoDrivers = [ ];
+    videoDrivers = [ "nvidia" ];
     displayManager = {
       lightdm.enable = true;
     };

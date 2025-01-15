@@ -2,7 +2,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   hardware.nvidia = {
-    open = false;
+    open = true;
     package = pkgs.linuxPackages.nvidiaPackages.stable;
   };
 }
