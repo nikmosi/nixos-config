@@ -79,6 +79,64 @@
     fsType = "ext4";
   };
 
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    glibc
+    libGL
+    freetype
+    gnutls
+    krb5
+    samba
+    xorg.libX11
+    libcap
+    cups
+    gettext
+    dbus
+    cairo
+    unixODBC
+    samba4
+    ncurses
+    libva
+    libpcap
+    libv4l
+    sane-backends
+    libgphoto2
+    libkrb5
+    fontconfig
+    alsa-lib
+    libpulseaudio
+    xorg.libXinerama
+    udev
+    vulkan-loader
+    SDL2
+    libusb1
+    gst_all_1.gstreamer
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-ugly
+    gst_all_1.gst-libav
+    gst_all_1.gst-plugins-bad
+    gtk3
+    glib
+    opencl-headers
+    ocl-icd
+    openssl
+    gnutls
+    libGLU
+    libGL
+    mesa.osmesa
+    libdrm
+    xorg.libX11
+    xorg.libXcomposite
+    xorg.libXcursor
+    xorg.libXext
+    xorg.libXfixes
+    xorg.libXi
+    xorg.libXrandr
+    xorg.libXrender
+    xorg.libXxf86vm
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
