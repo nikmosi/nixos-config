@@ -74,6 +74,12 @@
     jq
   ];
 
+  fileSystems."/mnt/storage" = {
+    device = "UUID=695be6a7-1b77-4e63-81c9-64259e239e28";
+    fsType = "ext4";
+  };
+
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
