@@ -2,6 +2,12 @@
 {
   services.xserver = {
     enable = true;
+    videoDrivers = [ "nvidia" ];
+    libinput.enable = true;
+    libinput.accelProfile = "flat";
+    displayManager = {
+      lightdm.enable = true;
+    };
 
     # Configure keymap in X11
     xkb.layout = "us";
