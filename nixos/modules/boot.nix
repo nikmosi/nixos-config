@@ -1,3 +1,7 @@
 {
- boot.kernelModules = [ "nvidia" "nvidia_modsetf" "nvidia_uvm" ];
+  boot.kernelModules = [
+    "nvidia"
+    "nvidia_modsetf"
+    "nvidia_uvm"
+  ];
 }

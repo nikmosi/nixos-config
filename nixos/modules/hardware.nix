@@ -1,8 +1,8 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 {
- hardware.nvidia = {
-  enable = true;
-  open = true;
-  package = pkgs.linuxPackages.nvidiaPackages.stable;
- };
+  nixpkgs.config.allowUnfree = true;
+  hardware.nvidia = {
+    open = true;
+    package = pkgs.linuxPackages.nvidiaPackages.stable;
+  };
 }
