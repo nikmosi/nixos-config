@@ -61,6 +61,7 @@
 
     # Utils
     nixfmt-rfc-style
+    pciutils
     wget
     fd
     ripgrep
