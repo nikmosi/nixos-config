@@ -1,15 +1,18 @@
-{ pkgs, ... }:
+{ pkgs, telegrams, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    nekoray
     steam-run-free
 
     imv
     mpv
     obsidian
     vesktop
+    telegrams.packages.${pkgs.system}.ayugram-desktop
 
     # CLI utils
+    btop
     bottom
     brightnessctl
     ffmpeg

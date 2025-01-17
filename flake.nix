@@ -5,13 +5,21 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    ayugram-desktop.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }:
+    {
+      nixpkgs,
+      home-manager,
+      ayugram-desktop,
+      ...
+    }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { system = system; };
+      pkgs = import nixpkgs {
+        system = system;
+      };
       qtileDeps = with pkgs.python312Packages; [
         qtile-extras
         dateutils
@@ -52,6 +60,7 @@
           modules = [
             ./home-manager/home.nix
           ];
+          extraSpecialArgs = { telegrams = ayugram-desktop; };
         };
       };
     };
