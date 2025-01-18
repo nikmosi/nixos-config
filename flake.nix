@@ -60,7 +60,9 @@
           modules = [
             ./home-manager/home.nix
           ];
-          extraSpecialArgs = { telegrams = ayugram-desktop; };
+          extraSpecialArgs = {
+            telegrams = ayugram-desktop;
+          };
         };
       };
     };
