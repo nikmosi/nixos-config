@@ -5,11 +5,12 @@
     nekoray
     steam-run-free
 
+    chatterino2
     imv
     mpv
     obsidian
-    vesktop
     telegrams.packages.${pkgs.system}.ayugram-desktop
+    vesktop
 
     # CLI utils
     btop
