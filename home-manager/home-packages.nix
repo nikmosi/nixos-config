@@ -13,6 +13,7 @@
     vesktop
 
     # CLI utils
+    gh
     btop
     bottom
     brightnessctl
