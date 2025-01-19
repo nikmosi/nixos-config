@@ -8,5 +8,6 @@
     ./services.nix
     ./users.nix
     ./xserver.nix
+    ./zram.nix
   ];
 }
