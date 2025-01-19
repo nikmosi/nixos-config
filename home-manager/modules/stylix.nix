@@ -21,15 +21,22 @@
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
     targets = {
-      neovim = { enable = false; };
-      rofi = { enable = false; };
-      dunst = { enable = false; };
-      alacritty = { enable = false; };
+      neovim = {
+        enable = false;
+      };
+      rofi = {
+        enable = false;
+      };
+      dunst = {
+        enable = false;
+      };
+      alacritty = {
+        enable = false;
+      };
     };
 
     cursor = {
       name = "DMZ-Black";
-      size = 24;
       package = pkgs.vanilla-dmz;
     };
 
@@ -70,4 +77,3 @@
     };
   };
 }
-
