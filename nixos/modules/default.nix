@@ -4,6 +4,7 @@
     ./boot.nix
     ./env.nix
     ./hardware.nix
+    ./home-manager.nix
     ./mime.nix
     ./programs.nix
     ./services.nix
