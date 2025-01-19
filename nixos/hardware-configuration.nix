@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }:
@@ -23,7 +22,12 @@
     "sd_mod"
   ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [
+    "kvm-intel"
+    "nvidia"
+    "nvidia_modsetf"
+    "nvidia_uvm"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
