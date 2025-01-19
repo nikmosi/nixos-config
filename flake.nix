@@ -14,7 +14,7 @@
       home-manager,
       ayugram-desktop,
       ...
-    }:
+    } @ inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -47,7 +47,7 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit qtileDeps; };
+          specialArgs = { inherit inputs; inherit qtileDeps; };
           modules = [
             ./nixos/configuration.nix
           ];
