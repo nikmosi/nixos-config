@@ -11,6 +11,7 @@
     ./ranger.nix
     ./rofi.nix
     ./starship.nix
+    ./stylix.nix
     ./tmux.nix
   ];
 }

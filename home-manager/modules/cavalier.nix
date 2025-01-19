@@ -1,0 +1,5 @@
+{
+  programs.cavalier = {
+    enable = true;
+  };
+}
