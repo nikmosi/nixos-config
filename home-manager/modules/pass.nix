@@ -1,5 +1,7 @@
 { pkgs, config, ... }:
-
+let
+  store_dir = "${config.xdg.dataHome}/.password-store";
+in
 {
   programs.password-store = {
     enable = true;
@@ -10,7 +12,11 @@
       exts.pass-genphrase
     ]);
     settings = {
-      PASSWORD_STORE_DIR = "${config.xdg.dataHome}/.password-store";
+      PASSWORD_STORE_DIR = store_dir;
     };
+  };
+  programs.rofi.pass = {
+    enable = true;
+    stores = [ store_dir ];
   };
 }
