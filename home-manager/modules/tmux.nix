@@ -5,6 +5,9 @@
 
     plugins = with pkgs.tmuxPlugins; [
       nord
+      tmux-fzf
+      sessionist
+      open
       sensible
       vim-tmux-navigator
       tokyo-night-tmux
