@@ -11,6 +11,7 @@
       resurrect
       continuum
     ];
+    historyLimit = 30000;
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
 
