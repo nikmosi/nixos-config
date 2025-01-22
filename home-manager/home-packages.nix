@@ -37,6 +37,7 @@
     nix-prefetch-scripts
 
     # fonts
+    roboto
     (nerdfonts.override {
       fonts = [
         "FiraCode"
