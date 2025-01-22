@@ -67,6 +67,7 @@
 
     # Utils
     nixfmt-rfc-style
+    libnotify
     pciutils
     wget
     fd

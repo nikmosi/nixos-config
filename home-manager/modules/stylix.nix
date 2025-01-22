@@ -24,17 +24,15 @@
       neovim = {
         enable = false;
       };
-      dunst = {
-        enable = false;
-      };
       alacritty = {
         enable = false;
       };
     };
 
     cursor = {
-      name = "DMZ-Black";
-      package = pkgs.vanilla-dmz;
+      package = pkgs.numix-cursor-theme;
+      name = "Numix-Cursor";
+      size = 24;
     };
 
     fonts = {
@@ -66,11 +64,6 @@
       package = pkgs.papirus-icon-theme;
       dark = "Papirus-Dark";
       light = "Papirus-Light";
-    };
-
-    image = pkgs.fetchurl {
-      url = "https://codeberg.org/lunik1/nixos-logo-gruvbox-wallpaper/raw/branch/master/png/gruvbox-dark-rainbow.png";
-      sha256 = "036gqhbf6s5ddgvfbgn6iqbzgizssyf7820m5815b2gd748jw8zc";
     };
   };
 }

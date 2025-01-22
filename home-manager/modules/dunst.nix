@@ -10,7 +10,6 @@
         startup_notification = false;
         timeout = 3000;
         stack_duplicates = true;
-        font = "JetBrainsMono Nerd Font 10";
         format = "<b>%s</b>";
         separator_height = 2;
         padding = 12;
@@ -25,27 +24,6 @@
 
       frame = {
         frame_color = "#3c3836";
-      };
-
-      urgency_low = {
-        timeout = 4000;
-        background = "#282828";
-        foreground = "#ebdbb2";
-        frame_color = "#458588";
-      };
-
-      urgency_normal = {
-        timeout = 3000;
-        background = "#3c3836";
-        foreground = "#ebdbb2";
-        frame_color = "#d79921";
-      };
-
-      urgency_critical = {
-        timeout = 0;
-        background = "#cc241d";
-        foreground = "#fbf1c7";
-        frame_color = "#fb4934";
       };
 
       shadows = {
