@@ -39,6 +39,8 @@
 
     # fonts
     roboto
+    weather-icons
+    material-icons
     (nerdfonts.override {
       fonts = [
         "FiraCode"
