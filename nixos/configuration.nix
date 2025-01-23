@@ -75,6 +75,7 @@
     bat
     git
     clang
+    p7zip
 
     # utils for tmux
     bc

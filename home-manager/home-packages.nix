@@ -11,6 +11,7 @@
     obsidian
     telegrams.packages.${pkgs.system}.ayugram-desktop
     vesktop
+    qbittorrent-enhanced
 
     # CLI utils
     gh

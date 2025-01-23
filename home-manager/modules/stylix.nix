@@ -31,7 +31,7 @@
 
     cursor = {
       package = pkgs.numix-cursor-theme;
-      name = "Numix-Cursor";
+      name = "Numix-Cursor-Light";
       size = 24;
     };
 
@@ -64,6 +64,11 @@
       package = pkgs.papirus-icon-theme;
       dark = "Papirus-Dark";
       light = "Papirus-Light";
+    };
+
+    image = pkgs.fetchurl {
+      url = "https://codeberg.org/lunik1/nixos-logo-gruvbox-wallpaper/raw/branch/master/png/gruvbox-dark-rainbow.png";
+      sha256 = "036gqhbf6s5ddgvfbgn6iqbzgizssyf7820m5815b2gd748jw8zc";
     };
   };
 }
