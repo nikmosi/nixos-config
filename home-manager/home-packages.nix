@@ -16,6 +16,7 @@
 
     # CLI utils
     gh
+    translate-shell
     btop
     bottom
     brightnessctl
