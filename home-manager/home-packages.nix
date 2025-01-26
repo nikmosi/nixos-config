@@ -12,6 +12,7 @@
     telegrams.packages.${pkgs.system}.ayugram-desktop
     vesktop
     qbittorrent-enhanced
+    pavucontrol
 
     # CLI utils
     gh
