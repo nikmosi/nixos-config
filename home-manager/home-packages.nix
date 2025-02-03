@@ -15,6 +15,9 @@
     pavucontrol
 
     # CLI utils
+    vial
+    gcc
+    clang-tools
     gh
     translate-shell
     btop
