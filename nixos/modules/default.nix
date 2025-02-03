@@ -9,6 +9,7 @@
     ./mime.nix
     ./programs.nix
     ./services.nix
+    ./udev.nix
     ./users.nix
     ./xserver.nix
     ./zram.nix
