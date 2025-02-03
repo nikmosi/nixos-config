@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1737802051,
-        "narHash": "sha256-eR0QqzVRUggsYdFT+kFaoAJXxgaryIH6loll/WYzw4g=",
+        "lastModified": 1737874107,
+        "narHash": "sha256-7E3um7wF4zFOhv3Ec0V0fV/hiBbN1WCwsJ87LRjwKIE=",
         "owner": "ayugram-port",
         "repo": "ayugram-desktop",
-        "rev": "03da54d8fdf0aea30c3f2342c6305b5a68e06b9e",
+        "rev": "6fd586fcf80f14507f302eab79cb9d008748311d",
         "type": "github"
       },
       "original": {
@@ -269,11 +269,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1737632463,
-        "narHash": "sha256-38J9QfeGSej341ouwzqf77WIHAScihAKCt8PQJ+NH28=",
+        "lastModified": 1737746512,
+        "narHash": "sha256-nU6AezEX4EuahTO1YopzueAXfjFfmCHylYEFCagduHU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "0aa475546ed21629c4f5bbf90e38c846a99ec9e9",
+        "rev": "825479c345a7f806485b7f00dbe3abb50641b083",
         "type": "github"
       },
       "original": {
@@ -342,11 +342,11 @@
         "tinted-tmux": "tinted-tmux"
       },
       "locked": {
-        "lastModified": 1737676720,
-        "narHash": "sha256-HqpGosky65WyaK04NXyWtK/4RdBwAXt+G0OCwqntTvI=",
+        "lastModified": 1737834796,
+        "narHash": "sha256-vAaSMmOZv0fyHeGqpaKRF4eWDcpFMBrELv+iCYkxqIE=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "a48ccdad027eb72a6517249a038928c95218c4fe",
+        "rev": "a178019e0855f5e0048d994e7bc9337f961b6bc9",
         "type": "github"
       },
       "original": {
