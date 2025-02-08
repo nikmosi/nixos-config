@@ -3,7 +3,6 @@
     ./audio.nix
     ./boot.nix
     ./dconf.nix
-    ./dmenu.nix
     ./env.nix
     ./hardware.nix
     ./home-manager.nix
