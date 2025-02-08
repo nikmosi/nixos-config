@@ -1,7 +1,6 @@
 {
   pkgs,
   telegrams,
-  lib,
   ...
 }:
 let
@@ -27,7 +26,6 @@ in
     lmstudio
 
     # CLI utils
-    dmenu
     vial
     gcc
     clang-tools
