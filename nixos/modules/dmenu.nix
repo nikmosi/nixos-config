@@ -6,6 +6,7 @@
       patches = (old.patches or [ ]) ++ [
         # Border patch
         (pkgs.fetchpatch {
+          url = "https://tools.suckless.org/dmenu/patches/border/dmenu-border-4.9.diff";
           sha256 = lib.fakeSha256; # Replace with actual hash
         })
         # Center patch
