@@ -50,7 +50,13 @@
   # services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    extraOptions = ''
+      --default-runtime=nvidia
+      --add-runtime=nvidia=/run/current-system/sw/bin/nvidia-container-runtime
+    '';
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -66,6 +72,7 @@
     alacritty
 
     # Utils
+    nvidia-container-toolkit
     nixfmt-rfc-style
     libnotify
     pciutils
