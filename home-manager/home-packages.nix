@@ -13,26 +13,16 @@ in
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     (dmenu.overrideAttrs (old: {
-      patches = (old.patches or [ ]) ++ [
-        # Border patch
-        (pkgs.fetchpatch {
-          url = "https://tools.suckless.org/dmenu/patches/border/dmenu-border-4.9.diff";
-          sha256 = lib.fakeSha256; # Replace with actual hash
-        })
+      patches = [
         # Center patch
         (pkgs.fetchpatch {
-          url = "https://tools.suckless.org/dmenu/patches/center/dmenu-center-4.9.diff";
-          sha256 = lib.fakeSha256; # Replace with actual hash
-        })
-        # Fuzzy match patch
-        (pkgs.fetchpatch {
-          url = "https://tools.suckless.org/dmenu/patches/fuzzymatch/dmenu-fuzzymatch-4.9.diff";
-          sha256 = lib.fakeSha256; # Replace with actual hash
+          url = "https://tools.suckless.org/dmenu/patches/center/dmenu-center-5.2.diff";
+          sha256 = "sha256-g7ow7GVUsisR2kQ4dANRx/pJGU8fiG4fR08ZkbUFD5o=";
         })
         # Line height patch
         (pkgs.fetchpatch {
-          url = "https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-4.9.diff";
-          sha256 = lib.fakeSha256; # Replace with actual hash
+          url = "https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff";
+          sha256 = "sha256-QdY2T/hvFuQb4NAK7yfBgBrz7Ii7O7QmUv0BvVOdf00=";
         })
       ];
     }))

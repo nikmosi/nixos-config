@@ -8,7 +8,7 @@
         geometry = "300x50-10+50";
         layer = "above";
         startup_notification = false;
-        timeout = 3000;
+        timeout = 90;
         stack_duplicates = true;
         format = "<b>%s</b>";
         separator_height = 2;
