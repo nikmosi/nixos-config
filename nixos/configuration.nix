@@ -51,6 +51,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   virtualisation.docker = {
     enable = true;
+    storageDriver = "btrfs";
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
     extraOptions = ''
       --default-runtime=nvidia
       --add-runtime=nvidia=/run/current-system/sw/bin/nvidia-container-runtime
