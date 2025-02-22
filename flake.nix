@@ -21,16 +21,7 @@
       pkgs = import nixpkgs {
         system = system;
       };
-      qtileDeps = with pkgs.python312Packages; [
-        qtile-extras
-        dateutils
-        python-dotenv
-        loguru
-        httpx
-        yarl
-        pydantic
-        pydantic-settings
-      ];
+      qtileDeps = import ./qtile-deps.nix { inherit pkgs; };
     in
     {
       devShells.${system}.default = pkgs.mkShell {
