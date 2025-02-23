@@ -35,6 +35,7 @@
     lmstudio
 
     # CLI utils
+    cachix
     xh
     httpie
     git-extras
