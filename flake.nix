@@ -24,18 +24,6 @@
       qtileDeps = import ./qtile-deps.nix { inherit pkgs; };
     in
     {
-      devShells.${system}.default = pkgs.mkShell {
-        buildInputs =
-          with pkgs.python312Packages;
-          [
-            qtile
-            python
-          ]
-          ++ qtileDeps;
-        shellHook = ''
-          exec fish
-        '';
-      };
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
