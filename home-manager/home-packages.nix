@@ -3,12 +3,6 @@
   telegrams,
   ...
 }:
-let
-  macchiatoTheme = builtins.fetchurl {
-    url = "https://raw.githubusercontent.com/catppuccin/dmenu/main/themes/macchiato.h";
-    sha256 = "sha256-1yga9mb8nzzmnhzyjs50kbdz78szh8h6hx1mab1b0qhjs11y1mgk";
-  };
-in
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
@@ -26,6 +20,8 @@ in
         })
       ];
     }))
+    xh
+    httpie
 
     nekoray
     steam-run-free
