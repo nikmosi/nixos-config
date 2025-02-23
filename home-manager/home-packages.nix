@@ -1,7 +1,6 @@
-{
-  pkgs,
-  telegrams,
-  ...
+{ pkgs
+, telegrams
+, ...
 }:
 {
   nixpkgs.config.allowUnfree = true;
@@ -20,13 +19,12 @@
         })
       ];
     }))
-    xh
-    httpie
 
     nekoray
     steam-run-free
 
     chatterino2
+    vial
     imv
     mpv
     obsidian
@@ -37,7 +35,9 @@
     lmstudio
 
     # CLI utils
-    vial
+    xh
+    httpie
+    git-extras
     gcc
     clang-tools
     gh
@@ -88,7 +88,6 @@
     pinentry-rofi
     fzf
     maim
-    pre-commit
     stow
     zbar
     zoxide
