@@ -12,7 +12,7 @@
       Restart = "always";
     };
     Install = {
-      WantedBy = [ "default.target" ];
+      WantedBy = [ "multi-user.target" ];
     };
   };
   programs.tmux = {
