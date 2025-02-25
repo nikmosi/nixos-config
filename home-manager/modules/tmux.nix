@@ -1,20 +1,21 @@
 { pkgs, ... }:
 {
-  systemd.user.services.tmux = {
+  systemd.user.services.tmux-server = {
     Unit = {
       Description = "Tmux Server";
-      After = [ "default.target" ];
+      After = [ "network.target" ];
     };
     Service = {
-      ExecStartPre = ''${pkgs.tmux}/bin/tmux start-server'';
-      ExecStart = ''${pkgs.tmux}/bin/tmux new-session -d -s main'';
-      ExecStop = ''${pkgs.tmux}/bin/tmux kill-server'';
+      Type = ''simple'';
+      ExecStart = ''/home/nik/.nix-profile/bin/tmux new-session -d -s mysession'';
       Restart = "always";
+      Environment = "TMUX=1";
     };
     Install = {
       WantedBy = [ "multi-user.target" ];
     };
   };
+
   programs.tmux = {
     enable = true;
 
