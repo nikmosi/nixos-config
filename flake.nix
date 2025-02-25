@@ -11,11 +11,12 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , ayugram-desktop
-    , ...
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ayugram-desktop,
+      ...
     }@inputs:
     let
       system = "x86_64-linux";
@@ -37,7 +38,8 @@
         pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
           src = ./.;
           hooks = {
-            nixpkgs-fmt.enable = true;
+            nixfmt-rfc-style.enable = true;
+
           };
         };
       });
@@ -55,7 +57,9 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs qtileDeps; };
+          specialArgs = {
+            inherit inputs qtileDeps;
+          };
           modules = [
             ./nixos/configuration.nix
           ];
