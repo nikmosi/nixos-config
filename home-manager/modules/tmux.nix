@@ -6,6 +6,7 @@
       After = [ "default.target" ];
     };
     Service = {
+      ExecStartPre = ''${pkgs.tmux}/bin/tmux start-server'';
       ExecStart = ''${pkgs.tmux}/bin/tmux new-session -d -s main'';
       ExecStop = ''${pkgs.tmux}/bin/tmux kill-server'';
       Restart = "always";
