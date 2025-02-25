@@ -70,6 +70,8 @@
     home-manager
     xclip
     xsel
+    qjackctl
+    helvum # (optional) Graphical patchbay for PipeWire
     # Editor
     neovim
 
