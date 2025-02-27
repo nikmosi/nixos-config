@@ -7,17 +7,18 @@
     };
     Service = {
       Type = ''simple'';
-      ExecStart = ''/home/nik/.nix-profile/bin/tmux new-session -d -s mysession'';
-      Restart = "always";
-      Environment = "TMUX=1";
+      # ExecStart = ''/home/nik/.nix-profile/bin/tmux new-session -d -s auto'';
+      ExecStart = ''${pkgs.tmux}/bin/tmux new-session -d -s auto'';
+      TimeoutStartSec = "10s";
     };
     Install = {
-      WantedBy = [ "multi-user.target" ];
+      WantedBy = [ "default.target" ];
     };
   };
 
   programs.tmux = {
     enable = true;
+    secureSocket = false;
 
     plugins = with pkgs.tmuxPlugins; [
       nord
