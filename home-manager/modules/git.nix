@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   programs.git = {
     enable = true;
@@ -10,6 +11,7 @@
     difftastic.enable = true;
 
     extraConfig = {
+      git-extras.get.clone-path = "${config.home.homeDirectory}/git-repos";
       init.defaultBranch = "main";
       pull.ff = "only";
       merge = {
