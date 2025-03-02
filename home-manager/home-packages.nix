@@ -1,6 +1,7 @@
-{ pkgs
-, telegrams
-, ...
+{
+  pkgs,
+  telegrams,
+  ...
 }:
 {
   nixpkgs.config.allowUnfree = true;
@@ -24,6 +25,7 @@
     steam-run-free
 
     chatterino2
+    easyeffects
     vial
     imv
     mpv
