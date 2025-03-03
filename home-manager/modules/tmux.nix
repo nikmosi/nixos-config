@@ -6,7 +6,7 @@
       After = [ "network.target" ];
     };
     Service = {
-      Type = ''simple'';
+      Type = ''forking'';
       # ExecStart = ''/home/nik/.nix-profile/bin/tmux new-session -d -s auto'';
       ExecStart = ''${pkgs.tmux}/bin/tmux new-session -d -s auto'';
       TimeoutStartSec = "10s";
