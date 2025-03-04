@@ -51,17 +51,14 @@
   # services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+  hardware.nvidia-container-toolkit.enable = false;
   virtualisation.docker = {
-    enable = true;
+    enable = false;
     storageDriver = "btrfs";
     rootless = {
       enable = true;
       setSocketVariable = true;
     };
-    extraOptions = ''
-      --default-runtime=nvidia
-      --add-runtime=nvidia=/run/current-system/sw/bin/nvidia-container-runtime
-    '';
   };
 
   # List packages installed in system profile. To search, run:
@@ -81,7 +78,6 @@
     alacritty
 
     # Utils
-    nvidia-container-toolkit
     nixfmt-rfc-style
     libnotify
     pciutils

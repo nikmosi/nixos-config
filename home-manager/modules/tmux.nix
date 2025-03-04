@@ -1,21 +1,5 @@
 { pkgs, ... }:
 {
-  systemd.user.services.tmux-server = {
-    Unit = {
-      Description = "Tmux Server";
-      After = [ "network.target" ];
-    };
-    Service = {
-      Type = ''forking'';
-      # ExecStart = ''/home/nik/.nix-profile/bin/tmux new-session -d -s auto'';
-      ExecStart = ''${pkgs.tmux}/bin/tmux new-session -d -s auto'';
-      TimeoutStartSec = "10s";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
-  };
-
   programs.tmux = {
     enable = true;
     secureSocket = false;
@@ -28,7 +12,6 @@
       sensible
       vim-tmux-navigator
       tokyo-night-tmux
-      resurrect
       continuum
     ];
     historyLimit = 30000;
