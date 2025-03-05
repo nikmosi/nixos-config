@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   gitSyncObsidian = pkgs.writeScriptBin "git-sync-obsidian" ''
-    #!/usr/bin/env bash
+    #!${pkgs.bash}/bin/bash
 
     VAULT_DIR="$HOME/Documents/base"
     cd $VAULT_DIR || exit 1
