@@ -11,4 +11,14 @@
     ];
     shell = pkgs.fish;
   };
+  users.users.nvimfromscratch = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "input"
+      "networkmanager"
+      "docker"
+    ];
+    shell = pkgs.fish;
+  };
 }
