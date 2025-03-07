@@ -6,18 +6,16 @@
 {
   imports = [
     ./modules
+    ./nixos-packages.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
-  # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.hostName = "nixos";
+  networking.networkmanager.enable = true;
   networking.enableIPv6 = false;
 
   # Set your time zone.
@@ -60,39 +58,6 @@
       setSocketVariable = true;
     };
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    python312
-    home-manager
-    xclip
-    xsel
-    qjackctl
-    helvum # (optional) Graphical patchbay for PipeWire
-    # Editor
-    neovim
-
-    # Shell
-    fish
-    alacritty
-
-    # Utils
-    nixfmt-rfc-style
-    libnotify
-    pciutils
-    wget
-    fd
-    ripgrep
-    bat
-    git
-    clang
-    p7zip
-
-    # utils for tmux
-    bc
-    jq
-  ];
 
   fileSystems."/mnt/storage" = {
     device = "UUID=695be6a7-1b77-4e63-81c9-64259e239e28";
