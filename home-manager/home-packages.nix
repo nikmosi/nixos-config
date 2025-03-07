@@ -37,6 +37,7 @@
     lmstudio
 
     # CLI utils
+    jupyter-all
     cachix
     xh
     httpie
