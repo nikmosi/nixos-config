@@ -6,7 +6,7 @@ let
     VAULT_DIR="$HOME/Documents/base"
     cd $VAULT_DIR || exit 1
     git add .
-    git commit -m --no-signoff "chore" || exit 0
+    git commit --no-signoff -m "chore" || exit 0
   '';
 in
 {
