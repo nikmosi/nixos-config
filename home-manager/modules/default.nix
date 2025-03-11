@@ -7,7 +7,6 @@
     ./eza.nix
     ./git.nix
     ./lazygit.nix
-    ./obsidian.nix
     ./pass.nix
     ./ranger.nix
     ./rofi.nix
