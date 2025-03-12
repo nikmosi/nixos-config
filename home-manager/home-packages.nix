@@ -6,21 +6,6 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    (dmenu.overrideAttrs (old: {
-      patches = [
-        # Center patch
-        (pkgs.fetchpatch {
-          url = "https://tools.suckless.org/dmenu/patches/center/dmenu-center-5.2.diff";
-          sha256 = "sha256-g7ow7GVUsisR2kQ4dANRx/pJGU8fiG4fR08ZkbUFD5o=";
-        })
-        # Line height patch
-        (pkgs.fetchpatch {
-          url = "https://tools.suckless.org/dmenu/patches/line-height/dmenu-lineheight-5.2.diff";
-          sha256 = "sha256-QdY2T/hvFuQb4NAK7yfBgBrz7Ii7O7QmUv0BvVOdf00=";
-        })
-      ];
-    }))
-
     nekoray
     steam-run-free
 
