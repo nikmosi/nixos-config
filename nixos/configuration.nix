@@ -89,7 +89,6 @@
     libkrb5
     fontconfig
     alsa-lib
-    libpulseaudio
     xorg.libXinerama
     udev
     vulkan-loader

@@ -5,6 +5,7 @@
     isNormalUser = true;
     extraGroups = [
       "wheel"
+      "audio"
       "input"
       "networkmanager"
       "docker"
