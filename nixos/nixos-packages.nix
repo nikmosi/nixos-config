@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    pulseaudioFull
     python312
     home-manager
     xclip

@@ -6,6 +6,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    alsa-utils
     direnv
     devenv
     nekoray
