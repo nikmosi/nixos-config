@@ -55,6 +55,7 @@
     zip
     bemoji
     nix-prefetch-scripts
+    ripdrag
 
     # fonts
     roboto
@@ -86,12 +87,12 @@
 
     # lsp
     docker-compose-language-service
-    docker-ls
+    yaml-language-server
+    dockerfile-language-server-nodejs
     lua-language-server
     nil
     pyright
     python312Packages.python-lsp-server
-    ripdrag
     ruff
   ];
 
