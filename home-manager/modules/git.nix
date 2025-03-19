@@ -17,6 +17,7 @@
       merge = {
         conflictstyle = "zdiff3";
         tool = "meld";
+        ff = "only";
       };
       push.default = "current";
       commit = {
