@@ -25,6 +25,7 @@
     lmstudio
 
     # CLI utils
+    lazydocker
     jupyter-all
     cachix
     xh
