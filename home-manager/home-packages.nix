@@ -88,6 +88,7 @@
 
     # lsp
     docker-compose-language-service
+    nginx-language-server
     yaml-language-server
     dockerfile-language-server-nodejs
     lua-language-server
