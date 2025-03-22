@@ -57,6 +57,7 @@
     bemoji
     nix-prefetch-scripts
     ripdrag
+    stylua
 
     # fonts
     roboto
