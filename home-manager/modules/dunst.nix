@@ -4,7 +4,7 @@
 
     settings = {
       global = {
-        timeout = 90;
+        timeout = 45;
         stack_duplicates = true;
         format = "<i>%i</i> <b>%s</b>\n%b";
         separator_height = 2;
