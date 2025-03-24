@@ -88,6 +88,7 @@
     zoxide
 
     # lsp
+    harper
     docker-compose-language-service
     nginx-language-server
     yaml-language-server
