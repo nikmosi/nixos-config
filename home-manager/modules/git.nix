@@ -34,6 +34,7 @@
       };
       transfer.fsckobjects = true;
       fetch.fsckobjects = true;
+      fetch.writeCommitGraph = true;
       receive.fsckObjects = true;
       branch.sort = "-committerdate";
     };
