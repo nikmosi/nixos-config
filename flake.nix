@@ -46,6 +46,7 @@
 
       devShells = forAllSystems (system: {
         default = nixpkgs.legacyPackages.${system}.mkShell {
+          name = "conf";
           buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
           shellHook = ''
             ${self.checks.${system}.pre-commit-check.shellHook}
