@@ -27,6 +27,9 @@
       alacritty = {
         enable = false;
       };
+      kitty = {
+        enable = false;
+      };
     };
 
     cursor = {

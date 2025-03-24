@@ -6,6 +6,7 @@
     ./dunst.nix
     ./eza.nix
     ./git.nix
+    ./kitty.nix
     ./lazygit.nix
     ./pass.nix
     ./ranger.nix
