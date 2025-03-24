@@ -158,7 +158,11 @@
       };
 
       nix_shell = {
-        format = "\\[[$symbol$state( \\($name\\))]($style)\\]";
+        impure_msg = "i";
+        symbol = "❄️";
+        pure_msg = "p";
+        unknown_msg = "u";
+        format = "\\[[$symbol $state \\($name\\)]($style)\\]";
       };
 
       nodejs = {
