@@ -12,6 +12,7 @@
       sensible
       vim-tmux-navigator
       tokyo-night-tmux
+      tmp
       continuum
     ];
     historyLimit = 30000;
