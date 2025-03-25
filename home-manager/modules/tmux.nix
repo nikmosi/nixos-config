@@ -12,11 +12,14 @@
       sensible
       vim-tmux-navigator
       tokyo-night-tmux
-      tmp
+      tpm
       continuum
     ];
     historyLimit = 30000;
     extraConfig = ''
+      set -g @plugin 'omerxx/tmux-sessionx'
+      set -g @sessionx-bind 'o'
+
       set-option -sa terminal-overrides ",xterm*:Tc"
 
       set -g @resurrect-capture-pane-contents 'on'
