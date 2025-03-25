@@ -5,31 +5,27 @@
     secureSocket = false;
 
     plugins = with pkgs.tmuxPlugins; [
-      nord
-      tmux-fzf
-      sessionist
-      open
-      sensible
-      vim-tmux-navigator
       tokyo-night-tmux
-      continuum
+      vim-tmux-navigator
+      sensible
+      tmux-fzf
+      open
     ];
     historyLimit = 30000;
+    baseIndex = 1;
+    keyMode = "vi";
+    mouse = true;
+    prefix = "C-j";
+    sensibleOnTop = true;
+    shell = "${pkgs.fish}/bin/fish";
+    terminal = "screen-256color";
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
 
-      set -g @resurrect-capture-pane-contents 'on'
-      set -g @continuum-restore 'on'
       set -g @tmux_power_time_format '%H:%M'
       set -g @tmux_power_theme '#8AB5FA' # dark slate blue
 
-      set -g default-terminal "screen-256color"
-      set -g prefix C-j
-
       bind s choose-tree -sZ -O name
-
-      set -g base-index 1
-      setw -g pane-base-index 1
 
       # Key remapping
       unbind %
@@ -48,7 +44,6 @@
 
       bind -r m resize-pane -Z
 
-      set -g mouse on
 
       set-window-option -g mode-keys vi
 
