@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    unstable-nix.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     ayugram-desktop.url = "github:/ayugram-port/ayugram-desktop/release?submodules=1";
@@ -20,6 +21,9 @@
     }@inputs:
     let
       system = "x86_64-linux";
+      unstable = import inputs.unstable-nix {
+        system = system;
+      };
       pkgs = import nixpkgs {
         system = system;
       };
@@ -74,7 +78,7 @@
             ./home-manager/home.nix
           ];
           extraSpecialArgs = {
-            inherit inputs;
+            inherit inputs unstable;
             telegrams = ayugram-desktop;
           };
         };

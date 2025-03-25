@@ -1,23 +1,24 @@
-{ pkgs, ... }:
+{ pkgs, unstable, ... }:
 {
   programs.tmux = {
     enable = true;
     secureSocket = false;
 
-    plugins = with pkgs.tmuxPlugins; [
-      nord
-      tmux-fzf
-      sessionist
-      open
-      sensible
-      vim-tmux-navigator
-      tokyo-night-tmux
-      tpm
-      continuum
-    ];
+    plugins =
+      with pkgs.tmuxPlugins;
+      [
+        nord
+        tmux-fzf
+        sessionist
+        open
+        sensible
+        vim-tmux-navigator
+        tokyo-night-tmux
+        continuum
+      ]
+      ++ [ unstable.tmuxPlugins.tmux-sessionx ];
     historyLimit = 30000;
     extraConfig = ''
-      set -g @plugin 'omerxx/tmux-sessionx'
       set -g @sessionx-bind 'o'
 
       set-option -sa terminal-overrides ",xterm*:Tc"
