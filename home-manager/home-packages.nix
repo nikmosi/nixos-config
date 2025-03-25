@@ -25,6 +25,7 @@
     lmstudio
 
     # CLI utils
+    sshs
     git-lfs
     lazydocker
     jupyter-all
