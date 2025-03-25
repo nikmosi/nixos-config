@@ -25,6 +25,7 @@
     lmstudio
 
     # CLI utils
+    git-lfs
     lazydocker
     jupyter-all
     cachix
