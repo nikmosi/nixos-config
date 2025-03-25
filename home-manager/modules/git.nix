@@ -11,6 +11,13 @@
     difftastic.enable = true;
 
     extraConfig = {
+      lfs.repositoryformatversion = 0;
+      filter.lfs = {
+        clean = "git-lfs clean -- %f";
+        smudge = "git-lfs smudge -- %f";
+        process = "git-lfs filter-process";
+        required = true;
+      };
       git-extras.get.clone-path = "${config.home.homeDirectory}/git-repos";
       init.defaultBranch = "main";
       pull.ff = "only";
@@ -25,6 +32,7 @@
         gpgsign = true;
       };
       rerere.enabled = true;
+      rebase.updateRefs = true;
       core.pager = "bat";
       diff.algorithm = "histogram";
       url = {
