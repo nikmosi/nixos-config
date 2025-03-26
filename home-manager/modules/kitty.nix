@@ -42,7 +42,7 @@ in
 {
   programs.kitty = {
     enable = true;
-    themeFile = "Dracula";
+    themeFile = "tokyo_night_night";
     settings = kittyConfig;
     extraConfig = extraConfig;
   };
