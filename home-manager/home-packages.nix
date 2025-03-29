@@ -1,6 +1,7 @@
 {
   pkgs,
   telegrams,
+  unstable,
   ...
 }:
 {
@@ -25,6 +26,7 @@
     lmstudio
 
     # CLI utils
+    unstable.neovim
     sshs
     git-lfs
     lazydocker
