@@ -102,6 +102,7 @@
     pyright
     python312Packages.python-lsp-server
     ruff
+    nixd
   ];
 
 }
