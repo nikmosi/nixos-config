@@ -17,7 +17,7 @@
     mouse = true;
     prefix = "C-j";
     sensibleOnTop = true;
-    shell = "${pkgs.fish}/bin/fish";
+    shell = "${pkgs.nushell}/bin/nu";
     terminal = "screen-256color";
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"

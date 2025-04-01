@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  users.defaultUserShell = pkgs.fish;
+  users.defaultUserShell = pkgs.nushell;
   users.users.nik = {
     isNormalUser = true;
     extraGroups = [
@@ -10,7 +10,7 @@
       "networkmanager"
       "docker"
     ];
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
   users.users.nvimfromscratch = {
     isNormalUser = true;
