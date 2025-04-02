@@ -26,6 +26,7 @@
     lmstudio
 
     # CLI utils
+    sesh
     unstable.neovim
     sshs
     git-lfs
