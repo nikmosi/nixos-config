@@ -49,6 +49,8 @@
 
       bind-key -T copy-mode-vi 'v' send -X begin-selection 
       bind-key -T copy-mode-vi 'y' send -X copy-selection
+      bind-key x kill-pane
+      set -g detach-on-destroy off
     '';
   };
 }
