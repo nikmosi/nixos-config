@@ -26,6 +26,7 @@
     lmstudio
 
     # CLI utils
+    carapace
     sesh
     unstable.neovim
     sshs
