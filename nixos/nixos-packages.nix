@@ -13,7 +13,6 @@
 
     # Shell
     fish
-    nushell
     alacritty
 
     # Utils
