@@ -50,7 +50,7 @@
       bind-key -T copy-mode-vi 'v' send -X begin-selection 
       bind-key -T copy-mode-vi 'y' send -X copy-selection
 
-      bind-key "T" run-shell "sesh connect \"$(
+      bind-key "t" run-shell "sesh connect \"$(
         sesh list --icons | fzf-tmux -p 80%,70% \
           --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
           --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
