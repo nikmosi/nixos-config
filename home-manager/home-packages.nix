@@ -36,6 +36,7 @@
     git-extras
     httpie
     lazydocker
+    lua
     maim
     mediainfo
     microfetch
