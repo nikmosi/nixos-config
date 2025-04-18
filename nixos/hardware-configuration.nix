@@ -35,6 +35,11 @@
     fsType = "btrfs";
   };
 
+  fileSystems."/mnt/storage" = {
+    device = "UUID=695be6a7-1b77-4e63-81c9-64259e239e28";
+    fsType = "ext4";
+  };
+
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/F24C-3900";
     fsType = "vfat";
