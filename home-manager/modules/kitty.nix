@@ -24,7 +24,6 @@ let
 
     # Key bindings
     map ctrl+shift+c copy_to_clipboard;
-    map ctrl+shift+v paste_from_clipboard;
     map ctrl+shift+key0 reset_font_size;
     map ctrl+shift+plus increase_font_size;
     map ctrl+shift+minus decrease_font_size;
