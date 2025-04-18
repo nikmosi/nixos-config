@@ -9,11 +9,7 @@
   home.packages = with pkgs; [
     hyperhdr
     prismlauncher
-    alsa-utils
-    direnv
-    devenv
     nekoray
-    steam-run-free
 
     chatterino2
     easyeffects
@@ -22,40 +18,33 @@
     mpv
     obsidian
     telegrams.packages.${pkgs.system}.ayugram-desktop
-    vesktop
     qbittorrent-enhanced
     pavucontrol
     lmstudio
 
     # CLI utils
-    nufmt
-    carapace
+    alsa-utils
+    steam-run-free
+    direnv
+    devenv
     sesh
     unstable.neovim
     sshs
-    git-lfs
     lazydocker
-    jupyter-all
     cachix
     xh
     httpie
     git-extras
-    gcc
-    clang-tools
     gh
     translate-shell
     btop
-    bottom
-    brightnessctl
     ffmpeg
     ffmpegthumbnailer
     fzf
-    git-graph
     mediainfo
     microfetch
     playerctl
     ripgrep
-    showmethekey
     silicon
     mimeo
     udisks
@@ -89,8 +78,7 @@
 
     rofi-pass
     rofi-power-menu
-    pinentry-rofi
-    fzf
+
     maim
     stow
     zbar
