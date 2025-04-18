@@ -13,7 +13,6 @@
 
     # Shell
     fish
-    alacritty
 
     # Utils
     nixfmt-rfc-style

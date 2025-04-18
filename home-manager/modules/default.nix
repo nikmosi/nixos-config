@@ -1,6 +1,5 @@
 {
   imports = [
-    ./alacritty.nix
     ./bat.nix
     ./clipmenu.nix
     ./dunst.nix
