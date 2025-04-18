@@ -1,5 +1,5 @@
 let
-  commonFormat = ''[$symbol($version)]($style)'';
+  commonFormat = ''\[[$symbol($version)]($style)\]'';
 in
 {
   programs.starship = {
