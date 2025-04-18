@@ -52,7 +52,7 @@
       bind-key -T copy-mode-vi 'y' send -X copy-selection
 
       bind-key "t" run-shell "sesh connect \"$(
-        sesh list --icons | fzf-tmux -p 80%,70% \
+        sesh list --icons | fzf \
           --no-sort --ansi --border-label ' sesh ' --prompt '⚡  ' \
           --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
           --bind 'tab:down,btab:up' \
