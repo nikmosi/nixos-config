@@ -21,7 +21,7 @@
     terminal = "screen-256color";
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
-      set-option -g set-clipboard on
+      set-option -g allow-passthrough on
 
       set -g @tmux_power_time_format '%H:%M'
       set -g @tmux_power_theme '#8AB5FA' # dark slate blue
