@@ -7,60 +7,63 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    hyperhdr
-    prismlauncher
-    nekoray
-
+    # gui
     chatterino2
     easyeffects
-    vial
+    hyperhdr
     imv
-    mpv
-    obsidian
-    telegrams.packages.${pkgs.system}.ayugram-desktop
-    qbittorrent-enhanced
-    pavucontrol
     lmstudio
+    mpv
+    nekoray
+    obsidian
+    pavucontrol
+    prismlauncher
+    qbittorrent-enhanced
+    telegrams.packages.${pkgs.system}.ayugram-desktop
+    vial
 
     # CLI utils
     alsa-utils
-    steam-run-free
-    direnv
-    devenv
-    sesh
-    unstable.neovim
-    sshs
-    lazydocker
-    cachix
-    xh
-    httpie
-    git-extras
-    gh
-    translate-shell
+    bemoji
     btop
+    cachix
+    devenv
+    direnv
     ffmpeg
     ffmpegthumbnailer
     fzf
+    gh
+    git-extras
+    httpie
+    lazydocker
+    maim
     mediainfo
     microfetch
-    playerctl
-    ripgrep
-    silicon
     mimeo
+    nix-prefetch-scripts
+    playerctl
+    ripdrag
+    sesh
+    silicon
+    sshs
+    steam-run-free
+    stow
+    stylua
+    translate-shell
     udisks
     ueberzugpp
+    unstable.neovim
     unzip
+    xh
     yt-dlp
+    zbar
     zip
-    bemoji
-    nix-prefetch-scripts
-    ripdrag
-    stylua
+    zoxide
 
     # fonts
+    material-icons
     roboto
     weather-icons
-    material-icons
     (nerdfonts.override {
       fonts = [
         "FiraCode"
@@ -70,19 +73,13 @@
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
-    weather-icons
     source-code-pro
+    weather-icons
 
     # pass
     passff-host
-
     rofi-pass
     rofi-power-menu
-
-    maim
-    stow
-    zbar
-    zoxide
 
     # lsp
     harper
