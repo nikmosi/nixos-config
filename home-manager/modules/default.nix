@@ -2,6 +2,7 @@
   imports = [
     ./bat.nix
     ./zoxide.nix
+    ./carapace.nix
     ./clipmenu.nix
     ./dunst.nix
     ./eza.nix
