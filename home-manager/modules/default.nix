@@ -1,6 +1,7 @@
 {
   imports = [
     ./bat.nix
+    ./zoxide.nix
     ./clipmenu.nix
     ./dunst.nix
     ./eza.nix

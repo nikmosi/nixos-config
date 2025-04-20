@@ -10,7 +10,7 @@
       "networkmanager"
       "docker"
     ];
-    shell = pkgs.fish;
+    shell = pkgs.nushell;
   };
   users.users.nvimfromscratch = {
     isNormalUser = true;

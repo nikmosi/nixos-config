@@ -59,7 +59,6 @@
     yt-dlp
     zbar
     zip
-    zoxide
 
     # fonts
     material-icons

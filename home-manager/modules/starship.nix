@@ -5,6 +5,7 @@ in
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
+    enableNushellIntegration = true;
     settings = {
       command_timeout = 1000;
 

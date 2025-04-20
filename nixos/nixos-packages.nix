@@ -13,6 +13,7 @@
 
     # Shell
     fish
+    nushell
 
     # Utils
     nixfmt-rfc-style
