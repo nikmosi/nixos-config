@@ -7,6 +7,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    nodejs
     # gui
     chatterino2
     easyeffects
