@@ -83,6 +83,7 @@
     rofi-power-menu
 
     # lsp
+    nginx-config-formatter
     fish-lsp
     harper
     docker-compose-language-service
