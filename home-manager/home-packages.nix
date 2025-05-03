@@ -24,6 +24,8 @@
     vial
 
     # CLI utils
+    lima
+    qemu
     alsa-utils
     bemoji
     btop
