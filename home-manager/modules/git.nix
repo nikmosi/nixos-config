@@ -62,7 +62,7 @@
         untracked = "#61afef";
         deleted = "#e06c75";
         renamed = "#c678dd";
-        updated = "#98c379";
+        updated = "#d19a66";
         localBranch = "#c678dd";
         branch = "#61afef";
         remoteBranch = "#e06c75";
