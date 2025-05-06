@@ -8,8 +8,8 @@
       key = "B77DD388609E81892CBC2D6AB9CF67BBE64E1273";
       signByDefault = true;
     };
-    difftastic.enable = false;
-    delta.enable = true;
+    difftastic.enable = true;
+    delta.enable = false;
     diff-so-fancy.enable = false;
 
     extraConfig = {
@@ -89,6 +89,7 @@
         tool = "meld";
         ff = "only";
       };
+      core.pager = "bat";
       push.default = "current";
       commit = {
         verbose = true;
