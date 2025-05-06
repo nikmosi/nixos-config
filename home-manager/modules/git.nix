@@ -8,7 +8,9 @@
       key = "B77DD388609E81892CBC2D6AB9CF67BBE64E1273";
       signByDefault = true;
     };
-    difftastic.enable = true;
+    difftastic.enable = false;
+    delta.enable = true;
+    diff-so-fancy.enable = false;
 
     extraConfig = {
       "color \"advice\"" = {
@@ -94,7 +96,6 @@
       };
       rerere.enabled = true;
       rebase.updateRefs = true;
-      core.pager = "bat";
       diff.algorithm = "histogram";
       url = {
         "git@github.com:" = {
