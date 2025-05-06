@@ -1,7 +1,6 @@
 {
   imports = [
     ./bat.nix
-    ./zoxide.nix
     ./carapace.nix
     ./clipmenu.nix
     ./dunst.nix
@@ -9,6 +8,7 @@
     ./git.nix
     ./kitty.nix
     ./lazygit.nix
+    ./mpv.nix
     ./pass.nix
     ./ranger.nix
     ./rofi.nix
@@ -16,5 +16,6 @@
     ./stylix.nix
     ./tmux.nix
     ./zathura.nix
+    ./zoxide.nix
   ];
 }
