@@ -5,7 +5,7 @@
   ];
   home.username = "nik";
   home.homeDirectory = "/home/nik";
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 
   fonts.fontconfig.enable = true;
 
