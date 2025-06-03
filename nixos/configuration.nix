@@ -15,6 +15,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
+  networking.wireguard.enable = true;
+  networking.networkmanager.dns = "systemd-resolved";
+  services.resolved.enable = true;
   networking.networkmanager.enable = true;
   networking.enableIPv6 = false;
 
