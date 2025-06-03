@@ -107,7 +107,7 @@
     gnutls
     libGLU
     libGL
-    mesa.osmesa
+    mesa
     libdrm
     xorg.libX11
     xorg.libXcomposite
