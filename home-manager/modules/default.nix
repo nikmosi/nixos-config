@@ -14,6 +14,7 @@
     ./rofi.nix
     ./starship.nix
     ./tmux.nix
+    ./stylix.nix
     ./zathura.nix
     ./zoxide.nix
   ];
