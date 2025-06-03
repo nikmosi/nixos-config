@@ -8,6 +8,7 @@
     xsel
     qjackctl
     helvum
+    wireguard-tools
     # Editor
     neovim
 
