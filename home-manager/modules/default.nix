@@ -13,7 +13,6 @@
     ./ranger.nix
     ./rofi.nix
     ./starship.nix
-    ./stylix.nix
     ./tmux.nix
     ./zathura.nix
     ./zoxide.nix
