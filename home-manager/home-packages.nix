@@ -7,6 +7,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    unstable.zoxide
     nodejs
     serie
     # gui
@@ -69,12 +70,8 @@
     material-icons
     roboto
     weather-icons
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "JetBrainsMono"
-      ];
-    })
+    nerdfonts.FiraCode
+    nerdfonts.JetBrainsMono
     noto-fonts
     noto-fonts-cjk-sans
     noto-fonts-emoji
