@@ -8,6 +8,7 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
     nodejs
+    serie
     # gui
     chatterino2
     easyeffects
@@ -24,6 +25,7 @@
     vial
 
     # CLI utils
+    uv
     lima
     qemu
     alsa-utils
@@ -78,6 +80,14 @@
     noto-fonts-emoji
     source-code-pro
     weather-icons
+
+    # bat-extras
+    bat-extras.batman
+    bat-extras.prettybat
+    bat-extras.batwatch
+    bat-extras.batpipe
+    bat-extras.batgrep
+    bat-extras.batdiff
 
     # pass
     passff-host
