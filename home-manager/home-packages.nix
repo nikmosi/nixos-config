@@ -25,6 +25,7 @@
     vial
 
     # CLI utils
+    diffutils
     uv
     lima
     qemu
