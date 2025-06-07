@@ -16,7 +16,6 @@
 
   networking.hostName = "nixos";
   networking.wireguard.enable = true;
-  networking.networkmanager.dns = "systemd-resolved";
   networking.networkmanager.enable = true;
   networking.enableIPv6 = false;
 
@@ -54,12 +53,15 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   hardware.nvidia-container-toolkit.enable = false;
   virtualisation.docker = {
-    enable = false;
+    enable = true;
     storageDriver = "btrfs";
     rootless = {
-      enable = true;
+      enable = false;
       setSocketVariable = true;
     };
+    extraOptions = ''
+      --dns=8.8.8.8 --dns=1.1.1.1
+    '';
   };
 
   programs.nix-ld.enable = true;
