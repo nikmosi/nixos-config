@@ -26,9 +26,12 @@
 
     # Configure keymap in X11
     xkb.layout = "us";
-    windowManager.qtile = {
-      enable = true;
-      extraPackages = python312Packages: qtileDeps;
+    windowManager = {
+      awesome.enable = true;
+      qtile = {
+        enable = true;
+        extraPackages = python312Packages: qtileDeps;
+      };
     };
     extraConfig = ''
       Section "Monitor"
