@@ -7,6 +7,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    unrar
     nodejs
     serie
     # gui
