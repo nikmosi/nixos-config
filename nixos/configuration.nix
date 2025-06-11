@@ -18,6 +18,9 @@
   networking.wireguard.enable = true;
   networking.networkmanager.enable = true;
   networking.enableIPv6 = false;
+  networking.extraHosts = ''
+    192.168.3.3 home
+  '';
 
   networking.nameservers = [
     "1.1.1.1"
