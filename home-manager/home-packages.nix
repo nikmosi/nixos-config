@@ -7,7 +7,6 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    termius
     unrar
     nodejs
     serie
