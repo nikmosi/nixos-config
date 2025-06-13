@@ -74,6 +74,8 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    wineWowPackages.full
+    wineWow64Packages.full
     glibc
     libGL
     freetype
