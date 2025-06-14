@@ -25,7 +25,6 @@
     telegrams.packages.${pkgs.system}.ayugram-desktop
     vial
     element-desktop
-    heroic-unwrapped
 
     # CLI utils
     devenv
