@@ -28,6 +28,7 @@
     heroic-unwrapped
 
     # CLI utils
+    devenv
     diffutils
     uv
     lima
