@@ -2,6 +2,7 @@
   imports = [
     ./audio.nix
     ./boot.nix
+    ./steam.nix
     ./dconf.nix
     ./env.nix
     ./hardware.nix
