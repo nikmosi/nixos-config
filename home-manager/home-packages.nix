@@ -27,6 +27,8 @@
     element-desktop
 
     # CLI utils
+    gamemode
+    gamescope
     devenv
     android-tools
     diffutils
