@@ -28,6 +28,7 @@
 
     # CLI utils
     devenv
+    android-tools
     diffutils
     uv
     lima
