@@ -27,10 +27,6 @@
     element-desktop
 
     # CLI utils
-    steam
-    steam-original
-    steam-unwrapped
-    steam-run
     devenv
     android-tools
     diffutils
