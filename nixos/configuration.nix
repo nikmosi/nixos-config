@@ -36,6 +36,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
