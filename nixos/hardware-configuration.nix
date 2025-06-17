@@ -21,7 +21,14 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ ];
+  boot.kernelParams = [ "systemd.watchdog_dev=none" ];
+  boot.blacklistedKernelModules = [ "iTCO_wdt" ];
+  boot.initrd.kernelModules = [
+    "nvme"
+    "btrfs"
+    "usbhid"
+    "zram"
+  ];
   boot.kernelModules = [
     "kvm-intel"
     "nvidia"
