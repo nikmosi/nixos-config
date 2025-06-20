@@ -10,12 +10,23 @@
     unrar
     nodejs
     serie
+
     # gui
-    chatterino2
+    (pkgs.writeShellScriptBin "chatterino" ''
+      #!/usr/bin/env bash
+      ${pkgs.proxychains-ng}/bin/proxychains4 ${pkgs.chatterino2}/bin/chatterino  "$@"
+    '')
+
+    (pkgs.writeShellScriptBin "ModrinthApp" ''
+      #!/usr/bin/env bash
+      export WEBKIT_DISABLE_DMABUF_RENDERER=1
+      ${pkgs.modrinth-app}/bin/ModrinthApp "$@"
+    '')
     easyeffects
     hyperhdr
     imv
     lmstudio
+    pomodoro-gtk
     mpv
     nekoray
     obsidian
@@ -27,6 +38,7 @@
     element-desktop
 
     # CLI utils
+    proxychains-ng
     gamemode
     gamescope
     devenv

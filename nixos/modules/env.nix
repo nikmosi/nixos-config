@@ -6,6 +6,7 @@
     PATH = [
       "${XDG_BIN_HOME}"
     ];
+    WEBKIT_DISABLE_DMABUF_RENDERER = 1;
   };
 
 }

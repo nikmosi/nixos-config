@@ -4,6 +4,7 @@
     ./bat.nix
     ./carapace.nix
     ./clipmenu.nix
+    ./desktop.nix
     ./dunst.nix
     ./eza.nix
     ./git.nix
@@ -14,8 +15,8 @@
     ./ranger.nix
     ./rofi.nix
     ./starship.nix
-    ./tmux.nix
     ./stylix.nix
+    ./tmux.nix
     ./zathura.nix
     ./zoxide.nix
   ];
