@@ -27,7 +27,6 @@
     imv
     lmstudio
     pomodoro-gtk
-    mpv
     nekoray
     obsidian
     pavucontrol

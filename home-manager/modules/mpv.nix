@@ -2,6 +2,16 @@ let
   translate_subs = "translate_subs";
 in
 {
+  programs.mpv = {
+    enable = true;
+    config = {
+      cache = "yes";
+      cache-secs = 60;
+      cache-pause = "no";
+      ytdl-format = "best";
+    };
+  };
+
   home.file.".config/mpv/scripts/recent.lua" = {
     source = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/nikmosi/recent/master/recent.lua";
