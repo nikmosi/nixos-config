@@ -1,4 +1,4 @@
-{ qtileDeps, unstable, ... }:
+{ qtileDeps, ... }:
 {
   services.xserver = {
     enable = true;
@@ -30,7 +30,6 @@
       awesome.enable = true;
       qtile = {
         enable = true;
-        package = unstable.python312Packages.qtile;
         extraPackages = python312Packages: qtileDeps;
       };
     };
