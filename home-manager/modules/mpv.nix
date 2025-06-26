@@ -9,6 +9,8 @@ in
       cache-secs = 60;
       cache-pause = "no";
       ytdl-format = "best";
+      demuxer-max-bytes = "1000MiB";
+      demuxer-max-back-bytes = "500MiB";
     };
   };
 
