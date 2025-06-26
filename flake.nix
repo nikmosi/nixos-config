@@ -62,7 +62,7 @@
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = {
-            inherit inputs qtileDeps;
+            inherit inputs qtileDeps unstable;
           };
           modules = [
             ./nixos/configuration.nix
