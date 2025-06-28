@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   nixpkgs.config.allowUnfree = true;
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
