@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ config, ... }:
 {
   nixpkgs.config.allowUnfree = true;
   hardware.graphics.enable = true;
