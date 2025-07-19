@@ -12,6 +12,7 @@
   ];
 
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
@@ -21,6 +22,12 @@
   networking.extraHosts = ''
     192.168.3.3 home
   '';
+
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "nik" ];
 
   networking.nameservers = [
     "192.168.3.3"
@@ -76,6 +83,8 @@
 
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
+    gcc
+    libgcc
     wineWowPackages.full
     wineWow64Packages.full
     glibc
