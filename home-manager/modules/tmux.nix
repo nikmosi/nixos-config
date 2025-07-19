@@ -17,7 +17,7 @@
     mouse = true;
     prefix = "C-j";
     sensibleOnTop = true;
-    terminal = "screen-256color";
+    terminal = "xterm-kitty";
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
       set-option -g allow-passthrough on
