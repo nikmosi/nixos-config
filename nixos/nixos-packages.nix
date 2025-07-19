@@ -1,6 +1,12 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    gcc
+    gnumake
+    check
+    pkg-config
+    lcov
+    clang-tools
     pulseaudioFull
     python312
     home-manager
