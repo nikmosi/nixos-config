@@ -30,7 +30,6 @@
     "zram"
   ];
   boot.kernelModules = [
-    "kvm-intel"
     "nvidia"
     "nvidia_modsetf"
     "nvidia_uvm"
