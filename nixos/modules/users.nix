@@ -9,6 +9,7 @@
       "input"
       "networkmanager"
       "docker"
+      "vboxusers"
     ];
     shell = pkgs.nushell;
   };
