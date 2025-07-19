@@ -7,6 +7,11 @@
 {
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+
+    gcc
+    libgcc
+    cpulimit
+
     unrar
     nodejs
     serie
@@ -37,10 +42,12 @@
     element-desktop
 
     # CLI utils
+    obs-studio
+    chromium
+    file
     proxychains-ng
     gamemode
     gamescope
-    devenv
     android-tools
     diffutils
     uv
@@ -50,7 +57,6 @@
     bemoji
     btop
     cachix
-    devenv
     direnv
     ffmpeg
     ffmpegthumbnailer
@@ -110,6 +116,7 @@
     rofi-power-menu
 
     # lsp
+    bash-language-server
     nginx-config-formatter
     fish-lsp
     harper
