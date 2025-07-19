@@ -19,6 +19,7 @@
 
     extraConfig = ''
       default_linemode devicons2
+      map <C-d> shell ripdrag -a -x %p
     '';
 
     plugins = [
