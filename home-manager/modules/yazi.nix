@@ -1,10 +1,23 @@
+let
+  draculaYazi = builtins.fetchGit {
+    url = "https://github.com/dracula/yazi.git";
+    rev = "99b60fd76df4cce2778c7e6c611bfd733cf73866";
+  };
+in
 {
+  home.file.".config/yazi/flavors/dracula.yazi".source = draculaYazi;
+
   programs.yazi = {
     enable = true;
-    initLua = ''
-      map("n", "<C-n>", [[
-          shell 'ripdrag "$@" -x 2>/dev/null &' --confirm
-      ]])
-    '';
+    enableNushellIntegration = true;
+    settings = {
+      flavors.use = "dracula";
+    };
+    keymap.mgr.prepend_keymap = [
+      {
+        on = [ "<C-n>" ];
+        run = ''shell "ripdrag -a -x \"$@\" 2>/dev/null &" --confirm'';
+      }
+    ];
   };
 }
