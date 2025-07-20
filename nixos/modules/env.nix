@@ -1,6 +1,8 @@
 {
   environment.sessionVariables = rec {
     TERMINAL = "kitty";
+    MANPAGER = "batman";
+    MANROFFOPT = "-c";
     EDITOR = "nvim";
     XDG_BIN_HOME = "$HOME/.local/bin";
     PATH = [
