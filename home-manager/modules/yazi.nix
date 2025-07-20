@@ -12,6 +12,8 @@ in
     enableNushellIntegration = true;
     settings = {
       flavors.use = "dracula";
+      max_width = 500;
+      max_height = 500;
     };
     keymap.mgr.prepend_keymap = [
       {
