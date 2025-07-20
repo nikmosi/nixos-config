@@ -11,6 +11,7 @@
     gcc
     libgcc
     cpulimit
+    chafa
 
     unrar
     nodejs
