@@ -22,6 +22,9 @@
       set-option -sa terminal-overrides ",xterm*:Tc"
       set-option -g allow-passthrough on
 
+      set -ga update-environment TERM
+      set -ga update-environment TERM_PROGRAM
+
       set -g @tmux_power_time_format '%H:%M'
       set -g @tmux_power_theme '#8AB5FA' # dark slate blue
 
