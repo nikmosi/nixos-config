@@ -23,7 +23,6 @@
     nushell
 
     # Utils
-    nixfmt-rfc-style
     libnotify
     pciutils
     wget

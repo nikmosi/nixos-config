@@ -30,6 +30,8 @@
     '')
     easyeffects
     hyperhdr
+    feh
+    unstable.nixfmt
     imv
     lmstudio
     pomodoro-gtk
