@@ -3,6 +3,7 @@
     ./atuin.nix
     ./ripgrep.nix
     ./yazi.nix
+    ./mimeapps.nix
     ./bat.nix
     ./carapace.nix
     ./clipmenu.nix
