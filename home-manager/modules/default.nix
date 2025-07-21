@@ -1,6 +1,7 @@
 {
   imports = [
     ./atuin.nix
+    ./ripgrep.nix
     ./yazi.nix
     ./bat.nix
     ./carapace.nix
