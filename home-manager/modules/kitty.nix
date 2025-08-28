@@ -6,7 +6,7 @@ let
 
     # Font settings
     font_family = "JetBrainsMono Nerd Font";
-    font_size = 20;
+    font_size = 16;
     bold_font = "Source Code Pro";
     italic_font = "Source Code Pro";
 
