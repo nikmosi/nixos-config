@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   programs.tmux = {
     enable = true;
     secureSocket = false;
@@ -17,7 +16,7 @@
     mouse = true;
     prefix = "C-j";
     sensibleOnTop = true;
-    terminal = "xterm-kitty";
+    terminal = "xterm-direct";
     extraConfig = ''
       set-option -sa terminal-overrides ",xterm*:Tc"
       set-option -g allow-passthrough on
