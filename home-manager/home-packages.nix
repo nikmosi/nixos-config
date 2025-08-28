@@ -8,6 +8,9 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
+    hiddify-app
+    light
+
     gcc
     libgcc
     cpulimit
@@ -134,6 +137,7 @@
     ruff
     nixd
     ty
+    actionlint
   ];
 
 }
