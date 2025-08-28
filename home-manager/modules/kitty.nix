@@ -6,7 +6,7 @@ let
 
     # Font settings
     font_family = "JetBrainsMono Nerd Font";
-    font_size = 18;
+    font_size = 20;
     bold_font = "Source Code Pro";
     italic_font = "Source Code Pro";
 
@@ -40,7 +40,8 @@ let
     # Environment variables
     env TERM=xterm-256color;
   '';
-in {
+in
+{
   programs.kitty = {
     enable = true;
     themeFile = "tokyo_night_night";
