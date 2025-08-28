@@ -21,12 +21,8 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      unstable = import inputs.unstable-nix {
-        system = system;
-      };
-      pkgs = import nixpkgs {
-        system = system;
-      };
+      unstable = import inputs.unstable-nix { system = system; };
+      pkgs = import nixpkgs { system = system; };
       qtileDeps = import ./qtile-deps.nix { inherit pkgs; };
       supportedSystems = [
         "x86_64-linux"
@@ -61,21 +57,15 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = {
-            inherit inputs qtileDeps;
-          };
-          modules = [
-            ./nixos/configuration.nix
-          ];
+          specialArgs = { inherit inputs qtileDeps; };
+          modules = [ ./nixos/configuration.nix ];
         };
       };
 
       homeConfigurations = {
         nik = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
-          modules = [
-            ./home-manager/home.nix
-          ];
+          modules = [ ./home-manager/home.nix ];
           extraSpecialArgs = {
             inherit inputs unstable;
             telegrams = ayugram-desktop;
