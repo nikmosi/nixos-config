@@ -6,7 +6,7 @@ let
 
     # Font settings
     font_family = "JetBrainsMono Nerd Font";
-    font_size = 12;
+    font_size = 18;
     bold_font = "Source Code Pro";
     italic_font = "Source Code Pro";
 
@@ -21,6 +21,7 @@ let
   };
   extraConfig = ''
     copy_on_select yes
+    map ctrl+shift+enter open_url_with_hints
 
     # Key bindings
     map ctrl+shift+c copy_to_clipboard;
@@ -39,8 +40,7 @@ let
     # Environment variables
     env TERM=xterm-256color;
   '';
-in
-{
+in {
   programs.kitty = {
     enable = true;
     themeFile = "tokyo_night_night";
