@@ -11,10 +11,12 @@
     hiddify-app
     light
 
+    meld
     gcc
     libgcc
     cpulimit
     chafa
+    license-cli
 
     unrar
     nodejs
