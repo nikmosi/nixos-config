@@ -72,7 +72,7 @@
   # services.printing.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  hardware.nvidia-container-toolkit.enable = false;
+  hardware.nvidia-container-toolkit.enable = true;
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";

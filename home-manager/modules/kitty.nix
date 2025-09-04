@@ -36,9 +36,6 @@ let
     map ctrl+shift+end scroll_to_bottom;
 
     allow_remote_control yes
-
-    # Environment variables
-    env TERM=xterm-256color;
   '';
 in
 {
