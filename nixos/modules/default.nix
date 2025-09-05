@@ -2,14 +2,15 @@
   imports = [
     ./audio.nix
     ./boot.nix
-    ./steam.nix
     ./dconf.nix
     ./env.nix
+    ./fail2ban.nix
     ./hardware.nix
     ./home-manager.nix
     ./mime.nix
     ./programs.nix
     ./services.nix
+    ./steam.nix
     ./udev.nix
     ./users.nix
     ./xserver.nix
