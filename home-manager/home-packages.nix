@@ -10,6 +10,7 @@
 
     hiddify-app
     light
+    glab
 
     meld
     gcc
