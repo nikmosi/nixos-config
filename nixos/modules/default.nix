@@ -15,5 +15,12 @@
     ./users.nix
     ./xserver.nix
     ./zram.nix
+  ]
+  ++ [
+    ./services/libinput.nix
+    ./services/logind.nix
+    ./services/netdata.nix
+    ./services/openssh.nix
+    ./services/picom.nix
   ];
 }
