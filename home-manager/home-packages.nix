@@ -8,9 +8,13 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
+    postman
     hiddify-app
     light
     glab
+    git-lfs
+
+    openjdk17
 
     meld
     gcc

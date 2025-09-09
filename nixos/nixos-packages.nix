@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    librsvg
+    gdk-pixbuf
     gcc
     docker-buildx
     gnumake
@@ -24,6 +26,7 @@
     nushell
 
     # Utils
+    sshfs
     libnotify
     pciutils
     wget

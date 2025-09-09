@@ -1,5 +1,10 @@
+{ pkgs, ... }:
+let
+  awesomeLib = "${pkgs.awesome}/share/awesome/lib";
+in
 {
   environment.sessionVariables = rec {
+    AWESOME_LIB = awesomeLib;
     TERMINAL = "kitty";
     MANPAGER = "batman";
     MANROFFOPT = "-c";
