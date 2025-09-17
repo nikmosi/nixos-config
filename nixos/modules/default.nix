@@ -14,6 +14,7 @@
     ./users.nix
     ./xserver.nix
     ./zram.nix
+    ./pulse.nix
 
     ./services/libinput.nix
     ./services/logind.nix
