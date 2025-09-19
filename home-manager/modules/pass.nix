@@ -10,6 +10,8 @@ in
       exts.pass-otp
       exts.pass-import
       exts.pass-genphrase
+      exts.pass-audit
+      exts.pass-checkup
     ]);
     settings = {
       PASSWORD_STORE_DIR = store_dir;

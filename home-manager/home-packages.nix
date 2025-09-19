@@ -8,6 +8,8 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
+    glib
+
     postman
     hiddify-app
     light
