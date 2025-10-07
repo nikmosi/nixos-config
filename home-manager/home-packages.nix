@@ -8,7 +8,14 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
+    vscode
+    drawio
+    libreoffice-fresh
     glib
+    lazysql
+    lazycli
+    pgcli
+    devenv
 
     postman
     hiddify-app

@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    hplip
+    gutenprint
+    cups
     librsvg
     gdk-pixbuf
     gcc
