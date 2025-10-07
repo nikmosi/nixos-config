@@ -63,6 +63,7 @@
       };
 
       homeConfigurations = {
+        home-manager.backupFileExtension = "backup";
         nik = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.${system};
           modules = [ ./home-manager/home.nix ];
