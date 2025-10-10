@@ -21,8 +21,10 @@
     sensibleOnTop = true;
     terminal = "tmux-256color";
     extraConfig = ''
-      set-option -sa terminal-overrides ",xterm*:Tc"
+      # set-option -sa terminal-overrides ",xterm*:Tc"
       set-option -g allow-passthrough on
+
+      # set  -g default-terminal "tmux-256color"
 
       set -ga update-environment TERM
       set -ga update-environment TERM_PROGRAM
