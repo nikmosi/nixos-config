@@ -8,6 +8,9 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
+    warp-terminal
+
+    jqp
     vscode
     drawio
     libreoffice-fresh
