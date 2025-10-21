@@ -1,7 +1,6 @@
 {
   imports = [
     ./wms/awesome.nix
-    ./wms/qtile.nix
     ./dms/lightdm.nix
   ];
 

@@ -22,8 +22,6 @@
     let
       system = "x86_64-linux";
       unstable = import inputs.unstable-nix { system = system; };
-      pkgs = import nixpkgs { system = system; };
-      qtileDeps = import ./qtile-deps.nix { inherit pkgs; };
       supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -57,7 +55,7 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs qtileDeps; };
+          specialArgs = { inherit inputs; };
           modules = [ ./nixos/configuration.nix ];
         };
       };
