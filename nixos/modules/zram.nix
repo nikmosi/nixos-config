@@ -2,7 +2,7 @@
   zramSwap = {
     enable = true;
     algorithm = "lz4";
-    memoryPercent = 20;
+    memoryPercent = 70;
     priority = 999;
   };
 }
