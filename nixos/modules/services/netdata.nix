@@ -2,7 +2,7 @@
 {
 
   services.netdata = {
-    enable = true;
+    enable = false;
     config = {
       global = {
         "bind to" = "*";

@@ -9,6 +9,9 @@
   home.packages = with pkgs; [
 
     warp-terminal
+    sshuttle
+    tokei
+    discord
 
     jqp
     vscode

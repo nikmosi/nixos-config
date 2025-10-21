@@ -1,18 +1,16 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 {
   programs.tmux = {
     enable = true;
     secureSocket = false;
 
-    plugins =
-      with pkgs.tmuxPlugins;
-      [
-        vim-tmux-navigator
-        sensible
-        tmux-fzf
-        open
-      ]
-      ++ [ unstable.tmuxPlugins.tokyo-night-tmux ];
+    plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
+      sensible
+      tmux-fzf
+      open
+      tokyo-night-tmux
+    ];
     historyLimit = 30000;
     baseIndex = 1;
     keyMode = "vi";
