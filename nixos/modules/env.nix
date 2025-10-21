@@ -6,8 +6,7 @@ in
   environment.sessionVariables = rec {
     AWESOME_LIB = awesomeLib;
     TERMINAL = "kitty";
-    MANPAGER = "batman";
-    MANROFFOPT = "-c";
+    MANPAGER = "nvim +Man!";
     EDITOR = "nvim";
     XDG_BIN_HOME = "$HOME/.local/bin";
     PATH = [
