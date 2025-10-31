@@ -22,6 +22,7 @@
   networking.extraHosts = ''
     192.168.3.3 home
   '';
+  networking.interfaces.eno1.ipv6.addresses = [ ];
 
   # virtualisation.virtualbox.host.enable = true;
   # virtualisation.virtualbox.guest.enable = true;

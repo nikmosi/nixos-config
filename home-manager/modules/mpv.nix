@@ -14,6 +14,13 @@ in
     };
   };
 
+  home.file.".config/mpv/input.conf" = {
+    text = ''
+      q quit_watch_later
+      Q quit
+    '';
+  };
+
   home.file.".config/mpv/scripts/recent.lua" = {
     source = builtins.fetchurl {
       url = "https://raw.githubusercontent.com/nikmosi/recent/master/recent.lua";

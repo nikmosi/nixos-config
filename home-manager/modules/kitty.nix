@@ -6,7 +6,7 @@ let
 
     # Font settings
     font_family = "JetBrainsMono Nerd Font";
-    font_size = 16;
+    font_size = 18;
     bold_font = "Source Code Pro";
     italic_font = "Source Code Pro";
 
@@ -27,7 +27,7 @@ let
     map ctrl+shift+c copy_to_clipboard;
     map ctrl+shift+key0 reset_font_size;
     map ctrl+shift+plus increase_font_size;
-    map ctrl+shift+minus decrease_font_size;
+    map ctrl+shift+underscore decrease_font_size;
     map ctrl+shift+f11 toggle_fullscreen;
     map ctrl+l clear_log;
     map shift+pageup scroll_up;

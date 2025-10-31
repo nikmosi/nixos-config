@@ -28,6 +28,20 @@
 
     # 💻 System / CLI Utilities
 
+    proxychains-ng
+    rename
+    sshs
+    tldr
+    translate-shell
+    udisks
+    ueberzugpp
+    unrar
+    warp-terminal
+    yt-dlp
+    zbar
+    serie
+    zip
+
     ## 🧠 System Monitoring & Info
     btop
     microfetch
