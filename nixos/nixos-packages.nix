@@ -1,46 +1,56 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    # 🧠 Development Tools
+    gcc
+    gnumake
+    check
+    pkg-config
+    lcov
+    clang
+    clang-tools
+    docker-buildx
+    python312
+    home-manager
+
+    # 🧰 Build & Printing Stack
     hplip
     gutenprint
     cups
     librsvg
     gdk-pixbuf
-    gcc
-    docker-buildx
-    gnumake
-    check
-    pkg-config
-    lcov
-    clang-tools
+
+    # 🔊 Audio / Sound
     pulseaudioFull
-    python312
-    home-manager
-    xclip
-    xsel
     qjackctl
     helvum
-    wireguard-tools
-    # Editor
-    neovim
 
-    # Shell
+    # 🌐 Networking / VPN
+    wireguard-tools
+    sshfs
+
+    # 🪟 GUI Utilities
+    xclip
+    xsel
+    libnotify
+
+    # 🐚 Shells
     fish
     nushell
 
-    # Utils
-    sshfs
-    libnotify
-    pciutils
+    # ✍️ Editor
+    neovim
+
+    # ⚙️ CLI Utilities
     wget
     fd
     ripgrep
     bat
     git
-    clang
+    pciutils
     p7zip
 
-    # utils for tmux
+    # 🔧 Utils for Tmux
     bc
     jq
   ];
