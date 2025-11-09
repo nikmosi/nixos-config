@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
 
     # 🧠 Development Tools
+    insomnia
     devenv
     gcc
     glib
@@ -28,6 +29,7 @@
 
     # 💻 System / CLI Utilities
 
+    v2rayn
     proxychains-ng
     rename
     sshs

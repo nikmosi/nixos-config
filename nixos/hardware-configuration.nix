@@ -31,6 +31,7 @@
   ];
   boot.kernelModules = [
     "nvidia"
+    "tun"
     "nvidia_modsetf"
     "nvidia_uvm"
   ];

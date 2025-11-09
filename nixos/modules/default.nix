@@ -19,5 +19,6 @@
     ./services/logind.nix
     ./services/openssh.nix
     ./services/picom.nix
+    ./services/v2raya.nix
   ];
 }

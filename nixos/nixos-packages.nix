@@ -12,6 +12,7 @@
     docker-buildx
     python312
     home-manager
+    # extra-utils
 
     # 🧰 Build & Printing Stack
     hplip
@@ -53,5 +54,6 @@
     # 🔧 Utils for Tmux
     bc
     jq
+    xray
   ];
 }
