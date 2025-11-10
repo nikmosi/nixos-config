@@ -14,6 +14,7 @@
     ./users.nix
     ./xserver.nix
     ./zram.nix
+    ./redsocks.nix
 
     ./services/libinput.nix
     ./services/logind.nix

@@ -94,6 +94,9 @@
     maim
     playerctl
     yt-dlp
+    libreoffice-fresh
+    hunspell
+    hyphen
 
     ## 🧰 Dev Utilities
     gh
