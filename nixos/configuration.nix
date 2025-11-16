@@ -18,7 +18,7 @@
   networking.hostName = "nixos";
   networking.wireguard.enable = true;
   networking.networkmanager.enable = true;
-  networking.enableIPv6 = true;
+  networking.enableIPv6 = false;
   networking.extraHosts = ''
     192.168.3.3 home
   '';
@@ -171,7 +171,7 @@
     25566
   ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = true;
+  networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

@@ -104,7 +104,6 @@
     git-lfs
     glib
     jqp
-    lima
 
     # 🧩 DevOps / Containers
     cachix
@@ -112,7 +111,6 @@
     dockerfile-language-server-nodejs
     gh
     glab
-    lima
     qemu
 
     # 🧰 Language Servers / LSP
@@ -171,6 +169,7 @@
     gamemode
     gamescope
     steam-run-free
+    wineWow64Packages.full
 
     # 🔠 Fonts
     material-icons

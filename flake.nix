@@ -21,7 +21,7 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      unstable = import inputs.unstable-nix { system = system; };
+      unstable = inputs.unstable-nix.legacyPackages.${system};
       supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -55,7 +55,7 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs unstable; };
           modules = [ ./nixos/configuration.nix ];
         };
       };

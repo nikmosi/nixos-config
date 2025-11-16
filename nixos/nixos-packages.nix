@@ -29,6 +29,7 @@
     # 🌐 Networking / VPN
     wireguard-tools
     nftables
+    iptables
     sshfs
 
     # 🪟 GUI Utilities
