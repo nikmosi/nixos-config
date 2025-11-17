@@ -49,7 +49,14 @@
     "nix-command"
     "flakes"
   ];
-  nix.settings.substituters = [ "https://cache.nixos.org/" ];
+  nix.settings.substituters = [
+    "https://cache.nixos.org/"
+    # "https://cache.garnix.io"
+  ];
+
+  # nix.settings.trusted-public-keys = [
+  #   "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+  # ];
 
   nixpkgs.config.packageOverrides = pkgs: {
     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
