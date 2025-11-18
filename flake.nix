@@ -13,6 +13,7 @@
       type = "git";
       submodules = true;
       url = "https://github.com/ndfined-crp/ayugram-desktop/";
+      rev = "fa30f75525da0074d1cefaaaca40dcd8c6b4746e";
     };
 
     stylix.url = "github:danth/stylix/release-25.05";
