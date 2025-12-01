@@ -22,6 +22,7 @@ let
   extraConfig = ''
     copy_on_select yes
     map ctrl+shift+enter open_url_with_hints
+    # term xterm-256color
 
     # Key bindings
     map ctrl+shift+c copy_to_clipboard;

@@ -22,6 +22,10 @@
       # set-option -sa terminal-overrides ",xterm*:Tc"
       set-option -g allow-passthrough on
 
+      set -g pane-border-lines double
+      set  -s escape-time       0
+      bind -n M-Enter new-window
+
       # set  -g default-terminal "tmux-256color"
 
       set -ga update-environment TERM

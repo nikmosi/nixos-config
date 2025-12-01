@@ -26,6 +26,7 @@
     unstable.neovim
     uv
     vscode
+    topiary
 
     # 💻 System / CLI Utilities
 
