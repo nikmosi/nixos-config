@@ -18,6 +18,8 @@
   networking.hostName = "nixos";
   networking.wireguard.enable = true;
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
+  networking.dhcpcd.extraConfig = "nohook resolv.conf";
   networking.enableIPv6 = false;
   networking.extraHosts = ''
     192.168.3.3 home
@@ -31,9 +33,8 @@
   # users.extraGroups.vboxusers.members = [ "nik" ];
 
   networking.nameservers = [
-    "192.168.3.3"
-    "1.1.1.1"
-    "9.9.9.9"
+    "127.0.0.1"
+    "::1"
   ];
 
   # Set your time zone.

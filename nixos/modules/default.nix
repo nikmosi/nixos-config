@@ -16,6 +16,7 @@
     ./zram.nix
     ./redsocks.nix
 
+    ./services/dnscrypt.nix
     ./services/libinput.nix
     ./services/logind.nix
     ./services/openssh.nix
