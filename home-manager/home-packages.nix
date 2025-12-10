@@ -40,16 +40,15 @@
     ueberzugpp
     unrar
     warp-terminal
-    yt-dlp
     zbar
-    serie
+    # serie
     zip
 
     ## 🧠 System Monitoring & Info
     btop
     microfetch
     mediainfo
-    ncdu
+    dua
     ffmpegthumbnailer
     silicon
 
@@ -60,7 +59,6 @@
     direnv
     stow
     nix-prefetch-scripts
-    cachix
 
     ## 🧩 File & Archive Tools
     unzip
@@ -74,7 +72,6 @@
     chafa
 
     ## 🪄 Terminal Enhancements
-    warp-terminal
     fzf
     sesh
     translate-shell
@@ -137,18 +134,14 @@
     discord
     drawio
     easyeffects
-    element-desktop
     feh
-    hiddify-app
     hyperhdr
     imv
     lmstudio
     meld
-    nekoray
     obs-studio
     obsidian
     pavucontrol
-    pomodoro-gtk
     postman
     prismlauncher
     qbittorrent-enhanced
@@ -160,11 +153,11 @@
       #!/usr/bin/env bash
       ${pkgs.proxychains-ng}/bin/proxychains4 ${pkgs.chatterino2}/bin/chatterino "$@"
     '')
-    (pkgs.writeShellScriptBin "ModrinthApp" ''
-      #!/usr/bin/env bash
-      export WEBKIT_DISABLE_DMABUF_RENDERER=1
-      ${pkgs.modrinth-app}/bin/ModrinthApp "$@"
-    '')
+    # (pkgs.writeShellScriptBin "ModrinthApp" ''
+    #   #!/usr/bin/env bash
+    #   export WEBKIT_DISABLE_DMABUF_RENDERER=1
+    #   ${pkgs.modrinth-app-unwrapped}/bin/ModrinthApp "$@"
+    # '')
 
     # 🎮 Gaming / Graphics
     gamemode
