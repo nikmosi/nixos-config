@@ -1,19 +1,23 @@
 { config, ... }:
 {
+
+  programs.difftastic.enable = true;
+  programs.delta.enable = false;
+  programs.diff-so-fancy.enable = false;
   programs.git = {
     enable = true;
     lfs.enable = false;
-    userName = "nikmosi";
-    userEmail = "i@nikmosi.ru";
     signing = {
       key = "B77DD388609E81892CBC2D6AB9CF67BBE64E1273";
       signByDefault = true;
     };
-    difftastic.enable = true;
-    delta.enable = false;
-    diff-so-fancy.enable = false;
 
-    extraConfig = {
+    settings = {
+      user = {
+        name = "nikmosi";
+        email = "i@nikmosi.ru";
+      };
+
       "color \"advice\"" = {
         autoDetect = "#56b6c2";
         ambiguousArgument = "#e06c75";

@@ -52,8 +52,13 @@
   ];
   nix.settings.substituters = [
     "https://cache.nixos.org/"
-    # "https://cache.garnix.io"
+    "https://cache.garnix.io"
   ];
+  nix.settings = {
+    trusted-public-keys = [
+      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+    ];
+  };
 
   # nix.settings.trusted-public-keys = [
   #   "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="

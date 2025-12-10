@@ -106,7 +106,7 @@
     # 🧩 DevOps / Containers
     cachix
     docker-compose-language-service
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     gh
     glab
     qemu
@@ -115,7 +115,7 @@
     actionlint
     bash-language-server
     docker-compose-language-service
-    dockerfile-language-server-nodejs
+    dockerfile-language-server
     fish-lsp
     harper
     lua-language-server
@@ -172,7 +172,7 @@
     nerd-fonts.symbols-only
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     roboto
     source-code-pro
     weather-icons
