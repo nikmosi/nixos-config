@@ -9,6 +9,7 @@
   home.packages = with pkgs; [
 
     # 🧠 Development Tools
+    yarn
     insomnia
     devenv
     gcc
@@ -130,6 +131,7 @@
     yaml-language-server
 
     # 🪟 GUI Applications
+    librewolf
     chromium
     discord
     drawio
