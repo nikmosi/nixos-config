@@ -27,6 +27,7 @@
     helvum
 
     # 🌐 Networking / VPN
+    mtr
     wireguard-tools
     nftables
     iptables
