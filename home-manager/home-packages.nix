@@ -151,10 +151,7 @@
     vial
 
     # 🧾 Custom GUI Scripts
-    (pkgs.writeShellScriptBin "chatterino" ''
-      #!/usr/bin/env bash
-      ${pkgs.proxychains-ng}/bin/proxychains4 ${pkgs.chatterino2}/bin/chatterino "$@"
-    '')
+    pkgs.chatterino2
     # (pkgs.writeShellScriptBin "ModrinthApp" ''
     #   #!/usr/bin/env bash
     #   export WEBKIT_DISABLE_DMABUF_RENDERER=1
