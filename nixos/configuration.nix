@@ -16,6 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
+  networking.domain = "home.lan";
   networking.wireguard.enable = true;
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "none";

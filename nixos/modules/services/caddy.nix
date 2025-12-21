@@ -5,8 +5,10 @@
       reverse_proxy http://localhost:8000
       tls internal
     '';
+
     virtualHosts."craft.nikflora.ru".extraConfig = ''
       reverse_proxy http://localhost:8000
     '';
+
   };
 }
