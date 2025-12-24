@@ -32,6 +32,9 @@
     nftables
     iptables
     sshfs
+    sing-box
+    sing-geoip
+    sing-geosite
 
     # 🪟 GUI Utilities
     xclip

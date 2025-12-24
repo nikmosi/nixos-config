@@ -5,6 +5,7 @@
   ...
 }:
 {
+  import = [ ./21-packages.nix ];
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
