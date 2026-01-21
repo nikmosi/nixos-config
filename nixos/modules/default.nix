@@ -22,5 +22,6 @@
     ./services/openssh.nix
     ./services/picom.nix
     ./services/caddy.nix
+    ./services/sing.nix
   ];
 }

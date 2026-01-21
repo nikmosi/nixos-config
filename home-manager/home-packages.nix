@@ -5,7 +5,7 @@
   ...
 }:
 {
-  import = [ ./21-packages.nix ];
+  imports = [ ./21-packages.nix ];
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
@@ -114,6 +114,7 @@
     qemu
 
     # 🧰 Language Servers / LSP
+    sqruff
     actionlint
     bash-language-server
     docker-compose-language-service

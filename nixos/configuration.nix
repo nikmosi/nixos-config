@@ -27,11 +27,11 @@
   '';
   # networking.interfaces.eno1.ipv6.addresses = [ ];
 
-  # virtualisation.virtualbox.host.enable = true;
-  # virtualisation.virtualbox.guest.enable = true;
-  # virtualisation.virtualbox.guest.dragAndDrop = true;
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  # users.extraGroups.vboxusers.members = [ "nik" ];
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+  users.extraGroups.vboxusers.members = [ "nik" ];
 
   networking.nameservers = [
     "127.0.0.1"

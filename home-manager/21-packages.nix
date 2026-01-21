@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
 
-  home.packages = with pkgs; [ vagrant ];
+  home.packages = with pkgs; [
+    vagrant
+    dockle
+  ];
 }
