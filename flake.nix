@@ -76,19 +76,26 @@
 
       flake =
         let
-          defaultSystem = "x86_64-linux";
+          # Global configuration settings
+          userSettings = {
+            username = "nik";
+            system = "x86_64-linux";
+            hostname = "nixos";
+          };
 
           unstablePkgs = import inputs."unstable-nix" {
-            system = defaultSystem;
+            system = userSettings.system;
+            config.allowUnfree = true;
           };
         in
         {
           nixosConfigurations = {
-            nixos = nixpkgs.lib.nixosSystem {
-              system = defaultSystem;
+            "${userSettings.hostname}" = nixpkgs.lib.nixosSystem {
+              system = userSettings.system;
               specialArgs = {
                 inherit inputs;
                 unstable = unstablePkgs;
+                inherit userSettings;
               };
               modules = [
                 ./nixos/configuration.nix
@@ -102,8 +109,8 @@
           };
 
           homeConfigurations = {
-            nik = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages.${defaultSystem};
+            "${userSettings.username}" = home-manager.lib.homeManagerConfiguration {
+              pkgs = nixpkgs.legacyPackages.${userSettings.system};
               modules = [
                 # { home-manager.backupFileExtension = "backup"; }
                 ./home-manager/home.nix
@@ -112,6 +119,7 @@
                 inherit inputs;
                 unstable = unstablePkgs;
                 telegrams = inputs."ayugram-desktop";
+                inherit userSettings;
               };
             };
           };

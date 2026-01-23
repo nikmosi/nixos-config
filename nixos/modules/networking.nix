@@ -1,6 +1,6 @@
-{ ... }:
+{ userSettings, ... }:
 {
-  networking.hostName = "nixos";
+  networking.hostName = userSettings.hostname;
   networking.domain = "home.lan";
   networking.wireguard.enable = true;
   networking.networkmanager.enable = true;

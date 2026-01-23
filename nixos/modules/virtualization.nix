@@ -1,10 +1,10 @@
-{ ... }:
+{ userSettings, ... }:
 {
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.guest.enable = true;
   virtualisation.virtualbox.guest.dragAndDrop = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "nik" ];
+  users.extraGroups.vboxusers.members = [ userSettings.username ];
 
   hardware.nvidia-container-toolkit.enable = true;
   virtualisation.docker = {

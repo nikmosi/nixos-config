@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ pkgs, userSettings, ... }:
 {
   users.defaultUserShell = pkgs.fish;
-  users.users.nik = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
     extraGroups = [
       "wine-share"
