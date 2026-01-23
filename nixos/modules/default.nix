@@ -15,6 +15,9 @@
     ./xserver.nix
     ./zram.nix
     ./redsocks.nix
+    ./networking.nix
+    ./virtualization.nix
+    ./nix-ld.nix
 
     ./services/dnscrypt.nix
     ./services/libinput.nix

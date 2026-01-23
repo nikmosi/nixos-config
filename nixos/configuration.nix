@@ -11,33 +11,6 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "nixos";
-  networking.domain = "home.lan";
-  networking.wireguard.enable = true;
-  networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";
-  networking.dhcpcd.extraConfig = "nohook resolv.conf";
-  networking.enableIPv6 = false;
-  networking.extraHosts = ''
-    192.168.3.3 home
-  '';
-  # networking.interfaces.eno1.ipv6.addresses = [ ];
-
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "nik" ];
-
-  networking.nameservers = [
-    "127.0.0.1"
-    "::1"
-  ];
-
   # Set your time zone.
   time.timeZone = "Asia/Novosibirsk";
 
@@ -45,7 +18,6 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
   nix.settings.auto-optimise-store = true;
   nix.settings.experimental-features = [
     "nix-command"
@@ -65,12 +37,6 @@
   #   "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
   # ];
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
-  };
-
   # nix.settings.auto-optimise-store = true;
   nix.optimise.automatic = true;
   nix.optimise.dates = [ "03:45" ];
@@ -86,81 +52,6 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  hardware.nvidia-container-toolkit.enable = true;
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "btrfs";
-    rootless = {
-      enable = false;
-      setSocketVariable = true;
-    };
-    extraOptions = ''
-      --dns=8.8.8.8 --dns=1.1.1.1
-    '';
-  };
-
-  programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs; [
-    gcc
-    libgcc
-    wineWowPackages.full
-    wineWow64Packages.full
-    glibc
-    libGL
-    freetype
-    gnutls
-    krb5
-    samba
-    xorg.libX11
-    libcap
-    cups
-    gettext
-    dbus
-    cairo
-    unixODBC
-    samba4
-    ncurses
-    libva
-    libpcap
-    libv4l
-    sane-backends
-    libgphoto2
-    libkrb5
-    fontconfig
-    alsa-lib
-    xorg.libXinerama
-    udev
-    vulkan-loader
-    SDL2
-    libusb1
-    gst_all_1.gstreamer
-    gst_all_1.gst-plugins-base
-    gst_all_1.gst-plugins-good
-    gst_all_1.gst-plugins-ugly
-    gst_all_1.gst-libav
-    gst_all_1.gst-plugins-bad
-    gtk3
-    glib
-    opencl-headers
-    ocl-icd
-    openssl
-    gnutls
-    libGLU
-    libGL
-    mesa
-    libdrm
-    xorg.libX11
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXxf86vm
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -173,18 +64,6 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-    8443
-  ];
-  networking.firewall.allowedUDPPorts = [
-  ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

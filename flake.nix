@@ -20,6 +20,8 @@
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
 
+    nur.url = "github:nix-community/NUR";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
   };
@@ -87,6 +89,11 @@
               };
               modules = [
                 ./nixos/configuration.nix
+                {
+                  nixpkgs.overlays = [
+                    inputs.nur.overlay
+                  ];
+                }
               ];
             };
           };
