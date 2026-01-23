@@ -90,18 +90,39 @@
         in
         {
           nixosConfigurations = {
-            "${userSettings.hostname}" = nixpkgs.lib.nixosSystem {
+            desktop = nixpkgs.lib.nixosSystem {
               system = userSettings.system;
               specialArgs = {
                 inherit inputs;
                 unstable = unstablePkgs;
-                inherit userSettings;
+                userSettings = userSettings // {
+                  hostname = "desktop";
+                };
               };
               modules = [
-                ./nixos/configuration.nix
+                ./hosts/desktop
                 {
                   nixpkgs.overlays = [
                     inputs.nur.overlays.default
+                  ];
+                }
+              ];
+            };
+
+            laptop = nixpkgs.lib.nixosSystem {
+              system = userSettings.system;
+              specialArgs = {
+                inherit inputs;
+                unstable = unstablePkgs;
+                userSettings = userSettings // {
+                  hostname = "laptop";
+                };
+              };
+              modules = [
+                ./hosts/laptop
+                {
+                  nixpkgs.overlays = [
+                    inputs.nur.overlay
                   ];
                 }
               ];

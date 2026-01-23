@@ -7,8 +7,6 @@
   imports = [
     ./modules
     ./nixos-packages.nix
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
   ];
 
   # Set your time zone.
