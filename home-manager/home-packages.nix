@@ -10,6 +10,8 @@
   home.packages = with pkgs; [
 
     # 🧠 Development Tools
+    antigravity-fhs
+    gemini-cli
     yarn
     insomnia
     devenv
