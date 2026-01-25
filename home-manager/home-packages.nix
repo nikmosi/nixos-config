@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
 
     # 🧠 Development Tools
+    unstable.codex
     antigravity-fhs
     gemini-cli
     yarn
@@ -136,7 +137,6 @@
 
     # 🪟 GUI Applications
     librewolf
-    chromium
     discord
     drawio
     easyeffects

@@ -30,6 +30,9 @@
       kitty = {
         enable = false;
       };
+      firefox = {
+        enable = false;
+      };
     };
 
     cursor = {
