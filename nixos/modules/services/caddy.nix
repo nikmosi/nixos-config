@@ -6,9 +6,16 @@
       tls internal
     '';
 
-    virtualHosts."craft.nikflora.ru".extraConfig = ''
+    virtualHosts."home.nikflora.ru".extraConfig = ''
       reverse_proxy http://localhost:8000
     '';
+
+    virtualHosts."music.nikflora.ru" = {
+      extraConfig = ''
+        root * /var/lib/music-site
+        file_server browse
+      '';
+    };
 
   };
 }

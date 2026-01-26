@@ -138,6 +138,7 @@
     # 🪟 GUI Applications
     librewolf
     discord
+    vesktop
     drawio
     easyeffects
     feh
