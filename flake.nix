@@ -91,7 +91,6 @@
         {
           nixosConfigurations = {
             "${userSettings.hostname}" = nixpkgs.lib.nixosSystem {
-              system = userSettings.system;
               specialArgs = {
                 inherit inputs;
                 unstable = unstablePkgs;
@@ -100,6 +99,7 @@
               modules = [
                 ./nixos/configuration.nix
                 {
+                  nixpkgs.hostPlatform = userSettings.system;
                   nixpkgs.overlays = [
                     inputs.nur.overlays.default
                   ];

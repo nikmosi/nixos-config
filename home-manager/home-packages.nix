@@ -10,6 +10,8 @@
   home.packages = with pkgs; [
 
     # 🧠 Development Tools
+    prettier
+    prettierd
     unstable.codex
     antigravity-fhs
     gemini-cli

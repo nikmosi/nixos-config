@@ -10,6 +10,7 @@
       tmux-fzf
       open
       tokyo-night-tmux
+      yank
     ];
     historyLimit = 30000;
     baseIndex = 1;
@@ -19,9 +20,13 @@
     sensibleOnTop = true;
     terminal = "tmux-256color";
     extraConfig = ''
-      # set-option -sa terminal-overrides ",xterm*:Tc"
+      set-option -sa terminal-overrides ",xterm*:Tc"
+      set-option -sa terminal-overrides ",*:Smulx=\E[4::%p1%dm"
+      set-option -sa terminal-overrides ",*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m"
       set-option -g allow-passthrough on
 
+      set -g pane-base-index 1
+      set -g renumber-windows on
       set -g pane-border-lines double
       set  -s escape-time       0
       bind -n M-Enter new-window
@@ -31,17 +36,14 @@
       set -ga update-environment TERM
       set -ga update-environment TERM_PROGRAM
 
-      set -g @tmux_power_time_format '%H:%M'
-      set -g @tmux_power_theme '#8AB5FA' # dark slate blue
-
       bind s choose-tree -sZ -O name
 
       # Key remapping
       unbind %
-      bind | split-window -h 
+      bind | split-window -h -c "#{pane_current_path}"
 
       unbind '"'
-      bind - split-window -v
+      bind - split-window -v -c "#{pane_current_path}"
 
       unbind r
       bind r source-file ~/.config/tmux/tmux.conf

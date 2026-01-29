@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     # 🧠 Development Tools
+    pre-commit
     gcc
     gnumake
     check
