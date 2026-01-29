@@ -20,9 +20,10 @@
     sensibleOnTop = true;
     terminal = "tmux-256color";
     extraConfig = ''
+      set-option -sa terminal-features ',xterm-kitty:RGB:usstyle'
       set-option -sa terminal-overrides ",xterm*:Tc"
-      set-option -sa terminal-overrides ",*:Smulx=\E[4::%p1%dm"
-      set-option -sa terminal-overrides ",*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m"
+      # set-option -sa terminal-overrides ",*:Smulx=\E[4::%p1%dm"
+      # set-option -sa terminal-overrides ",*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m"
       set-option -g allow-passthrough on
 
       set -g pane-base-index 1
