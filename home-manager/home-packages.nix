@@ -98,7 +98,7 @@
     ffmpeg
     maim
     playerctl
-    yt-dlp
+    unstable.yt-dlp
     libreoffice-fresh
     hunspell
     hyphen
