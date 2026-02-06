@@ -19,6 +19,7 @@
     ./rofi.nix
     ./starship.nix
     ./stylix.nix
+    ./tar.nix
     ./tmux.nix
     ./yazi.nix
     ./zathura.nix
