@@ -9,7 +9,7 @@
       # History
       historySize = 5000; # programs.bash.historySize (in memory)
       historyFileSize = 10000; # programs.bash.historyFileSize (on disk)
-      historyControl = "ignoreboth"; # programs.bash.historyControl
+      historyControl = [ "ignoreboth" ]; # programs.bash.historyControl
       historyFile = "${config.home.homeDirectory}/.bash_history"; # programs.bash.historyFile
       historyIgnore = [
         "ls"

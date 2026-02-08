@@ -1,8 +1,8 @@
-{ pkgs, unstable, ... }:
+{ unstable, ... }:
 {
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-unwrapped;
+    package = unstable.neovim-unwrapped;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
