@@ -62,13 +62,13 @@ in
       username.format = ''\[[$user]($style)\]'';
 
       directory = {
-        read_only = '''';
-        read_only_style = ''fg:#8ABEB7'';
-        format = ''[$path]($style)[$read_only]($read_only_style) '';
+        read_only = "";
+        read_only_style = "fg:#8ABEB7";
+        format = "[$path]($style)[$read_only]($read_only_style) ";
       };
 
       git_branch = {
-        symbol = '' '';
+        symbol = " ";
         format = ''\[ [$symbol$branch]($style) \]'';
       };
 
@@ -78,20 +78,20 @@ in
       };
 
       nix_shell = {
-        impure_msg = ''i'';
-        symbol = ''❄️'';
-        pure_msg = ''p'';
-        unknown_msg = ''u'';
+        impure_msg = "i";
+        symbol = "❄️";
+        pure_msg = "p";
+        unknown_msg = "u";
         format = ''\[[$symbol $state \($name\)]($style)\]'';
       };
 
       package = {
-        symbol = ''󰏗 '';
+        symbol = "󰏗 ";
         format = ''\[[$symbol$version]($style)\]'';
       };
 
       python = {
-        symbol = '' '';
+        symbol = " ";
         format = ''\[[$symbol$pyenv_prefix($version)( \($virtualenv\))]($style)\]'';
       };
 

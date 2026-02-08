@@ -30,7 +30,6 @@
     pgcli
     stylua
     tokei
-    unstable.neovim
     uv
     vscode
     topiary

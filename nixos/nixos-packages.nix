@@ -46,15 +46,9 @@
     fish
     nushell
 
-    # ✍️ Editor
-    neovim
-
     # ⚙️ CLI Utilities
     wget
     fd
-    ripgrep
-    bat
-    git
     pciutils
     p7zip
 

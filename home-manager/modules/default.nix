@@ -1,28 +1,7 @@
 {
   imports = [
-    ./atuin.nix
-    ./bat.nix
-    ./carapace.nix
-    ./clipmenu.nix
-    ./desktop.nix
-    ./docker.nix
-    ./dunst.nix
-    ./eza.nix
-    ./git.nix
-    ./kitty.nix
-    ./lazygit.nix
-    ./mimeapps.nix
-    ./mpv.nix
-    ./pass.nix
-    ./ranger.nix
-    ./ripgrep.nix
-    ./rofi.nix
-    ./starship.nix
-    ./stylix.nix
-    ./tar.nix
-    ./tmux.nix
-    ./yazi.nix
-    ./zathura.nix
-    ./zoxide.nix
+    ./apps
+    ./cli
+    ./desktop
   ];
 }
