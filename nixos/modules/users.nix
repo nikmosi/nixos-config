@@ -6,6 +6,7 @@
     extraGroups = [
       "wine-share"
       "wheel"
+      "gamemode"
       "audio"
       "video"
       "input"

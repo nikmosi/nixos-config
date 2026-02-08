@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    gnu-tar
     xz
+    zstd
   ];
 
   home.shellAliases = {

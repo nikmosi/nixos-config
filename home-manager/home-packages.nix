@@ -34,6 +34,7 @@
     uv
     vscode
     topiary
+    pv
 
     # 💻 System / CLI Utilities
 
@@ -41,7 +42,6 @@
     proxychains-ng
     rename
     sshs
-    tldr
     translate-shell
     udisks
     ueberzugpp
@@ -58,6 +58,23 @@
     dua
     ffmpegthumbnailer
     silicon
+
+    ## Rust
+
+    dust
+    bottom
+    zenith
+    procs
+    hyperfine
+    dysk
+    gping
+    monolith
+    dog
+    tealdeer
+    broot
+    trash-cli
+    sd
+    hexyl
 
     ## ⚙️ System Management
     alsa-utils
@@ -82,7 +99,6 @@
     fzf
     sesh
     translate-shell
-    tldr
     bemoji
     ueberzugpp
     ripdrag
