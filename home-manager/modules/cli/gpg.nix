@@ -1,6 +1,6 @@
-{ pkgs, ... }:
 {
   programs.gpg.enable = true;
+  services.ssh-agent.enable = false;
 
   services.gpg-agent = {
     enable = true;

@@ -15,7 +15,7 @@ in
   '';
 
   sops = {
-    defaultSopsFile = ../../secrets/ssh.yaml;
+    defaultSopsFile = ../../secrets/personal.yaml;
     gnupg.home = "${config.home.homeDirectory}/.gnupg";
 
     secrets."ssh/common" = {

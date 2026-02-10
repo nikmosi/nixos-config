@@ -37,17 +37,5 @@
     ];
     shell = pkgs.fish;
   };
-  # --- add this ---
-  users.users.redsocks = {
-    isSystemUser = true;
-    description = "Service user for redsocks proxy daemon";
-    group = "redsocks";
-    extraGroups = [ "wine-share" ];
-    home = "/var/lib/redsocks";
-    createHome = true;
-    shell = pkgs.shadow;
-  };
-
-  users.groups.redsocks = { }; # corresponding group
   users.groups.wine-share = { };
 }

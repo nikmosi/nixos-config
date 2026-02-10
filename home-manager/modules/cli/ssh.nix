@@ -5,6 +5,7 @@
     enableDefaultConfig = false;
 
     matchBlocks."*" = {
+      addKeysToAgent = "yes";
       compression = true;
       setEnv = {
         TERM = "xterm-256color";
