@@ -18,5 +18,6 @@
     ./yazi.nix
     ./zoxide.nix
     ./ssh.nix
+    ./gpg.nix
   ];
 }
