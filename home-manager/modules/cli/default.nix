@@ -17,5 +17,6 @@
     ./tmux.nix
     ./yazi.nix
     ./zoxide.nix
+    ./ssh.nix
   ];
 }
