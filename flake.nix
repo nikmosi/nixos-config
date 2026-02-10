@@ -115,6 +115,7 @@
               pkgs = nixpkgs.legacyPackages.${userSettings.system};
               modules = [
                 # { home-manager.backupFileExtension = "backup"; }
+                inputs.sops-nix.homeManagerModules.sops
                 ./home-manager/home.nix
               ];
               extraSpecialArgs = {
