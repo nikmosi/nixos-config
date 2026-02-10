@@ -34,6 +34,7 @@
     vscode
     topiary
     pv
+    hadolint
 
     # 💻 System / CLI Utilities
 
