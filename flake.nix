@@ -9,6 +9,9 @@
     home-manager.url = "github:nix-community/home-manager/release-25.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     ayugram-desktop = {
       type = "git";
       submodules = true;
@@ -20,10 +23,8 @@
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
 
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -98,6 +99,7 @@
               };
               modules = [
                 ./nixos/configuration.nix
+                inputs.sops-nix.nixosModules.sops
                 {
                   nixpkgs.hostPlatform = userSettings.system;
                   nixpkgs.overlays = [

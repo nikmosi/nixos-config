@@ -51,6 +51,7 @@
     fd
     pciutils
     p7zip
+    sops
 
     # 🔧 Utils for Tmux
     bc
