@@ -17,6 +17,7 @@
     ./networking.nix
     ./virtualization.nix
     ./nix-ld.nix
+    ./security.nix
 
     ./services/dnscrypt.nix
     ./services/libinput.nix
