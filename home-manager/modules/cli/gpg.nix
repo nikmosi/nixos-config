@@ -1,5 +1,10 @@
 {
-  programs.gpg.enable = true;
+  programs.gpg = {
+    enable = true;
+    settings = {
+      keyid-format = "long";
+    };
+  };
   services.ssh-agent.enable = false;
 
   services.gpg-agent = {
