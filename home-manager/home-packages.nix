@@ -36,9 +36,12 @@
     pv
     hadolint
     minikube
+    kubectl
+    typst
 
     # 💻 System / CLI Utilities
 
+    handbrake
     v2rayn
     proxychains-ng
     rename
@@ -135,7 +138,41 @@
     glab
     qemu
 
+    # linters
+
+    actionlint
+    ansible-lint
+    eslint
+    eslint_d
+    gitlint
+    hadolint
+    ktlint
+    markdownlint-cli2
+    markuplinkchecker
+    shellcheck
+    deadnix
+    statix
+    oxlint
+    proselint
+    protolint
+    pylint
+    stylelint
+    tflint
+    yamllint
+    vale
+    tombi
+    checkmake
+    htmlhint
+    stylelint
+    kubeconform
+    kubeval
+
     # 🧰 Language Servers / LSP
+    tofu-ls
+    bandit
+    terraform-ls
+    ansible-lint
+    helm-ls
     sqruff
     actionlint
     bash-language-server
@@ -151,7 +188,7 @@
     pyright
     python312Packages.python-lsp-server
     ruff
-    ty
+    unstable.ty
     yaml-language-server
 
     # 🪟 GUI Applications
