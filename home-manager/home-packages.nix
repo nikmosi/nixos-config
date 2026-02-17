@@ -35,6 +35,7 @@
     topiary
     pv
     hadolint
+    minikube
 
     # 💻 System / CLI Utilities
 
@@ -170,7 +171,7 @@
     postman
     prismlauncher
     qbittorrent-enhanced
-    telegrams.packages.${pkgs.system}.ayugram-desktop
+    telegrams.packages.${pkgs.stdenv.hostPlatform.system}.ayugram-desktop
     vial
 
     # 🧾 Custom GUI Scripts
