@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.bat = {
     enable = true;
     config = {
-      theme = "gruvbox (Dark) (Medium)";
+      theme = lib.mkForce "gruvbox (Dark) (Medium)";
       style = "numbers,changes,header";
     };
     themes = {
