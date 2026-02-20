@@ -2,6 +2,10 @@
 {
   programs.bat = {
     enable = true;
+    config = {
+      theme = "gruvbox (Dark) (Medium)";
+      style = "numbers,changes,header";
+    };
     themes = {
       dracula = {
         src = pkgs.fetchFromGitHub {

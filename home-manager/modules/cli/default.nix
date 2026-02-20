@@ -6,6 +6,7 @@
     ./carapace.nix
     ./docker.nix
     ./eza.nix
+    ./fzf.nix
     ./git.nix
     ./lazygit.nix
     ./neovim.nix
@@ -19,5 +20,6 @@
     ./zoxide.nix
     ./ssh.nix
     ./gpg.nix
+    ./direnv.nix
   ];
 }

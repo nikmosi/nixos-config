@@ -111,8 +111,12 @@
       transfer.fsckobjects = true;
       fetch.fsckobjects = true;
       fetch.writeCommitGraph = true;
+      fetch.prune = true;
+      fetch.pruneTags = true;
       receive.fsckObjects = true;
       branch.sort = "-committerdate";
+      rebase.autoStash = true;
+      push.autoSetupRemote = true;
     };
 
   };

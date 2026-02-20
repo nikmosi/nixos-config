@@ -11,6 +11,9 @@
     flake = "/home/nik/.flake";
   };
 
+  programs.nix-index.enable = true;
+  programs.command-not-found.enable = true;
+
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

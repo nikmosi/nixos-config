@@ -9,7 +9,10 @@
       # History
       historySize = 5000; # programs.bash.historySize (in memory)
       historyFileSize = 10000; # programs.bash.historyFileSize (on disk)
-      historyControl = [ "ignoreboth" ]; # programs.bash.historyControl
+      historyControl = [
+        "ignoreboth"
+        "erasedups"
+      ]; # programs.bash.historyControl
       historyFile = "${config.home.homeDirectory}/.bash_history"; # programs.bash.historyFile
       historyIgnore = [
         "ls"
@@ -22,6 +25,7 @@
         EDITOR = "nvim";
         VISUAL = "nvim";
         LANG = "en_US.UTF-8";
+        HISTTIMEFORMAT = "%F %T ";
       }; # programs.bash.sessionVariables
 
       shellOptions = [
@@ -37,12 +41,7 @@
       }; # programs.bash.shellAliases
 
       # Extra commands to put into ~/.bashrc
-      bashrcExtra = ''
-        # minimal, clean prompt
-        PS1='\w \$ '
-
-
-      ''; # programs.bash.bashrcExtra
+      bashrcExtra = ""; # programs.bash.bashrcExtra
 
       # Extra commands to run when initializing an interactive shell
       initExtra = ''

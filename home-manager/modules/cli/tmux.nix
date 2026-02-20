@@ -11,6 +11,8 @@
       open
       tokyo-night-tmux
       yank
+      resurrect
+      continuum
     ];
     historyLimit = 30000;
     baseIndex = 1;
@@ -77,6 +79,9 @@
 
       bind-key x kill-pane
       set -g detach-on-destroy off
+
+      set -g @continuum-restore 'on'
+      set -g @continuum-save-interval '10'
     '';
   };
 }
