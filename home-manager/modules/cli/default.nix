@@ -10,6 +10,7 @@
     ./git.nix
     ./lazygit.nix
     ./neovim.nix
+    ./nushell.nix
     ./pass.nix
     ./ranger.nix
     ./ripgrep.nix
