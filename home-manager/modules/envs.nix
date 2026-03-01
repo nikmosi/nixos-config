@@ -14,6 +14,11 @@ in
       path = "${configDir}/awesome/.env";
       mode = "0400";
     };
+
+    secrets."api_keys/timeweb/terraform_api_key" = {
+      path = "/home/nik/git-repos/DO11/src/terraform/.env";
+      mode = "0400";
+    };
   };
 
 }

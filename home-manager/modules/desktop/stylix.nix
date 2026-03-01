@@ -24,6 +24,9 @@
       neovim = {
         enable = false;
       };
+      fzf = {
+        enable = false;
+      };
       alacritty = {
         enable = false;
       };

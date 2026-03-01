@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     php
@@ -20,14 +20,20 @@
 
   services.caddy = {
     enable = true;
-    virtualHosts."localhost:80".extraConfig = ''
-      reverse_proxy http://localhost:8000
-      tls internal
-    '';
+    virtualHosts = {
+      "localhost:80".extraConfig = ''
+        reverse_proxy http://localhost:8000
+        tls internal
+      '';
 
-    virtualHosts."home.nikflora.ru".extraConfig = ''
-      reverse_proxy http://localhost:8000
-    '';
+      "home.nikflora.ru".extraConfig = ''
+        reverse_proxy http://localhost:8000
+      '';
+
+      "jelly.4041.su".extraConfig = ''
+        reverse_proxy http://localhost:8096
+      '';
+    };
 
     # virtualHosts."music.nikflora.ru" = {
     #   extraConfig = ''

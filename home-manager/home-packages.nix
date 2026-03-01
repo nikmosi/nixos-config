@@ -38,6 +38,7 @@
     minikube
     kubectl
     typst
+    terraform
 
     # 💻 System / CLI Utilities
 
