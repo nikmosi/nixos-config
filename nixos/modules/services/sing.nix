@@ -3,8 +3,14 @@
   systemd.services.sing-box = {
     description = "sing-box";
     wantedBy = [ "multi-user.target" ];
-    after = [ "network-online.target" ];
-    wants = [ "network-online.target" ];
+    after = [
+      "network-online.target"
+      "dnscrypt-proxy.service"
+    ];
+    wants = [
+      "network-online.target"
+      "dnscrypt-proxy.service"
+    ];
 
     serviceConfig = {
       ExecStart = "${unstable.sing-box}/bin/sing-box run -c /etc/sing-box/config.json";

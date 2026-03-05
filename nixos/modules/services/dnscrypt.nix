@@ -28,6 +28,10 @@
 
       # fallback resolvers (pure IP fallback if resolver list unavailable)
       fallback_resolvers = [
+        "208.67.222.222"
+        "208.67.220.220"
+        "116.202.176.26"
+        "8.8.8.8:53"
         "1.1.1.1:53"
         "9.9.9.9:53"
       ];

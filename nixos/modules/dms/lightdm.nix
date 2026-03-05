@@ -8,6 +8,9 @@
       greeters = {
         slick = {
           enable = true;
+          extraConfig = ''
+            background=${../../assets/wallpapers/lightdm.png}
+          '';
         };
       };
     };

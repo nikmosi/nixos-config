@@ -13,7 +13,7 @@
     prettier
     prettierd
     unstable.codex
-    antigravity-fhs
+    unstable.antigravity-fhs
     gemini-cli
     yarn
     insomnia
