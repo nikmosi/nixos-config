@@ -9,6 +9,8 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
+    jellyfin-mpv-shim
+
     # 🧠 Development Tools
     prettier
     prettierd
@@ -37,8 +39,12 @@
     hadolint
     minikube
     kubectl
+    kubecm
     typst
     terraform
+    ansible
+    kubernetes-helm
+    kustomize
 
     # 💻 System / CLI Utilities
 
