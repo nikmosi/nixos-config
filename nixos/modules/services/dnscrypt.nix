@@ -8,9 +8,9 @@
       require_dnssec = true;
 
       cache = true;
-      cache_size = 524288; # number of cache entries
-      cache_min_ttl = 60; # seconds
-      cache_max_ttl = 86400; # seconds
+      cache_size = 524288;
+      cache_min_ttl = 60;
+      cache_max_ttl = 86400;
 
       # Add this to test if dnscrypt-proxy is actually used to resolve DNS requests
       # query_log.file = "/var/log/dnscrypt-proxy/query.log";
@@ -28,12 +28,12 @@
 
       # fallback resolvers (pure IP fallback if resolver list unavailable)
       fallback_resolvers = [
-        "208.67.222.222"
-        "208.67.220.220"
-        "116.202.176.26"
         "8.8.8.8:53"
         "1.1.1.1:53"
         "9.9.9.9:53"
+        "208.67.222.222"
+        "208.67.220.220"
+        "116.202.176.26"
       ];
 
       # other useful options

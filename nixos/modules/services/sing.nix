@@ -5,11 +5,11 @@
     wantedBy = [ "multi-user.target" ];
     after = [
       "network-online.target"
-      "dnscrypt-proxy.service"
+      # "dnscrypt-proxy.service"
     ];
     wants = [
       "network-online.target"
-      "dnscrypt-proxy.service"
+      # "dnscrypt-proxy.service"
     ];
 
     serviceConfig = {

@@ -2,11 +2,11 @@
 {
   networking.hostName = userSettings.hostname;
   networking.domain = "home.lan";
-  networking.wireguard.enable = true;
+  networking.wireguard.enable = false;
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "none";
   networking.dhcpcd.extraConfig = "nohook resolv.conf";
-  networking.enableIPv6 = false;
+  networking.enableIPv6 = true;
   networking.extraHosts = ''
     192.168.3.3 home
   '';
@@ -15,6 +15,7 @@
   networking.nameservers = [
     "127.0.0.1"
     "::1"
+    "1.1.1.1"
   ];
 
   # Configure network proxy if necessary

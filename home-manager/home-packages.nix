@@ -10,6 +10,7 @@
   home.packages = with pkgs; [
 
     jellyfin-mpv-shim
+    yandex-disk
 
     # 🧠 Development Tools
     prettier
@@ -44,7 +45,6 @@
     terraform
     ansible
     kubernetes-helm
-    kustomize
 
     # 💻 System / CLI Utilities
 
