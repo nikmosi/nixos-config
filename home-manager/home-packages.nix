@@ -11,6 +11,9 @@
 
     jellyfin-mpv-shim
     yandex-disk
+    localsend
+    navi
+    throne
 
     # 🧠 Development Tools
     prettier
@@ -45,11 +48,12 @@
     terraform
     ansible
     kubernetes-helm
+    television
 
     # 💻 System / CLI Utilities
 
     handbrake
-    v2rayn
+    unstable.v2rayn
     proxychains-ng
     rename
     sshs

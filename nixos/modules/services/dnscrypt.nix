@@ -5,12 +5,17 @@
     # https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
     settings = {
       ipv6_servers = true;
+      # block_ipv6 = true;
       require_dnssec = true;
 
       cache = true;
       cache_size = 524288;
       cache_min_ttl = 60;
       cache_max_ttl = 86400;
+
+      # Faster failover when probing/using resolvers (ms / seconds)
+      timeout = 2500;
+      netprobe_timeout = 30;
 
       # Add this to test if dnscrypt-proxy is actually used to resolve DNS requests
       # query_log.file = "/var/log/dnscrypt-proxy/query.log";

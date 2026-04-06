@@ -6,7 +6,7 @@
   networking.networkmanager.enable = true;
   networking.networkmanager.dns = "none";
   networking.dhcpcd.extraConfig = "nohook resolv.conf";
-  networking.enableIPv6 = true;
+  networking.enableIPv6 = false;
   networking.extraHosts = ''
     192.168.3.3 home
   '';
