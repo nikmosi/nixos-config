@@ -23,13 +23,16 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Open ports in the firewall.
+  networking.firewall.trustedInterfaces = [ "eno06" ];
   networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-    8443
+    22 # ssh
+    80 # http
+    443 # https
+    22000
   ];
   networking.firewall.allowedUDPPorts = [
+    22
+    22000
   ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
