@@ -1,5 +1,5 @@
 {
-  description = "My NixOS and Home Manager configurations";
+  description = "nikmosi's nixos configuration.";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
@@ -19,6 +19,7 @@
     };
 
     stylix.url = "github:danth/stylix/release-25.11";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     pre-commit-hooks.url = "github:cachix/git-hooks.nix";
     pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";

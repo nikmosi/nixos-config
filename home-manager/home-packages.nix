@@ -13,7 +13,8 @@
     yandex-disk
     localsend
     navi
-    throne
+    bottles
+    lutris-unwrapped
 
     # 🧠 Development Tools
     prettier
