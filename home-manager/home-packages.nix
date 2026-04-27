@@ -14,7 +14,8 @@
     localsend
     navi
     bottles
-    lutris-unwrapped
+    unstable.lutris-unwrapped
+    unstable.opencode
 
     # 🧠 Development Tools
     prettier

@@ -4,6 +4,10 @@
     # Settings reference:
     # https://github.com/DNSCrypt/dnscrypt-proxy/blob/master/dnscrypt-proxy/example-dnscrypt-proxy.toml
     settings = {
+      listen_addresses = [
+        "127.0.0.1:53"
+        "172.17.0.1:53"
+      ];
       ipv6_servers = true;
       # block_ipv6 = true;
       require_dnssec = true;

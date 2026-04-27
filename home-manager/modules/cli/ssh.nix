@@ -31,6 +31,12 @@
         port = 63544;
       };
 
+      "router" = {
+        user = "root";
+        hostname = "192.168.1.1";
+        port = 22;
+      };
+
       "vpn-timeweb" = {
         hostname = "ollama.nikflora.ru";
         port = 22;
