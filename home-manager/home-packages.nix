@@ -16,13 +16,26 @@
     bottles
     unstable.lutris-unwrapped
     unstable.opencode
+    fx
+    twitch-dl
+    jetbrains.datagrip
+    systemctl-tui
+    lazyjournal
+    lazysql
+    kdash
+    unstable.cockpit
+    playwright
+    playwright-driver
+    playwright-mcp
+    lens
+    wakatime-cli
 
     # 🧠 Development Tools
     prettier
     prettierd
     unstable.codex
     unstable.antigravity-fhs
-    gemini-cli
+    unstable.gemini-cli
     yarn
     insomnia
     devenv
