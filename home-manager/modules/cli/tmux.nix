@@ -1,4 +1,32 @@
 { pkgs, ... }:
+let
+  seshTmux = pkgs.writeShellApplication {
+    name = "sesh-tmux";
+    runtimeInputs = with pkgs; [
+      fd
+      fzf
+      sesh
+      tmux
+      zoxide
+    ];
+    text = ''
+      sesh connect "$(
+        sesh list --icons | fzf \
+          --no-sort --ansi --border-label ' sesh ' --prompt '> ' \
+          --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+          --bind 'tab:down,btab:up' \
+          --bind 'ctrl-a:change-prompt(> )+reload(sesh list --icons)' \
+          --bind 'ctrl-t:change-prompt(tmux > )+reload(sesh list -t --icons)' \
+          --bind 'ctrl-g:change-prompt(config > )+reload(sesh list -c --icons)' \
+          --bind 'ctrl-x:change-prompt(zoxide > )+reload(sesh list -z --icons)' \
+          --bind 'ctrl-f:change-prompt(find > )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
+          --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(> )+reload(sesh list --icons)' \
+          --preview-window 'right:55%' \
+          --preview 'sesh preview {}'
+      )"
+    '';
+  };
+in
 {
   programs.tmux = {
     enable = true;
@@ -59,19 +87,7 @@
 
       bind -r m resize-pane -Z
 
-      bind-key "t" display-popup -yC -xR -E -b rounded -s 'bg=#1a1b26,fg=#c0caf5' -S 'fg=#7aa2f7,bg=#1a1b26' 'sesh connect (sesh list --icons | fzf
-        --no-sort --ansi --border-label " sesh " --prompt "⚡  " 
-        --header "  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find" 
-        --bind "tab:down,btab:up" 
-        --bind "ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)" 
-        --bind "ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)" 
-        --bind "ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)" 
-        --bind "ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)" 
-        --bind "ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)" 
-        --bind "ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(⚡  )+reload(sesh list --icons)" 
-        --preview-window "right:55%" \
-        --preview "sesh preview {}"
-      )' 
+      bind-key "t" display-popup -yC -xR -E -b rounded -s 'bg=#1a1b26,fg=#c0caf5' -S 'fg=#7aa2f7,bg=#1a1b26' "${seshTmux}/bin/sesh-tmux"
 
       set-window-option -g mode-keys vi
 
