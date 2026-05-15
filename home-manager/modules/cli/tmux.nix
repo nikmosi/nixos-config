@@ -30,6 +30,7 @@
 
       set -g pane-base-index 1
       set -g renumber-windows on
+      set -g automatic-rename-format "#{?pane_in_mode,[tmux],#{?#{==:#{pane_current_command},python3.13},#(ps -t #{pane_tty} -o stat= -o comm= 2>/dev/null | grep -Eq '^[^ ]*[+] +xonsh$' && printf xonsh || printf python3.13),#{pane_current_command}}}#{?pane_dead,[dead],}"
       set -g pane-border-lines double
       set  -s escape-time       0
       bind -n M-Enter new-window

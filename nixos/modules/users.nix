@@ -1,5 +1,8 @@
 { pkgs, userSettings, ... }:
 {
+  programs.xonsh.enable = true;
+  programs.fish.enable = true;
+
   users.defaultUserShell = pkgs.fish;
   users.users.${userSettings.username} = {
     isNormalUser = true;
@@ -14,28 +17,6 @@
       "docker"
       "vboxusers"
     ];
-    shell = pkgs.nushell;
+    shell = pkgs.xonsh;
   };
-  users.users.nvimfromscratch = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "input"
-      "networkmanager"
-      "docker"
-    ];
-    shell = pkgs.fish;
-  };
-
-  users.users.epic = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "input"
-      "networkmanager"
-      "docker"
-    ];
-    shell = pkgs.fish;
-  };
-  users.groups.wine-share = { };
 }
