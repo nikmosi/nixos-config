@@ -463,9 +463,29 @@
         "nixpkgs": "nixpkgs_2",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks",
+        "sing-box-extended": "sing-box-extended",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "unstable-nix": "unstable-nix"
+      }
+    },
+    "sing-box-extended": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dirtyRev": "3bd162ed6f7ecbfb53a4cde6c7500e40c31fbd19-dirty",
+        "dirtyShortRev": "3bd162e-dirty",
+        "lastModified": 1778450375,
+        "narHash": "sha256-6aSPjnDBG7tFLp8jr61/ZPKX4ZbYuPvg07qzSU3Ayss=",
+        "type": "git",
+        "url": "file:///home/nik/git-repos/sing-box-extended"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/nik/git-repos/sing-box-extended"
       }
     },
     "sops-nix": {

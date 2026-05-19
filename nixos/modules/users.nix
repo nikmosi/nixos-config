@@ -17,6 +17,6 @@
       "docker"
       "vboxusers"
     ];
-    shell = pkgs.xonsh;
+    shell = pkgs.nushell;
   };
 }

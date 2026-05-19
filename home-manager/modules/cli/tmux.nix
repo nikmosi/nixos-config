@@ -1,29 +1,50 @@
 { pkgs, ... }:
 let
-  seshTmux = pkgs.writeShellApplication {
-    name = "sesh-tmux";
-    runtimeInputs = with pkgs; [
+  seshTmuxPath = pkgs.lib.makeBinPath (
+    with pkgs;
+    [
       fd
       fzf
       sesh
       tmux
       zoxide
-    ];
+    ]
+  );
+  seshTmux = pkgs.writeTextFile {
+    name = "sesh-tmux";
+    destination = "/bin/sesh-tmux";
+    executable = true;
     text = ''
-      sesh connect "$(
-        sesh list --icons | fzf \
-          --no-sort --ansi --border-label ' sesh ' --prompt '> ' \
-          --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
-          --bind 'tab:down,btab:up' \
-          --bind 'ctrl-a:change-prompt(> )+reload(sesh list --icons)' \
-          --bind 'ctrl-t:change-prompt(tmux > )+reload(sesh list -t --icons)' \
-          --bind 'ctrl-g:change-prompt(config > )+reload(sesh list -c --icons)' \
-          --bind 'ctrl-x:change-prompt(zoxide > )+reload(sesh list -z --icons)' \
-          --bind 'ctrl-f:change-prompt(find > )+reload(fd -H -d 2 -t d -E .Trash . ~)' \
-          --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(> )+reload(sesh list --icons)' \
-          --preview-window 'right:55%' \
+      #!${pkgs.nushell}/bin/nu
+
+      $env.PATH = ("${seshTmuxPath}" | split row ":") ++ $env.PATH
+
+      let result = (
+        ^sesh list --icons | ^fzf
+          --no-sort --ansi --border-label ' sesh ' --prompt '> '
+          --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find'
+          --bind 'tab:down,btab:up'
+          --bind 'ctrl-a:change-prompt(> )+reload(sesh list --icons)'
+          --bind 'ctrl-t:change-prompt(tmux > )+reload(sesh list -t --icons)'
+          --bind 'ctrl-g:change-prompt(config > )+reload(sesh list -c --icons)'
+          --bind 'ctrl-x:change-prompt(zoxide > )+reload(sesh list -z --icons)'
+          --bind 'ctrl-f:change-prompt(find > )+reload(fd -H -d 2 -t d -E .Trash . ~)'
+          --bind 'ctrl-d:execute(tmux kill-session -t {2..})+change-prompt(> )+reload(sesh list --icons)'
+          --preview-window 'right:55%'
           --preview 'sesh preview {}'
-      )"
+        | complete
+      )
+
+      if $result.exit_code != 0 {
+        exit 0
+      }
+
+      let selection = ($result.stdout | str trim)
+      if ($selection | is-empty) {
+        exit 0
+      }
+
+      ^sesh connect $selection
     '';
   };
 in
