@@ -23,7 +23,6 @@
     lazyjournal
     lazysql
     kdash
-    unstable.cockpit
     playwright
     playwright-driver
     playwright-mcp

@@ -110,7 +110,7 @@
                   nixpkgs.hostPlatform = userSettings.system;
                   nixpkgs.overlays = [
                     inputs.nur.overlays.default
-                    inputs.sing-box-extended.overlays.default
+                    # inputs.sing-box-extended.overlays.default
                   ];
                 }
               ];
