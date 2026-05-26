@@ -30,10 +30,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
 
-    sing-box-extended = {
-      url = "git+file:///home/nik/git-repos/sing-box-extended";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # sing-box-extended = {
+    #   url = "git+file:///home/nik/git-repos/sing-box-extended";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
   };
 
   outputs =
