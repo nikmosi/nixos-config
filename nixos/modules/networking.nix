@@ -9,11 +9,14 @@
   networking.enableIPv6 = false;
   networking.extraHosts = ''
     192.168.3.3 home
+    127.0.0.1 rustek.localhost
+    127.0.0.1 auth.rustek.localhost
   '';
   # networking.interfaces.eno1.ipv6.addresses = [ ];
 
   networking.nameservers = [
-    "127.0.0.1"
+    "9.9.9.9"
+    # "127.0.0.1"
     # "::1"
     "1.1.1.1"
   ];

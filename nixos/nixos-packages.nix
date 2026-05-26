@@ -13,6 +13,7 @@
     docker-buildx
     python312
     home-manager
+    sshuttle
     # extra-utils
 
     # 🧰 Build & Printing Stack

@@ -29,6 +29,7 @@
     playwright-mcp
     lens
     wakatime-cli
+    tea
 
     # 🧠 Development Tools
     prettier

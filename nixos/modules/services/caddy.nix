@@ -1,7 +1,7 @@
 { ... }:
 {
   services.caddy = {
-    enable = true;
+    enable = false;
 
     globalConfig = ''
       servers {
