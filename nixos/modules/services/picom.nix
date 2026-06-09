@@ -208,6 +208,10 @@ let
         shadow = false;
       },
       {
+        match = "_PICOM_SINGLE_TILED@ = 1";
+        corner-radius = 0;
+      },
+      {
         match = "window_type *= 'dropdown_menu' || window_type *= 'popup_menu' || window_type *= 'tooltip'";
         blur-background = false;
         shadow = false;
