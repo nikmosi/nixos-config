@@ -1,64 +1,176 @@
 { lib, pkgs, ... }:
 
 let
-  animationProfiles = {
-    fast = ''
+  mkAnimationProfile =
+    {
+      openDuration,
+      closeDuration,
+      showDuration,
+      hideDuration,
+      openScale,
+      openOffsetFactor,
+      hiddenScale,
+      hiddenOffsetFactor,
+    }:
+    ''
       animations = (
         {
           triggers = [ "open" ];
-          preset = "appear";
-          scale = 1.03;
-          duration = 0.10;
+
+          opacity = {
+            curve = "cubic-bezier(0.16, 1, 0.3, 1)";
+            duration = ${openDuration};
+            start = 0;
+            end = "window-raw-opacity";
+          };
+          scale-x = {
+            curve = "cubic-bezier(0.22, 1.35, 0.36, 1)";
+            duration = ${openDuration};
+            start = ${openScale};
+            end = 1;
+          };
+          scale-y = "scale-x";
+          offset-x = {
+            curve = "cubic-bezier(0.22, 1.35, 0.36, 1)";
+            duration = ${openDuration};
+            start = "window-width * ${openOffsetFactor}";
+            end = 0;
+          };
+          offset-y = {
+            curve = "cubic-bezier(0.22, 1.35, 0.36, 1)";
+            duration = ${openDuration};
+            start = "window-height * ${openOffsetFactor} + 12";
+            end = 0;
+          };
+          shadow-scale-x = "scale-x";
+          shadow-scale-y = "scale-y";
+          shadow-offset-x = "offset-x";
+          shadow-offset-y = "offset-y";
         },
         {
           triggers = [ "close" ];
-          preset = "disappear";
-          scale = 1.03;
-          duration = 0.08;
+
+          opacity = {
+            curve = "cubic-bezier(0.7, 0, 0.84, 0)";
+            duration = ${closeDuration};
+            start = "window-raw-opacity-before";
+            end = 0;
+          };
+          scale-x = {
+            curve = "cubic-bezier(0.7, 0, 0.84, 0)";
+            duration = ${closeDuration};
+            start = 1;
+            end = ${hiddenScale};
+          };
+          scale-y = "scale-x";
+          offset-x = {
+            curve = "cubic-bezier(0.7, 0, 0.84, 0)";
+            duration = ${closeDuration};
+            start = 0;
+            end = "window-width * ${hiddenOffsetFactor}";
+          };
+          offset-y = {
+            curve = "cubic-bezier(0.7, 0, 0.84, 0)";
+            duration = ${closeDuration};
+            start = 0;
+            end = "window-height * ${hiddenOffsetFactor} + 10";
+          };
+          shadow-scale-x = "scale-x";
+          shadow-scale-y = "scale-y";
+          shadow-offset-x = "offset-x";
+          shadow-offset-y = "offset-y";
         },
         {
           triggers = [ "show" ];
-          preset = "slide-in";
-          direction = "up";
-          duration = 0.08;
+
+          opacity = {
+            curve = "cubic-bezier(0.16, 1, 0.3, 1)";
+            duration = ${showDuration};
+            start = 0;
+            end = "window-raw-opacity";
+          };
+          scale-x = {
+            curve = "cubic-bezier(0.16, 1, 0.3, 1)";
+            duration = ${showDuration};
+            start = ${hiddenScale};
+            end = 1;
+          };
+          scale-y = "scale-x";
+          offset-x = {
+            curve = "cubic-bezier(0.16, 1, 0.3, 1)";
+            duration = ${showDuration};
+            start = "window-width * ${hiddenOffsetFactor}";
+            end = 0;
+          };
+          offset-y = {
+            curve = "cubic-bezier(0.16, 1, 0.3, 1)";
+            duration = ${showDuration};
+            start = "window-height * ${hiddenOffsetFactor} + 16";
+            end = 0;
+          };
+          shadow-scale-x = "scale-x";
+          shadow-scale-y = "scale-y";
+          shadow-offset-x = "offset-x";
+          shadow-offset-y = "offset-y";
         },
         {
           triggers = [ "hide" ];
-          preset = "slide-out";
-          direction = "down";
-          duration = 0.08;
+
+          opacity = {
+            curve = "cubic-bezier(0.7, 0, 0.84, 0)";
+            duration = ${hideDuration};
+            start = "window-raw-opacity-before";
+            end = 0;
+          };
+          scale-x = {
+            curve = "cubic-bezier(0.7, 0, 0.84, 0)";
+            duration = ${hideDuration};
+            start = 1;
+            end = ${hiddenScale};
+          };
+          scale-y = "scale-x";
+          offset-x = {
+            curve = "cubic-bezier(0.7, 0, 0.84, 0)";
+            duration = ${hideDuration};
+            start = 0;
+            end = "window-width * ${hiddenOffsetFactor}";
+          };
+          offset-y = {
+            curve = "cubic-bezier(0.7, 0, 0.84, 0)";
+            duration = ${hideDuration};
+            start = 0;
+            end = "window-height * ${hiddenOffsetFactor} + 16";
+          };
+          shadow-scale-x = "scale-x";
+          shadow-scale-y = "scale-y";
+          shadow-offset-x = "offset-x";
+          shadow-offset-y = "offset-y";
         }
       );
     '';
 
-    veryFast = ''
-      animations = (
-        {
-          triggers = [ "open" ];
-          preset = "appear";
-          scale = 1.02;
-          duration = 0.07;
-        },
-        {
-          triggers = [ "close" ];
-          preset = "disappear";
-          scale = 1.02;
-          duration = 0.06;
-        },
-        {
-          triggers = [ "show" ];
-          preset = "slide-in";
-          direction = "up";
-          duration = 0.06;
-        },
-        {
-          triggers = [ "hide" ];
-          preset = "slide-out";
-          direction = "down";
-          duration = 0.06;
-        }
-      );
-    '';
+  animationProfiles = {
+    fast = mkAnimationProfile {
+      openDuration = "0.10";
+      closeDuration = "0.08";
+      showDuration = "0.08";
+      hideDuration = "0.08";
+      openScale = "0.92";
+      openOffsetFactor = "0.04";
+      hiddenScale = "0.95";
+      hiddenOffsetFactor = "0.025";
+    };
+
+    veryFast = mkAnimationProfile {
+      openDuration = "0.07";
+      closeDuration = "0.06";
+      showDuration = "0.06";
+      hideDuration = "0.06";
+      openScale = "0.90";
+      openOffsetFactor = "0.05";
+      hiddenScale = "0.94";
+      hiddenOffsetFactor = "0.03";
+    };
   };
 
   chosenProfile = animationProfiles.veryFast;
