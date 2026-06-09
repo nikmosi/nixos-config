@@ -29,6 +29,12 @@
     lens
     wakatime-cli
     tea
+    curtail
+    croc
+    models-dev
+    zotero
+    trufflehog
+    blanket
 
     # 🧠 Development Tools
     prettier

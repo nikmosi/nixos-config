@@ -18,7 +18,7 @@
     "9.9.9.9"
     # "127.0.0.1"
     # "::1"
-    "1.1.1.1"
+    "192.168.3.10"
   ];
 
   # Configure network proxy if necessary
