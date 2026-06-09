@@ -11,7 +11,7 @@
     clang
     clang-tools
     docker-buildx
-    python312
+    python314
     home-manager
     sshuttle
     # extra-utils

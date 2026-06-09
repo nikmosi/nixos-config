@@ -10,6 +10,7 @@ in
   programs.yazi = {
     enable = true;
     enableNushellIntegration = true;
+    shellWrapperName = "yy";
     settings = {
       flavors.use = "dracula";
       max_width = 500;

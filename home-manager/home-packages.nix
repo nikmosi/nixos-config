@@ -22,7 +22,6 @@
     systemctl-tui
     lazyjournal
     lazysql
-    kdash
     playwright
     playwright-driver
     playwright-mcp
@@ -255,7 +254,6 @@
     gamemode
     gamescope
     steam-run-free
-    wineWow64Packages.full
 
     # 🔠 Fonts
     material-icons

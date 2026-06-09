@@ -4,7 +4,6 @@
   programs.nix-ld.libraries = with pkgs; [
     gcc
     libgcc
-    wineWowPackages.full
     wineWow64Packages.full
     glibc
     libGL
@@ -12,13 +11,13 @@
     gnutls
     krb5
     samba
-    xorg.libX11
+    libx11
     libcap
     cups
     gettext
     dbus
     cairo
-    unixODBC
+    unixodbc
     samba4
     ncurses
     libva
@@ -29,7 +28,7 @@
     libkrb5
     fontconfig
     alsa-lib
-    xorg.libXinerama
+    libxinerama
     udev
     vulkan-loader
     SDL2
@@ -50,14 +49,14 @@
     libGL
     mesa
     libdrm
-    xorg.libX11
-    xorg.libXcomposite
-    xorg.libXcursor
-    xorg.libXext
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXrandr
-    xorg.libXrender
-    xorg.libXxf86vm
+    libx11
+    libxcomposite
+    libxcursor
+    libxext
+    libxfixes
+    libxi
+    libxrandr
+    libxrender
+    libxxf86vm
   ];
 }

@@ -4,47 +4,45 @@
     enable = true;
     enableDefaultConfig = false;
 
-    matchBlocks = {
+    settings = {
 
       "*" = {
-        addKeysToAgent = "yes";
-        compression = true;
-        setEnv = {
+        AddKeysToAgent = "yes";
+        Compression = true;
+        SetEnv = {
           TERM = "xterm-256color";
         };
-        serverAliveInterval = 60;
-        serverAliveCountMax = 3;
+        ServerAliveInterval = 60;
+        ServerAliveCountMax = 3;
 
-        forwardAgent = true;
-        forwardX11 = false;
+        ForwardAgent = true;
+        ForwardX11 = false;
 
-        identityFile = [ "~/.ssh/common" ];
+        IdentityFile = [ "~/.ssh/common" ];
 
-        extraOptions = {
-          TCPKeepAlive = "yes";
-          StrictHostKeyChecking = "accept-new";
-        };
+        TCPKeepAlive = true;
+        StrictHostKeyChecking = "accept-new";
       };
 
       "note" = {
-        hostname = "192.168.3.10";
-        port = 63544;
+        HostName = "192.168.3.10";
+        Port = 63544;
       };
 
       "router" = {
-        user = "root";
-        hostname = "192.168.1.1";
-        port = 22;
+        User = "root";
+        HostName = "192.168.1.1";
+        Port = 22;
       };
 
       "vpn-timeweb" = {
-        hostname = "ollama.nikflora.ru";
-        port = 22;
+        HostName = "ollama.nikflora.ru";
+        Port = 22;
       };
 
       "vpn-moscow" = {
-        hostname = "rus.nikflora.ru";
-        port = 22;
+        HostName = "rus.nikflora.ru";
+        Port = 22;
       };
     };
 
