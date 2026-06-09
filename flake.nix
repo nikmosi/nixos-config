@@ -88,6 +88,8 @@
             username = "nik";
             system = "x86_64-linux";
             hostname = "nixos";
+            systemStateVersion = "26.05";
+            homeStateVersion = "26.05";
           };
 
           unstablePkgs = import inputs."unstable-nix" {

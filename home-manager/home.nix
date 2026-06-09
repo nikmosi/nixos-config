@@ -7,7 +7,7 @@
   xdg.enable = true;
   home.username = userSettings.username;
   home.homeDirectory = "/home/${userSettings.username}";
-  home.stateVersion = "26.05";
+  home.stateVersion = userSettings.homeStateVersion;
 
   fonts.fontconfig.enable = true;
 

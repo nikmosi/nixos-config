@@ -26,7 +26,6 @@
     # 🔊 Audio / Sound
     pulseaudioFull
     qjackctl
-    helvum
 
     # 🌐 Networking / VPN
     mtr
