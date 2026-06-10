@@ -222,6 +222,12 @@ let
         shadow = false;
       },
       {
+        match = "class_g ?= 'slop' || class_i ?= 'slop' || name ?= 'slop'";
+        blur-background = false;
+        shadow = false;
+        corner-radius = 0;
+      },
+      {
         match = "class_g = 'Alacritty' || class_g = 'kitty' || class_g = 'foot'";
         opacity = 0.98;
       }

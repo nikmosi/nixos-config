@@ -1,4 +1,4 @@
-{ unstable, ... }:
+{ lib, unstable, ... }:
 {
   programs.neovim = {
     enable = true;
@@ -10,4 +10,7 @@
     withPython3 = true;
     withRuby = true;
   };
+
+  # Keep the existing init.lua from the dotfiles-managed nvim directory.
+  xdg.configFile."nvim/init.lua".enable = lib.mkForce false;
 }
