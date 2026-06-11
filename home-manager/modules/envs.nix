@@ -19,6 +19,16 @@ in
       path = "/home/nik/git-repos/DO11/src/terraform/.envrc";
       mode = "0400";
     };
+
+    secrets."api_keys/github/nikmosi" = { };
+
+    templates."nix.conf" = {
+      content = ''
+        access-tokens = github.com=${config.sops.placeholder."api_keys/github/nikmosi"}
+      '';
+      path = "${configDir}/nix/nix.conf";
+      mode = "0400";
+    };
   };
 
 }

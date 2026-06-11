@@ -107,6 +107,18 @@
         "git@github.com:" = {
           insteadOf = "https://github.com/";
         };
+        "https://github.com/cachix/" = {
+          insteadOf = "https://github.com/cachix/";
+        };
+        "https://github.com/NixOS/" = {
+          insteadOf = "https://github.com/NixOS/";
+        };
+        "https://github.com/yannh/" = {
+          insteadOf = "https://github.com/yannh/";
+        };
+        "https://github.com/datreeio/" = {
+          insteadOf = "https://github.com/datreeio/";
+        };
       };
       transfer.fsckobjects = true;
       fetch.fsckobjects = true;
