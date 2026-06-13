@@ -34,6 +34,7 @@
     zotero
     trufflehog
     blanket
+    thunderbird
 
     # 🧠 Development Tools
     prettier
