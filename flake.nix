@@ -56,7 +56,7 @@
           };
 
           unstablePkgs = import inputs."unstable-nix" {
-            system = userSettings.system;
+            inherit (userSettings) system;
             config.allowUnfree = true;
           };
         in

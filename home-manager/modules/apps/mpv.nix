@@ -70,60 +70,62 @@ in
     };
   };
 
-  home.file.".config/mpv/input.conf" = {
-    text = ''
-      q quit_watch_later
-      Q quit
-      CTRL+1 no-osd change-list glsl-shaders set "${anime4kModeAHq}"; show-text "Anime4K: Mode A (HQ)"
-      CTRL+2 no-osd change-list glsl-shaders set "${anime4kModeBHq}"; show-text "Anime4K: Mode B (HQ)"
-      CTRL+3 no-osd change-list glsl-shaders set "${anime4kModeCHq}"; show-text "Anime4K: Mode C (HQ)"
-      CTRL+4 no-osd change-list glsl-shaders set "${anime4kModeAAHq}"; show-text "Anime4K: Mode A+A (HQ)"
-      CTRL+5 no-osd change-list glsl-shaders set "${anime4kModeBBHq}"; show-text "Anime4K: Mode B+B (HQ)"
-      CTRL+6 no-osd change-list glsl-shaders set "${anime4kModeCAHq}"; show-text "Anime4K: Mode C+A (HQ)"
-      CTRL+0 no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"
-    '';
-  };
-
-  home.file.".config/mpv/shaders" = {
-    source = "${anime4k}/glsl";
-    recursive = true;
-  };
-
-  home.file.".config/mpv/scripts/recent.lua" = {
-    source = builtins.fetchurl {
-      url = "https://raw.githubusercontent.com/nikmosi/recent/master/recent.lua";
-      sha256 = "sha256:1kc998vyq43jijrflsp2fn79b52fp6pblr2hc01gwynd2msdki4v";
+  home.file = {
+    ".config/mpv/input.conf" = {
+      text = ''
+        q quit_watch_later
+        Q quit
+        CTRL+1 no-osd change-list glsl-shaders set "${anime4kModeAHq}"; show-text "Anime4K: Mode A (HQ)"
+        CTRL+2 no-osd change-list glsl-shaders set "${anime4kModeBHq}"; show-text "Anime4K: Mode B (HQ)"
+        CTRL+3 no-osd change-list glsl-shaders set "${anime4kModeCHq}"; show-text "Anime4K: Mode C (HQ)"
+        CTRL+4 no-osd change-list glsl-shaders set "${anime4kModeAAHq}"; show-text "Anime4K: Mode A+A (HQ)"
+        CTRL+5 no-osd change-list glsl-shaders set "${anime4kModeBBHq}"; show-text "Anime4K: Mode B+B (HQ)"
+        CTRL+6 no-osd change-list glsl-shaders set "${anime4kModeCAHq}"; show-text "Anime4K: Mode C+A (HQ)"
+        CTRL+0 no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"
+      '';
     };
-  };
 
-  home.file.".config/mpv/scripts/${translate_subs}.lua" = {
-    text = ''
-      local msg = require 'mp.msg'
-      local utils = require 'mp.utils'
+    ".config/mpv/shaders" = {
+      source = "${anime4k}/glsl";
+      recursive = true;
+    };
 
-      function translate_sub()
-          local sub_text = mp.get_property("sub-text")
-          if not sub_text or sub_text == "" then
-              mp.osd_message("No subtitles available")
-              return
-          end
+    ".config/mpv/scripts/recent.lua" = {
+      source = builtins.fetchurl {
+        url = "https://raw.githubusercontent.com/nikmosi/recent/master/recent.lua";
+        sha256 = "sha256:1kc998vyq43jijrflsp2fn79b52fp6pblr2hc01gwynd2msdki4v";
+      };
+    };
 
-          -- External call to your translator script (e.g., using curl and jq)
-          local args = {
-              "bash", "-c",
-              string.format("trans -b -t ru \"%s\"", sub_text)
-          }
+    ".config/mpv/scripts/${translate_subs}.lua" = {
+      text = ''
+        local msg = require 'mp.msg'
+        local utils = require 'mp.utils'
 
-          local res = utils.subprocess({ args = args, cancellable = false })
-          if res.status == 0 then
-              mp.osd_message("→ " .. res.stdout, 4)
-          else
-              mp.osd_message("Translation failed")
-          end
-      end
+        function translate_sub()
+            local sub_text = mp.get_property("sub-text")
+            if not sub_text or sub_text == "" then
+                mp.osd_message("No subtitles available")
+                return
+            end
 
-      mp.add_key_binding("F9", "translate-sub", translate_sub)
-    '';
+            -- External call to your translator script (e.g., using curl and jq)
+            local args = {
+                "bash", "-c",
+                string.format("trans -b -t ru \"%s\"", sub_text)
+            }
+
+            local res = utils.subprocess({ args = args, cancellable = false })
+            if res.status == 0 then
+                mp.osd_message("→ " .. res.stdout, 4)
+            else
+                mp.osd_message("Translation failed")
+            end
+        end
+
+        mp.add_key_binding("F9", "translate-sub", translate_sub)
+      '';
+    };
   };
 
 }

@@ -2,9 +2,7 @@
 {
   programs.rofi = {
     enable = true;
-    plugins = with pkgs; [
-      rofi-calc
-    ];
+    plugins = with pkgs; [ rofi-calc ];
     terminal = "${pkgs.alacritty}/bin/alacritty";
   };
   home.file.".config/rofi/themes/custom.rasi".text = ''

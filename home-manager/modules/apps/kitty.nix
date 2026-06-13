@@ -1,4 +1,4 @@
-{ ... }:
+_:
 let
   kittyConfig = {
     # Cursor settings
@@ -44,6 +44,6 @@ in
     enable = true;
     themeFile = "tokyo_night_night";
     settings = kittyConfig;
-    extraConfig = extraConfig;
+    inherit extraConfig;
   };
 }

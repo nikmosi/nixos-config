@@ -1,10 +1,16 @@
 { pkgs, ... }:
 {
-  boot.supportedFilesystems = [ "ntfs" ];
-  boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = [ "consoleblank=300" ];
+  boot = {
+    supportedFilesystems = [ "ntfs" ];
+    kernelPackages = pkgs.linuxPackages;
+    kernelParams = [ "consoleblank=300" ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
-  boot.loader.efi.canTouchEfiVariables = true;
+    loader = {
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 5;
+      };
+      efi.canTouchEfiVariables = true;
+    };
+  };
 }

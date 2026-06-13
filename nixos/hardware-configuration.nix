@@ -9,51 +9,53 @@
 }:
 
 {
-  imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
-  ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [
-    "xhci_pci"
-    "ahci"
-    "nvme"
-    "usbhid"
-    "usb_storage"
-    "sd_mod"
-  ];
-  boot.kernelParams = [ "systemd.watchdog_dev=none" ];
-  boot.blacklistedKernelModules = [ "iTCO_wdt" ];
-  boot.initrd.kernelModules = [
-    "nvme"
-    "btrfs"
-    "usbhid"
-    "zram"
-  ];
-  boot.kernelModules = [
-    "nvidia"
-    "tun"
-    "nvidia_modsetf"
-    "nvidia_uvm"
-  ];
-  boot.extraModulePackages = [ ];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/ae82fd0c-09e2-4679-b3d3-4ca06b6c5846";
-    fsType = "btrfs";
-  };
-
-  fileSystems."/mnt/storage" = {
-    device = "UUID=695be6a7-1b77-4e63-81c9-64259e239e28";
-    fsType = "ext4";
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/F24C-3900";
-    fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
+  boot = {
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "ahci"
+      "nvme"
+      "usbhid"
+      "usb_storage"
+      "sd_mod"
     ];
+    kernelParams = [ "systemd.watchdog_dev=none" ];
+    blacklistedKernelModules = [ "iTCO_wdt" ];
+    initrd.kernelModules = [
+      "nvme"
+      "btrfs"
+      "usbhid"
+      "zram"
+    ];
+    kernelModules = [
+      "nvidia"
+      "tun"
+      "nvidia_modsetf"
+      "nvidia_uvm"
+    ];
+    extraModulePackages = [ ];
+  };
+
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/ae82fd0c-09e2-4679-b3d3-4ca06b6c5846";
+      fsType = "btrfs";
+    };
+
+    "/mnt/storage" = {
+      device = "UUID=695be6a7-1b77-4e63-81c9-64259e239e28";
+      fsType = "ext4";
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/F24C-3900";
+      fsType = "vfat";
+      options = [
+        "fmask=0077"
+        "dmask=0077"
+      ];
+    };
   };
 
   # swapDevices = [

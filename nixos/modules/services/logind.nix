@@ -1,3 +1,1 @@
-{
-  services.logind.settings.Login.KillUserProcesses = true;
-}
+{ services.logind.settings.Login.KillUserProcesses = true; }

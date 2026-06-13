@@ -1,7 +1,6 @@
 { pkgs, unstable, ... }:
 let
   uplinkInterface = "eno1";
-  hostIPv4 = "192.168.3.2";
 in
 {
   boot.kernel.sysctl = {

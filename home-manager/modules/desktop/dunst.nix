@@ -6,7 +6,9 @@
       global = {
         timeout = 45;
         stack_duplicates = true;
-        format = "<i>%i</i> <b>%s</b>\n%b";
+        format = ''
+          <i>%i</i> <b>%s</b>
+          %b'';
         separator_height = 2;
         padding = 12;
         transparency = 5;

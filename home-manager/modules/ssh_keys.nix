@@ -18,24 +18,26 @@ in
     defaultSopsFile = ../../secrets/personal.yaml;
     gnupg.home = "${config.home.homeDirectory}/.gnupg";
 
-    secrets."ssh/common" = {
-      path = "${sshDir}/common";
-      mode = "0400";
-    };
+    secrets = {
+      "ssh/common" = {
+        path = "${sshDir}/common";
+        mode = "0400";
+      };
 
-    secrets."ssh/common_pub" = {
-      path = "${sshDir}/common.pub";
-      mode = "0644";
-    };
+      "ssh/common_pub" = {
+        path = "${sshDir}/common.pub";
+        mode = "0644";
+      };
 
-    secrets."ssh/id_ecdsa" = {
-      path = "${sshDir}/id_ecdsa";
-      mode = "0400";
-    };
+      "ssh/id_ecdsa" = {
+        path = "${sshDir}/id_ecdsa";
+        mode = "0400";
+      };
 
-    secrets."ssh/id_ecdsa_pub" = {
-      path = "${sshDir}/id_ecdsa.pub";
-      mode = "0644";
+      "ssh/id_ecdsa_pub" = {
+        path = "${sshDir}/id_ecdsa.pub";
+        mode = "0644";
+      };
     };
   };
 

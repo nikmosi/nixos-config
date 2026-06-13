@@ -3,8 +3,6 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 {
-  pkgs,
-  inputs,
   userSettings,
   ...
 }:
@@ -23,32 +21,28 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  nix.settings.auto-optimise-store = true;
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  nix.settings.substituters = [
-    "https://cache.nixos.org/"
-    "https://cache.garnix.io"
-  ];
-  nix.settings = {
-    trusted-users = [
-      "root"
-      "@wheel"
-    ];
-    trusted-public-keys = [
-      "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-    ];
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      substituters = [
+        "https://cache.nixos.org/"
+        "https://cache.garnix.io"
+      ];
+      trusted-users = [
+        "root"
+        "@wheel"
+      ];
+      trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+    };
+    optimise = {
+      automatic = true;
+      dates = [ "03:45" ];
+    };
   };
-
-  # nix.settings.trusted-public-keys = [
-  #   "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
-  # ];
-
-  # nix.settings.auto-optimise-store = true;
-  nix.optimise.automatic = true;
-  nix.optimise.dates = [ "03:45" ];
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

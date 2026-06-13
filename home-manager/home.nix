@@ -5,9 +5,11 @@
     ./home-packages.nix
   ];
   xdg.enable = true;
-  home.username = userSettings.username;
-  home.homeDirectory = "/home/${userSettings.username}";
-  home.stateVersion = userSettings.homeStateVersion;
+  home = {
+    inherit (userSettings) username;
+    homeDirectory = "/home/${userSettings.username}";
+    stateVersion = userSettings.homeStateVersion;
+  };
 
   fonts.fontconfig.enable = true;
 
