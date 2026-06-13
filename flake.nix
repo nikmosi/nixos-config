@@ -21,9 +21,6 @@
     stylix.url = "github:danth/stylix/release-26.05";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
-    pre-commit-hooks.url = "github:cachix/git-hooks.nix";
-    pre-commit-hooks.inputs.nixpkgs.follows = "nixpkgs";
-
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -41,45 +38,11 @@
       nixpkgs,
       flake-parts,
       home-manager,
-      pre-commit-hooks,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # All systems that will get perSystem outputs (devShells, checks, etc.)
       systems = nixpkgs.lib.systems.flakeExposed;
-
-      perSystem =
-        {
-          system,
-          pkgs,
-          config,
-          ...
-        }:
-        {
-          # `nix fmt`
-          formatter = pkgs.nixfmt-rfc-style;
-
-          # `nix flake check` → run pre-commit hooks
-          checks.pre-commit-check = pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = {
-              nixfmt-rfc-style.enable = true;
-            };
-          };
-
-          # `nix develop` → dev shell with hooks + nushell
-          devShells.default = pkgs.mkShell {
-            name = "conf";
-
-            # Packages required by enabled hooks
-            packages = config.checks.pre-commit-check.enabledPackages;
-
-            shellHook = ''
-              ${config.checks.pre-commit-check.shellHook}
-              exec nu
-            '';
-          };
-        };
 
       flake =
         let
