@@ -9,15 +9,10 @@
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
 
-    jellyfin-mpv-shim
     yandex-disk
     localsend
     navi
-    bottles
-    unstable.lutris-unwrapped
     unstable.opencode
-    fx
-    twitch-dl
     jetbrains.datagrip
     systemctl-tui
     lazyjournal
@@ -32,33 +27,21 @@
     croc
     models-dev
     zotero
-    trufflehog
     blanket
     thunderbird
 
     # 🧠 Development Tools
-    prettier
-    prettierd
     unstable.codex
     unstable.antigravity-fhs
     unstable.gemini-cli
-    yarn
     insomnia
     devenv
-    gcc
-    glib
-    lazycli
-    lazysql
     libgcc
     license-cli
-    lua
-    nodejs
     openjdk17
     pgcli
     stylua
     tokei
-    uv
-    vscode
     topiary
     pv
     hadolint
@@ -69,23 +52,12 @@
     terraform
     ansible
     kubernetes-helm
-    television
 
     # 💻 System / CLI Utilities
 
     handbrake
-    unstable.v2rayn
-    proxychains-ng
-    rename
-    sshs
     translate-shell
-    udisks
-    ueberzugpp
-    unrar
-    warp-terminal
     zbar
-    # serie
-    zip
 
     ## 🧠 System Monitoring & Info
     btop
@@ -97,13 +69,10 @@
 
     ## Rust
 
-    dust
-    bottom
     zenith
     procs
     hyperfine
     dysk
-    gping
     monolith
     dog
     tealdeer
@@ -134,7 +103,6 @@
     ## 🪄 Terminal Enhancements
     fzf
     sesh
-    translate-shell
     bemoji
     ueberzugpp
     ripdrag
@@ -142,7 +110,6 @@
     ## 🔗 Networking & Proxy
     sshs
     sshuttle
-    proxychains-ng
     httpie
     xh
 
@@ -224,11 +191,8 @@
     yaml-language-server
 
     # 🪟 GUI Applications
-    librewolf
     discord
     vesktop
-    drawio
-    easyeffects
     feh
     hyperhdr
     imv
@@ -237,7 +201,6 @@
     obs-studio
     obsidian
     pavucontrol
-    postman
     prismlauncher
     qbittorrent-enhanced
     telegrams.packages.${pkgs.stdenv.hostPlatform.system}.ayugram-desktop
@@ -245,16 +208,6 @@
 
     # 🧾 Custom GUI Scripts
     pkgs.chatterino2
-    # (pkgs.writeShellScriptBin "ModrinthApp" ''
-    #   #!/usr/bin/env bash
-    #   export WEBKIT_DISABLE_DMABUF_RENDERER=1
-    #   ${pkgs.modrinth-app-unwrapped}/bin/ModrinthApp "$@"
-    # '')
-
-    # 🎮 Gaming / Graphics
-    gamemode
-    gamescope
-    steam-run-free
 
     # 🔠 Fonts
     material-icons

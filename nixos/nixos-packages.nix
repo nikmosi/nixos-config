@@ -2,14 +2,10 @@
 {
   environment.systemPackages = with pkgs; [
     # 🧠 Development Tools
-    pre-commit
-    gcc
     gnumake
     check
     pkg-config
     lcov
-    clang
-    clang-tools
     docker-buildx
     python314
     home-manager
