@@ -29,6 +29,7 @@
     zotero
     blanket
     thunderbird
+    openssl
 
     # 🧠 Development Tools
     unstable.codex

@@ -12,6 +12,7 @@
     statix
     deadnix
     nix-output-monitor
+    nh
   ];
 
   languages.nix.enable = true;
@@ -19,10 +20,18 @@
   # https://devenv.sh/scripts/
   scripts = {
     rebuild.exec = ''
+      nh os switch . -H nixos
+    '';
+
+    "rebuild-fallback".exec = ''
       sudo nixos-rebuild switch --flake .#nixos
     '';
 
     home.exec = ''
+      nh home switch . -c nik
+    '';
+
+    "home-fallback".exec = ''
       home-manager switch --flake .#nik
     '';
 
@@ -39,10 +48,12 @@
   enterShell = ''
     echo "Welcome to ''${FLAKE_NAME} dev environment!"
     echo "Available commands:"
-    echo "  rebuild      - Switch NixOS configuration"
-    echo "  home         - Switch Home Manager configuration"
-    echo "  update       - Update flake inputs"
-    echo "  check-flake  - Run flake checks"
+    echo "  rebuild          - Switch NixOS configuration (via nh)"
+    echo "  rebuild-fallback - Switch NixOS configuration (via nixos-rebuild)"
+    echo "  home             - Switch Home Manager configuration (via nh)"
+    echo "  home-fallback    - Switch Home Manager configuration (via home-manager)"
+    echo "  update           - Update flake inputs"
+    echo "  check-flake      - Run flake checks"
   '';
 
   # https://devenv.sh/tests/
