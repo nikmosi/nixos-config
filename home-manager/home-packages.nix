@@ -30,6 +30,7 @@
     blanket
     thunderbird
     openssl
+    mgrep
 
     # 🧠 Development Tools
     unstable.codex
