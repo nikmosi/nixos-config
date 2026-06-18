@@ -31,6 +31,7 @@
     blanket
     thunderbird
     openssl
+    unstable.freelens-bin
 
     # 🧠 Development Tools
     unstable.codex
