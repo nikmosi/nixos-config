@@ -2,15 +2,15 @@
   description = "nikmosi's nixos configuration.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    stable.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-    unstable-nix.url = "github:NixOS/nixpkgs/nixos-unstable";
+    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager.url = "github:nix-community/home-manager/release-26.05";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "stable";
 
     sops-nix.url = "github:Mic92/sops-nix";
-    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    sops-nix.inputs.nixpkgs.follows = "stable";
 
     ayugram-desktop = {
       type = "git";
@@ -19,30 +19,30 @@
     };
 
     stylix.url = "github:danth/stylix/release-26.05";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
+    stylix.inputs.nixpkgs.follows = "stable";
 
     nur.url = "github:nix-community/NUR";
-    nur.inputs.nixpkgs.follows = "nixpkgs";
+    nur.inputs.nixpkgs.follows = "stable";
 
     flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
+    flake-parts.inputs.nixpkgs-lib.follows = "stable";
 
     # sing-box-extended = {
     #   url = "git+file:///home/nik/git-repos/sing-box-extended";
-    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.nixpkgs.follows = "stable";
     # };
   };
 
   outputs =
     inputs@{
-      nixpkgs,
+      stable,
       flake-parts,
       home-manager,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       # All systems that will get perSystem outputs (devShells, checks, etc.)
-      systems = nixpkgs.lib.systems.flakeExposed;
+      systems = stable.lib.systems.flakeExposed;
 
       flake =
         let
@@ -55,14 +55,14 @@
             homeStateVersion = "25.05";
           };
 
-          unstablePkgs = import inputs."unstable-nix" {
+          unstablePkgs = import inputs."unstable" {
             inherit (userSettings) system;
             config.allowUnfree = true;
           };
         in
         {
           nixosConfigurations = {
-            "${userSettings.hostname}" = nixpkgs.lib.nixosSystem {
+            "${userSettings.hostname}" = stable.lib.nixosSystem {
               specialArgs = {
                 inherit inputs;
                 unstable = unstablePkgs;
@@ -84,7 +84,7 @@
 
           homeConfigurations = {
             "${userSettings.username}" = home-manager.lib.homeManagerConfiguration {
-              pkgs = nixpkgs.legacyPackages.${userSettings.system};
+              pkgs = stable.legacyPackages.${userSettings.system};
               modules = [
                 # { home-manager.backupFileExtension = "backup"; }
                 inputs.sops-nix.homeManagerModules.sops
