@@ -20,6 +20,8 @@ in
 
       "api_keys/github/nikmosi" = { };
 
+      "api_keys/gh/oauth_token" = { };
+
       "opencode/context7_api_key" = {
         path = "${configDir}/opencode/secrets/context7_api_key";
         mode = "0400";
@@ -29,6 +31,20 @@ in
         path = "${configDir}/opencode/secrets/tavily_api_key";
         mode = "0400";
       };
+    };
+
+    templates."gh-hosts" = {
+      content = ''
+        github.com:
+            users:
+                nikmosi:
+                    oauth_token: ${config.sops.placeholder."api_keys/gh/oauth_token"}
+            git_protocol: ssh
+            user: nikmosi
+            oauth_token: ${config.sops.placeholder."api_keys/gh/oauth_token"}
+      '';
+      path = "${configDir}/gh/hosts.yml";
+      mode = "0600";
     };
 
     templates."nix.conf" = {

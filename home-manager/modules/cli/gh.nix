@@ -1,0 +1,17 @@
+_: {
+  xdg.configFile."gh/config.yml" = {
+    force = true;
+    text = ''
+      version: 1
+      git_protocol: https
+      editor:
+      prompt: enabled
+      prefer_editor_prompt: disabled
+      pager:
+      aliases:
+          co: pr checkout
+      http_unix_socket:
+      browser:
+    '';
+  };
+}

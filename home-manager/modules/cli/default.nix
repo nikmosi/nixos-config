@@ -1,25 +1,39 @@
 {
   imports = [
     ./atuin.nix
+    ./autostart.nix
     ./bash.nix
     ./bat.nix
+    ./broot.nix
+    ./btop.nix
     ./carapace.nix
+    ./direnv.nix
     ./docker.nix
     ./eza.nix
     ./fzf.nix
+    ./gh.nix
+    ./greenclip.nix
     ./git.nix
+    ./gpg.nix
     ./lazygit.nix
+    ./neofetch.nix
     ./neovim.nix
+    ./nushell.nix
     ./pass.nix
     ./ranger.nix
     ./ripgrep.nix
+    ./sioyek.nix
+    ./ssh.nix
     ./starship.nix
     ./tar.nix
+    ./television.nix
     ./tmux.nix
+    ./uair.nix
+    ./vale.nix
+    ./yandex-disk.nix
     ./yazi.nix
+    ./yt-dlp.nix
+    ./zed.nix
     ./zoxide.nix
-    ./ssh.nix
-    ./gpg.nix
-    ./direnv.nix
   ];
 }
