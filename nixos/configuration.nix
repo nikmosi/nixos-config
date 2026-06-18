@@ -14,6 +14,8 @@
     ./hardware-configuration.nix
   ];
 
+  programs.fuse.userAllowOther = true;
+
   # Set your time zone.
   time.timeZone = "Asia/Novosibirsk";
 

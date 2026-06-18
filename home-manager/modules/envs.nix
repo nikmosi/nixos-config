@@ -19,6 +19,16 @@ in
       };
 
       "api_keys/github/nikmosi" = { };
+
+      "opencode/context7_api_key" = {
+        path = "${configDir}/opencode/secrets/context7_api_key";
+        mode = "0400";
+      };
+
+      "opencode/tavily_api_key" = {
+        path = "${configDir}/opencode/secrets/tavily_api_key";
+        mode = "0400";
+      };
     };
 
     templates."nix.conf" = {

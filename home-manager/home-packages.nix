@@ -13,6 +13,7 @@
     localsend
     navi
     unstable.opencode
+    unstable.forgejo-mcp
     jetbrains.datagrip
     systemctl-tui
     lazyjournal
@@ -30,7 +31,6 @@
     blanket
     thunderbird
     openssl
-    mgrep
 
     # 🧠 Development Tools
     unstable.codex
