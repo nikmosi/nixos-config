@@ -6,5 +6,6 @@
 
     ./ssh_keys.nix
     ./envs.nix
+    ./flux.nix
   ];
 }

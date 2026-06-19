@@ -91,6 +91,7 @@
     sesh
     bemoji
     ueberzugpp
+    perk
 
     # 🧠 Development Tools
     insomnia
