@@ -1,6 +1,8 @@
 { unstable, ... }:
 {
+
   home.packages = with unstable; [
+
     # 🤖 AI / Agents
     opencode
     forgejo-mcp
@@ -8,6 +10,7 @@
     gemini-cli
     antigravity-fhs
     freelens-bin
+    lens
     ty
 
     # 🧪 Linters
@@ -80,6 +83,7 @@
     silicon
 
     # ⚡ CLI Tools (fast-moving)
+    fluxcd
     navi
     ripdrag
     xh
@@ -91,7 +95,7 @@
     sesh
     bemoji
     ueberzugpp
-    perk
+    prek
 
     # 🧠 Development Tools
     insomnia
