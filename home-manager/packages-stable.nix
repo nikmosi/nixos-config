@@ -24,6 +24,7 @@
       chatterino2
       zotero
       thunderbird
+      weave-gitops
 
       # 🔠 Fonts
       material-icons

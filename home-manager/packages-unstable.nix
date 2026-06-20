@@ -10,7 +10,6 @@
     gemini-cli
     antigravity-fhs
     freelens-bin
-    lens
     ty
 
     # 🧪 Linters
