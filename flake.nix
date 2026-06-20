@@ -77,7 +77,10 @@
                     inputs.nur.overlays.default
                     # inputs.sing-box-extended.overlays.default
                   ];
-                  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+                  nix.nixPath = [
+                    "nixpkgs=${inputs.stable}"
+                    "unstable=${inputs.unstable}"
+                  ];
                 }
               ];
             };

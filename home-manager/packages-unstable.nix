@@ -95,6 +95,7 @@
     bemoji
     ueberzugpp
     prek
+    fluxcd-operator
 
     # 🧠 Development Tools
     insomnia
