@@ -9,8 +9,7 @@
 {
   imports = [
     ./modules
-    ./packages-stable.nix
-    ./packages-unstable.nix
+    ./packages.nix
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];

@@ -3,8 +3,7 @@
   imports = [
     ./modules
     ./21-packages.nix
-    ./packages-stable.nix
-    ./packages-unstable.nix
+    ./packages.nix
   ];
   nixpkgs.config = {
     allowUnfree = true;
