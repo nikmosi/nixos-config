@@ -55,9 +55,12 @@
             homeStateVersion = "25.05";
           };
 
-          unstablePkgs = import inputs."unstable" {
-            inherit (userSettings) system;
-            config.allowUnfree = true;
+          # Overlay to expose unstable packages via pkgs.unstable
+          unstableOverlay = final: _: {
+            unstable = import inputs.unstable {
+              system = final.stdenv.hostPlatform.system;
+              config.allowUnfree = true;
+            };
           };
         in
         {
@@ -65,7 +68,6 @@
             "${userSettings.hostname}" = stable.lib.nixosSystem {
               specialArgs = {
                 inherit inputs;
-                unstable = unstablePkgs;
                 inherit userSettings;
               };
               modules = [
@@ -75,6 +77,7 @@
                   nixpkgs.hostPlatform = userSettings.system;
                   nixpkgs.overlays = [
                     inputs.nur.overlays.default
+                    unstableOverlay
                     # inputs.sing-box-extended.overlays.default
                   ];
                   nix.nixPath = [
@@ -88,7 +91,7 @@
 
           homeConfigurations = {
             "${userSettings.username}" = home-manager.lib.homeManagerConfiguration {
-              pkgs = stable.legacyPackages.${userSettings.system};
+              pkgs = stable.legacyPackages.${userSettings.system}.extend unstableOverlay;
               modules = [
                 # { home-manager.backupFileExtension = "backup"; }
                 inputs.sops-nix.homeManagerModules.sops
@@ -96,7 +99,6 @@
               ];
               extraSpecialArgs = {
                 inherit inputs;
-                unstable = unstablePkgs;
                 telegrams = inputs."ayugram-desktop";
                 inherit userSettings;
               };

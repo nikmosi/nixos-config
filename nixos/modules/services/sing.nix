@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }:
+{ pkgs, ... }:
 let
   uplinkInterface = "eno1";
 in
@@ -43,7 +43,7 @@ in
     # '';
     #
     serviceConfig = {
-      ExecStart = "${unstable.sing-box}/bin/sing-box run -c /etc/sing-box/config.json";
+      ExecStart = "${pkgs.unstable.sing-box}/bin/sing-box run -c /etc/sing-box/config.json";
       User = "root";
       Group = "root";
       CapabilityBoundingSet = [

@@ -1,6 +1,6 @@
-{ unstable, ... }:
+{ pkgs, ... }:
 {
-  environment.systemPackages = with unstable; [
+  environment.systemPackages = with pkgs.unstable; [
     sing-box
     sing-geoip
     sing-geosite
