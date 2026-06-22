@@ -49,6 +49,12 @@ _: {
         }
         source $zoxide_init
 
+        const atuin_dir = ($cache_dir | path join "atuin")
+        const atuin_init = ($atuin_dir | path join "init.nu")
+        mkdir $atuin_dir
+        atuin init nu | save -f $atuin_init
+        source $atuin_init
+
         let fish_completer = {|spans|
             fish --command $"complete '--do-complete=($spans | str join ' ')'"
             | from tsv --flexible --noheaders --no-infer
@@ -102,6 +108,7 @@ _: {
                 alembic => $fish_completer
                 ssh => $fish_completer
                 limactl => $fish_completer
+                sops => $fish_completer
                 _ => $carapace_completer
             }
             do $completer $spans

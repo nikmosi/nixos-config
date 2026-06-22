@@ -1,6 +1,7 @@
+{ pkgs, ... }:
 {
   programs.atuin = {
     enable = true;
-    enableNushellIntegration = true;
+    package = pkgs.unstable.atuin;
   };
 }
