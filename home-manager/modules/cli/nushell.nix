@@ -49,14 +49,8 @@ _: {
         }
         source $zoxide_init
 
-        const atuin_dir = ($cache_dir | path join "atuin")
-        const atuin_init = ($atuin_dir | path join "init.nu")
-        mkdir $atuin_dir
-        atuin init nu | save -f $atuin_init
-        source $atuin_init
-
         let fish_completer = {|spans|
-            fish --command $"complete '--do-complete=($spans | str join ' ')'"
+            ^fish --command $"complete '--do-complete=($spans | str join ' ')'" e> /dev/null
             | from tsv --flexible --noheaders --no-infer
             | rename value description
             | update value {
@@ -117,6 +111,12 @@ _: {
         $env.config = {
           show_banner: false
           edit_mode:  'vi'
+          history: {
+            max_size: 1000000
+            sync_on_enter: true
+            file_format: "sqlite"
+            isolation: true
+          }
           keybindings: [
             {
               name: edit_in_nvim
@@ -146,6 +146,16 @@ _: {
                 cmd: $"source '($user_env_path)';source '($user_config_path)'"
               }
             }
+            {
+              name: fzf_insert_path
+              modifier: CONTROL
+              keycode: Char_f
+              mode: [emacs vi_normal vi_insert]
+              event: {
+                send: executehostcommand
+                cmd: "let path = (fd --type f --type d | fzf --prompt='Path> '); if ($path | is-not-empty) { commandline edit --insert $path }"
+              }
+            }
           ]
           completions: {
             case_sensitive: false
@@ -162,6 +172,14 @@ _: {
           }
           menus: []
         }
+
+        const atuin_dir = ($cache_dir | path join "atuin")
+        const atuin_init = ($atuin_dir | path join "init.nu")
+        mkdir $atuin_dir
+        if not ($atuin_init | path exists) {
+            atuin init nu | save --force $atuin_init
+        }
+        source $atuin_init
 
         use ($custom_completions | path join "bat/bat-completions.nu") *
         use ($custom_completions | path join "gh/gh-completions.nu") *
