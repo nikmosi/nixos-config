@@ -1,7 +1,10 @@
 { config, ... }:
 {
   programs = {
-    difftastic.enable = true;
+    difftastic = {
+      enable = true;
+      git.enable = true;
+    };
     delta.enable = false;
     diff-so-fancy.enable = false;
     git = {

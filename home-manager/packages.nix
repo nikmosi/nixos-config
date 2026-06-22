@@ -101,7 +101,6 @@
       ueberzugpp
       prek
       fluxcd-operator
-      hunk
 
       # 🧠 Development Tools
       insomnia
