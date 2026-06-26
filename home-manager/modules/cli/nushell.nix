@@ -434,7 +434,9 @@ _: {
         alias tt = tail -f
         alias to_clip = xclip -sel clip
         alias x = xonsh
-        alias k = kubectl
+        alias k = kubecolor
+        alias kx = kubectx
+        alias ks = kubens
         alias c = codex
         alias d = devenv
         alias drag = ripdrag -a -x

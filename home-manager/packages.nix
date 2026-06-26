@@ -101,6 +101,15 @@
       ueberzugpp
       prek
       fluxcd-operator
+      kubecolor
+      kubectx
+      kube-score
+      kubectl-explore
+      kube-capacity
+      kubent
+      krew
+      handy
+      pi-coding-agent
 
       # 🧠 Development Tools
       insomnia
@@ -149,6 +158,7 @@
         zotero
         thunderbird
         weave-gitops
+        rustdesk
 
         # 🔠 Fonts
         material-icons
