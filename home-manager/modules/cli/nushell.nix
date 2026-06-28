@@ -65,7 +65,16 @@ _: {
         }
 
         let carapace_completer = {|spans: list<string>|
-            let raw = ( carapace $spans.0 nushell ...$spans | from json )
+          # 1. Перехватываем ввод: если ввели kubecolor, меняем первый элемент на kubectl
+            let modified_spans = if ($spans.0 == "kubecolor") {
+                $spans | skip 1 | prepend "kubectl"
+            } else {
+                $spans
+            }
+
+            # 2. Передаем в carapace наш модифицированный массив (modified_spans вместо spans)
+            let raw = ( carapace $modified_spans.0 nushell ...$modified_spans | from json )
+              
             let completions = (
                 if ($raw | get value | into string | where $it =~ '^-.*ERR$' | is-empty) {
                     $raw
@@ -153,7 +162,7 @@ _: {
               mode: [emacs vi_normal vi_insert]
               event: {
                 send: executehostcommand
-                cmd: "let path = (fd --type f --type d | fzf --prompt='Path> '); if ($path | is-not-empty) { commandline edit --insert $path }"
+                cmd: "let path = (fd --type f --type d --no-ignore | fzf --prompt='Path> '); if ($path | is-not-empty) { commandline edit --insert $path }"
               }
             }
           ]

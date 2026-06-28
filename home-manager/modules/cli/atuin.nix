@@ -7,6 +7,7 @@
     settings = {
       show_preview = true;
       style = "compact";
+      inline_height = 15;
       secrets_filter = true;
 
       history_filter = [

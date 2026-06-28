@@ -2,7 +2,6 @@
 {
   imports = [
     ./modules
-    ./21-packages.nix
     ./packages.nix
   ];
   nixpkgs.config = {

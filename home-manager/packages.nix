@@ -141,6 +141,7 @@
       with pkgs;
       [
         # 🪟 GUI Applications
+        super-productivity
         discord
         vesktop
         feh
