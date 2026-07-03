@@ -110,6 +110,7 @@
       krew
       handy
       pi-coding-agent
+      nodejs
 
       # 🧠 Development Tools
       insomnia

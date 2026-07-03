@@ -110,6 +110,7 @@ _: {
                 nh => $fish_completer
                 alembic => $fish_completer
                 ssh => $fish_completer
+                flux => $fish_completer
                 limactl => $fish_completer
                 sops => $fish_completer
                 _ => $carapace_completer
