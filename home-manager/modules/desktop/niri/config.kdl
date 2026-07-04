@@ -35,30 +35,30 @@ output "DP-2" {
 }
 
 // Named workspaces — 6 numbered per screen + app-specific.
-// Declared in reverse so niri displays them in order (it prepends new ones).
+// Niri displays them in declaration order on fresh start.
 // DP-1 (left): 一二三四五六 + web + minecraft
-workspace "minecraft" { open-on-output "DP-1"; }
-workspace "web" { open-on-output "DP-1"; }
-workspace "六" { open-on-output "DP-1"; }
-workspace "五" { open-on-output "DP-1"; }
-workspace "四" { open-on-output "DP-1"; }
-workspace "三" { open-on-output "DP-1"; }
-workspace "二" { open-on-output "DP-1"; }
 workspace "一" { open-on-output "DP-1"; }
+workspace "二" { open-on-output "DP-1"; }
+workspace "三" { open-on-output "DP-1"; }
+workspace "四" { open-on-output "DP-1"; }
+workspace "五" { open-on-output "DP-1"; }
+workspace "六" { open-on-output "DP-1"; }
+workspace "web" { open-on-output "DP-1"; }
+workspace "minecraft" { open-on-output "DP-1"; }
 
 // DP-2 (right): 七八九十一十二 + app-specific
-workspace "easyeffects" { open-on-output "DP-2"; }
-workspace "superprod" { open-on-output "DP-2"; }
-workspace "localsend" { open-on-output "DP-2"; }
-workspace "chatterino" { open-on-output "DP-2"; }
-workspace "telegram" { open-on-output "DP-2"; }
-workspace "discord" { open-on-output "DP-2"; }
-workspace "十二" { open-on-output "DP-2"; }
-workspace "十一" { open-on-output "DP-2"; }
-workspace "十" { open-on-output "DP-2"; }
-workspace "九" { open-on-output "DP-2"; }
-workspace "八" { open-on-output "DP-2"; }
 workspace "七" { open-on-output "DP-2"; }
+workspace "八" { open-on-output "DP-2"; }
+workspace "九" { open-on-output "DP-2"; }
+workspace "十" { open-on-output "DP-2"; }
+workspace "十一" { open-on-output "DP-2"; }
+workspace "十二" { open-on-output "DP-2"; }
+workspace "discord" { open-on-output "DP-2"; }
+workspace "telegram" { open-on-output "DP-2"; }
+workspace "chatterino" { open-on-output "DP-2"; }
+workspace "localsend" { open-on-output "DP-2"; }
+workspace "superprod" { open-on-output "DP-2"; }
+workspace "easyeffects" { open-on-output "DP-2"; }
 
 layout {
     gaps 8
