@@ -36,6 +36,9 @@
       firefox = {
         enable = false;
       };
+      waybar = {
+        enable = false;
+      };
     };
 
     cursor = {

@@ -3,13 +3,14 @@
   programs.waybar = {
     enable = true;
     package = pkgs.waybar;
+    systemd.enable = false;
   };
 
   xdg.configFile."waybar/config".text = builtins.toJSON {
     layer = "top";
     position = "top";
-    height = 36;
-    spacing = 8;
+    height = 40;
+    spacing = 12;
 
     modules-left = [
       "niri/workspaces"
@@ -33,7 +34,6 @@
     "niri/window" = {
       format = "{}";
       max-length = 50;
-      rewrite = { };
     };
 
     clock = {
@@ -54,6 +54,8 @@
         ];
       };
       on-click = "pavucontrol";
+      on-click-middle = "$HOME/.local/bin/mute-source.sh";
+      on-click-right = "$HOME/.local/bin/cycle-source.sh";
       scroll-step = 5;
     };
 
@@ -77,14 +79,14 @@
     };
 
     tray = {
-      spacing = 8;
+      spacing = 12;
     };
   };
 
   xdg.configFile."waybar/style.css".text = ''
     * {
         font-family: "JetBrainsMono Nerd Font Mono", "Symbols Nerd Font Mono", "Noto Sans CJK JP";
-        font-size: 15px;
+        font-size: 28px;
     }
 
     window#waybar {
@@ -95,21 +97,21 @@
 
     .modules-left > widget,
     .modules-center > widget {
-        padding: 0 8px;
+        padding: 0 12px;
         margin: 4px 2px;
         background-color: #1f2335;
         border-radius: 6px;
     }
 
     .modules-right > widget {
-        padding: 0 10px;
-        margin: 4px 6px;
+        padding: 0 12px;
+        margin: 4px 12px;
         background-color: #1f2335;
         border-radius: 6px;
     }
 
     #workspaces button {
-        padding: 0 6px;
+        padding: 0 8px;
         color: #565f89;
         background: transparent;
         border-radius: 6px;
@@ -154,7 +156,7 @@
     }
 
     #tray {
-        padding: 0 6px;
+        padding: 0 8px;
     }
   '';
 }

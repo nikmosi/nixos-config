@@ -8,6 +8,7 @@
       zbar
       jq
       curl
+      pulseaudio
     ];
 
     file = {
@@ -115,6 +116,50 @@
               gb_total = t/1000000
               printf "󰍛 %.1f/%.1f GB\n", gb_used, gb_total
             }' /proc/meminfo
+        '';
+      };
+
+      # Cycle default audio source (microphone) to the next one.
+      ".local/bin/cycle-source.sh" = {
+        executable = true;
+        text = ''
+          #!/usr/bin/env bash
+          set -euo pipefail
+
+          sources=$(pactl list short sources | grep -v "\.monitor$" | awk '{print $2}')
+          if [ -z "$sources" ]; then
+            exit 0
+          fi
+
+          current=$(pactl get-default-source 2>/dev/null || echo "")
+          mapfile -t arr <<< "$sources"
+          count=''${#arr[@]}
+
+          idx=0
+          for i in "''${!arr[@]}"; do
+            if [ "''${arr[$i]}" = "$current" ]; then
+              idx=$(( (i + 1) % count ))
+              break
+            fi
+          done
+
+          pactl set-default-source "''${arr[$idx]}"
+          notify-send -t 2000 "Audio Source" "Switched to ''${arr[$idx]}"
+        '';
+      };
+
+      # Mute default audio source (microphone).
+      ".local/bin/mute-source.sh" = {
+        executable = true;
+        text = ''
+          #!/usr/bin/env bash
+          pactl set-source-mute @DEFAULT_SOURCE@ toggle
+          muted=$(pactl get-source-mute @DEFAULT_SOURCE@ 2>/dev/null | grep -o "yes\|no")
+          if [ "$muted" = "yes" ]; then
+            notify-send -t 1500 "Microphone" "Muted"
+          else
+            notify-send -t 1500 "Microphone" "Unmuted"
+          fi
         '';
       };
     };
