@@ -1,14 +1,15 @@
 {
-  imports = [
-    ./wms/awesome.nix
-    ./dms/lightdm.nix
-  ];
+  config,
+  lib,
+  ...
+}:
+
+lib.mkIf (config.nik.display.backend == "x11") {
+  hardware.nvidia.forceFullCompositionPipeline = true;
 
   services.xserver = {
     enable = true;
-    videoDrivers = [ "nvidia" ];
 
-    # Configure keymap in X11
     xkb.layout = "us";
     extraConfig = ''
       Section "Monitor"

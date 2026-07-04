@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   mkAnimationProfile =
@@ -234,7 +239,7 @@ let
     );
   '';
 in
-{
+lib.mkIf (config.nik.display.backend == "x11") {
   services.picom = {
     enable = true;
     package = pkgs.picom;

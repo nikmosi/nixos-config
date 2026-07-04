@@ -4,6 +4,7 @@
 
 {
   userSettings,
+  lib,
   ...
 }:
 {
@@ -13,6 +14,11 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
+
+  specialisation.x11-awesome.configuration = {
+    system.nixos.tags = [ "x11-awesome" ];
+    nik.display.backend = lib.mkForce "x11";
+  };
 
   programs.fuse.userAllowOther = true;
 

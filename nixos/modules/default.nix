@@ -3,6 +3,7 @@
     ./audio.nix
     ./boot.nix
     ./dconf.nix
+    ./display.nix
     ./env.nix
     ./fail2ban.nix
     ./hardware.nix
@@ -12,7 +13,10 @@
     ./steam.nix
     ./udev.nix
     ./users.nix
+    ./wayland.nix
     ./xserver.nix
+    ./wms/awesome.nix
+    ./dms/lightdm.nix
     ./zram.nix
     ./networking.nix
     ./virtualization.nix

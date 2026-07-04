@@ -41,6 +41,10 @@
       xclip
       xsel
       libnotify
+      wl-clipboard
+      grim
+      slurp
+      swaybg
 
       # 🐚 Shells
       fish

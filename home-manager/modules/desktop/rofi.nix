@@ -3,7 +3,7 @@
   programs.rofi = {
     enable = true;
     plugins = with pkgs; [ rofi-calc ];
-    terminal = "${pkgs.alacritty}/bin/alacritty";
+    terminal = "${pkgs.kitty}/bin/kitty";
   };
   home.file.".config/rofi/themes/custom.rasi".text = ''
     * {

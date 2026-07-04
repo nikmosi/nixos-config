@@ -1,10 +1,5 @@
-{ pkgs, ... }:
-let
-  awesomeLib = "${pkgs.awesome}/share/awesome/lib";
-in
-{
+_: {
   environment.sessionVariables = rec {
-    AWESOME_LIB = awesomeLib;
     TERMINAL = "kitty";
     MANPAGER = "nvim +Man!";
     EDITOR = "nvim";

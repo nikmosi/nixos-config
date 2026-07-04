@@ -8,6 +8,8 @@
         "--ignore-gpu-blocklist"
         "--enable-gpu-rasterization"
         "--enable-zero-copy"
+        "--ozone-platform=wayland"
+        "--enable-features=UseOzonePlatform,VaapiVideoDecoder"
       ];
     };
   };

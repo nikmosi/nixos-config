@@ -1,11 +1,14 @@
 {
   imports = [
-    ./clipmenu.nix
+    ./cliphist.nix
     ./desktop.nix
     ./dunst.nix
+    ./gammastep.nix
     ./mimeapps.nix
-    ./redshift.nix
+    ./niri.nix
     ./rofi.nix
+    ./screenshot.nix
     ./stylix.nix
+    ./waybar.nix
   ];
 }

@@ -7,8 +7,9 @@
     open = false;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     nvidiaSettings = true;
+    powerManagement.enable = true;
     powerManagement.finegrained = false;
-    powerManagement.enable = false;
-    forceFullCompositionPipeline = true;
   };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
 }

@@ -247,6 +247,13 @@
         localsend
         wakatime-cli
         models-dev
+
+        # 🪟 Wayland utilities
+        swaylock
+        swayidle
+        fuzzel
+        wlr-randr
+        brightnessctl
       ]
       ++ [
         telegrams.packages.${pkgs.stdenv.hostPlatform.system}.ayugram-desktop

@@ -1,0 +1,275 @@
+// Niri configuration — migrated from awesome-wm.
+// Verify output names with `niri msg outputs` and adjust if needed.
+
+input {
+    keyboard {
+        xkb {
+            layout "us,ru"
+            options "grp:alt_shift_toggle"
+        }
+        numlock
+    }
+
+    mouse {
+        accel-profile "flat"
+    }
+
+    touchpad {
+        accel-profile "flat"
+    }
+}
+
+// Outputs — adjust connector names after first launch via `niri msg outputs`.
+// Left monitor (was DP-0 in X11).
+output "DP-1" {
+    mode "2560x1440@165.00"
+    variable-refresh-rate
+    position x=0 y=0
+}
+
+// Right monitor (was DP-2 in X11).
+output "DP-2" {
+    mode "2560x1440@165.00"
+    variable-refresh-rate
+    position x=2560 y=0
+}
+
+// Named workspaces (migrated from awesome custom_tags + affinity).
+workspace "web" {
+    open-on-output "DP-1"
+}
+workspace "minecraft" {
+    open-on-output "DP-1"
+}
+workspace "discord" {
+    open-on-output "DP-2"
+}
+workspace "telegram" {
+    open-on-output "DP-2"
+}
+workspace "chatterino" {
+    open-on-output "DP-2"
+}
+workspace "localsend" {
+    open-on-output "DP-2"
+}
+workspace "superprod" {
+    open-on-output "DP-2"
+}
+workspace "easyeffects" {
+    open-on-output "DP-2"
+}
+
+layout {
+    gaps 8
+
+    focus-ring {
+        width 2
+        active-color "#8aadf3"
+        inactive-color "#494d64"
+        urgent-color "#ed8796"
+    }
+
+    border {
+        off
+    }
+
+    shadow {
+        on
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+
+    default-column-width { proportion 0.5; }
+
+    center-focused-column "never"
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/screenshots/%F_%T.png"
+
+spawn-at-startup "waybar"
+spawn-at-startup "swaybg" "-i" "/home/nik/.config/awesome/themes/1.jpg" "-m" "fill"
+spawn-at-startup "lxqt-policykit-agent"
+spawn-at-startup "gammastep-indicator"
+
+animations {
+    slowdown 1.0
+}
+
+// Window rules — migrated from awesome rules.lua.
+window-rule {
+    match app-id="firefox"
+    open-on-workspace "web"
+}
+
+window-rule {
+    match app-id="^(discord|vesktop|legcord|anilibrix)$"
+    open-on-workspace "discord"
+}
+
+window-rule {
+    match app-id="^(TelegramDesktop|ayugram-desktop|AyuGram)$"
+    open-on-workspace "telegram"
+}
+
+window-rule {
+    match app-id="chatterino"
+    open-on-workspace "chatterino"
+}
+
+window-rule {
+    match app-id="^(localsend|Localsend)$"
+    open-on-workspace "localsend"
+}
+
+window-rule {
+    match app-id="^(super-productivity|superProductivity)$"
+    open-on-workspace "superprod"
+}
+
+window-rule {
+    match app-id="^(easyeffects|nekoray|hiddify|v2rayN)$"
+    open-on-workspace "easyeffects"
+}
+
+window-rule {
+    match title="^Minecraft"
+    open-on-workspace "minecraft"
+}
+window-rule {
+    match app-id="^(steam_proton|epicgameslauncher.exe|rocketleague.exe|bakkesmod.exe)$"
+    open-on-workspace "minecraft"
+}
+
+window-rule {
+    match app-id="mpv"
+    open-floating true
+    default-column-width { proportion 0.8; }
+}
+
+window-rule {
+    match app-id="^(pavucontrol|qbittorrent|ripdrag|pinentry|ssh-askpass|Blueman-manager|Gpick)$"
+    open-floating true
+}
+
+window-rule {
+    match title="^(branchdialog|pinentry|Event Tester)$"
+    open-floating true
+}
+
+window-rule {
+    match app-id="bakkesmod.exe"
+    default-window-height { proportion 0.0; }
+}
+
+binds {
+    Mod+S { show-hotkey-overlay; }
+
+    // Tag/workspace navigation.
+    Mod+Left  { focus-workspace-up; }
+    Mod+Right { focus-workspace-down; }
+    Mod+Escape { focus-workspace-previous; }
+
+    // Terminal.
+    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+
+    // Launchers.
+    Mod+D { spawn "rofi" "-show" "drun"; }
+    Mod+C { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
+    Mod+Shift+P { spawn "rofi-pass"; }
+    Mod+X { spawn-sh "rofi -show p -modi p:'rofi-power-menu --symbols-font \"Symbols Nerd Font Mono\"' -font 'JetBrains Mono NF 16' -theme-str 'window {width: 8em;} listview {lines: 6;}'"; }
+
+    // Window management.
+    Mod+Q repeat=false { close-window; }
+    Mod+Shift+Q { quit; }
+    // Niri auto-reloads config on file save.
+
+    // Focus.
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+Tab   { focus-workspace-previous; }
+
+    // Swap.
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+
+    // Monitor focus.
+    Mod+Ctrl+J { focus-monitor-right; }
+    Mod+Ctrl+K { focus-monitor-left; }
+
+    // Column width (was master width factor in awesome).
+    Mod+H { set-column-width "-5%"; }
+    Mod+L { set-column-width "+5%"; }
+    Mod+Shift+H { set-column-width "-10%"; }
+    Mod+Shift+L { set-column-width "+10%"; }
+
+    // Layout.
+    Mod+Space       { switch-layout "next"; }
+    Mod+Shift+Space { switch-layout "prev"; }
+    Mod+Y { toggle-window-floating; }
+    Mod+F { fullscreen-window; }
+    Mod+M { maximize-column; }
+    Mod+O { move-column-to-monitor-right; }
+
+    // Overview.
+    Mod+grave { toggle-overview; }
+
+    // Workspace by index.
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    Mod+Shift+5 { move-column-to-workspace 5; }
+    Mod+Shift+6 { move-column-to-workspace 6; }
+    Mod+Shift+7 { move-column-to-workspace 7; }
+    Mod+Shift+8 { move-column-to-workspace 8; }
+    Mod+Shift+9 { move-column-to-workspace 9; }
+
+    // Named workspaces.
+    Mod+W { focus-workspace "web"; }
+    Mod+Shift+W { move-column-to-workspace "web"; }
+    Mod+F1 { focus-workspace "discord"; }
+    Mod+Shift+F1 { move-column-to-workspace "discord"; }
+    Mod+F2 { focus-workspace "localsend"; }
+    Mod+Shift+F2 { move-column-to-workspace "localsend"; }
+    Mod+F3 { focus-workspace "superprod"; }
+    Mod+Shift+F3 { move-column-to-workspace "superprod"; }
+    Mod+E { focus-workspace "easyeffects"; }
+    Mod+Shift+E { move-column-to-workspace "easyeffects"; }
+    Mod+G { focus-workspace "minecraft"; }
+    Mod+Shift+G { move-column-to-workspace "minecraft"; }
+    Mod+R { focus-workspace "chatterino"; }
+    Mod+Shift+R { move-column-to-workspace "chatterino"; }
+
+    // Screenshots.
+    Print { spawn-sh "screenshot.sh area"; }
+    Shift+Print { spawn-sh "screenshot.sh full"; }
+    Mod+Print { spawn-sh "screenshot.sh upload"; }
+    Ctrl+Print { spawn-sh "screenshot.sh qr"; }
+    Mod+Shift+Print { spawn-sh "screenshot.sh menu"; }
+
+    // Volume.
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "pactl set-sink-volume @DEFAULT_SINK@ +5%"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "pactl set-sink-volume @DEFAULT_SINK@ -5%"; }
+    XF86AudioMute        allow-when-locked=true { spawn-sh "pactl set-sink-mute @DEFAULT_SINK@ toggle"; }
+
+    // Lock screen.
+    Mod+Ctrl+L { spawn "swaylock"; }
+
+    // Inhibitor escape hatch.
+    Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+}
