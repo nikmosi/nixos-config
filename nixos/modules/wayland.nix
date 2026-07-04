@@ -17,7 +17,7 @@ lib.mkIf (config.nik.display.backend == "wayland") {
     enable = true;
     settings = {
       default_session = {
-        command = "${config.programs.niri.package}/bin/niri-session";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --cmd ${config.programs.niri.package}/bin/niri-session";
         user = "greeter";
       };
     };
