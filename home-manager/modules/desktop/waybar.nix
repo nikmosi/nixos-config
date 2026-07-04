@@ -25,6 +25,7 @@
       "custom/mem"
       "cpu"
       "pulseaudio"
+      "niri/language"
     ];
 
     "niri/workspaces" = {
@@ -103,6 +104,11 @@
     tray = {
       spacing = 12;
     };
+
+    "niri/language" = {
+      format-en = "🇺🇸 EN";
+      format-ru = "🇷🇺 RU";
+    };
   };
 
   xdg.configFile."waybar/style.css".text = ''
@@ -144,6 +150,11 @@
         background: #373b41;
     }
 
+    #workspaces button.occupied {
+        color: #c0caf5;
+        border-bottom: 2px solid #7aa2f7;
+    }
+
     #workspaces button.urgent {
         color: #f7768e;
     }
@@ -179,6 +190,10 @@
 
     #tray {
         padding: 0 8px;
+    }
+
+    #language {
+        color: #7dcfff;
     }
   '';
 }

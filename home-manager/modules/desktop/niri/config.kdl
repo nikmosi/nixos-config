@@ -125,7 +125,11 @@ window-rule {
     open-on-workspace "minecraft"
 }
 
-// DP-2: discord + telegram + chatterino + localsend + superprod + easyeffects
+// DP-2: discord + telegram + chatterino + localsend + superprod + easyeffects + firefox-seven
+window-rule {
+    match app-id="firefox-seven"
+    open-on-workspace "七"
+}
 window-rule {
     match app-id="^(discord|vesktop|legcord|anilibrix)$"
     open-on-workspace "discord"
