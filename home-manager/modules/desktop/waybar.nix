@@ -8,7 +8,7 @@
   xdg.configFile."waybar/config".text = builtins.toJSON {
     layer = "top";
     position = "top";
-    height = 30;
+    height = 36;
     spacing = 4;
 
     modules-left = [
