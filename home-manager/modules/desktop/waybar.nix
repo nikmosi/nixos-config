@@ -19,10 +19,11 @@
     modules-center = [ "clock" ];
 
     modules-right = [
-      "pulseaudio"
-      "cpu"
-      "memory"
       "tray"
+      "custom/weather"
+      "custom/mem"
+      "cpu"
+      "pulseaudio"
     ];
 
     "niri/workspaces" = {
@@ -42,36 +43,47 @@
     "niri/window" = {
       format = "{}";
       max-length = 50;
+      rewrite = { };
     };
 
     clock = {
-      format = "{:%H:%M}";
-      format-alt = "{:%Y-%m-%d}";
-      tooltip-format = "{:%A %B %d %Y}";
+      format = "󰥔 {:%H:%M}";
+      format-alt = "󰃭 {:%Y-%m-%d}";
+      tooltip-format = "{:%A, %B %d %Y}";
     };
 
     pulseaudio = {
-      format = "{volume}% {icon}";
-      format-muted = "🔇";
+      format = "{icon}  {volume}%";
+      format-muted = "󰸈  muted";
       format-icons = {
         headphone = "🎧";
         default = [
-          "🔈"
-          "🔉"
-          "🔊"
+          "󰕿"
+          "󰖀"
+          "󰕾"
         ];
       };
       on-click = "pavucontrol";
+      scroll-step = 5;
     };
 
     cpu = {
-      format = "🧠 {usage}%";
+      format = "󰻆  {usage}%";
+      interval = 2;
+      max-length = 10;
+    };
+
+    "custom/mem" = {
+      format = "{}";
+      exec = "$HOME/.local/bin/mem.sh";
       interval = 2;
     };
 
-    memory = {
-      format = "💾 {percentage}%";
-      interval = 2;
+    "custom/weather" = {
+      format = "{}";
+      exec = "$HOME/.local/bin/weather.sh";
+      interval = 300;
+      tooltip = true;
     };
 
     tray = {
@@ -81,60 +93,72 @@
 
   xdg.configFile."waybar/style.css".text = ''
     * {
-        font-family: "JetBrains Mono", "Symbols Nerd Font Mono";
-        font-size: 13px;
+        font-family: "JetBrainsMono Nerd Font Mono", "Symbols Nerd Font Mono";
+        font-size: 12px;
     }
 
     window#waybar {
-        background-color: #1e2030;
-        color: #cad3f5;
-        border-bottom: 1px solid #494d64;
+        background-color: #1a1b26;
+        color: #c0caf5;
+        border-bottom: 1px solid #1f2335;
     }
 
-    .modules-right > * {
+    .modules-left > widget,
+    .modules-center > widget,
+    .modules-right > widget {
         padding: 0 8px;
         margin: 4px 2px;
-        background-color: #24273a;
-        border-radius: 6px;
-    }
-
-    .modules-left > * {
-        padding: 0 8px;
-        margin: 4px 2px;
-        background-color: #24273a;
-        border-radius: 6px;
-    }
-
-    .modules-center > * {
-        padding: 0 12px;
-        margin: 4px 2px;
-        background-color: #24273a;
+        background-color: #1f2335;
         border-radius: 6px;
     }
 
     #workspaces button {
         padding: 0 6px;
-        color: #6e738d;
+        color: #565f89;
         background: transparent;
         border-radius: 6px;
     }
 
     #workspaces button.active {
-        color: #8aadf3;
-        background: #363a4f;
+        color: #7aa2f7;
+        background: #373b41;
     }
 
     #workspaces button.urgent {
-        color: #ed8796;
+        color: #f7768e;
     }
 
-    #pulseaudio.muted {
-        color: #a5adcb;
+    #window {
+        color: #c0caf5;
     }
 
     #clock {
         font-weight: bold;
-        color: #8aadf3;
+        color: #7aa2f7;
+    }
+
+    #pulseaudio {
+        color: #9ece6a;
+    }
+
+    #pulseaudio.muted {
+        color: #565f89;
+    }
+
+    #cpu {
+        color: #bb9af7;
+    }
+
+    #custom-mem {
+        color: #e0af68;
+    }
+
+    #custom-weather {
+        color: #7dcfff;
+    }
+
+    #tray {
+        padding: 0 6px;
     }
   '';
 }
