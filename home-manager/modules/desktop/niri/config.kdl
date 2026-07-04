@@ -347,6 +347,7 @@ binds {
 
     // ── Overview ──────────────────────────────────────────
     Mod+grave { toggle-overview; }
+    Mod+O repeat=false { toggle-overview; }
 
     // ── Screenshots ───────────────────────────────────────
     Print         { spawn-sh "screenshot.sh area"; }
