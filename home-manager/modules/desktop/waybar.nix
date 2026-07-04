@@ -28,7 +28,29 @@
     ];
 
     "niri/workspaces" = {
-      format = "{name}";
+      format = "{icon}";
+      format-icons = {
+        "一" = "一";
+        "二" = "二";
+        "三" = "三";
+        "四" = "四";
+        "五" = "五";
+        "六" = "六";
+        "七" = "七";
+        "八" = "八";
+        "九" = "九";
+        "十" = "十";
+        "十一" = "十一";
+        "十二" = "十二";
+        "web" = "🌐";
+        "minecraft" = "⛏";
+        "discord" = "🎮";
+        "telegram" = "✈";
+        "chatterino" = "💬";
+        "localsend" = "📤";
+        "superprod" = "✓";
+        "easyeffects" = "🎵";
+      };
     };
 
     "niri/window" = {
@@ -86,7 +108,7 @@
   xdg.configFile."waybar/style.css".text = ''
     * {
         font-family: "JetBrainsMono Nerd Font Mono", "Symbols Nerd Font Mono", "Noto Sans CJK JP";
-        font-size: 28px;
+        font-size: 18px;
     }
 
     window#waybar {
