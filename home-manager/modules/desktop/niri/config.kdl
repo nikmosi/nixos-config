@@ -169,56 +169,101 @@ window-rule {
 binds {
     Mod+S { show-hotkey-overlay; }
 
-    // Tag/workspace navigation.
-    Mod+Left  { focus-workspace-up; }
-    Mod+Right { focus-workspace-down; }
-    Mod+Escape { focus-workspace-previous; }
-
-    // Terminal.
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-
-    // Launchers.
-    Mod+D { spawn "rofi" "-show" "drun"; }
+    // ── Launchers ──────────────────────────────────────────
+    Mod+Return hotkey-overlay-title="Terminal: kitty" { spawn "kitty"; }
+    Mod+D hotkey-overlay-title="Launcher: rofi" { spawn "rofi" "-show" "drun"; }
     Mod+C { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
     Mod+Shift+P { spawn "rofi-pass"; }
     Mod+X { spawn-sh "rofi -show p -modi p:'rofi-power-menu --symbols-font \"Symbols Nerd Font Mono\"' -font 'JetBrains Mono NF 16' -theme-str 'window {width: 8em;} listview {lines: 6;}'"; }
 
-    // Window management.
+    // ── Window management ──────────────────────────────────
     Mod+Q repeat=false { close-window; }
     Mod+Shift+Q { quit; }
-    // Niri auto-reloads config on file save.
 
-    // Focus.
-    Mod+J     { focus-window-down; }
-    Mod+K     { focus-window-up; }
-    Mod+Tab   { focus-workspace-previous; }
+    // ── Focus: arrows (intuitive) ──────────────────────────
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
 
-    // Swap.
-    Mod+Shift+J { move-window-down; }
-    Mod+Shift+K { move-window-up; }
+    // ── Focus: vim-style (HJKL) ────────────────────────────
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
 
-    // Monitor focus.
-    Mod+Ctrl+J { focus-monitor-right; }
-    Mod+Ctrl+K { focus-monitor-left; }
+    // ── Focus: or-workspace variants (cross workspace) ────
+    Mod+Ctrl+Down  { focus-window-or-workspace-down; }
+    Mod+Ctrl+Up    { focus-window-or-workspace-up; }
+    Mod+Ctrl+J     { focus-window-or-workspace-down; }
+    Mod+Ctrl+K     { focus-window-or-workspace-up; }
 
-    // Column width (was master width factor in awesome).
-    Mod+H { set-column-width "-5%"; }
-    Mod+L { set-column-width "+5%"; }
-    Mod+Shift+H { set-column-width "-10%"; }
-    Mod+Shift+L { set-column-width "+10%"; }
+    // ── Move windows ───────────────────────────────────────
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Down  { move-window-down; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+L     { move-column-right; }
+    Mod+Shift+J     { move-window-down; }
+    Mod+Shift+K     { move-window-up; }
 
-    // Layout.
-    Mod+Space       { switch-layout "next"; }
-    Mod+Shift+Space { switch-layout "prev"; }
-    Mod+Y { toggle-window-floating; }
-    Mod+F { fullscreen-window; }
-    Mod+M { maximize-column; }
-    Mod+O { move-column-to-monitor-right; }
+    // ── Move across workspaces ─────────────────────────────
+    Mod+Ctrl+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+Shift+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Ctrl+Shift+J     { move-window-down-or-to-workspace-down; }
+    Mod+Ctrl+Shift+K     { move-window-up-or-to-workspace-up; }
 
-    // Overview.
-    Mod+grave { toggle-overview; }
+    // ── First / last ───────────────────────────────────────
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
 
-    // Workspace by index.
+    // ── Monitor focus ──────────────────────────────────────
+    Mod+Alt+Left  { focus-monitor-left; }
+    Mod+Alt+Right { focus-monitor-right; }
+    Mod+Alt+Up    { focus-monitor-up; }
+    Mod+Alt+Down  { focus-monitor-down; }
+
+    // ── Move column to monitor ─────────────────────────────
+    Mod+Alt+Shift+Left  { move-column-to-monitor-left; }
+    Mod+Alt+Shift+Right { move-column-to-monitor-right; }
+    Mod+Alt+Shift+Up    { move-column-to-monitor-up; }
+    Mod+Alt+Shift+Down  { move-column-to-monitor-down; }
+
+    // ── Workspace navigation ──────────────────────────────
+    Mod+Page_Down { focus-workspace-down; }
+    Mod+Page_Up   { focus-workspace-up; }
+    Mod+U         { focus-workspace-down; }
+    Mod+I         { focus-workspace-up; }
+    Mod+Tab       { focus-workspace-previous; }
+    Mod+Escape    { focus-workspace-previous; }
+
+    // ── Move workspace ────────────────────────────────────
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    Mod+Shift+U         { move-workspace-down; }
+    Mod+Shift+I         { move-workspace-up; }
+
+    // ── Move column to workspace ──────────────────────────
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+I         { move-column-to-workspace-up; }
+
+    // ── Wheel scroll ───────────────────────────────────────
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    // ── Workspace by index ────────────────────────────────
     Mod+1 { focus-workspace 1; }
     Mod+2 { focus-workspace 2; }
     Mod+3 { focus-workspace 3; }
@@ -229,47 +274,108 @@ binds {
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
 
-    Mod+Shift+1 { move-column-to-workspace 1; }
-    Mod+Shift+2 { move-column-to-workspace 2; }
-    Mod+Shift+3 { move-column-to-workspace 3; }
-    Mod+Shift+4 { move-column-to-workspace 4; }
-    Mod+Shift+5 { move-column-to-workspace 5; }
-    Mod+Shift+6 { move-column-to-workspace 6; }
-    Mod+Shift+7 { move-column-to-workspace 7; }
-    Mod+Shift+8 { move-column-to-workspace 8; }
-    Mod+Shift+9 { move-column-to-workspace 9; }
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
 
-    // Named workspaces.
+    // ── Named workspaces (from awesome custom_tags) ───────
     Mod+W { focus-workspace "web"; }
-    Mod+Shift+W { move-column-to-workspace "web"; }
+    Mod+Ctrl+W { move-column-to-workspace "web"; }
     Mod+F1 { focus-workspace "discord"; }
-    Mod+Shift+F1 { move-column-to-workspace "discord"; }
+    Mod+Ctrl+F1 { move-column-to-workspace "discord"; }
     Mod+F2 { focus-workspace "localsend"; }
-    Mod+Shift+F2 { move-column-to-workspace "localsend"; }
+    Mod+Ctrl+F2 { move-column-to-workspace "localsend"; }
     Mod+F3 { focus-workspace "superprod"; }
-    Mod+Shift+F3 { move-column-to-workspace "superprod"; }
+    Mod+Ctrl+F3 { move-column-to-workspace "superprod"; }
     Mod+E { focus-workspace "easyeffects"; }
-    Mod+Shift+E { move-column-to-workspace "easyeffects"; }
+    Mod+Ctrl+E { move-column-to-workspace "easyeffects"; }
     Mod+G { focus-workspace "minecraft"; }
-    Mod+Shift+G { move-column-to-workspace "minecraft"; }
+    Mod+Ctrl+G { move-column-to-workspace "minecraft"; }
     Mod+R { focus-workspace "chatterino"; }
-    Mod+Shift+R { move-column-to-workspace "chatterino"; }
+    Mod+Ctrl+R { move-column-to-workspace "chatterino"; }
 
-    // Screenshots.
-    Print { spawn-sh "screenshot.sh area"; }
-    Shift+Print { spawn-sh "screenshot.sh full"; }
-    Mod+Print { spawn-sh "screenshot.sh upload"; }
-    Ctrl+Print { spawn-sh "screenshot.sh qr"; }
+    // ── Column consume / expel ─────────────────────────────
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    // ── Column width presets ──────────────────────────────
+    Mod+B { switch-preset-column-width; }
+    Mod+Shift+B { switch-preset-column-width-back; }
+
+    // ── Window height presets ─────────────────────────────
+    Mod+Alt+R { switch-preset-window-height; }
+    Mod+Alt+Shift+R { reset-window-height; }
+
+    // ── Maximize / fullscreen ─────────────────────────────
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+M { maximize-window-to-edges; }
+
+    // ── Expand column ──────────────────────────────────────
+    Mod+Ctrl+F { expand-column-to-available-width; }
+
+    // ── Center ─────────────────────────────────────────────
+    Mod+Shift+C { center-column; }
+    Mod+Ctrl+Shift+C { center-visible-columns; }
+
+    // ── Column width adjustments ───────────────────────────
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    // ── Window height adjustments ─────────────────────────
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // ── Floating / tiling ──────────────────────────────────
+    Mod+Y       { toggle-window-floating; }
+    Mod+Shift+Y { switch-focus-between-floating-and-tiling; }
+
+    // ── Tabbed column display ──────────────────────────────
+    Mod+T { toggle-column-tabbed-display; }
+
+    // ── Layout switch ──────────────────────────────────────
+    Mod+Space       { switch-layout "next"; }
+    Mod+Shift+Space { switch-layout "prev"; }
+
+    // ── Overview ──────────────────────────────────────────
+    Mod+grave { toggle-overview; }
+
+    // ── Screenshots ───────────────────────────────────────
+    Print         { spawn-sh "screenshot.sh area"; }
+    Shift+Print   { spawn-sh "screenshot.sh full"; }
+    Mod+Print     { spawn-sh "screenshot.sh upload"; }
+    Ctrl+Print    { spawn-sh "screenshot.sh qr"; }
     Mod+Shift+Print { spawn-sh "screenshot.sh menu"; }
 
-    // Volume.
+    // ── Volume ─────────────────────────────────────────────
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "pactl set-sink-volume @DEFAULT_SINK@ +5%"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "pactl set-sink-volume @DEFAULT_SINK@ -5%"; }
     XF86AudioMute        allow-when-locked=true { spawn-sh "pactl set-sink-mute @DEFAULT_SINK@ toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn-sh "pactl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
 
-    // Lock screen.
+    // ── Media keys ────────────────────────────────────────
+    XF86AudioPlay  allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioPause allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop  allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev  allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext  allow-when-locked=true { spawn-sh "playerctl next"; }
+
+    // ── Brightness ────────────────────────────────────────
+    XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+    // ── Lock / power ──────────────────────────────────────
     Mod+Ctrl+L { spawn "swaylock"; }
+    Mod+Shift+Ctrl+P { power-off-monitors; }
 
-    // Inhibitor escape hatch.
+    // ── Inhibitor escape hatch ────────────────────────────
     Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 }
