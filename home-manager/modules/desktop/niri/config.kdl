@@ -63,6 +63,9 @@ workspace "easyeffects" { open-on-output "DP-2"; }
 layout {
     gaps 8
 
+    // Don't create empty workspace above the first named one.
+    empty-workspace-above-first false
+
     focus-ring {
         width 2
         active-color "#8aadf3"
@@ -96,11 +99,18 @@ spawn-at-startup "swaybg" "-i" "/home/nik/.config/awesome/themes/1.jpg" "-m" "fi
 spawn-at-startup "lxqt-policykit-agent"
 spawn-at-startup "gammastep-indicator"
 
+// Autostart apps (migrated from awesome autostart.lua).
+spawn-at-startup "firefox"
+spawn-at-startup "chatterino"
+spawn-at-startup "superproductivity"
+spawn-at-startup "localsend_app" "--hidden"
+spawn-at-startup "com.ayugram.desktop"
+
 animations {
     slowdown 1.0
 }
 
-// Window rules — migrated from awesome rules.lua.
+// Window rules — app-ids verified via `niri msg windows`.
 // DP-1: web + minecraft
 window-rule {
     match app-id="firefox"
@@ -121,19 +131,19 @@ window-rule {
     open-on-workspace "discord"
 }
 window-rule {
-    match app-id="^(TelegramDesktop|ayugram-desktop|AyuGram)$"
+    match app-id=r#"^(TelegramDesktop|ayugram-desktop|com\.ayugram\.desktop)$"#
     open-on-workspace "telegram"
 }
 window-rule {
-    match app-id="chatterino"
+    match app-id=r#"^com\.chatterino\."#
     open-on-workspace "chatterino"
 }
 window-rule {
-    match app-id="^(localsend|Localsend)$"
+    match app-id="^localsend_app$"
     open-on-workspace "localsend"
 }
 window-rule {
-    match app-id="^(super-productivity|superProductivity)$"
+    match app-id="^superproductivity$"
     open-on-workspace "superprod"
 }
 window-rule {

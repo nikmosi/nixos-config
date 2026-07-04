@@ -9,7 +9,7 @@
     layer = "top";
     position = "top";
     height = 36;
-    spacing = 4;
+    spacing = 8;
 
     modules-left = [
       "niri/workspaces"
@@ -27,29 +27,7 @@
     ];
 
     "niri/workspaces" = {
-      format = "{icon}";
-      format-icons = {
-        "一" = "1";
-        "二" = "2";
-        "三" = "3";
-        "四" = "4";
-        "五" = "5";
-        "六" = "6";
-        "七" = "7";
-        "八" = "8";
-        "九" = "9";
-        "十" = "10";
-        "十一" = "11";
-        "十二" = "12";
-        "web" = "🌐";
-        "minecraft" = "⛏";
-        "discord" = "🎮";
-        "telegram" = "✈";
-        "chatterino" = "💬";
-        "localsend" = "📤";
-        "superprod" = "✓";
-        "easyeffects" = "🎵";
-      };
+      format = "{name}";
     };
 
     "niri/window" = {
@@ -105,8 +83,8 @@
 
   xdg.configFile."waybar/style.css".text = ''
     * {
-        font-family: "JetBrainsMono Nerd Font Mono", "Symbols Nerd Font Mono";
-        font-size: 12px;
+        font-family: "JetBrainsMono Nerd Font Mono", "Symbols Nerd Font Mono", "Noto Sans CJK JP";
+        font-size: 15px;
     }
 
     window#waybar {
@@ -116,10 +94,16 @@
     }
 
     .modules-left > widget,
-    .modules-center > widget,
-    .modules-right > widget {
+    .modules-center > widget {
         padding: 0 8px;
         margin: 4px 2px;
+        background-color: #1f2335;
+        border-radius: 6px;
+    }
+
+    .modules-right > widget {
+        padding: 0 10px;
+        margin: 4px 6px;
         background-color: #1f2335;
         border-radius: 6px;
     }
