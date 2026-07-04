@@ -34,31 +34,30 @@ output "DP-2" {
     position x=2560 y=0
 }
 
-// Named workspaces (migrated from awesome custom_tags + affinity).
-workspace "web" {
-    open-on-output "DP-1"
-}
-workspace "minecraft" {
-    open-on-output "DP-1"
-}
-workspace "discord" {
-    open-on-output "DP-2"
-}
-workspace "telegram" {
-    open-on-output "DP-2"
-}
-workspace "chatterino" {
-    open-on-output "DP-2"
-}
-workspace "localsend" {
-    open-on-output "DP-2"
-}
-workspace "superprod" {
-    open-on-output "DP-2"
-}
-workspace "easyeffects" {
-    open-on-output "DP-2"
-}
+// Named workspaces — 6 numbered per screen + app-specific.
+// DP-1 (left): 一二三四五六 + web + minecraft
+workspace "一" { open-on-output "DP-1"; }
+workspace "二" { open-on-output "DP-1"; }
+workspace "三" { open-on-output "DP-1"; }
+workspace "四" { open-on-output "DP-1"; }
+workspace "五" { open-on-output "DP-1"; }
+workspace "六" { open-on-output "DP-1"; }
+workspace "web" { open-on-output "DP-1"; }
+workspace "minecraft" { open-on-output "DP-1"; }
+
+// DP-2 (right): 七八九十一十二 + discord + telegram + chatterino + localsend + superprod + easyeffects
+workspace "七" { open-on-output "DP-2"; }
+workspace "八" { open-on-output "DP-2"; }
+workspace "九" { open-on-output "DP-2"; }
+workspace "十" { open-on-output "DP-2"; }
+workspace "十一" { open-on-output "DP-2"; }
+workspace "十二" { open-on-output "DP-2"; }
+workspace "discord" { open-on-output "DP-2"; }
+workspace "telegram" { open-on-output "DP-2"; }
+workspace "chatterino" { open-on-output "DP-2"; }
+workspace "localsend" { open-on-output "DP-2"; }
+workspace "superprod" { open-on-output "DP-2"; }
+workspace "easyeffects" { open-on-output "DP-2"; }
 
 layout {
     gaps 8
@@ -101,41 +100,11 @@ animations {
 }
 
 // Window rules — migrated from awesome rules.lua.
+// DP-1: web + minecraft
 window-rule {
     match app-id="firefox"
     open-on-workspace "web"
 }
-
-window-rule {
-    match app-id="^(discord|vesktop|legcord|anilibrix)$"
-    open-on-workspace "discord"
-}
-
-window-rule {
-    match app-id="^(TelegramDesktop|ayugram-desktop|AyuGram)$"
-    open-on-workspace "telegram"
-}
-
-window-rule {
-    match app-id="chatterino"
-    open-on-workspace "chatterino"
-}
-
-window-rule {
-    match app-id="^(localsend|Localsend)$"
-    open-on-workspace "localsend"
-}
-
-window-rule {
-    match app-id="^(super-productivity|superProductivity)$"
-    open-on-workspace "superprod"
-}
-
-window-rule {
-    match app-id="^(easyeffects|nekoray|hiddify|v2rayN)$"
-    open-on-workspace "easyeffects"
-}
-
 window-rule {
     match title="^Minecraft"
     open-on-workspace "minecraft"
@@ -143,6 +112,32 @@ window-rule {
 window-rule {
     match app-id="^(steam_proton|epicgameslauncher.exe|rocketleague.exe|bakkesmod.exe)$"
     open-on-workspace "minecraft"
+}
+
+// DP-2: discord + telegram + chatterino + localsend + superprod + easyeffects
+window-rule {
+    match app-id="^(discord|vesktop|legcord|anilibrix)$"
+    open-on-workspace "discord"
+}
+window-rule {
+    match app-id="^(TelegramDesktop|ayugram-desktop|AyuGram)$"
+    open-on-workspace "telegram"
+}
+window-rule {
+    match app-id="chatterino"
+    open-on-workspace "chatterino"
+}
+window-rule {
+    match app-id="^(localsend|Localsend)$"
+    open-on-workspace "localsend"
+}
+window-rule {
+    match app-id="^(super-productivity|superProductivity)$"
+    open-on-workspace "superprod"
+}
+window-rule {
+    match app-id="^(easyeffects|nekoray|hiddify|v2rayN)$"
+    open-on-workspace "easyeffects"
 }
 
 window-rule {
@@ -263,30 +258,41 @@ binds {
     Mod+Ctrl+WheelScrollRight { move-column-right; }
     Mod+Ctrl+WheelScrollLeft  { move-column-left; }
 
-    // ── Workspace by index ────────────────────────────────
-    Mod+1 { focus-workspace 1; }
-    Mod+2 { focus-workspace 2; }
-    Mod+3 { focus-workspace 3; }
-    Mod+4 { focus-workspace 4; }
-    Mod+5 { focus-workspace 5; }
-    Mod+6 { focus-workspace 6; }
-    Mod+7 { focus-workspace 7; }
-    Mod+8 { focus-workspace 8; }
-    Mod+9 { focus-workspace 9; }
+    // ── Workspaces: DP-1 (left) 一-六 ─────────────────────
+    Mod+1 { focus-workspace "一"; }
+    Mod+2 { focus-workspace "二"; }
+    Mod+3 { focus-workspace "三"; }
+    Mod+4 { focus-workspace "四"; }
+    Mod+5 { focus-workspace "五"; }
+    Mod+6 { focus-workspace "六"; }
 
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
+    Mod+Ctrl+1 { move-column-to-workspace "一"; }
+    Mod+Ctrl+2 { move-column-to-workspace "二"; }
+    Mod+Ctrl+3 { move-column-to-workspace "三"; }
+    Mod+Ctrl+4 { move-column-to-workspace "四"; }
+    Mod+Ctrl+5 { move-column-to-workspace "五"; }
+    Mod+Ctrl+6 { move-column-to-workspace "六"; }
 
-    // ── Named workspaces (from awesome custom_tags) ───────
+    // ── Workspaces: DP-2 (right) 七-十二 ──────────────────
+    Mod+7 { focus-workspace "七"; }
+    Mod+8 { focus-workspace "八"; }
+    Mod+9 { focus-workspace "九"; }
+    Mod+0 { focus-workspace "十"; }
+    Mod+Minus { focus-workspace "十一"; }
+    Mod+Equal { focus-workspace "十二"; }
+
+    Mod+Ctrl+7 { move-column-to-workspace "七"; }
+    Mod+Ctrl+8 { move-column-to-workspace "八"; }
+    Mod+Ctrl+9 { move-column-to-workspace "九"; }
+    Mod+Ctrl+0 { move-column-to-workspace "十"; }
+    Mod+Ctrl+Minus { move-column-to-workspace "十一"; }
+    Mod+Ctrl+Equal { move-column-to-workspace "十二"; }
+
+    // ── Named workspaces (app-specific) ───────────────────
     Mod+W { focus-workspace "web"; }
     Mod+Ctrl+W { move-column-to-workspace "web"; }
+    Mod+G { focus-workspace "minecraft"; }
+    Mod+Ctrl+G { move-column-to-workspace "minecraft"; }
     Mod+F1 { focus-workspace "discord"; }
     Mod+Ctrl+F1 { move-column-to-workspace "discord"; }
     Mod+F2 { focus-workspace "localsend"; }
@@ -295,14 +301,14 @@ binds {
     Mod+Ctrl+F3 { move-column-to-workspace "superprod"; }
     Mod+E { focus-workspace "easyeffects"; }
     Mod+Ctrl+E { move-column-to-workspace "easyeffects"; }
-    Mod+G { focus-workspace "minecraft"; }
-    Mod+Ctrl+G { move-column-to-workspace "minecraft"; }
     Mod+R { focus-workspace "chatterino"; }
     Mod+Ctrl+R { move-column-to-workspace "chatterino"; }
+    Mod+T { focus-workspace "telegram"; }
+    Mod+Ctrl+T { move-column-to-workspace "telegram"; }
 
     // ── Column consume / expel ─────────────────────────────
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Ctrl+BracketLeft  { consume-or-expel-window-left; }
+    Mod+Ctrl+BracketRight { consume-or-expel-window-right; }
     Mod+Comma  { consume-window-into-column; }
     Mod+Period { expel-window-from-column; }
 
@@ -327,19 +333,19 @@ binds {
     Mod+Ctrl+Shift+C { center-visible-columns; }
 
     // ── Column width adjustments ───────────────────────────
-    Mod+Minus { set-column-width "-10%"; }
-    Mod+Equal { set-column-width "+10%"; }
+    Mod+BracketLeft  { set-column-width "-10%"; }
+    Mod+BracketRight { set-column-width "+10%"; }
 
     // ── Window height adjustments ─────────────────────────
-    Mod+Shift+Minus { set-window-height "-10%"; }
-    Mod+Shift+Equal { set-window-height "+10%"; }
+    Mod+Shift+BracketLeft  { set-window-height "-10%"; }
+    Mod+Shift+BracketRight { set-window-height "+10%"; }
 
     // ── Floating / tiling ──────────────────────────────────
     Mod+Y       { toggle-window-floating; }
     Mod+Shift+Y { switch-focus-between-floating-and-tiling; }
 
     // ── Tabbed column display ──────────────────────────────
-    Mod+T { toggle-column-tabbed-display; }
+    Mod+Shift+T { toggle-column-tabbed-display; }
 
     // ── Layout switch ──────────────────────────────────────
     Mod+Space       { switch-layout "next"; }
