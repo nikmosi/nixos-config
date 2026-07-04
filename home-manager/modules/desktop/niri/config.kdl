@@ -20,17 +20,17 @@ input {
 }
 
 // Outputs — verified via `niri msg outputs`.
-// Left monitor: Xiaomi Mi Monitor (supports up to 180 Hz).
+// Left monitor (primary): Xiaomi Mi Monitor (180 Hz).
 output "DP-1" {
     mode "2560x1440@180.000"
     variable-refresh-rate
     position x=0 y=0
 }
 
-// Right monitor: Philips PHL32M1N5500V (165 Hz max).
+// Right monitor: Philips PHL32M1N5500V (165 Hz).
+// VRR disabled — flickering on Nvidia with mixed refresh rates.
 output "DP-2" {
     mode "2560x1440@165.000"
-    variable-refresh-rate
     position x=2560 y=0
 }
 
