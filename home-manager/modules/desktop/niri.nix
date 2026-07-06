@@ -415,7 +415,11 @@ in
           };
           "Mod+D" = {
             _props.hotkey-overlay-title = "Launcher: rofi";
-            spawn = "rofi -show drun";
+            spawn = [
+              "rofi"
+              "-show"
+              "drun"
+            ];
           };
           "Mod+C" = {
             spawn-sh = "cliphist list | rofi -dmenu -display-input 'Clipboard' | cliphist decode | wl-copy";

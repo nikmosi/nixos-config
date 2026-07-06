@@ -42,6 +42,9 @@
       mako = {
         enable = false;
       };
+      rofi = {
+        enable = false;
+      };
     };
 
     cursor = {

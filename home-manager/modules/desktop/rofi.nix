@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
   programs.rofi = {
     enable = true;
@@ -10,15 +14,14 @@
     yoffset = 0;
     xoffset = 0;
     extraConfig = {
-      modi = "drun,run,window,clipboard:${pkgs.cliphist}/bin/cliphist-rofi-img,clipboard-text:${pkgs.cliphist}/bin/cliphist-rofi";
+      modi = "drun,run,window,power-menu:${pkgs.rofi-power-menu}/bin/rofi-power-menu";
       show-icons = true;
       icon-theme = "Papirus-Dark";
       font = "JetBrainsMono Nerd Font Mono 14";
       display-drun = "Apps";
       display-run = "Run";
       display-window = "Windows";
-      display-clipboard = "Clip";
-      display-clipboard-text = "Clip Text";
+      display-power-menu = "Power";
       drun-display-format = "{name}";
       window-format = "{title}";
       sort = true;
@@ -30,67 +33,189 @@
       auto-select = false;
       parse-hosts = false;
       parse-known-hosts = false;
-      combi-hide-mode-prefix = true;
     };
     theme =
       let
-        inherit (pkgs) lib;
+        inherit (config.lib.formats.rasi) mkLiteral;
+        # Tokyo Night palette — matches mako.nix / niri.nix / waybar.nix
         c = {
           bg = "#1a1b26";
-          bgHighlight = "#1f2335";
+          bg-alt = "#1f2335";
+          bg-hover = "#292e42";
           fg = "#c0caf5";
+          fg-dim = "#565f89";
           blue = "#7aa2f7";
           green = "#9ece6a";
           red = "#f7768e";
-          comment = "#565f89";
+          yellow = "#e0af68";
+          cyan = "#7dcfff";
+          purple = "#bb9af7";
         };
       in
       {
+        # ── Global palette & resets ─────────────────────────
         "*" = {
-          background-color = lib.mkForce c.bg;
-          border-color = lib.mkForce c.bgHighlight;
-          text-color = lib.mkForce c.fg;
+          background-color = mkLiteral "transparent";
+          text-color = mkLiteral c.fg;
+          border-color = mkLiteral c.bg-alt;
+          margin = mkLiteral "0px";
+          padding = mkLiteral "0px";
+          spacing = mkLiteral "0px";
         };
+
+        # ── Window ──────────────────────────────────────────
         "window" = {
-          width = lib.mkForce "30%";
-          height = lib.mkForce "40%";
-          padding = lib.mkForce "12px";
-          border = lib.mkForce "2px";
-          border-radius = lib.mkForce "12px";
+          width = mkLiteral "38%";
+          height = mkLiteral "44%";
+          padding = mkLiteral "14px";
+          border = mkLiteral "2px";
+          border-radius = mkLiteral "14px";
+          background-color = mkLiteral c.bg;
+          border-color = mkLiteral c.bg-alt;
         };
+
         "mainbox" = {
-          padding = lib.mkForce "8px";
+          padding = mkLiteral "0px";
+          spacing = mkLiteral "8px";
         };
+
+        # ── Input bar ───────────────────────────────────────
         "inputbar" = {
-          padding = lib.mkForce "8px 12px";
-          spacing = lib.mkForce "8px";
-          border-radius = lib.mkForce "8px";
-          background-color = lib.mkForce c.bgHighlight;
+          padding = mkLiteral "10px 14px";
+          spacing = mkLiteral "8px";
+          border-radius = mkLiteral "10px";
+          background-color = mkLiteral c.bg-alt;
         };
+
         "prompt" = {
-          text-color = lib.mkForce c.blue;
+          text-color = mkLiteral c.blue;
         };
+
         "entry" = {
           placeholder = "Search...";
-          text-color = lib.mkForce c.fg;
+          placeholder-color = mkLiteral c.fg-dim;
+          text-color = mkLiteral c.fg;
+          cursor = mkLiteral "text";
         };
+
+        "case-indicator" = {
+          text-color = mkLiteral c.fg-dim;
+        };
+
+        "num-filtered-rows" = {
+          expand = false;
+          text-color = mkLiteral c.fg-dim;
+        };
+
+        "num-rows" = {
+          expand = false;
+          text-color = mkLiteral c.fg-dim;
+        };
+
+        "textbox-num-sep" = {
+          expand = false;
+          str = "/";
+          text-color = mkLiteral c.fg-dim;
+        };
+
+        # ── List ────────────────────────────────────────────
         "listview" = {
-          padding = lib.mkForce "4px 0";
+          padding = mkLiteral "4px 0px 0px";
+          spacing = mkLiteral "4px";
           lines = 10;
           columns = 1;
           fixed-height = false;
+          scrollbar = true;
+          border = mkLiteral "0px";
         };
+
+        "scrollbar" = {
+          width = mkLiteral "4px";
+          padding = mkLiteral "0px";
+          handle-width = mkLiteral "8px";
+          handle-color = mkLiteral c.fg-dim;
+        };
+
+        # ── Elements (all states for every mode) ────────────
         "element" = {
-          padding = lib.mkForce "8px 12px";
-          spacing = lib.mkForce "8px";
-          border-radius = lib.mkForce "6px";
+          padding = mkLiteral "8px 12px";
+          spacing = mkLiteral "10px";
+          border-radius = mkLiteral "8px";
+          cursor = mkLiteral "pointer";
         };
-        "element selected" = {
-          background-color = lib.mkForce c.blue;
-          text-color = lib.mkForce c.bg;
+
+        "element normal.normal" = {
+          background-color = mkLiteral "transparent";
+          text-color = mkLiteral c.fg;
         };
+
+        "element normal.urgent" = {
+          text-color = mkLiteral c.yellow;
+        };
+
+        "element normal.active" = {
+          text-color = mkLiteral c.blue;
+        };
+
+        "element selected.normal" = {
+          background-color = mkLiteral c.blue;
+          text-color = mkLiteral c.bg;
+        };
+
+        "element selected.urgent" = {
+          background-color = mkLiteral c.yellow;
+          text-color = mkLiteral c.bg;
+        };
+
+        "element selected.active" = {
+          background-color = mkLiteral c.blue;
+          text-color = mkLiteral c.bg;
+        };
+
+        "element alternate.normal" = {
+          background-color = mkLiteral "transparent";
+          text-color = mkLiteral c.fg;
+        };
+
         "element-icon" = {
-          size = lib.mkForce "24px";
+          size = mkLiteral "24px";
+          background-color = mkLiteral "transparent";
+          text-color = mkLiteral "inherit";
+        };
+
+        "element-text" = {
+          background-color = mkLiteral "transparent";
+          text-color = mkLiteral "inherit";
+          vertical-align = mkLiteral "0.5";
+        };
+
+        # ── Message (power-menu confirm, mode switcher) ─────
+        "message" = {
+          padding = mkLiteral "8px 12px";
+          border-radius = mkLiteral "8px";
+          background-color = mkLiteral c.bg-alt;
+        };
+
+        "textbox" = {
+          text-color = mkLiteral c.fg;
+        };
+
+        # ── Sidebar (mode tabs) ─────────────────────────────
+        "sidebar" = {
+          padding = mkLiteral "8px 0px 0px";
+        };
+
+        "button" = {
+          padding = mkLiteral "6px 12px";
+          spacing = mkLiteral "8px";
+          border-radius = mkLiteral "8px";
+          cursor = mkLiteral "pointer";
+          text-color = mkLiteral c.fg-dim;
+        };
+
+        "button selected" = {
+          background-color = mkLiteral c.bg-hover;
+          text-color = mkLiteral c.blue;
         };
       };
   };
