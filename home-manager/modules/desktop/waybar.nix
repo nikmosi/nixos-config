@@ -254,8 +254,8 @@ _: {
       #custom-media,
       #language,
       #custom-power {
-          padding: 4px 14px;
-          margin: 4px 6px;
+          padding: 4px 8px;
+          margin: 4px 1px;
           background-color: @bg-alt;
           border-radius: 6px;
       }
