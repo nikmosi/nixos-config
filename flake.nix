@@ -29,11 +29,6 @@
       inputs.nixpkgs.follows = "stable";
     };
 
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "stable";
-    };
-
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "stable";
 

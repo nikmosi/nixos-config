@@ -14,6 +14,9 @@ let
     purple = "#bb9af7";
     comment = "#565f89";
   };
+
+  wallpaperXiaomi = ../../../assets/wallpapers/xiaomi.jpg;
+  wallpaperPhilips = ../../../assets/wallpapers/philips.jpg;
 in
 {
   wayland.windowManager.niri = {
@@ -83,10 +86,6 @@ in
           open-on-output = "DP-1";
         }
         {
-          _args = [ "六" ];
-          open-on-output = "DP-1";
-        }
-        {
           _args = [ "web" ];
           open-on-output = "DP-1";
         }
@@ -95,6 +94,10 @@ in
           open-on-output = "DP-1";
         }
         # DP-2 (right): 七-十二 + app-specific
+        {
+          _args = [ "六" ];
+          open-on-output = "DP-2";
+        }
         {
           _args = [ "七" ];
           open-on-output = "DP-2";
@@ -109,14 +112,6 @@ in
         }
         {
           _args = [ "十" ];
-          open-on-output = "DP-2";
-        }
-        {
-          _args = [ "十一" ];
-          open-on-output = "DP-2";
-        }
-        {
-          _args = [ "十二" ];
           open-on-output = "DP-2";
         }
         {
@@ -239,6 +234,28 @@ in
 
       # ── Spawn at startup ────────────────────────────────────
       spawn-at-startup = [
+        [
+          "niri"
+          "msg"
+          "action"
+          "focus-monitor"
+          "DP-1"
+        ]
+        [
+          "swaybg"
+          "-o"
+          "DP-1"
+          "-i"
+          "${wallpaperXiaomi}"
+          "-m"
+          "fill"
+          "-o"
+          "DP-2"
+          "-i"
+          "${wallpaperPhilips}"
+          "-m"
+          "fill"
+        ]
         [ "waybar" ]
         [ "lxqt-policykit-agent" ]
         [ "gammastep-indicator" ]
@@ -270,36 +287,36 @@ in
         workspace-switch = {
           spring._props = {
             damping-ratio = 0.80;
-            stiffness = 523;
+            stiffness = 512;
             epsilon = 0.0001;
           };
         };
         window-open = {
-          duration-ms = 150;
+          duration-ms = 90;
           curve = "ease-out-expo";
         };
         window-close = {
-          duration-ms = 150;
+          duration-ms = 90;
           curve = "ease-out-quad";
         };
         horizontal-view-movement = {
           spring._props = {
             damping-ratio = 0.85;
-            stiffness = 423;
+            stiffness = 414;
             epsilon = 0.0001;
           };
         };
         window-movement = {
           spring._props = {
             damping-ratio = 0.75;
-            stiffness = 323;
+            stiffness = 316;
             epsilon = 0.0001;
           };
         };
         config-notification-open-close = {
           spring._props = {
             damping-ratio = 0.65;
-            stiffness = 923;
+            stiffness = 904;
             epsilon = 0.001;
           };
         };
@@ -397,17 +414,17 @@ in
             spawn = "kitty";
           };
           "Mod+D" = {
-            _props.hotkey-overlay-title = "Launcher: anyrun";
-            spawn = "anyrun";
+            _props.hotkey-overlay-title = "Launcher: rofi";
+            spawn = "rofi -show drun";
           };
           "Mod+C" = {
-            spawn-sh = "cliphist list | anyrun --plugins libapplications.so | cliphist decode | wl-copy";
+            spawn-sh = "cliphist list | rofi -dmenu -display-input 'Clipboard' | cliphist decode | wl-copy";
           };
           "Mod+Shift+P" = {
             spawn = "rofi-pass";
           };
           "Mod+X" = {
-            spawn-sh = "anyrun --plugins libpower.so";
+            spawn-sh = "rofi -show power-menu -theme-str 'window { width: 20%; }'";
           };
 
           # ── Window management ──────────────────────────────

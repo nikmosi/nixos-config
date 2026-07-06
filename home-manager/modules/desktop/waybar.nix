@@ -35,7 +35,7 @@
     ];
 
     "niri/workspaces" = {
-      format = "{icon} {windows}";
+      format = "{icon}";
       format-window-separator = " ";
       window-rewrite-default = "";
       window-rewrite = {
@@ -120,7 +120,7 @@
     };
 
     memory = {
-      format = "󰍛 {used}/{total} GB";
+      format = "󰍛 {used:0.2f}/{total:0.2f} GB";
       interval = 2;
     };
 
@@ -196,7 +196,7 @@
     "custom/power" = {
       format = "⏻";
       tooltip = false;
-      on-click = "swaynag -t warning -m 'Power' -b 'Logout' 'niri msg action quit' -b 'Suspend' 'systemctl suspend' -b 'Reboot' 'systemctl reboot' -b 'Shutdown' 'systemctl poweroff'";
+      on-click = "rofi -show power-menu -theme-str 'window { width: 20%; }'";
     };
   };
 
@@ -221,8 +221,8 @@
     }
 
     .modules-right > widget {
-        padding: 0 12px;
-        margin: 4px 12px;
+        padding: 4px 14px;
+        margin: 4px 6px;
         background-color: #1f2335;
         border-radius: 6px;
     }

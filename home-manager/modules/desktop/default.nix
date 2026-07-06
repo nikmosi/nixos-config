@@ -1,6 +1,6 @@
 {
   imports = [
-    ./anyrun.nix
+    ./rofi.nix
     ./cliphist.nix
     ./desktop.nix
     ./gammastep.nix
