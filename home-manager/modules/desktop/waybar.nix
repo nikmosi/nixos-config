@@ -113,7 +113,7 @@ _: {
         };
 
         cpu = {
-          format = "󰻆  {usage}%";
+          format = "󰻆  {usage:0.2f}%";
           interval = 2;
           max-length = 10;
         };
@@ -219,7 +219,7 @@ _: {
           border: none;
           border-radius: 0;
           min-height: 0;
-          font-family: "JetBrainsMono Nerd Font Mono", "Symbols Nerd Font Mono", "Noto Sans CJK JP";
+          font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", "Noto Sans CJK JP";
           font-size: 18px;
       }
 
@@ -227,6 +227,10 @@ _: {
           background-color: @bg;
           color: @fg;
           border-bottom: 1px solid @bg-alt;
+      }
+
+      .modules-right {
+          margin-right: 16px;
       }
 
       /* Apply padding/background directly to module IDs, not the
@@ -281,14 +285,15 @@ _: {
           background: @bg-alt;
       }
 
-      /* empty: dimmed (color preserved, opacity reduced) */
+      /* empty: dimmed — low opacity for clear contrast with occupied */
       #workspaces button.empty {
-          opacity: 0.5;
+          opacity: 0.3;
       }
 
-      /* occupied: has windows */
+      /* occupied: has windows — full opacity, accent color from per-workspace rules */
       #workspaces button.occupied {
           color: @fg;
+          opacity: 1;
       }
 
       /* active: visible on its output, not focused — thin underline */
@@ -307,14 +312,14 @@ _: {
       /* urgent: red alert (per-workspace IDs raise specificity to
          override the per-workspace color rules below) */
       #workspaces button.urgent,
-      #niri-workspace-web.urgent,
-      #niri-workspace-minecraft.urgent,
-      #niri-workspace-discord.urgent,
-      #niri-workspace-telegram.urgent,
-      #niri-workspace-chatterino.urgent,
-      #niri-workspace-localsend.urgent,
-      #niri-workspace-superprod.urgent,
-      #niri-workspace-easyeffects.urgent {
+      #workspaces #niri-workspace-web.urgent,
+      #workspaces #niri-workspace-minecraft.urgent,
+      #workspaces #niri-workspace-discord.urgent,
+      #workspaces #niri-workspace-telegram.urgent,
+      #workspaces #niri-workspace-chatterino.urgent,
+      #workspaces #niri-workspace-localsend.urgent,
+      #workspaces #niri-workspace-superprod.urgent,
+      #workspaces #niri-workspace-easyeffects.urgent {
           color: @red;
           font-weight: bold;
           box-shadow: inset 0 -2px @red;
@@ -324,14 +329,14 @@ _: {
       /* ── Per-workspace accent colors ───────────────────────── */
       /* box-shadow underline uses currentColor, so it automatically
          matches the workspace's accent in active/focused states. */
-      #niri-workspace-web          { color: @cyan; }
-      #niri-workspace-minecraft    { color: @green; }
-      #niri-workspace-discord      { color: @purple; }
-      #niri-workspace-telegram     { color: @blue; }
-      #niri-workspace-chatterino   { color: @yellow; }
-      #niri-workspace-localsend    { color: @orange; }
-      #niri-workspace-superprod    { color: @mint; }
-      #niri-workspace-easyeffects  { color: @teal; }
+      #workspaces #niri-workspace-web          { color: @cyan; }
+      #workspaces #niri-workspace-minecraft    { color: @green; }
+      #workspaces #niri-workspace-discord      { color: @purple; }
+      #workspaces #niri-workspace-telegram     { color: @blue; }
+      #workspaces #niri-workspace-chatterino   { color: @yellow; }
+      #workspaces #niri-workspace-localsend    { color: @orange; }
+      #workspaces #niri-workspace-superprod    { color: @mint; }
+      #workspaces #niri-workspace-easyeffects  { color: @teal; }
 
       #window {
           color: @fg;

@@ -440,20 +440,6 @@ in
             quit = [ ];
           };
 
-          # ── Focus: arrows (intuitive) ──────────────────────
-          "Mod+Left" = {
-            focus-column-left = [ ];
-          };
-          "Mod+Right" = {
-            focus-column-right = [ ];
-          };
-          "Mod+Down" = {
-            focus-window-down = [ ];
-          };
-          "Mod+Up" = {
-            focus-window-up = [ ];
-          };
-
           # ── Focus: vim-style (HJKL) ─────────────────────────
           "Mod+H" = {
             focus-column-left = [ ];
@@ -469,12 +455,6 @@ in
           };
 
           # ── Focus: or-workspace variants ───────────────────
-          "Mod+Ctrl+Down" = {
-            focus-window-or-workspace-down = [ ];
-          };
-          "Mod+Ctrl+Up" = {
-            focus-window-or-workspace-up = [ ];
-          };
           "Mod+Ctrl+J" = {
             focus-window-or-workspace-down = [ ];
           };
@@ -488,18 +468,6 @@ in
           };
 
           # ── Move windows ────────────────────────────────────
-          "Mod+Shift+Left" = {
-            move-column-left = [ ];
-          };
-          "Mod+Shift+Right" = {
-            move-column-right = [ ];
-          };
-          "Mod+Shift+Down" = {
-            move-window-down = [ ];
-          };
-          "Mod+Shift+Up" = {
-            move-window-up = [ ];
-          };
           "Mod+Shift+H" = {
             move-column-left = [ ];
           };
@@ -513,21 +481,7 @@ in
             move-window-up = [ ];
           };
 
-          # ── Swap windows (master/stack-like) ────────────────
-          "Mod+Alt+H" = {
-            swap-window-left = [ ];
-          };
-          "Mod+Alt+L" = {
-            swap-window-right = [ ];
-          };
-
           # ── Move across workspaces ──────────────────────────
-          "Mod+Ctrl+Shift+Down" = {
-            move-window-down-or-to-workspace-down = [ ];
-          };
-          "Mod+Ctrl+Shift+Up" = {
-            move-window-up-or-to-workspace-up = [ ];
-          };
           "Mod+Ctrl+Shift+J" = {
             move-window-down-or-to-workspace-down = [ ];
           };
@@ -550,31 +504,19 @@ in
           };
 
           # ── Monitor focus ────────────────────────────────────
-          "Mod+Alt+Left" = {
+          "Mod+Alt+H" = {
             focus-monitor-left = [ ];
           };
-          "Mod+Alt+Right" = {
+          "Mod+Alt+L" = {
             focus-monitor-right = [ ];
-          };
-          "Mod+Alt+Up" = {
-            focus-monitor-up = [ ];
-          };
-          "Mod+Alt+Down" = {
-            focus-monitor-down = [ ];
           };
 
           # ── Move column to monitor ──────────────────────────
-          "Mod+Alt+Shift+Left" = {
+          "Mod+Alt+Shift+H" = {
             move-column-to-monitor-left = [ ];
           };
-          "Mod+Alt+Shift+Right" = {
+          "Mod+Alt+Shift+L" = {
             move-column-to-monitor-right = [ ];
-          };
-          "Mod+Alt+Shift+Up" = {
-            move-column-to-monitor-up = [ ];
-          };
-          "Mod+Alt+Shift+Down" = {
-            move-column-to-monitor-down = [ ];
           };
 
           # ── Workspace navigation ─────────────────────────────
