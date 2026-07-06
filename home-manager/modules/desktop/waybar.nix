@@ -255,7 +255,7 @@ _: {
       #language,
       #custom-power {
           padding: 4px 8px;
-          margin: 4px 1px;
+          margin: 4px 0px;
           background-color: @bg-alt;
           border-radius: 6px;
       }
