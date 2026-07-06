@@ -22,14 +22,39 @@
     modules-right = [
       "tray"
       "custom/weather"
-      "custom/mem"
+      "memory"
       "cpu"
+      "temperature"
+      "network"
+      "idle_inhibitor"
+      "keyboard-state"
       "pulseaudio"
+      "custom/media"
       "niri/language"
+      "custom/power"
     ];
 
     "niri/workspaces" = {
-      format = "{icon}";
+      format = "{icon} {windows}";
+      format-window-separator = " ";
+      window-rewrite-default = "";
+      window-rewrite = {
+        "app_id<firefox>" = "";
+        "app_id<firefox-seven>" = "";
+        "app_id<discord>" = "";
+        "app_id<vesktop>" = "";
+        "app_id<legcord>" = "";
+        "app_id<TelegramDesktop>" = "";
+        "app_id<ayugram-desktop>" = "";
+        "app_id<com.chatterino.Chatterino>" = "💬";
+        "app_id<mpv>" = "";
+        "app_id<kitty>" = "";
+        "app_id<org.qbittorrent.qBittorrent>" = "";
+        "app_id<easyeffects>" = "🎵";
+        "app_id<superproductivity>" = "✓";
+        "app_id<localsend_app>" = "📤";
+        "class<Minecraft.*>" = "⛏";
+      };
       format-icons = {
         "一" = "一";
         "二" = "二";
@@ -57,12 +82,18 @@
     "niri/window" = {
       format = "{}";
       max-length = 50;
+      rewrite = {
+        "(.*) — Mozilla Firefox" = " $1";
+        "(.*) — Chatterino" = "💬 $1";
+        "(.*) — Discord" = " $1";
+        "(.*) — Telegram" = " $1";
+      };
     };
 
     clock = {
       format = "󰥔 {:%H:%M}";
       format-alt = "󰃭 {:%Y-%m-%d}";
-      tooltip-format = "{:%A, %B %d %Y}";
+      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
     };
 
     pulseaudio = {
@@ -88,10 +119,62 @@
       max-length = 10;
     };
 
-    "custom/mem" = {
-      format = "{}";
-      exec = "$HOME/.local/bin/mem.sh";
+    memory = {
+      format = "󰍛 {used}/{total} GB";
       interval = 2;
+    };
+
+    temperature = {
+      thermal-zone = 2;
+      critical-threshold = 80;
+      format = "{temperatureC}°C {icon}";
+      format-icons = [
+        "󰉬"
+        ""
+        "󰉪"
+      ];
+    };
+
+    network = {
+      format-wifi = "{essid} ({signalStrength}%) ";
+      format-ethernet = "{ipaddr}/{cidr} 󰊗";
+      tooltip-format = "{ifname} via {gwaddr} 󰊗";
+      format-linked = "{ifname} (No IP) 󰊗";
+      format-disconnected = "Disconnected ⚠";
+      format-alt = "{ifname}: {ipaddr}/{cidr}";
+    };
+
+    idle_inhibitor = {
+      format = "{icon}";
+      format-icons = {
+        activated = "󰅶";
+        deactivated = "󰅾";
+      };
+    };
+
+    keyboard-state = {
+      numlock = true;
+      capslock = true;
+      format = "{icon}";
+      format-icons = {
+        locked = "󰍛";
+        unlocked = "󰍜";
+      };
+    };
+
+    "custom/media" = {
+      format = "{icon} {}";
+      return-type = "json";
+      max-length = 40;
+      format-icons = {
+        spotify = "";
+        default = "🎜";
+      };
+      escape = true;
+      exec = "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}}: {{artist}} - {{album}} - {{title}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}' -F";
+      on-click = "playerctl play-pause";
+      on-click-middle = "playerctl previous";
+      on-click-right = "playerctl next";
     };
 
     "custom/weather" = {
@@ -108,6 +191,12 @@
     "niri/language" = {
       format-en = "🇺🇸 EN";
       format-ru = "🇷🇺 RU";
+    };
+
+    "custom/power" = {
+      format = "⏻";
+      tooltip = false;
+      on-click = "swaynag -t warning -m 'Power' -b 'Logout' 'niri msg action quit' -b 'Suspend' 'systemctl suspend' -b 'Reboot' 'systemctl reboot' -b 'Shutdown' 'systemctl poweroff'";
     };
   };
 
@@ -180,12 +269,52 @@
         color: #bb9af7;
     }
 
-    #custom-mem {
+    #memory {
         color: #e0af68;
+    }
+
+    #temperature {
+        color: #e0af68;
+    }
+
+    #temperature.critical {
+        color: #f7768e;
+    }
+
+    #network {
+        color: #7dcfff;
+    }
+
+    #network.disconnected {
+        color: #f7768e;
+    }
+
+    #idle_inhibitor.activated {
+        color: #e0af68;
+    }
+
+    #idle_inhibitor.deactivated {
+        color: #565f89;
+    }
+
+    #keyboard-state {
+        color: #9ece6a;
+    }
+
+    #keyboard-state.locked {
+        color: #f7768e;
+    }
+
+    #custom-media {
+        color: #9ece6a;
     }
 
     #custom-weather {
         color: #7dcfff;
+    }
+
+    #custom-power {
+        color: #f7768e;
     }
 
     #tray {

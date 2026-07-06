@@ -39,6 +39,9 @@
       waybar = {
         enable = false;
       };
+      mako = {
+        enable = false;
+      };
     };
 
     cursor = {

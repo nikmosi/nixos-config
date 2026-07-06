@@ -1,12 +1,12 @@
 {
   imports = [
+    ./anyrun.nix
     ./cliphist.nix
     ./desktop.nix
-    ./dunst.nix
     ./gammastep.nix
+    ./mako.nix
     ./mimeapps.nix
     ./niri.nix
-    ./rofi.nix
     ./screenshot.nix
     ./stylix.nix
     ./waybar.nix

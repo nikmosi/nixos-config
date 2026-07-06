@@ -24,6 +24,16 @@
     nur.url = "github:nix-community/NUR";
     nur.inputs.nixpkgs.follows = "stable";
 
+    niri-nix = {
+      url = "git+https://codeberg.org/bananad3v/niri-nix";
+      inputs.nixpkgs.follows = "stable";
+    };
+
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "stable";
+    };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "stable";
 
@@ -95,6 +105,7 @@
               modules = [
                 # { home-manager.backupFileExtension = "backup"; }
                 inputs.sops-nix.homeManagerModules.sops
+                inputs.niri-nix.homeModules.default
                 ./home-manager/home.nix
               ];
               extraSpecialArgs = {

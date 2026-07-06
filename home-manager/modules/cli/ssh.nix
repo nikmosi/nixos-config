@@ -23,9 +23,15 @@ _: {
         StrictHostKeyChecking = "accept-new";
       };
 
-      "note" = {
+      "note-nixos" = {
         HostName = "192.168.3.10";
         Port = 63544;
+      };
+
+      "note-dns" = {
+        User = "www";
+        HostName = "192.168.3.3";
+        Port = 22003;
       };
 
       "router" = {
@@ -39,15 +45,11 @@ _: {
         Port = 22;
       };
 
-      "vpn-moscow" = {
-        HostName = "rus.nikflora.ru";
-        Port = 22;
-      };
     };
 
     extraConfig = ''
       Host vpn-*
-        User root
+      User root
     '';
 
   };

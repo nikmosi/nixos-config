@@ -34,7 +34,7 @@
               grim -g "$(slurp)" - | zbarimg --raw - | wl-copy
               ;;
             menu)
-              choice=$(printf 'area\nfull\nupload\nqr' | rofi -dmenu -p screenshot)
+              choice=$(printf 'area\nfull\nupload\nqr' | anyrun --plugins libstdin.so)
               [ -n "$choice" ] && exec "$0" "$choice"
               ;;
             *)
