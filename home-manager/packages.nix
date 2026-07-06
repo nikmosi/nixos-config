@@ -254,6 +254,8 @@
         fuzzel
         wlr-randr
         brightnessctl
+        wtype
+        wl-clipboard
       ]
       ++ [
         telegrams.packages.${pkgs.stdenv.hostPlatform.system}.ayugram-desktop

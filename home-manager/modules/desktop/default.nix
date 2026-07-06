@@ -1,6 +1,7 @@
 {
   imports = [
     ./rofi.nix
+    ./rofi-pass.nix
     ./cliphist.nix
     ./desktop.nix
     ./gammastep.nix
