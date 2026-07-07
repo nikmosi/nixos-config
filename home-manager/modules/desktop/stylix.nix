@@ -45,6 +45,9 @@
       rofi = {
         enable = false;
       };
+      swaylock = {
+        enable = false;
+      };
     };
 
     cursor = {

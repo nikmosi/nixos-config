@@ -1,0 +1,151 @@
+/*
+ * ┌─────────────────────────────────────────────────────────────┐
+ * │  pinentry-rofi · "Vault" theme                              │
+ * │  Tokyo Night palette · purple accent                        │
+ * │  Designed for GPG passphrase entry                          │
+ * └─────────────────────────────────────────────────────────────┘
+ *
+ * Visibility trick: rofi password-mode draws • dots using
+ * entry.text-color. Setting it to a bright accent (#7dcfff cyan)
+ * on a dark inputbar background makes typed characters obvious.
+ */
+
+* {
+    bg:          #1a1b26;
+    bg-alt:      #1f2335;
+    bg-hover:    #292e42;
+    fg:          #c0caf5;
+    fg-dim:      #565f89;
+    blue:        #7aa2f7;
+    green:       #9ece6a;
+    red:         #f7768e;
+    yellow:      #e0af68;
+    cyan:        #7dcfff;
+    purple:      #bb9af7;
+
+    background-color: transparent;
+    text-color:       @fg;
+    border-color:     @bg-alt;
+    margin:  0px;
+    padding: 0px;
+    spacing: 0px;
+}
+
+/* ── Window ─────────────────────────────────────────────────── */
+window {
+    width:        840px;
+    height:       320px;
+    padding:      0px;
+    border:       2px;
+    border-radius: 20px;
+    background-color: @bg;
+    border-color:     #e0af68;
+}
+
+/* ── Mainbox ────────────────────────────────────────────────── */
+mainbox {
+    padding: 24px;
+    spacing: 16px;
+    orientation: vertical;
+}
+
+/* ── Message (description / error) ──────────────────────────── */
+message {
+    padding:       14px 18px;
+    border-radius: 14px;
+    background-color: @bg-alt;
+    border:        1px;
+    border-color:  @bg-hover;
+}
+textbox {
+    text-color:  @fg;
+    font:        "JetBrainsMono Nerd Font Mono 12";
+    horizontal-align: 0.5;
+    vertical-align:   0.5;
+}
+
+/* ── Inputbar ───────────────────────────────────────────────── */
+inputbar {
+    padding:        16px 20px;
+    spacing:        12px;
+    border-radius:  14px;
+    background-color: @bg-alt;
+    border:         1px;
+    border-color:   @bg-hover;
+    children:       [ "prompt", "entry", "case-indicator" ];
+}
+
+/* ── Prompt (lock icon + label) ─────────────────────────────── */
+prompt {
+    text-color:  @purple;
+    font:        "JetBrainsMono Nerd Font Mono 15";
+    /*  = nf-md-lock  */
+    str:         "  Passphrase";
+}
+
+/* ── Entry (password input) ─────────────────────────────────── */
+entry {
+    placeholder:        "Enter passphrase…";
+    placeholder-color:  @fg-dim;
+    /* BRIGHT accent so • dots are highly visible in password mode */
+    text-color:         @cyan;
+    font:               "JetBrainsMono Nerd Font Mono 15";
+    cursor:             text;
+    cursor-color:       @cyan;
+    cursor-width:       2px;
+    blink:              true;
+}
+
+/* ── Case indicator (caps lock warning) ─────────────────────── */
+case-indicator {
+    text-color: @fg-dim;
+    font:       "JetBrainsMono Nerd Font Mono 15";
+    /*  = nf-md-keyboard-caps */
+    str:        "";
+}
+
+/* ── Listview (empty in password mode, but styled for confirm) */
+listview {
+    padding:      4px 0px 0px;
+    spacing:      6px;
+    lines:        3;
+    columns:      1;
+    fixed-height: false;
+    scrollbar:    false;
+    border:       0px;
+}
+
+element {
+    padding:       10px 14px;
+    spacing:       10px;
+    border-radius: 10px;
+    cursor:        pointer;
+    font:          "JetBrainsMono Nerd Font Mono 13";
+}
+element normal.normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+element selected.normal {
+    background-color: @purple;
+    text-color:       @bg;
+}
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+element-icon {
+    size:             20px;
+    background-color: transparent;
+    text-color:       inherit;
+}
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+}
+
+/* ── Error state (when pinentry sends error message) ────────── */
+error {
+    text-color: @red;
+}

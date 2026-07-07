@@ -249,7 +249,6 @@
         models-dev
 
         # 🪟 Wayland utilities
-        swaylock
         swayidle
         fuzzel
         wlr-randr

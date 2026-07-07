@@ -91,7 +91,7 @@ _: {
 
         clock = {
           format = "󰥔 {:%H:%M}";
-          format-alt = "󰃭 {:%Y-%m-%d}";
+          format-alt = "󰃭 {:%a %d/%m/%Y}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
 

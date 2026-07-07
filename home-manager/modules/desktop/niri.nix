@@ -380,11 +380,11 @@ in
           default-column-width._children = [ { proportion = 0.8; } ];
         }
         {
-          match._props.app-id._raw = ''r#"^(pavucontrol|qbittorrent|ripdrag|pinentry|ssh-askpass|Blueman-manager|Gpick)$"#'';
+          match._props.app-id._raw = ''r#"^(pavucontrol|qbittorrent|ripdrag|ssh-askpass|Blueman-manager|Gpick)$"#'';
           open-floating = true;
         }
         {
-          match._props.title._raw = ''r#"^(branchdialog|pinentry|Event Tester)$"#'';
+          match._props.title._raw = ''r#"^(branchdialog|Event Tester)$"#'';
           open-floating = true;
         }
         # Bakkesmod: full height
@@ -401,9 +401,6 @@ in
           withCooldown = ms: { cooldown-ms = ms; };
         in
         {
-          "Mod+S" = {
-            show-hotkey-overlay = [ ];
-          };
           "Mod+Shift+Slash" = {
             show-hotkey-overlay = [ ];
           };

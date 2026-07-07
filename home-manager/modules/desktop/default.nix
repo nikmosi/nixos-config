@@ -10,6 +10,7 @@
     ./niri.nix
     ./screenshot.nix
     ./stylix.nix
+    ./swaylock.nix
     ./waybar.nix
   ];
 }
