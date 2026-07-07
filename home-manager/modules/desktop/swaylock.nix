@@ -50,29 +50,26 @@ in
       line-color = c.bgAlt;
       separator-color = c.bgAlt;
       text-color = c.fg;
-      key-hold-color = c.bgAlt;
-      bsw-color = c.comment;
+      key-hl-color = c.bgAlt;
+      "bs-hl-color" = c.comment;
 
       # Verifying (typing password)
       inside-ver-color = "${c.purple}cc";
       ring-ver-color = c.purple;
       line-ver-color = c.purple;
       text-ver-color = c.bg;
-      separator-ver-color = c.purple;
 
       # Clear (caps-lock etc.)
       inside-clear-color = "${c.yellow}cc";
       ring-clear-color = c.yellow;
       line-clear-color = c.yellow;
       text-clear-color = c.bg;
-      separator-clear-color = c.yellow;
 
       # Wrong (auth failed)
       inside-wrong-color = "${c.red}cc";
       ring-wrong-color = c.red;
       line-wrong-color = c.red;
       text-wrong-color = c.bg;
-      separator-wrong-color = c.red;
 
       # ── Behaviour ─────────────────────────────────────────
       grace = 3;
