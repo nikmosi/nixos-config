@@ -278,7 +278,7 @@ in
           "localsend_app"
           "--hidden"
         ]
-        [ "com.ayugram.desktop" ]
+        [ "AyuGram" ]
       ];
 
       # ── Animations (per-spring) ─────────────────────────────

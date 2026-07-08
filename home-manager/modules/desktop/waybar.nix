@@ -179,6 +179,7 @@ _: {
         "custom/weather" = {
           format = "{}";
           exec = "$HOME/.local/bin/weather.sh";
+          return-type = "json";
           interval = 300;
           tooltip = true;
         };

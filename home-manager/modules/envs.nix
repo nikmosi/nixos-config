@@ -31,6 +31,11 @@ in
         path = "${configDir}/opencode/secrets/tavily_api_key";
         mode = "0400";
       };
+
+      "weather/city" = {
+        path = "${configDir}/weather/city";
+        mode = "0400";
+      };
     };
 
     templates."gh-hosts" = {
