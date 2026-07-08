@@ -54,7 +54,6 @@ _: {
             "app_id<localsend_app>" = "📤";
             "class<Minecraft.*>" = "⛏";
           };
-          ignore-workspaces = [ "^[0-9]+$" ];
           format-icons = {
             "一" = "一";
             "二" = "二";
@@ -66,6 +65,8 @@ _: {
             "八" = "八";
             "九" = "九";
             "十" = "十";
+            "8" = "";
+            "12" = "";
             "web" = "🌐";
             "minecraft" = "⛏";
             "discord" = "🎮";
@@ -337,6 +338,25 @@ _: {
       #workspaces #niri-workspace-localsend    { color: @orange; }
       #workspaces #niri-workspace-superprod    { color: @mint; }
       #workspaces #niri-workspace-easyeffects  { color: @teal; }
+
+      #workspaces #niri-workspce-8,
+      #workspaces #niri-workspace-12 {
+          font-size: 0px !important;
+          padding: 0px !impertant;
+          margin: 0px !impertant;
+          min-width: 0px !impertant;
+          border: none !impertant;
+          background: none !impertant;
+          box-shadow: none !impertant;
+      }
+
+      #workspaces #niri-workspce-8 label,
+      #workspaces #niri-workspace-12 label {
+          font-size: 0px !important;
+          color: transparent !important;
+          min-width: 0px !important;
+          min-height: 0px !important;
+      }
 
       #window {
           color: @fg;
