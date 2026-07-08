@@ -7,7 +7,7 @@ _: {
       {
         layer = "top";
         position = "top";
-        height = 40;
+        height = 48;
         spacing = 12;
         reload_style_on_change = true;
 
@@ -113,7 +113,7 @@ _: {
         };
 
         cpu = {
-          format = "󰻆  {usage:0.2f}%";
+          format = "󰻆  {usage:>2}%";
           interval = 2;
           max-length = 10;
         };
@@ -339,23 +339,23 @@ _: {
       #workspaces #niri-workspace-superprod    { color: @mint; }
       #workspaces #niri-workspace-easyeffects  { color: @teal; }
 
-      #workspaces #niri-workspce-8,
+      #workspaces #niri-workspace-8,
       #workspaces #niri-workspace-12 {
-          font-size: 0px !important;
-          padding: 0px !impertant;
-          margin: 0px !impertant;
-          min-width: 0px !impertant;
-          border: none !impertant;
-          background: none !impertant;
-          box-shadow: none !impertant;
+          font-size: 0px;
+          padding: 0px;
+          margin: 0px;
+          min-width: 0px;
+          border: none;
+          background: none;
+          box-shadow: none;
       }
 
-      #workspaces #niri-workspce-8 label,
+      #workspaces #niri-workspace-8 label,
       #workspaces #niri-workspace-12 label {
-          font-size: 0px !important;
-          color: transparent !important;
-          min-width: 0px !important;
-          min-height: 0px !important;
+          font-size: 0px;
+          color: transparent;
+          min-width: 0px;
+          min-height: 0px;
       }
 
       #window {
