@@ -54,6 +54,7 @@ _: {
             "app_id<localsend_app>" = "📤";
             "class<Minecraft.*>" = "⛏";
           };
+          ignore-workspaces = [ "^[0-9]+$" ];
           format-icons = {
             "一" = "一";
             "二" = "二";
@@ -65,8 +66,6 @@ _: {
             "八" = "八";
             "九" = "九";
             "十" = "十";
-            "十一" = "十一";
-            "十二" = "十二";
             "web" = "🌐";
             "minecraft" = "⛏";
             "discord" = "🎮";

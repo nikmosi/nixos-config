@@ -611,9 +611,6 @@ in
           "Mod+5" = {
             focus-workspace = "五";
           };
-          "Mod+6" = {
-            focus-workspace = "六";
-          };
 
           "Mod+Ctrl+1" = {
             move-column-to-workspace = "一";
@@ -630,11 +627,11 @@ in
           "Mod+Ctrl+5" = {
             move-column-to-workspace = "五";
           };
-          "Mod+Ctrl+6" = {
-            move-column-to-workspace = "六";
-          };
 
           # ── Workspaces: DP-2 (right) 七-十二 ───────────────
+          "Mod+6" = {
+            focus-workspace = "六";
+          };
           "Mod+7" = {
             focus-workspace = "七";
           };
@@ -647,13 +644,10 @@ in
           "Mod+0" = {
             focus-workspace = "十";
           };
-          "Mod+Minus" = {
-            focus-workspace = "十一";
-          };
-          "Mod+Equal" = {
-            focus-workspace = "十二";
-          };
 
+          "Mod+Ctrl+6" = {
+            move-column-to-workspace = "六";
+          };
           "Mod+Ctrl+7" = {
             move-column-to-workspace = "七";
           };
@@ -665,12 +659,6 @@ in
           };
           "Mod+Ctrl+0" = {
             move-column-to-workspace = "十";
-          };
-          "Mod+Ctrl+Minus" = {
-            move-column-to-workspace = "十一";
-          };
-          "Mod+Ctrl+Equal" = {
-            move-column-to-workspace = "十二";
           };
 
           # ── Named workspaces (app-specific) ─────────────────
