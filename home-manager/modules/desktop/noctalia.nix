@@ -48,15 +48,15 @@
       # ── Bar ────────────────────────────────────────────────────────────
       bar.main = {
         position = "top";
-        thickness = 40;
+        thickness = 54;
         background_opacity = 0.98;
         radius = 14;
         reserve_space = true;
-        margin_ends = 8;
+        margin_ends = 0;
         margin_edge = 0;
         padding = 10;
         widget_spacing = 6;
-        scale = 1.0;
+        scale = 1.3;
         shadow = true;
         border = "outline";
         border_width = 1.0;
