@@ -41,19 +41,6 @@
   };
 
   xdg.desktopEntries = {
-    chatterino = {
-      name = "Chatterino";
-      comment = "Twitch chat client for desktop";
-      exec = "chatterino";
-      icon = "chatterino";
-      terminal = false;
-      type = "Application";
-      categories = [
-        "Network"
-        "Chat"
-      ];
-    };
-
     chromium-custom = {
       name = "Chromium";
       genericName = "Web Browser";
