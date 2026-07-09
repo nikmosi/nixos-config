@@ -16,6 +16,7 @@
         middle_click_opens_widget_settings = true;
         clipboard_enabled = true;
         clipboard_history_max_entries = 100;
+        corner_radius_scale = 1.2;
       };
 
       shell.animation = {
@@ -25,11 +26,11 @@
 
       shell.shadow = {
         direction = "down";
-        alpha = 0.55;
+        alpha = 0.4;
       };
 
       shell.panel = {
-        transparency_mode = "solid";
+        transparency_mode = "soft";
         borders = true;
         shadow = true;
         launcher_placement = "centered";
@@ -41,27 +42,32 @@
       theme = {
         mode = "dark";
         source = "builtin";
-        builtin = "Tokyo-Night";
+        builtin = "Catppuccin";
       };
 
       # ── Bar ────────────────────────────────────────────────────────────
       bar.main = {
         position = "top";
-        thickness = 48;
-        background_opacity = 1.0;
-        radius = 12;
+        thickness = 40;
+        background_opacity = 0.98;
+        radius = 14;
         reserve_space = true;
-        margin_ends = 0;
+        margin_ends = 8;
         margin_edge = 0;
-        padding = 6;
-        widget_spacing = 8;
+        padding = 10;
+        widget_spacing = 6;
         scale = 1.0;
         shadow = true;
+        border = "outline";
+        border_width = 1.0;
+        concave_edge_corners = true;
+        hover_highlight = true;
+        font_weight = 500;
 
         capsule = true;
         capsule_fill = "surface_variant";
-        capsule_opacity = 1.0;
-        capsule_radius = 6.0;
+        capsule_opacity = 0.8;
+        capsule_radius = 8.0;
 
         start = [
           "workspaces"
@@ -88,6 +94,7 @@
       widget = {
         # Workspace switcher — display = "name" показывает имена из niri
         # (японские номера 一–十 + именованные workspace)
+        # Цвета — Catppuccin Mocha (явные hex, не color roles)
         workspaces = {
           display = "name";
           minimal = false;
@@ -95,14 +102,16 @@
           pill_scale = 1.0;
           active_pill_size = 2.2;
           inactive_pill_size = 1.0;
-          focused_color = "primary";
-          occupied_color = "secondary";
-          empty_color = "surface_variant";
+          focused_color = "#cba6f7";
+          occupied_color = "#89b4fa";
+          empty_color = "#45475a";
           focused_output_only = false;
+          hide_when_empty = false;
+          labels_only_when_occupied = false;
         };
 
         active_window = {
-          max_length = 260;
+          max_length = 240;
           display = "icon_and_text";
           title_scroll = "on_hover";
           show_empty_label = true;
@@ -141,7 +150,7 @@
         };
 
         media = {
-          max_length = 220;
+          max_length = 200;
           hide_when_no_media = true;
           title_scroll = "on_hover";
         };
@@ -174,7 +183,7 @@
         };
 
         weather = {
-          max_length = 160;
+          max_length = 140;
           show_condition = true;
           show_temperature = true;
         };
@@ -213,7 +222,7 @@
         show_actions = true;
         layer = "top";
         scale = 1.0;
-        background_opacity = 0.97;
+        background_opacity = 0.90;
       };
 
       # ── OSD ────────────────────────────────────────────────────────────
@@ -221,15 +230,15 @@
         position = "top_right";
         orientation = "horizontal";
         scale = 1.0;
-        background_opacity = 0.97;
+        background_opacity = 0.90;
       };
 
       # ── Lock Screen ────────────────────────────────────────────────────
       lockscreen = {
         enabled = true;
-        blurred_desktop = false;
-        blur_intensity = 0.5;
-        tint_intensity = 0.3;
+        blurred_desktop = true;
+        blur_intensity = 0.7;
+        tint_intensity = 0.2;
       };
 
       # ── Dock ───────────────────────────────────────────────────────────

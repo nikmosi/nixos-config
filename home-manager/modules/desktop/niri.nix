@@ -15,6 +15,19 @@ let
     comment = "#565f89";
   };
 
+  # Nerd Font PUA symbols for non-numeric workspaces
+  nf = code: builtins.fromJSON ''"\u${code}"'';
+  ws = {
+    web = nf "f269"; # firefox
+    minecraft = nf "f1b2"; # cube
+    discord = nf "f2ee"; # discord
+    telegram = nf "f3cd"; # telegram
+    chatterino = nf "f086"; # comments
+    localsend = nf "f1e0"; # share-alt
+    superprod = nf "f14a"; # check-square
+    easyeffects = nf "f001"; # music
+  };
+
   wallpaperXiaomi = ../../../assets/wallpapers/xiaomi.jpg;
   wallpaperPhilips = ../../../assets/wallpapers/philips.jpg;
 in
@@ -86,11 +99,11 @@ in
           open-on-output = "DP-1";
         }
         {
-          _args = [ "web" ];
+          _args = [ ws.web ];
           open-on-output = "DP-1";
         }
         {
-          _args = [ "minecraft" ];
+          _args = [ ws.minecraft ];
           open-on-output = "DP-1";
         }
         # DP-2 (right): 七-十二 + app-specific
@@ -115,27 +128,27 @@ in
           open-on-output = "DP-2";
         }
         {
-          _args = [ "discord" ];
+          _args = [ ws.discord ];
           open-on-output = "DP-2";
         }
         {
-          _args = [ "telegram" ];
+          _args = [ ws.telegram ];
           open-on-output = "DP-2";
         }
         {
-          _args = [ "chatterino" ];
+          _args = [ ws.chatterino ];
           open-on-output = "DP-2";
         }
         {
-          _args = [ "localsend" ];
+          _args = [ ws.localsend ];
           open-on-output = "DP-2";
         }
         {
-          _args = [ "superprod" ];
+          _args = [ ws.superprod ];
           open-on-output = "DP-2";
         }
         {
-          _args = [ "easyeffects" ];
+          _args = [ ws.easyeffects ];
           open-on-output = "DP-2";
         }
       ];
@@ -331,15 +344,15 @@ in
         # DP-1: web + minecraft
         {
           match._props.app-id = "firefox";
-          open-on-workspace = "web";
+          open-on-workspace = ws.web;
         }
         {
           match._props.title._raw = ''r#"^Minecraft"#'';
-          open-on-workspace = "minecraft";
+          open-on-workspace = ws.minecraft;
         }
         {
           match._props.app-id._raw = ''r#"^(steam_proton|epicgameslauncher.exe|rocketleague.exe|bakkesmod.exe)$"#'';
-          open-on-workspace = "minecraft";
+          open-on-workspace = ws.minecraft;
         }
         # DP-2: app-specific
         {
@@ -348,29 +361,29 @@ in
         }
         {
           match._props.app-id._raw = ''r#"^(discord|vesktop|legcord|anilibrix)$"#'';
-          open-on-workspace = "discord";
+          open-on-workspace = ws.discord;
         }
         {
           match._props.app-id._raw = ''r#"^(TelegramDesktop|ayugram-desktop|com\.ayugram\.desktop)$"#'';
-          open-on-workspace = "telegram";
+          open-on-workspace = ws.telegram;
           open-focused = false;
         }
         {
           match._props.app-id._raw = ''r#"^com\.chatterino\."#'';
-          open-on-workspace = "chatterino";
+          open-on-workspace = ws.chatterino;
           open-focused = false;
         }
         {
           match._props.app-id._raw = ''r#"^localsend_app$"#'';
-          open-on-workspace = "localsend";
+          open-on-workspace = ws.localsend;
         }
         {
           match._props.app-id._raw = ''r#"^superproductivity$"#'';
-          open-on-workspace = "superprod";
+          open-on-workspace = ws.superprod;
         }
         {
           match._props.app-id._raw = ''r#"^(easyeffects|nekoray|hiddify|v2rayN)$"#'';
-          open-on-workspace = "easyeffects";
+          open-on-workspace = ws.easyeffects;
         }
         # Floating
         {
@@ -666,52 +679,52 @@ in
 
           # ── Named workspaces (app-specific) ─────────────────
           "Mod+W" = {
-            focus-workspace = "web";
+            focus-workspace = ws.web;
           };
           "Mod+Ctrl+W" = {
-            move-column-to-workspace = "web";
+            move-column-to-workspace = ws.web;
           };
           "Mod+G" = {
-            focus-workspace = "minecraft";
+            focus-workspace = ws.minecraft;
           };
           "Mod+Ctrl+G" = {
-            move-column-to-workspace = "minecraft";
+            move-column-to-workspace = ws.minecraft;
           };
           "Mod+F1" = {
-            focus-workspace = "discord";
+            focus-workspace = ws.discord;
           };
           "Mod+Ctrl+F1" = {
-            move-column-to-workspace = "discord";
+            move-column-to-workspace = ws.discord;
           };
           "Mod+F2" = {
-            focus-workspace = "localsend";
+            focus-workspace = ws.localsend;
           };
           "Mod+Ctrl+F2" = {
-            move-column-to-workspace = "localsend";
+            move-column-to-workspace = ws.localsend;
           };
           "Mod+F3" = {
-            focus-workspace = "superprod";
+            focus-workspace = ws.superprod;
           };
           "Mod+Ctrl+F3" = {
-            move-column-to-workspace = "superprod";
+            move-column-to-workspace = ws.superprod;
           };
           "Mod+E" = {
-            focus-workspace = "easyeffects";
+            focus-workspace = ws.easyeffects;
           };
           "Mod+Ctrl+E" = {
-            move-column-to-workspace = "easyeffects";
+            move-column-to-workspace = ws.easyeffects;
           };
           "Mod+R" = {
-            focus-workspace = "chatterino";
+            focus-workspace = ws.chatterino;
           };
           "Mod+Ctrl+R" = {
-            move-column-to-workspace = "chatterino";
+            move-column-to-workspace = ws.chatterino;
           };
           "Mod+T" = {
-            focus-workspace = "telegram";
+            focus-workspace = ws.telegram;
           };
           "Mod+Ctrl+T" = {
-            move-column-to-workspace = "telegram";
+            move-column-to-workspace = ws.telegram;
           };
 
           # ── Column consume / expel ───────────────────────────

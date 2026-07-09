@@ -1,4 +1,18 @@
-_: {
+_:
+let
+  nf = code: builtins.fromJSON ''"\u${code}"'';
+  ws = {
+    web = nf "f269"; # firefox
+    minecraft = nf "f1b2"; # cube
+    discord = nf "f2ee"; # discord
+    telegram = nf "f3cd"; # telegram
+    chatterino = nf "f086"; # comments
+    localsend = nf "f1e0"; # share-alt
+    superprod = nf "f14a"; # check-square
+    easyeffects = nf "f001"; # music
+  };
+in
+{
   programs.waybar = {
     enable = true;
     systemd.enable = false;
@@ -65,16 +79,14 @@ _: {
             "八" = "八";
             "九" = "九";
             "十" = "十";
-            "8" = "";
-            "12" = "";
-            "web" = "🌐";
-            "minecraft" = "⛏";
-            "discord" = "🎮";
-            "telegram" = "✈";
-            "chatterino" = "💬";
-            "localsend" = "📤";
-            "superprod" = "✓";
-            "easyeffects" = "🎵";
+            "${ws.web}" = "";
+            "${ws.minecraft}" = "";
+            "${ws.discord}" = "";
+            "${ws.telegram}" = "";
+            "${ws.chatterino}" = "";
+            "${ws.localsend}" = "";
+            "${ws.superprod}" = "";
+            "${ws.easyeffects}" = "";
           };
         };
 
