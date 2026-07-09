@@ -214,6 +214,26 @@ _: {
         $env.PROMPT_MULTILINE_INDICATOR = {|| "::: " }
         $env.FZF_DEFAULT_OPTS = "--color=fg:#f8f8f2,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
 
+        $env.IDEA_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/idea.vmoptions")
+        $env.CLION_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/clion.vmoptions")
+        $env.PHPSTORM_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/phpstorm.vmoptions")
+        $env.GOLAND_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/goland.vmoptions")
+        $env.PYCHARM_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/pycharm.vmoptions")
+        $env.WEBSTORM_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/webstorm.vmoptions")
+        $env.WEBIDE_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/webide.vmoptions")
+        $env.RIDER_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/rider.vmoptions")
+        $env.DATAGRIP_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/datagrip.vmoptions")
+        $env.RUBYMINE_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/rubymine.vmoptions")
+        $env.DATASPELL_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/dataspell.vmoptions")
+        $env.AQUA_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/aqua.vmoptions")
+        $env.RUSTROVER_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/rustrover.vmoptions")
+        $env.GATEWAY_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/gateway.vmoptions")
+        $env.JETBRAINS_CLIENT_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/jetbrains_client.vmoptions")
+        $env.JETBRAINSCLIENT_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/jetbrainsclient.vmoptions")
+        $env.STUDIO_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/studio.vmoptions")
+        $env.DEVECOSTUDIO_VM_OPTIONS = ($nu.home-dir | path join ".local/share/jetbra/jetbra/vmoptions/devecostudio.vmoptions")
+
+
         $env.ENV_CONVERSIONS = {
           "PATH": {
             from_string: {|s| $s | split row (char esep) | path expand --no-symlink }
