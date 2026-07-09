@@ -60,7 +60,7 @@
         shadow = true;
         border = "outline";
         border_width = 1.0;
-        concave_edge_corners = true;
+        concave_edge_corners = false;
         hover_highlight = true;
         font_weight = 500;
 
