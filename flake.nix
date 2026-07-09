@@ -29,6 +29,10 @@
       inputs.nixpkgs.follows = "stable";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/cachix";
+    };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "stable";
 

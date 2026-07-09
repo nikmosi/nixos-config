@@ -36,16 +36,7 @@
       firefox = {
         enable = false;
       };
-      waybar = {
-        enable = false;
-      };
-      mako = {
-        enable = false;
-      };
       rofi = {
-        enable = false;
-      };
-      swaylock = {
         enable = false;
       };
     };

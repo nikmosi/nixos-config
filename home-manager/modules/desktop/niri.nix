@@ -216,14 +216,14 @@ in
 
       # ── Layer rules ────────────────────────────────────────
       layer-rule = [
-        # Waybar: blur/тень под баром
+        # Noctalia bar: blur/тень под баром
         {
-          match._props.namespace._raw = ''r#"^waybar$"#'';
+          match._props.namespace._raw = ''r#"^noctalia-(bar-[^"]+|notification|dock|panel|attached-panel|osd)$"#'';
           place-within-backdrop = true;
         }
-        # Mako: не видны в screen-share
+        # Noctalia notifications: не видны в screen-share
         {
-          match._props.namespace._raw = ''r#"^mako$"#'';
+          match._props.namespace._raw = ''r#"^noctalia-notification"#'';
           block-out-from = "screencast";
         }
       ];
@@ -256,9 +256,8 @@ in
           "-m"
           "fill"
         ]
-        [ "waybar" ]
+        [ "noctalia" ]
         [ "lxqt-policykit-agent" ]
-        [ "gammastep-indicator" ]
         # cliphist автонаполнение (best practice из niri wiki)
         [
           "sh"
@@ -417,6 +416,10 @@ in
               "-show"
               "drun"
             ];
+          };
+          "Mod+S" = {
+            _props.hotkey-overlay-title = "Control Center: Noctalia";
+            spawn-sh = "noctalia msg panel-toggle control-center";
           };
           "Mod+C" = {
             spawn-sh = "cliphist list | rofi -dmenu -display-input 'Clipboard' | cliphist decode | wl-copy";
@@ -890,7 +893,7 @@ in
 
           # ── Lock / power ─────────────────────────────────────
           "Mod+Ctrl+L" = {
-            spawn = "swaylock";
+            spawn-sh = "noctalia msg session lock";
           };
           "Mod+Shift+Ctrl+P" = {
             power-off-monitors = [ ];

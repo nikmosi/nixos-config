@@ -39,12 +39,16 @@
       substituters = [
         "https://cache.nixos.org/"
         "https://cache.garnix.io"
+        "https://noctalia.cachix.org"
       ];
       trusted-users = [
         "root"
         "@wheel"
       ];
-      trusted-public-keys = [ "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=" ];
+      trusted-public-keys = [
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+        "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      ];
     };
     optimise = {
       automatic = true;

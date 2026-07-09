@@ -4,13 +4,10 @@
     ./rofi-pass.nix
     ./cliphist.nix
     ./desktop.nix
-    ./gammastep.nix
-    ./mako.nix
     ./mimeapps.nix
     ./niri.nix
     ./screenshot.nix
     ./stylix.nix
-    ./swaylock.nix
-    ./waybar.nix
+    ./noctalia.nix
   ];
 }
