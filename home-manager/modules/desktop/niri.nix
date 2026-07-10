@@ -291,6 +291,10 @@ in
           "--hidden"
         ]
         [ "AyuGram" ]
+        [
+          "handy"
+          "--start-hidden"
+        ]
       ];
 
       # ── Animations (per-spring) ─────────────────────────────
@@ -442,6 +446,10 @@ in
           };
           "Mod+X" = {
             spawn-sh = "rofi -show power-menu -theme-str 'window { width: 20%; }'";
+          };
+          "Mod+V" = {
+            _props.hotkey-overlay-title = "Voice Transcription: handy";
+            spawn = "handy --toggle-transcription";
           };
 
           # ── Window management ──────────────────────────────

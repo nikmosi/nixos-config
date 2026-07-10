@@ -434,6 +434,39 @@ _: {
           scope aliases | where name == $a
         }
 
+        def unnixstore [path: path] {
+            # 1. Проверяем, существует ли объект вообще
+            if not ($path | path exists) {
+                print -e $"(ansi red_bold)Ошибка:(ansi reset) Путь '($path)' не существует."
+                exit 1
+            }
+
+            # 2. Проверяем, является ли путь симлинком
+            # В Nushell 'ls' возвращает таблицу, где тип ссылки обозначается как 'symlink'
+            let meta = (ls -l $path | first)
+            if $meta.type != "symlink" {
+                print $"(ansi yellow)Предупреждение:(ansi reset) '($path)' не является симлинком (тип: ($meta.type)). Ничего не делаем."
+                exit 0
+            }
+
+            # 3. Находим абсолютный путь к реальному файлу
+            # path expand корректно разворачивает симлинки до их финального назначения
+            let real_path = ($path | path expand)
+
+            print $"(ansi green)Найдена ссылка:(ansi reset) ($path) -> ($real_path)"
+
+            # 4. Удаляем симлинк
+            rm $path
+
+            # 5. Копируем реальный файл на место ссылки
+            cp $real_path $path
+
+            # 6. Делаем файл доступным для записи (снимаем read-only, типичный для Nix store)
+            chmod +w $path
+
+            print $"(ansi green_bold)Успешно:(ansi reset) Симлинк заменен на реальный файл. Теперь его можно редактировать!"
+        }
+
         def complete_alias [] {
           {
             completions: (
