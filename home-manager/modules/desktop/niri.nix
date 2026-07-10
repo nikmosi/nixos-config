@@ -22,7 +22,7 @@ let
     minecraft = nf "f1b2"; # cube
     discord = nf "f2ee"; # discord
     telegram = nf "f3cd"; # telegram
-    chatterino = nf "f086"; # comments
+    chatterino = "󰭹 "; # comments
     localsend = nf "f1e0"; # share-alt
     superprod = nf "f14a"; # check-square
     easyeffects = nf "f001"; # music

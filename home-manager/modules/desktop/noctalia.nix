@@ -50,7 +50,7 @@
         position = "top";
         thickness = 54;
         background_opacity = 0.98;
-        radius = 14;
+        radius = 0;
         reserve_space = true;
         margin_ends = 0;
         margin_edge = 0;
