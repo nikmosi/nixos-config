@@ -33,7 +33,8 @@
         transparency_mode = "soft";
         borders = true;
         shadow = true;
-        launcher_placement = "centered";
+        launcher_placement = "floating";
+        launcher_position = "center";
         control_center_placement = "attached";
         session_placement = "attached";
       };
@@ -127,6 +128,8 @@
           stat = "cpu_usage";
           display = "gauge";
           show_label = true;
+          highlight_color = "#f38ba8";
+          label_min_width = 32;
         };
 
         "sysmon-ram" = {
@@ -134,6 +137,8 @@
           stat = "ram_pct";
           display = "gauge";
           show_label = true;
+          highlight_color = "#f9e2af";
+          label_min_width = 32;
         };
 
         "sysmon-temp" = {
@@ -141,6 +146,8 @@
           stat = "cpu_temp";
           display = "text";
           show_label = true;
+          highlight_color = "#fab387";
+          label_min_width = 40;
         };
 
         volume = {
@@ -231,6 +238,7 @@
         orientation = "horizontal";
         scale = 1.0;
         background_opacity = 0.90;
+        kinds.keyboard_layout = false;
       };
 
       # ── Lock Screen ────────────────────────────────────────────────────

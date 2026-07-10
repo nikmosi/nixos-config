@@ -462,7 +462,7 @@ _: {
         alias grep = rg
         alias sortnr = sort -n -r
         alias tt = tail -f
-        alias to_clip = xclip -sel clip
+        alias to_clip = wl-copy
         alias x = xonsh
         alias k = kubecolor
         alias kx = kubectx

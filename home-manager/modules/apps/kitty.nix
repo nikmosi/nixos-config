@@ -1,6 +1,8 @@
 _:
 let
   kittyConfig = {
+    background_opacity = "0.95";
+    background_blur = 5;
     # Cursor settings
     cursor_color = "#ebdbb2";
 
