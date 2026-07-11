@@ -13,6 +13,19 @@
     deadnix
     nix-output-monitor
     nh
+
+    # Neovim config development
+    ripgrep
+    fd
+    lua-language-server
+    pyright
+    ruff
+    yaml-language-server
+    taplo
+    python311Packages.debugpy
+    hadolint
+    stylua
+    convco
   ];
 
   languages.nix.enable = true;
@@ -72,5 +85,23 @@
     # Lint Nix code
     statix.enable = true;
     deadnix.enable = true;
+
+    # Lua (nvim config)
+    stylua.enable = true;
+
+    # General
+    end-of-file-fixer.enable = true;
+    trim-trailing-whitespace.enable = true;
+    check-yaml.enable = true;
+    fix-byte-order-marker.enable = true;
+    check-added-large-files.enable = true;
+
+    # Conventional commits
+    convco.enable = true;
+
+    trufflehog = {
+      enable = true;
+      stages = [ "pre-push" ];
+    };
   };
 }

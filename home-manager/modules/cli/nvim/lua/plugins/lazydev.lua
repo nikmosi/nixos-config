@@ -1,0 +1,27 @@
+return {
+  "folke/lazydev.nvim",
+  ft = "lua", -- only load on lua files
+  opts = {
+    library = {
+      "snacks.nvim",
+      "Snacks",
+      "blink.cmp",
+      "conform",
+      "MiniIcons",
+      "nvim-dap-ui",
+      "noice.nvim",
+      -- It can also be a table with trigger words / mods
+      -- Only load luvit types when the `vim.uv` word is found
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      { path = "LazyVim", words = { "LazyVim" } },
+    },
+    -- always enable unless `vim.g.lazydev_enabled = false`
+    -- This is the default
+    enabled = function(root_dir)
+      if vim.g.lazydev_enabled == false then
+        return false
+      end
+      return not vim.uv.fs_stat(root_dir .. "/.luarc.json")
+    end,
+  },
+}
