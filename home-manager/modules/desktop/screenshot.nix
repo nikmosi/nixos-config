@@ -45,77 +45,6 @@
         '';
       };
 
-      ".local/bin/weather.sh" = {
-        executable = true;
-        text = ''
-          #!/usr/bin/env bash
-          set -euo pipefail
-
-          CITY_FILE="$HOME/.config/weather/city"
-          if [ ! -f "$CITY_FILE" ]; then
-            printf '{"text":"󰅎 no city","tooltip":"weather city not set"}\n'
-            exit 0
-          fi
-          CITY=$(tr -d '[:space:]' < "$CITY_FILE")
-
-          CACHE="/tmp/waybar-weather.json"
-          CACHE_TTL=600
-
-          if [ -f "$CACHE" ] && [ "$(($(date +%s) - $(stat -c %Y "$CACHE" 2>/dev/null || echo 0)))" -lt "$CACHE_TTL" ]; then
-            DATA=$(cat "$CACHE")
-          else
-            DATA=$(curl -fsS "https://wttr.in/''${CITY}?format=j1" 2>/dev/null) || {
-              printf '{"text":"󰅎 err","tooltip":"wttr.in request failed"}\n'
-              exit 0
-            }
-            echo "$DATA" > "$CACHE"
-          fi
-
-          CUR=$(echo "$DATA" | jq -r '.current_condition[0]')
-          TEMP=$(echo "$CUR" | jq -r '.temp_C')
-          FEELS=$(echo "$CUR" | jq -r '.FeelsLikeC')
-          HUMID=$(echo "$CUR" | jq -r '.humidity')
-          DESC=$(echo "$CUR" | jq -r '.weatherDesc[0].value')
-          WCODE=$(echo "$CUR" | jq -r '.weatherCode')
-          WIND_DIR=$(echo "$CUR" | jq -r '.winddir16Point')
-          WIND_KPH=$(echo "$CUR" | jq -r '.windspeedKmph')
-
-          case "$WCODE" in
-            113)                          ICON="󰖙" ;;
-            116)                          ICON="󰖕" ;;
-            119|122)                      ICON="󰖕" ;;
-            143|248|249|260|263)          ICON="󰖪" ;;
-            200|386|389|392|395)          ICON="󰼯" ;;
-            227|230|320|323|326|329|332|335|338|368|371|374|377) ICON="󰼫" ;;
-            176|179|182|185|266|281|284|293|296|299|302|305|308|311|314|317|350|353|356|359|362|365) ICON="󰖗" ;;
-            *)                            ICON="󰅎" ;;
-          esac
-
-          TOOLTIP="<b>''${DESC} ''${TEMP}°C</b>"
-          TOOLTIP="''${TOOLTIP}\\nFeels like: ''${FEELS}°C"
-          TOOLTIP="''${TOOLTIP}\\nHumidity: ''${HUMID}%"
-          TOOLTIP="''${TOOLTIP}\\nWind: ''${WIND_KPH} km/h (''${WIND_DIR})"
-
-          printf '{"text":"%s %s°C","tooltip":"%s"}\n' "$ICON" "$TEMP" "$TOOLTIP"
-        '';
-      };
-
-      ".local/bin/mem.sh" = {
-        executable = true;
-        text = ''
-          #!/usr/bin/env bash
-          awk '
-            /MemTotal/     {t=$2}
-            /MemAvailable/ {a=$2}
-            END {
-              used=t-a
-              gb_used = used/1000000
-              gb_total = t/1000000
-              printf "󰍛 %.1f/%.1f GB\n", gb_used, gb_total
-            }' /proc/meminfo
-        '';
-      };
-
       # Cycle default audio source (microphone) to the next one.
       ".local/bin/cycle-source.sh" = {
         executable = true;
@@ -134,7 +63,7 @@
 
           idx=0
           for i in "''${!arr[@]}"; do
-            if [ "''${arr[$i]}" = "$current" ]; then
+            if "''${arr[$i]}" = "$current" ]; then
               idx=$(( (i + 1) % count ))
               break
             fi

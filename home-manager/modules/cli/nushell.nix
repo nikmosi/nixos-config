@@ -496,7 +496,6 @@ _: {
         alias sortnr = sort -n -r
         alias tt = tail -f
         alias to_clip = wl-copy
-        alias x = xonsh
         alias k = kubecolor
         alias kx = kubectx
         alias ks = kubens

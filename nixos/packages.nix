@@ -13,11 +13,8 @@
       check
       pkg-config
       lcov
-      docker-buildx
       python314
       home-manager
-      sshuttle
-      # extra-utils
 
       # 🧰 Build & Printing Stack
       hplip
@@ -25,10 +22,6 @@
       cups
       librsvg
       gdk-pixbuf
-
-      # 🔊 Audio / Sound
-      pulseaudioFull
-      qjackctl
 
       # 🌐 Networking / VPN
       mtr
@@ -38,12 +31,7 @@
       sshfs
 
       # 🪟 GUI Utilities
-      xclip
-      xsel
       libnotify
-      wl-clipboard
-      grim
-      slurp
       swaybg
 
       # 🐚 Shells
@@ -60,6 +48,5 @@
       # 🔧 Utils for Tmux
       bc
       jq
-      xray
     ]);
 }

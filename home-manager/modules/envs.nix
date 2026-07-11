@@ -5,6 +5,7 @@ let
 in
 {
   sops = {
+    defaultSopsFile = ../../secrets/personal.yaml;
     gnupg.home = "${config.home.homeDirectory}/.gnupg";
 
     secrets = {
@@ -14,7 +15,7 @@ in
       };
 
       "api_keys/timeweb/terraform_api_key" = {
-        path = "/home/nik/git-repos/DO11/src/terraform/.envrc";
+        path = "${configDir}/terraform/.envrc";
         mode = "0400";
       };
 
@@ -60,5 +61,4 @@ in
       mode = "0400";
     };
   };
-
 }

@@ -4,8 +4,6 @@
 }:
 {
   sops = {
-    defaultSopsFile = ../../secrets/personal.yaml;
-
     secrets = {
       "age/flux/public" = { };
     };

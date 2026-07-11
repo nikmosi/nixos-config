@@ -43,7 +43,7 @@
       theme = {
         mode = "dark";
         source = "builtin";
-        builtin = "Catppuccin";
+        builtin = "Tokyo-Night";
       };
 
       # ── Bar ────────────────────────────────────────────────────────────

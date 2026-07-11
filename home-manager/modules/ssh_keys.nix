@@ -15,9 +15,6 @@ in
   '';
 
   sops = {
-    defaultSopsFile = ../../secrets/personal.yaml;
-    gnupg.home = "${config.home.homeDirectory}/.gnupg";
-
     secrets = {
       "ssh/common" = {
         path = "${sshDir}/common";
@@ -40,5 +37,4 @@ in
       };
     };
   };
-
 }

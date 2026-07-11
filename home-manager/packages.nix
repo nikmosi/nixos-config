@@ -131,7 +131,6 @@
 
       # 📦 Other
       tea
-      blanket
 
       # 🎥 Media downloaders
       yt-dlp
@@ -145,10 +144,8 @@
         super-productivity
         discord
         vesktop
-        feh
         hyperhdr
         imv
-        lmstudio
         meld
         obs-studio
         obsidian
@@ -159,7 +156,6 @@
         chatterino2
         zotero
         thunderbird
-        weave-gitops
         rustdesk
 
         # 🔠 Fonts
@@ -209,7 +205,6 @@
 
         # 🎥 Media & Screenshot
         ffmpeg
-        maim
         playerctl
         libreoffice-fresh
         hunspell
@@ -249,8 +244,6 @@
         models-dev
 
         # 🪟 Wayland utilities
-        swayidle
-        fuzzel
         wlr-randr
         brightnessctl
         wtype

@@ -4,7 +4,7 @@
       enable = true;
       defaultApplications = {
         "application/json" = "firefox.desktop";
-        "application/pdf" = "org.pwmt.zathura.desktop;firefox.desktop;sioyek.desktop";
+        "application/pdf" = "org.pwmt.zathura.desktop;firefox.desktop";
         "application/vnd.mozilla.xul+xml" = "firefox.desktop";
         "application/x-xdg-protocol-tg" = "org.telegram.desktop.desktop";
         "application/x-xpinstall" = "firefox.desktop";

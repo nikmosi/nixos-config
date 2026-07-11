@@ -12,7 +12,6 @@
     ./eza.nix
     ./fzf.nix
     ./gh.nix
-    ./greenclip.nix
     ./git.nix
     ./gpg.nix
     ./lazygit.nix
@@ -22,7 +21,6 @@
     ./pass.nix
     ./ranger.nix
     ./ripgrep.nix
-    ./sioyek.nix
     ./ssh.nix
     ./starship.nix
     ./tar.nix

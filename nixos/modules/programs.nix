@@ -1,10 +1,6 @@
 { pkgs, ... }:
 {
   programs = {
-    firefox = {
-      enable = true;
-    };
-
     nh = {
       enable = true;
       clean.enable = true;
@@ -17,21 +13,16 @@
       enableBashIntegration = false;
       enableZshIntegration = false;
     };
-    command-not-found.enable = true;
 
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
       pinentryPackage = pkgs.pinentry-rofi;
-
     };
 
     fish = {
       enable = true;
       shellAliases = {
-        l = null;
-        ll = null;
-        ls = null;
         v = "nvim";
         se = "sudoedit";
         sw = "nh os switch";
