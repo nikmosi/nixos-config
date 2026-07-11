@@ -10,7 +10,6 @@
     ./direnv.nix
     ./docker.nix
     ./eza.nix
-    ./fish.nix
     ./fzf.nix
     ./gh.nix
     ./git.nix
