@@ -58,7 +58,7 @@ in
       sensible
       tmux-fzf
       open
-      catppuccin
+      tokyo-night-tmux
       yank
       resurrect
       continuum
@@ -71,56 +71,55 @@ in
     sensibleOnTop = true;
     terminal = "tmux-256color";
     extraConfig = ''
-            set-option -sa terminal-features ',xterm-kitty:RGB:usstyle'
-            set-option -sa terminal-overrides ",xterm*:Tc"
-            # set-option -sa terminal-overrides ",*:Smulx=\E[4::%p1%dm"
-            # set-option -sa terminal-overrides ",*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m"
-            set-option -g allow-passthrough on
-      set-option -gq @catppuccin_flavor "macchiato"
+      set-option -sa terminal-features ',xterm-kitty:RGB:usstyle'
+      set-option -sa terminal-overrides ",xterm*:Tc"
+      # set-option -sa terminal-overrides ",*:Smulx=\E[4::%p1%dm"
+      # set-option -sa terminal-overrides ",*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m"
+      set-option -g allow-passthrough on
 
-            set -g pane-base-index 1
-            set -g renumber-windows on
-            set -g automatic-rename-format "#{?pane_in_mode,[tmux],#{?#{==:#{pane_current_command},python3.13},#(ps -t #{pane_tty} -o stat= -o comm= 2>/dev/null | grep -Eq '^[^ ]*[+] +xonsh$' && printf xonsh || printf python3.13),#{pane_current_command}}}#{?pane_dead,[dead],}"
-            set -g pane-border-lines double
-            set  -s escape-time       0
-            bind -n M-Enter new-window
+      set -g pane-base-index 1
+      set -g renumber-windows on
+      set -g automatic-rename-format "#{?pane_in_mode,[tmux],#{?#{==:#{pane_current_command},python3.13},#(ps -t #{pane_tty} -o stat= -o comm= 2>/dev/null | grep -Eq '^[^ ]*[+] +xonsh$' && printf xonsh || printf python3.13),#{pane_current_command}}}#{?pane_dead,[dead],}"
+      set -g pane-border-lines double
+      set  -s escape-time       0
+      bind -n M-Enter new-window
 
-            # set  -g default-terminal "tmux-256color"
+      # set  -g default-terminal "tmux-256color"
 
-            set -ga update-environment TERM
-            set -ga update-environment TERM_PROGRAM
+      set -ga update-environment TERM
+      set -ga update-environment TERM_PROGRAM
 
-            bind s choose-tree -sZ -O name
+      bind s choose-tree -sZ -O name
 
-            # Key remapping
-            unbind %
-            bind | split-window -h -c "#{pane_current_path}"
+      # Key remapping
+      unbind %
+      bind | split-window -h -c "#{pane_current_path}"
 
-            unbind '"'
-            bind - split-window -v -c "#{pane_current_path}"
+      unbind '"'
+      bind - split-window -v -c "#{pane_current_path}"
 
-            unbind r
-            bind r source-file ~/.config/tmux/tmux.conf
+      unbind r
+      bind r source-file ~/.config/tmux/tmux.conf
 
-            bind -r j resize-pane -D 5
-            bind -r k resize-pane -U 5
-            bind -r l resize-pane -R 5
-            bind -r h resize-pane -L 5
+      bind -r j resize-pane -D 5
+      bind -r k resize-pane -U 5
+      bind -r l resize-pane -R 5
+      bind -r h resize-pane -L 5
 
-            bind -r m resize-pane -Z
+      bind -r m resize-pane -Z
 
-            bind-key "t" display-popup -yC -xR -E -b rounded -s 'bg=#24273a,fg=#cad3f5' -S 'fg=#8aadf4,bg=#24273a' "${seshTmux}/bin/sesh-tmux"
+      bind-key "t" display-popup -yC -xR -E -b rounded -s 'bg=#1a1b26,fg=#c0caf5' -S 'fg=#7aa2f7,bg=#1a1b26' "${seshTmux}/bin/sesh-tmux"
 
-            set-window-option -g mode-keys vi
+      set-window-option -g mode-keys vi
 
-            bind-key -T copy-mode-vi 'v' send -X begin-selection 
-            bind-key -T copy-mode-vi 'y' send -X copy-selection
+      bind-key -T copy-mode-vi 'v' send -X begin-selection 
+      bind-key -T copy-mode-vi 'y' send -X copy-selection
 
-            bind-key x kill-pane
-            set -g detach-on-destroy off
+      bind-key x kill-pane
+      set -g detach-on-destroy off
 
-            set -g @continuum-restore 'on'
-            set -g @continuum-save-interval '10'
+      set -g @continuum-restore 'on'
+      set -g @continuum-save-interval '10'
     '';
   };
 }
