@@ -1,18 +1,18 @@
 { pkgs, ... }:
 let
-  # Tokyo Night palette (hardcoded — не stylix)
+  # Catppuccin Macchiato palette (hardcoded — не stylix)
   c = {
-    bg = "#1a1b26";
-    bgHighlight = "#1f2335";
-    bgStatusline = "#1f2335";
-    fg = "#c0caf5";
-    blue = "#7aa2f7";
-    green = "#9ece6a";
-    yellow = "#e0af68";
-    red = "#f7768e";
-    cyan = "#7dcfff";
-    purple = "#bb9af7";
-    comment = "#565f89";
+    bg = "#24273a";
+    bgHighlight = "#363a4f";
+    bgStatusline = "#363a4f";
+    fg = "#cad3f5";
+    blue = "#8aadf4";
+    green = "#a6da95";
+    yellow = "#eed49f";
+    red = "#ed8796";
+    cyan = "#8bd5ca";
+    purple = "#c6a0f6";
+    comment = "#6e738d";
   };
 
   # Nerd Font PUA symbols for non-numeric workspaces

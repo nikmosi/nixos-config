@@ -3,6 +3,56 @@
   imports = [ inputs.noctalia.homeModules.default ];
 
   programs.noctalia = {
+    customPalettes = {
+      "Catppuccin-Macchiato" = {
+        dark = {
+          mPrimary = "#c6a0f6";
+          mOnPrimary = "#181926";
+          mSecondary = "#f5a97f";
+          mOnSecondary = "#181926";
+          mTertiary = "#8bd5ca";
+          mOnTertiary = "#181926";
+          mError = "#ed8796";
+          mOnError = "#181926";
+          mSurface = "#24273a";
+          mOnSurface = "#cad3f5";
+          mSurfaceVariant = "#363a4f";
+          mOnSurfaceVariant = "#b8c0e0";
+          mOutline = "#6e738d";
+          mShadow = "#181926";
+          mHover = "#8bd5ca";
+          mOnHover = "#181926";
+          terminal = {
+            normal = {
+              black = "#494d64";
+              red = "#ed8796";
+              green = "#a6da95";
+              yellow = "#eed49f";
+              blue = "#8aadf4";
+              magenta = "#f5bde6";
+              cyan = "#8bd5ca";
+              white = "#b8c0e0";
+            };
+            bright = {
+              black = "#5b6078";
+              red = "#ed8796";
+              green = "#a6da95";
+              yellow = "#eed49f";
+              blue = "#8aadf4";
+              magenta = "#f5bde6";
+              cyan = "#8bd5ca";
+              white = "#a5adcb";
+            };
+            foreground = "#cad3f5";
+            background = "#24273a";
+            cursor = "#f4dbd6";
+            cursorText = "#24273a";
+            selectionFg = "#cad3f5";
+            selectionBg = "#5b6078";
+          };
+        };
+      };
+    };
     enable = true;
     systemd.enable = true;
 
@@ -42,8 +92,8 @@
       # ── Theme ──────────────────────────────────────────────────────────
       theme = {
         mode = "dark";
-        source = "builtin";
-        builtin = "Tokyo-Night";
+        source = "custom";
+        custom_palette = "Catppuccin-Macchiato";
       };
 
       # ── Bar ────────────────────────────────────────────────────────────
@@ -95,7 +145,7 @@
       widget = {
         # Workspace switcher — display = "name" показывает имена из niri
         # (японские номера 一–十 + именованные workspace)
-        # Цвета — Catppuccin Mocha (явные hex, не color roles)
+        # Цвета — Catppuccin Macchiato (явные hex, не color roles)
         workspaces = {
           display = "name";
           minimal = false;
@@ -103,9 +153,9 @@
           pill_scale = 1.0;
           active_pill_size = 2.2;
           inactive_pill_size = 1.0;
-          focused_color = "#cba6f7";
-          occupied_color = "#89b4fa";
-          empty_color = "#45475a";
+          focused_color = "#c6a0f6";
+          occupied_color = "#8aadf4";
+          empty_color = "#494d64";
           focused_output_only = false;
           hide_when_empty = false;
           labels_only_when_occupied = false;
@@ -128,7 +178,7 @@
           stat = "cpu_usage";
           display = "gauge";
           show_label = true;
-          highlight_color = "#f38ba8";
+          highlight_color = "#ed8796";
           label_min_width = 32;
         };
 
@@ -137,7 +187,7 @@
           stat = "ram_pct";
           display = "gauge";
           show_label = true;
-          highlight_color = "#f9e2af";
+          highlight_color = "#eed49f";
           label_min_width = 32;
         };
 
@@ -146,7 +196,7 @@
           stat = "cpu_temp";
           display = "text";
           show_label = true;
-          highlight_color = "#fab387";
+          highlight_color = "#f5a97f";
           label_min_width = 40;
         };
 

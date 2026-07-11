@@ -4,7 +4,7 @@
 }:
 let
   # ── pinentry-rofi wrapper ─────────────────────────────────────────
-  # Uses a dedicated "Vault" .rasi theme (Tokyo Night, purple accent)
+  # Uses a dedicated "Vault" .rasi theme (Catppuccin Macchiato, purple accent)
   # with bright cyan entry text so password • dots are clearly visible.
   # Args after `--` are forwarded to rofi by pinentry-rofi (see its --help).
   pinentry-rofi-themed = pkgs.writeShellScriptBin "pinentry-rofi-themed" ''

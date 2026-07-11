@@ -37,19 +37,19 @@
     theme =
       let
         inherit (config.lib.formats.rasi) mkLiteral;
-        # Tokyo Night palette — matches mako.nix / niri.nix / waybar.nix
+        # Catppuccin Macchiato palette — matches niri.nix
         c = {
-          bg = "#1a1b26";
-          bg-alt = "#1f2335";
-          bg-hover = "#292e42";
-          fg = "#c0caf5";
-          fg-dim = "#565f89";
-          blue = "#7aa2f7";
-          green = "#9ece6a";
-          red = "#f7768e";
-          yellow = "#e0af68";
-          cyan = "#7dcfff";
-          purple = "#bb9af7";
+          bg = "#24273a";
+          bg-alt = "#363a4f";
+          bg-hover = "#494d64";
+          fg = "#cad3f5";
+          fg-dim = "#6e738d";
+          blue = "#8aadf4";
+          green = "#a6da95";
+          red = "#ed8796";
+          yellow = "#eed49f";
+          cyan = "#8bd5ca";
+          purple = "#c6a0f6";
         };
       in
       {

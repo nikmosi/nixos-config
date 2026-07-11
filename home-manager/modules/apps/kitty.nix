@@ -4,7 +4,7 @@ let
     background_opacity = "0.95";
     background_blur = 5;
     # Cursor settings
-    cursor_color = "#ebdbb2";
+    cursor_color = "#f4dbd6";
 
     # Font settings
     font_family = "JetBrainsMono Nerd Font";
@@ -44,7 +44,7 @@ in
 {
   programs.kitty = {
     enable = true;
-    themeFile = "tokyo_night_night";
+    themeFile = "Catppuccin-Macchiato";
     settings = kittyConfig;
     inherit extraConfig;
   };
