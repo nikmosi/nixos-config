@@ -9,5 +9,6 @@
     ./screenshot.nix
     ./stylix.nix
     ./noctalia.nix
+    ./enhancer-for-youtube.nix
   ];
 }

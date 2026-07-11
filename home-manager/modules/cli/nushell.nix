@@ -125,7 +125,7 @@ _: {
             max_size: 1000000
             sync_on_enter: true
             file_format: "sqlite"
-            isolation: true
+            isolation: false
           }
           keybindings: [
             {

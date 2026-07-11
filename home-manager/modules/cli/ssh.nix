@@ -45,6 +45,10 @@ _: {
         Port = 22;
       };
 
+      "vpn-finka" = {
+        HostName = "finka.fluxus.org";
+        Port = 22;
+      };
     };
 
     extraConfig = ''
