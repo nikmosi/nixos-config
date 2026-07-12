@@ -281,7 +281,11 @@ in
             ]
             # Autostart apps
             [ "firefox" ]
-            [ "chatterino" ]
+            [
+              "sh"
+              "-c"
+              "sleep 3 && exec chatterino"
+            ]
             [ "superproductivity" ]
             [
               "localsend_app"
