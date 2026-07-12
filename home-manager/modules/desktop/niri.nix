@@ -37,14 +37,19 @@ let
   # Monitor config from NixOS options
   monitors = hostConfig.nik.monitors or [ ];
   hasMonitors = builtins.length monitors > 0;
-  monitorOutputs = map (m: {
-    _args = [ m.name ];
-    inherit (m) mode;
-    variable-refresh-rate = [ ];
-    position._props = {
-      inherit (m) x y;
-    };
-  }) monitors;
+  monitorOutputs = map (
+    m:
+    {
+      _args = [ m.name ];
+      inherit (m) mode;
+      position._props = {
+        inherit (m) x y;
+      };
+    }
+    // (lib.optionalAttrs (m.vrr or true) {
+      variable-refresh-rate = [ ];
+    })
+  ) monitors;
   monitorFirst = if hasMonitors then builtins.head monitors else null;
 in
 {

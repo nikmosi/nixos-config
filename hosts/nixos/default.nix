@@ -31,6 +31,7 @@
         x = 2560;
         y = 0;
         wallpaper = ../../assets/wallpapers/philips.jpg;
+        vrr = false;
       }
     ];
   };

@@ -69,7 +69,11 @@
     monitors = lib.mkOption {
       type = lib.types.listOf lib.types.attrs;
       default = [ ];
-      description = "Monitor configuration: name, mode, position, wallpaper.";
+      description = ''
+        Monitor configuration: name, mode, position, wallpaper.
+        Optional per-monitor fields:
+        - vrr (bool, default true): enable variable-refresh-rate on this output.
+      '';
     };
   };
 }
