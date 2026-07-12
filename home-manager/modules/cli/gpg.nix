@@ -48,6 +48,8 @@ in
 
       defaultCacheTtl = 7200;
       maxCacheTtl = 86400;
+      defaultCacheTtlSsh = 7200;
+      maxCacheTtlSsh = 86400;
 
       pinentry.package = pinentry-dispatch;
       pinentry.program = "pinentry-dispatch";

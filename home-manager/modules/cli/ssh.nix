@@ -30,6 +30,11 @@
           Port = 63544;
         };
 
+        "note-minipc" = {
+          HostName = "192.168.3.52";
+          Port = 63544;
+        };
+
         "note-dns" = {
           User = "www";
           HostName = "192.168.3.3";
