@@ -6,7 +6,8 @@ in
   sops = {
     defaultSopsFile = ../../secrets/personal.yaml;
     age.generateKey = false;
-    gnupg.sshKeyPaths = [ ];
+    # age SSH host key used for decryption (default: /etc/ssh/ssh_host_ed25519_key)
+    # PGP key is used by home-manager (envs.nix) for user-level secrets
 
     secrets.${passwordKey} = {
       neededForUsers = true;
