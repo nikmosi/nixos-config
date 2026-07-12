@@ -31,7 +31,7 @@
         };
 
         "note-minipc" = {
-          HostName = "192.168.3.52";
+          HostName = "192.168.3.53";
           Port = 63544;
         };
 
