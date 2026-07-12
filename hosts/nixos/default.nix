@@ -23,14 +23,14 @@
         mode = "2560x1440@180.000";
         x = 0;
         y = 0;
-        wallpaper = ../../../assets/wallpapers/xiaomi.jpg;
+        wallpaper = ../../assets/wallpapers/xiaomi.jpg;
       }
       {
         name = "DP-2";
         mode = "2560x1440@165.000";
         x = 2560;
         y = 0;
-        wallpaper = ../../../assets/wallpapers/philips.jpg;
+        wallpaper = ../../assets/wallpapers/philips.jpg;
       }
     ];
   };

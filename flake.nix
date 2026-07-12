@@ -140,6 +140,7 @@
                 inherit inputs;
                 telegrams = inputs."ayugram-desktop";
                 inherit userSettings;
+                inherit hostConfig;
               };
             };
           };

@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  hostConfig,
   ...
 }:
 let
@@ -34,7 +35,7 @@ let
   };
 
   # Monitor config from NixOS options
-  monitors = config.osConfig.nik.monitors or [ ];
+  monitors = hostConfig.nik.monitors or [ ];
   hasMonitors = builtins.length monitors > 0;
   monitorOutputs = map (m: {
     _args = [ m.name ];
