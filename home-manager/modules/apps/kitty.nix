@@ -1,4 +1,4 @@
-_:
+{ config, lib, ... }:
 let
   kittyConfig = {
     background_opacity = "0.95";
@@ -42,10 +42,12 @@ let
   '';
 in
 {
-  programs.kitty = {
-    enable = true;
-    themeFile = "Catppuccin-Macchiato";
-    settings = kittyConfig;
-    inherit extraConfig;
+  config = lib.mkIf config.local.apps.kitty.enable {
+    programs.kitty = {
+      enable = true;
+      themeFile = "Catppuccin-Macchiato";
+      settings = kittyConfig;
+      inherit extraConfig;
+    };
   };
 }

@@ -24,11 +24,7 @@
   },
   "mkShell": {
     "prefix": "mkshell",
-    "body": [
-      "pkgs.mkShell {",
-      "  packages = with pkgs; [ ${1:} ];",
-      "}"
-    ],
+    "body": ["pkgs.mkShell {", "  packages = with pkgs; [ ${1:} ];", "}"],
     "description": "mkShell template"
   },
   "overlay": {

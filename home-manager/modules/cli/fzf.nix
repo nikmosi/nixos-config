@@ -1,10 +1,13 @@
+{ config, lib, ... }:
 {
-  programs.fzf = {
-    enable = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
-    defaultCommand = "fd --type f --hidden --follow --exclude .git";
-    fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
-    changeDirWidgetCommand = "fd --type d --hidden --follow --exclude .git";
+  config = lib.mkIf config.local.cli.fzf.enable {
+    programs.fzf = {
+      enable = true;
+      enableBashIntegration = true;
+      enableFishIntegration = true;
+      defaultCommand = "fd --type f --hidden --follow --exclude .git";
+      fileWidgetCommand = "fd --type f --hidden --follow --exclude .git";
+      changeDirWidgetCommand = "fd --type d --hidden --follow --exclude .git";
+    };
   };
 }

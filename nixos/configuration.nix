@@ -20,10 +20,8 @@
     nik.display.backend = lib.mkForce "x11";
   };
 
+  nixpkgs.config.allowUnfree = true;
   programs.fuse.userAllowOther = true;
-
-  # Set your time zone.
-  time.timeZone = "Asia/Novosibirsk";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -53,6 +51,11 @@
     optimise = {
       automatic = true;
       dates = [ "03:45" ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
     };
   };
 

@@ -1,18 +1,20 @@
-{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    xz
-    zstd
-  ];
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
+  config = lib.mkIf config.local.cli.tar.enable {
+    home.packages = with pkgs; [
+      xz
+      zstd
+    ];
 
-  home.shellAliases = {
-    # Extract: x=extract, v=verbose, f=file (auto-detects format)
-    untar = "tar -xvf";
-
-    # Create (xz): c=create, J=xz, v=verbose, f=file
-    tarc = "tar -cJvf";
-
-    # List content: t=list, v=verbose, f=file
-    tarls = "tar -tvf";
+    home.shellAliases = {
+      untar = "tar -xvf";
+      tarc = "tar -cJvf";
+      tarls = "tar -tvf";
+    };
   };
 }

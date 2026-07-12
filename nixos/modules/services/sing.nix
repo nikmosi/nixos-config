@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
-  uplinkInterface = "eno1";
+  uplinkInterface = config.nik.networking.uplinkInterface;
 in
 {
   boot.kernel.sysctl = {

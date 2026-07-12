@@ -44,12 +44,9 @@
     opencl-headers
     ocl-icd
     openssl
-    gnutls
     libGLU
-    libGL
     mesa
     libdrm
-    libx11
     libxcomposite
     libxcursor
     libxext

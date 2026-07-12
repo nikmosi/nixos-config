@@ -1,24 +1,31 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 let
   store_dir = "${config.xdg.dataHome}/.password-store";
 in
 {
-  programs.password-store = {
-    enable = true;
-    package = pkgs.pass.withExtensions (exts: [
-      exts.pass-update
-      exts.pass-otp
-      exts.pass-import
-      exts.pass-genphrase
-      exts.pass-audit
-      exts.pass-checkup
-    ]);
-    settings = {
-      PASSWORD_STORE_DIR = store_dir;
+  config = lib.mkIf config.local.cli.pass.enable {
+    programs.password-store = {
+      enable = true;
+      package = pkgs.pass.withExtensions (exts: [
+        exts.pass-update
+        exts.pass-otp
+        exts.pass-import
+        exts.pass-genphrase
+        exts.pass-audit
+        exts.pass-checkup
+      ]);
+      settings = {
+        PASSWORD_STORE_DIR = store_dir;
+      };
     };
-  };
-  programs.rofi.pass = {
-    enable = true;
-    stores = [ store_dir ];
+    programs.rofi.pass = {
+      enable = true;
+      stores = [ store_dir ];
+    };
   };
 }

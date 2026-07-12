@@ -1,21 +1,24 @@
-_: {
-  xdg.configFile."uair/uair.toml" = {
-    force = true;
-    text = ''
-      [defaults]
-      format = "{time}\n"
+{ config, lib, ... }:
+{
+  config = lib.mkIf config.local.cli.uair.enable {
+    xdg.configFile."uair/uair.toml" = {
+      force = true;
+      text = ''
+        [defaults]
+        format = "{time}\n"
 
-      [[sessions]]
-      id = "work"
-      name = "Work"
-      duration = "25m"
-      command = "notify-send 'Work Done!'"
+        [[sessions]]
+        id = "work"
+        name = "Work"
+        duration = "25m"
+        command = "notify-send 'Work Done!'"
 
-      [[sessions]]
-      id = "rest"
-      name = "Rest"
-      duration = "5m"
-      command = "notify-send 'Rest Done!'"
-    '';
+        [[sessions]]
+        id = "rest"
+        name = "Rest"
+        duration = "5m"
+        command = "notify-send 'Rest Done!'"
+      '';
+    };
   };
 }

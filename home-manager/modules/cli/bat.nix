@@ -1,20 +1,27 @@
-{ pkgs, ... }:
 {
-  programs.bat = {
-    enable = true;
-    config = {
-      # theme = lib.mkForce "gruvbox (Dark) (Medium)";
-      style = "numbers,changes,header";
-    };
-    themes = {
-      dracula = {
-        src = pkgs.fetchFromGitHub {
-          owner = "Briles";
-          repo = "gruvbox";
-          rev = "75407cc80c51814d61beb1df07e380d6f58ad767";
-          sha256 = "186rhbljw80psf1l8hyj02ycz1wzxv4rxmbrqr8yvi30165drpay";
+  pkgs,
+  config,
+  lib,
+  ...
+}:
+{
+  config = lib.mkIf config.local.cli.bat.enable {
+    programs.bat = {
+      enable = true;
+      config = {
+        # theme = lib.mkForce "gruvbox (Dark) (Medium)";
+        style = "numbers,changes,header";
+      };
+      themes = {
+        gruvbox-dark-medium = {
+          src = pkgs.fetchFromGitHub {
+            owner = "Briles";
+            repo = "gruvbox";
+            rev = "75407cc80c51814d61beb1df07e380d6f58ad767";
+            sha256 = "186rhbljw80psf1l8hyj02ycz1wzxv4rxmbrqr8yvi30165drpay";
+          };
+          file = "gruvbox (Dark) (Medium).sublime-color-scheme";
         };
-        file = "gruvbox (Dark) (Medium).sublime-color-scheme";
       };
     };
   };

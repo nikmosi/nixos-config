@@ -1,9 +1,10 @@
 {
   imports = [
+    ./options.nix
+    ./secrets.nix
     ./audio.nix
     ./boot.nix
     ./dconf.nix
-    ./display.nix
     ./env.nix
     ./hardware.nix
     ./home-manager.nix

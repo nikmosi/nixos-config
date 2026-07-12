@@ -1,15 +1,18 @@
+{ config, lib, ... }:
 {
-  programs.eza = {
-    enable = true;
-    enableZshIntegration = true;
-    enableFishIntegration = true;
-    enableNushellIntegration = true;
-    colors = "always";
-    git = true;
-    icons = "always";
-    extraOptions = [
-      "--group-directories-first"
-      "--header"
-    ];
+  config = lib.mkIf config.local.cli.eza.enable {
+    programs.eza = {
+      enable = true;
+      enableZshIntegration = true;
+      enableFishIntegration = true;
+      enableNushellIntegration = true;
+      colors = "always";
+      git = true;
+      icons = "always";
+      extraOptions = [
+        "--group-directories-first"
+        "--header"
+      ];
+    };
   };
 }

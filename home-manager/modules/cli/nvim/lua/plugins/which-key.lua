@@ -22,7 +22,7 @@ return {
     { "<leader>f", group = "file" },
     { "<leader>g", group = "git" },
     { "<leader>h", group = "gitsigns" },
-    { "<leader>l",  group = "lsp" },
+    { "<leader>l", group = "lsp" },
     { "<leader>ls", group = "lsp server" },
     { "<leader>r", group = "refactor" },
     { "<leader>s", group = "search" },

@@ -157,12 +157,13 @@ vim.keymap.set("n", "<leader>lss", function()
   vim.cmd.LspStop()
   vim.notify("LSP clients stopped for buffer", vim.log.levels.INFO)
 end, { noremap = true, silent = true, desc = "LSP Stop" })
-vim.keymap.set(
-  "n",
-  "<leader>lsS",
-  function() vim.ui.input({ prompt = "LSP server: " }, function(input) if input then vim.cmd.LspStart(input) end end) end,
-  { noremap = true, silent = true, desc = "LSP Start" }
-)
+vim.keymap.set("n", "<leader>lsS", function()
+  vim.ui.input({ prompt = "LSP server: " }, function(input)
+    if input then
+      vim.cmd.LspStart(input)
+    end
+  end)
+end, { noremap = true, silent = true, desc = "LSP Start" })
 vim.keymap.set("n", "<leader>lsr", vim.cmd.LspRestart, { noremap = true, silent = true, desc = "LSP Restart" })
 
 vim.api.nvim_create_autocmd("LspAttach", {

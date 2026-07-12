@@ -1,6 +1,5 @@
 { config, ... }:
 {
-  nixpkgs.config.allowUnfree = true;
   hardware.graphics.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;

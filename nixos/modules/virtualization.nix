@@ -1,4 +1,9 @@
-{ userSettings, pkgs, ... }:
+{
+  userSettings,
+  pkgs,
+  config,
+  ...
+}:
 {
   programs.virt-manager.enable = true;
 
@@ -23,9 +28,7 @@
         enable = false;
         setSocketVariable = true;
       };
-      extraOptions = ''
-        --dns=8.8.8.8 --dns=1.1.1.1
-      '';
+      extraOptions = builtins.concatStringsSep " " (map (dns: "--dns=${dns}") config.nik.docker.dns);
     };
   };
 

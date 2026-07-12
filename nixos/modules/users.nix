@@ -1,7 +1,5 @@
 { pkgs, userSettings, ... }:
 {
-  programs.fish.enable = true;
-
   users.defaultUserShell = pkgs.fish;
   users.users.${userSettings.username} = {
     isNormalUser = true;

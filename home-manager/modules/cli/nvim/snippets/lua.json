@@ -1,13 +1,7 @@
 {
   "module": {
     "prefix": "module",
-    "body": [
-      "local M = {}",
-      "",
-      "$0",
-      "",
-      "return M"
-    ],
+    "body": ["local M = {}", "", "$0", "", "return M"],
     "description": "Lua module template"
   },
   "keymap": {

@@ -1,11 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs = {
     nh = {
       enable = true;
-      clean.enable = true;
-      clean.extraArgs = "--keep-since 7d --keep 3";
-      flake = "/home/nik/.flake";
+      clean.enable = false;
+      flake = "${config.users.users.nik.home}/.flake";
     };
 
     nix-index = {

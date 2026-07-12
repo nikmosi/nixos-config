@@ -1,635 +1,1339 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Niri — Шпаргалка горячих клавиш</title>
-<style>
-  :root {
-    --bg:          #24273a;
-    --bg-highlight:#363a4f;
-    --bg-status:   #181926;
-    --fg:          #cad3f5;
-    --blue:        #8aadf4;
-    --green:       #a6da95;
-    --yellow:      #eed49f;
-    --red:         #ed8796;
-    --cyan:        #8bd5ca;
-    --purple:      #c6a0f6;
-    --comment:     #6e738d;
-    --orange:      #f5a97f;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Niri — Шпаргалка горячих клавиш</title>
+    <style>
+      :root {
+        --bg: #24273a;
+        --bg-highlight: #363a4f;
+        --bg-status: #181926;
+        --fg: #cad3f5;
+        --blue: #8aadf4;
+        --green: #a6da95;
+        --yellow: #eed49f;
+        --red: #ed8796;
+        --cyan: #8bd5ca;
+        --purple: #c6a0f6;
+        --comment: #6e738d;
+        --orange: #f5a97f;
+      }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  body {
-    font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'SF Mono', monospace;
-    background: var(--bg);
-    color: var(--fg);
-    line-height: 1.6;
-    padding: 2rem 1rem;
-    min-height: 100vh;
-  }
+      body {
+        font-family:
+          "JetBrains Mono", "Fira Code", "Cascadia Code", "SF Mono", monospace;
+        background: var(--bg);
+        color: var(--fg);
+        line-height: 1.6;
+        padding: 2rem 1rem;
+        min-height: 100vh;
+      }
 
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-  }
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
 
-  /* ── Header ── */
-  header {
-    text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: linear-gradient(135deg, var(--bg-highlight) 0%, var(--bg) 100%);
-    border: 1px solid var(--comment);
-    border-radius: 16px;
-    position: relative;
-    overflow: hidden;
-  }
+      /* ── Header ── */
+      header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: linear-gradient(
+          135deg,
+          var(--bg-highlight) 0%,
+          var(--bg) 100%
+        );
+        border: 1px solid var(--comment);
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+      }
 
-  header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(138,173,244,0.05) 0%, transparent 50%);
-    animation: pulse 6s ease-in-out infinite;
-  }
+      header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(138, 173, 244, 0.05) 0%,
+          transparent 50%
+        );
+        animation: pulse 6s ease-in-out infinite;
+      }
 
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50%      { transform: scale(1.1); opacity: 1; }
-  }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.5;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+      }
 
-  header h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--blue), var(--purple), var(--cyan));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    letter-spacing: 2px;
-  }
+      header h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(
+          135deg,
+          var(--blue),
+          var(--purple),
+          var(--cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        position: relative;
+        letter-spacing: 2px;
+      }
 
-  header .subtitle {
-    color: var(--comment);
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
-    position: relative;
-  }
+      header .subtitle {
+        color: var(--comment);
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+        position: relative;
+      }
 
-  header .mod-hint {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.4rem 1rem;
-    background: var(--bg-status);
-    border: 1px solid var(--blue);
-    border-radius: 8px;
-    color: var(--blue);
-    font-size: 0.85rem;
-    position: relative;
-  }
+      header .mod-hint {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.4rem 1rem;
+        background: var(--bg-status);
+        border: 1px solid var(--blue);
+        border-radius: 8px;
+        color: var(--blue);
+        font-size: 0.85rem;
+        position: relative;
+      }
 
-  /* ── Grid ── */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-    gap: 1.5rem;
-  }
+      /* ── Grid ── */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+        gap: 1.5rem;
+      }
 
-  /* ── Card ── */
-  .card {
-    background: var(--bg-highlight);
-    border: 1px solid var(--comment);
-    border-radius: 12px;
-    padding: 1.5rem;
-    transition: border-color 0.2s, transform 0.2s;
-  }
+      /* ── Card ── */
+      .card {
+        background: var(--bg-highlight);
+        border: 1px solid var(--comment);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
 
-  .card:hover {
-    border-color: var(--blue);
-    transform: translateY(-2px);
-  }
+      .card:hover {
+        border-color: var(--blue);
+        transform: translateY(-2px);
+      }
 
-  .card-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid var(--comment);
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
+      .card-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--comment);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
 
-  .card-title .icon {
-    font-size: 1.3rem;
-  }
+      .card-title .icon {
+        font-size: 1.3rem;
+      }
 
-  /* color variants */
-  .card.c-blue   .card-title { color: var(--blue); }
-  .card.c-green  .card-title { color: var(--green); }
-  .card.c-yellow .card-title { color: var(--yellow); }
-  .card.c-red    .card-title { color: var(--red); }
-  .card.c-cyan   .card-title { color: var(--cyan); }
-  .card.c-purple .card-title { color: var(--purple); }
-  .card.c-orange .card-title { color: var(--orange); }
+      /* color variants */
+      .card.c-blue .card-title {
+        color: var(--blue);
+      }
+      .card.c-green .card-title {
+        color: var(--green);
+      }
+      .card.c-yellow .card-title {
+        color: var(--yellow);
+      }
+      .card.c-red .card-title {
+        color: var(--red);
+      }
+      .card.c-cyan .card-title {
+        color: var(--cyan);
+      }
+      .card.c-purple .card-title {
+        color: var(--purple);
+      }
+      .card.c-orange .card-title {
+        color: var(--orange);
+      }
 
-  /* ── Table ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+      /* ── Table ── */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
 
-  tr {
-    transition: background 0.15s;
-  }
+      tr {
+        transition: background 0.15s;
+      }
 
-  tr:hover {
-    background: rgba(122,162,247,0.06);
-  }
+      tr:hover {
+        background: rgba(122, 162, 247, 0.06);
+      }
 
-  td {
-    padding: 0.5rem 0.4rem;
-    border-bottom: 1px solid rgba(86,95,137,0.15);
-    vertical-align: top;
-  }
+      td {
+        padding: 0.5rem 0.4rem;
+        border-bottom: 1px solid rgba(86, 95, 137, 0.15);
+        vertical-align: top;
+      }
 
-  tr:last-child td {
-    border-bottom: none;
-  }
+      tr:last-child td {
+        border-bottom: none;
+      }
 
-  /* ── Keys ── */
-  kbd {
-    display: inline-block;
-    padding: 0.15rem 0.5rem;
-    background: var(--bg-status);
-    border: 1px solid var(--comment);
-    border-radius: 6px;
-    font-family: inherit;
-    font-size: 0.8rem;
-    color: var(--cyan);
-    white-space: nowrap;
-    box-shadow: 0 2px 0 var(--comment);
-    transition: all 0.15s;
-  }
+      /* ── Keys ── */
+      kbd {
+        display: inline-block;
+        padding: 0.15rem 0.5rem;
+        background: var(--bg-status);
+        border: 1px solid var(--comment);
+        border-radius: 6px;
+        font-family: inherit;
+        font-size: 0.8rem;
+        color: var(--cyan);
+        white-space: nowrap;
+        box-shadow: 0 2px 0 var(--comment);
+        transition: all 0.15s;
+      }
 
-  kbd:hover {
-    border-color: var(--blue);
-    color: var(--blue);
-    box-shadow: 0 2px 0 var(--blue);
-  }
+      kbd:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+        box-shadow: 0 2px 0 var(--blue);
+      }
 
-  kbd.mod {
-    color: var(--yellow);
-    border-color: rgba(224,175,104,0.4);
-  }
+      kbd.mod {
+        color: var(--yellow);
+        border-color: rgba(224, 175, 104, 0.4);
+      }
 
-  .keys {
-    white-space: nowrap;
-  }
+      .keys {
+        white-space: nowrap;
+      }
 
-  .keys kbd + kbd {
-    margin-left: 2px;
-  }
+      .keys kbd + kbd {
+        margin-left: 2px;
+      }
 
-  .action {
-    color: var(--fg);
-    font-size: 0.85rem;
-    padding-left: 0.5rem;
-  }
+      .action {
+        color: var(--fg);
+        font-size: 0.85rem;
+        padding-left: 0.5rem;
+      }
 
-  .action .hint {
-    color: var(--comment);
-    font-size: 0.75rem;
-  }
+      .action .hint {
+        color: var(--comment);
+        font-size: 0.75rem;
+      }
 
-  /* ── Two-column rows for workspace tables ── */
-  .ws-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-  }
+      /* ── Two-column rows for workspace tables ── */
+      .ws-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
 
-  .ws-grid table {
-    width: 100%;
-  }
+      .ws-grid table {
+        width: 100%;
+      }
 
-  /* ── Footer ── */
-  footer {
-    text-align: center;
-    margin-top: 3rem;
-    padding: 1.5rem;
-    color: var(--comment);
-    font-size: 0.8rem;
-  }
+      /* ── Footer ── */
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 1.5rem;
+        color: var(--comment);
+        font-size: 0.8rem;
+      }
 
-  footer a {
-    color: var(--blue);
-    text-decoration: none;
-  }
+      footer a {
+        color: var(--blue);
+        text-decoration: none;
+      }
 
-  footer a:hover {
-    text-decoration: underline;
-  }
+      footer a:hover {
+        text-decoration: underline;
+      }
 
-  /* ── Scrollbar ── */
-  ::-webkit-scrollbar { width: 8px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--comment); border-radius: 4px; }
-  ::-webkit-scrollbar-thumb:hover { background: var(--blue); }
+      /* ── Scrollbar ── */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--comment);
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--blue);
+      }
 
-  /* ── Responsive ── */
-  @media (max-width: 500px) {
-    header h1 { font-size: 1.5rem; }
-    .grid { grid-template-columns: 1fr; }
-    .ws-grid { grid-template-columns: 1fr; }
-  }
-</style>
-</head>
-<body>
-<div class="container">
+      /* ── Responsive ── */
+      @media (max-width: 500px) {
+        header h1 {
+          font-size: 1.5rem;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        .ws-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Niri — Горячие клавиши</h1>
+        <div class="subtitle">
+          Шпаргалка всех биндов из
+          <code>home-manager/modules/desktop/niri.nix</code>
+        </div>
+        <div class="mod-hint">Mod = Super (клавиша Windows)</div>
+      </header>
 
-  <header>
-    <h1>Niri — Горячие клавиши</h1>
-    <div class="subtitle">Шпаргалка всех биндов из <code>home-manager/modules/desktop/niri.nix</code></div>
-    <div class="mod-hint">Mod = Super (клавиша Windows)</div>
-  </header>
+      <div class="grid">
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Launchers -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-blue">
+          <div class="card-title">
+            <span class="icon">🚀</span> Запуск приложений
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Enter</kbd></td>
+              <td class="action">Терминал <span class="hint">(kitty)</span></td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>D</kbd></td>
+              <td class="action">
+                Запуск приложений <span class="hint">(rofi)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>C</kbd></td>
+              <td class="action">
+                История буфера обмена <span class="hint">(cliphist)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >P</kbd
+                >
+              </td>
+              <td class="action">
+                Менеджер паролей <span class="hint">(rofi-pass)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>X</kbd></td>
+              <td class="action">
+                Меню питания <span class="hint">(power-menu)</span>
+              </td>
+            </tr>
+          </table>
+        </div>
 
-  <div class="grid">
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Window Management -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-red">
+          <div class="card-title">
+            <span class="icon">🪟</span> Управление окнами
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Q</kbd></td>
+              <td class="action">Закрыть окно</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >Q</kbd
+                >
+              </td>
+              <td class="action">Выйти из niri</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >/</kbd
+                >
+              </td>
+              <td class="action">Показать оверлей горячих клавиш</td>
+            </tr>
+          </table>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Launchers -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-blue">
-      <div class="card-title"><span class="icon">🚀</span> Запуск приложений</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Enter</kbd></td><td class="action">Терминал <span class="hint">(kitty)</span></td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>D</kbd></td><td class="action">Запуск приложений <span class="hint">(rofi)</span></td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>C</kbd></td><td class="action">История буфера обмена <span class="hint">(cliphist)</span></td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>P</kbd></td><td class="action">Менеджер паролей <span class="hint">(rofi-pass)</span></td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>X</kbd></td><td class="action">Меню питания <span class="hint">(power-menu)</span></td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Focus -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-green">
+          <div class="card-title">
+            <span class="icon">🎯</span> Фокус (Vim: HJKL)
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>H</kbd> / <kbd>L</kbd>
+              </td>
+              <td class="action">Фокус колонки влево / вправо</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>J</kbd> / <kbd>K</kbd>
+              </td>
+              <td class="action">Фокус окна вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >J</kbd
+                >
+                / <kbd>K</kbd>
+              </td>
+              <td class="action">Фокус окна-или-воркспейса вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >Tab</kbd
+                >
+              </td>
+              <td class="action">Фокус на предыдущее окно</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>Home</kbd> / <kbd>End</kbd>
+              </td>
+              <td class="action">Фокус на первую / последнюю колонку</td>
+            </tr>
+          </table>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Window Management -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-red">
-      <div class="card-title"><span class="icon">🪟</span> Управление окнами</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Q</kbd></td><td class="action">Закрыть окно</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>Q</kbd></td><td class="action">Выйти из niri</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>/</kbd></td><td class="action">Показать оверлей горячих клавиш</td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Move Windows -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-yellow">
+          <div class="card-title">
+            <span class="icon">📦</span> Перемещение окон
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >H</kbd
+                >
+                / <kbd>L</kbd>
+              </td>
+              <td class="action">Двинуть колонку влево / вправо</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >J</kbd
+                >
+                / <kbd>K</kbd>
+              </td>
+              <td class="action">Двинуть окно вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  class="mod"
+                  >Shift</kbd
+                >+<kbd>J</kbd>
+              </td>
+              <td class="action">Окно вниз или на воркспейс вниз</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  class="mod"
+                  >Shift</kbd
+                >+<kbd>K</kbd>
+              </td>
+              <td class="action">Окно вверх или на воркспейс вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >Home</kbd
+                >
+                / <kbd>End</kbd>
+              </td>
+              <td class="action">Колонку в начало / конец</td>
+            </tr>
+          </table>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Focus -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-green">
-      <div class="card-title"><span class="icon">🎯</span> Фокус (Vim: HJKL)</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>H</kbd> / <kbd>L</kbd></td><td class="action">Фокус колонки влево / вправо</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>J</kbd> / <kbd>K</kbd></td><td class="action">Фокус окна вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>J</kbd> / <kbd>K</kbd></td><td class="action">Фокус окна-или-воркспейса вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>Tab</kbd></td><td class="action">Фокус на предыдущее окно</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Home</kbd> / <kbd>End</kbd></td><td class="action">Фокус на первую / последнюю колонку</td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Monitors -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-purple">
+          <div class="card-title"><span class="icon">🖥️</span> Мониторы</div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Alt</kbd>+<kbd
+                  >H</kbd
+                >
+                / <kbd>L</kbd>
+              </td>
+              <td class="action">Фокус на монитор слева / справа</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Alt</kbd>+<kbd
+                  class="mod"
+                  >Shift</kbd
+                >+<kbd>H</kbd> / <kbd>L</kbd>
+              </td>
+              <td class="action">Колонку на монитор слева / справа</td>
+            </tr>
+          </table>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Move Windows -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-yellow">
-      <div class="card-title"><span class="icon">📦</span> Перемещение окон</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>H</kbd> / <kbd>L</kbd></td><td class="action">Двинуть колонку влево / вправо</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>J</kbd> / <kbd>K</kbd></td><td class="action">Двинуть окно вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd class="mod">Shift</kbd>+<kbd>J</kbd></td><td class="action">Окно вниз или на воркспейс вниз</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd class="mod">Shift</kbd>+<kbd>K</kbd></td><td class="action">Окно вверх или на воркспейс вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>Home</kbd> / <kbd>End</kbd></td><td class="action">Колонку в начало / конец</td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Workspace Navigation -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-cyan">
+          <div class="card-title">
+            <span class="icon">📋</span> Навигация по воркспейсам
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>Page Down</kbd> /
+                <kbd>Page Up</kbd>
+              </td>
+              <td class="action">Воркспейс вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>U</kbd> / <kbd>I</kbd>
+              </td>
+              <td class="action">Воркспейс вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>Tab</kbd> / <kbd>Esc</kbd>
+              </td>
+              <td class="action">Предыдущий воркспейс</td>
+            </tr>
+          </table>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Monitors -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-purple">
-      <div class="card-title"><span class="icon">🖥️</span> Мониторы</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Alt</kbd>+<kbd>H</kbd> / <kbd>L</kbd></td><td class="action">Фокус на монитор слева / справа</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Alt</kbd>+<kbd class="mod">Shift</kbd>+<kbd>H</kbd> / <kbd>L</kbd></td><td class="action">Колонку на монитор слева / справа</td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Move Workspace -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-cyan">
+          <div class="card-title">
+            <span class="icon">↕️</span> Перемещение воркспейсов
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >Page Down</kbd
+                >
+                / <kbd>Up</kbd>
+              </td>
+              <td class="action">Сдвинуть воркспейс вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >U</kbd
+                >
+                / <kbd>I</kbd>
+              </td>
+              <td class="action">Сдвинуть воркспейс вниз / вверх</td>
+            </tr>
+          </table>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Workspace Navigation -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-cyan">
-      <div class="card-title"><span class="icon">📋</span> Навигация по воркспейсам</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Page Down</kbd> / <kbd>Page Up</kbd></td><td class="action">Воркспейс вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>U</kbd> / <kbd>I</kbd></td><td class="action">Воркспейс вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Tab</kbd> / <kbd>Esc</kbd></td><td class="action">Предыдущий воркспейс</td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Move Column to Workspace -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-cyan">
+          <div class="card-title">
+            <span class="icon">↗️</span> Колонку на воркспейс
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >Page Down</kbd
+                >
+                / <kbd>Up</kbd>
+              </td>
+              <td class="action">На воркспейс вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >U</kbd
+                >
+                / <kbd>I</kbd>
+              </td>
+              <td class="action">На воркспейс вниз / вверх</td>
+            </tr>
+          </table>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Move Workspace -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-cyan">
-      <div class="card-title"><span class="icon">↕️</span> Перемещение воркспейсов</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>Page Down</kbd> / <kbd>Up</kbd></td><td class="action">Сдвинуть воркспейс вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>U</kbd> / <kbd>I</kbd></td><td class="action">Сдвинуть воркспейс вниз / вверх</td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Wheel Scroll -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-orange">
+          <div class="card-title">
+            <span class="icon">🖱️</span> Колесо мыши
+            <span class="hint" style="font-size: 0.7rem; color: var(--comment)"
+              >(cooldown 150мс)</span
+            >
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>Wheel ↓</kbd> / <kbd>↑</kbd>
+              </td>
+              <td class="action">Воркспейс вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >Wheel ↓</kbd
+                >
+                / <kbd>↑</kbd>
+              </td>
+              <td class="action">Колонку на воркспейс вниз / вверх</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>Wheel →</kbd> / <kbd>←</kbd>
+              </td>
+              <td class="action">Фокус колонки вправо / влево</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >Wheel →</kbd
+                >
+                / <kbd>←</kbd>
+              </td>
+              <td class="action">Двинуть колонку вправо / влево</td>
+            </tr>
+          </table>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Move Column to Workspace -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-cyan">
-      <div class="card-title"><span class="icon">↗️</span> Колонку на воркспейс</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>Page Down</kbd> / <kbd>Up</kbd></td><td class="action">На воркспейс вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>U</kbd> / <kbd>I</kbd></td><td class="action">На воркспейс вниз / вверх</td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Workspaces DP-1 -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-blue">
+          <div class="card-title">
+            <span class="icon">🖥️</span> Воркспейсы DP-1 (левый монитор)
+          </div>
+          <div class="ws-grid">
+            <table>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>1</kbd></td>
+                <td class="action">一</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>2</kbd></td>
+                <td class="action">二</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>3</kbd></td>
+                <td class="action">三</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>4</kbd></td>
+                <td class="action">四</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>5</kbd></td>
+                <td class="action">五</td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >1</kbd
+                  >
+                </td>
+                <td class="action">→ 一</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >2</kbd
+                  >
+                </td>
+                <td class="action">→ 二</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >3</kbd
+                  >
+                </td>
+                <td class="action">→ 三</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >4</kbd
+                  >
+                </td>
+                <td class="action">→ 四</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >5</kbd
+                  >
+                </td>
+                <td class="action">→ 五</td>
+              </tr>
+            </table>
+          </div>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Wheel Scroll -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-orange">
-      <div class="card-title"><span class="icon">🖱️</span> Колесо мыши <span class="hint" style="font-size:0.7rem;color:var(--comment)">(cooldown 150мс)</span></div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Wheel ↓</kbd> / <kbd>↑</kbd></td><td class="action">Воркспейс вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>Wheel ↓</kbd> / <kbd>↑</kbd></td><td class="action">Колонку на воркспейс вниз / вверх</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Wheel →</kbd> / <kbd>←</kbd></td><td class="action">Фокус колонки вправо / влево</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>Wheel →</kbd> / <kbd>←</kbd></td><td class="action">Двинуть колонку вправо / влево</td></tr>
-      </table>
-    </div>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Workspaces DP-2 -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-purple">
+          <div class="card-title">
+            <span class="icon">🖥️</span> Воркспейсы DP-2 (правый монитор)
+          </div>
+          <div class="ws-grid">
+            <table>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>6</kbd></td>
+                <td class="action">六</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>7</kbd></td>
+                <td class="action">七</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>8</kbd></td>
+                <td class="action">八</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>9</kbd></td>
+                <td class="action">九</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>0</kbd></td>
+                <td class="action">十</td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >6</kbd
+                  >
+                </td>
+                <td class="action">→ 六</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >7</kbd
+                  >
+                </td>
+                <td class="action">→ 七</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >8</kbd
+                  >
+                </td>
+                <td class="action">→ 八</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >9</kbd
+                  >
+                </td>
+                <td class="action">→ 九</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >0</kbd
+                  >
+                </td>
+                <td class="action">→ 十</td>
+              </tr>
+            </table>
+          </div>
+        </div>
 
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Workspaces DP-1 -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-blue">
-      <div class="card-title"><span class="icon">🖥️</span> Воркспейсы DP-1 (левый монитор)</div>
-      <div class="ws-grid">
-        <table>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>1</kbd></td><td class="action">一</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>2</kbd></td><td class="action">二</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>3</kbd></td><td class="action">三</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>4</kbd></td><td class="action">四</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>5</kbd></td><td class="action">五</td></tr>
-        </table>
-        <table>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>1</kbd></td><td class="action">→ 一</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>2</kbd></td><td class="action">→ 二</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>3</kbd></td><td class="action">→ 三</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>4</kbd></td><td class="action">→ 四</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>5</kbd></td><td class="action">→ 五</td></tr>
-        </table>
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Named Workspaces -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-green">
+          <div class="card-title">
+            <span class="icon">🏷️</span> Именованные воркспейсы
+          </div>
+          <div class="ws-grid">
+            <table>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>W</kbd></td>
+                <td class="action">web</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>G</kbd></td>
+                <td class="action">minecraft</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>F1</kbd></td>
+                <td class="action">discord</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>F2</kbd></td>
+                <td class="action">localsend</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>F3</kbd></td>
+                <td class="action">superprod</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>E</kbd></td>
+                <td class="action">easyeffects</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>R</kbd></td>
+                <td class="action">chatterino</td>
+              </tr>
+              <tr>
+                <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>T</kbd></td>
+                <td class="action">telegram</td>
+              </tr>
+            </table>
+            <table>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >W</kbd
+                  >
+                </td>
+                <td class="action">→ web</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >G</kbd
+                  >
+                </td>
+                <td class="action">→ minecraft</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >F1</kbd
+                  >
+                </td>
+                <td class="action">→ discord</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >F2</kbd
+                  >
+                </td>
+                <td class="action">→ localsend</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >F3</kbd
+                  >
+                </td>
+                <td class="action">→ superprod</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >E</kbd
+                  >
+                </td>
+                <td class="action">→ easyeffects</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >R</kbd
+                  >
+                </td>
+                <td class="action">→ chatterino</td>
+              </tr>
+              <tr>
+                <td class="keys">
+                  <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                    >T</kbd
+                  >
+                </td>
+                <td class="action">→ telegram</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Consume / Expel -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-yellow">
+          <div class="card-title">
+            <span class="icon">🔀</span> Поглощение / изгнание колонок
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >[</kbd
+                >
+                / <kbd>]</kbd>
+              </td>
+              <td class="action">Поглотить/изгнать окно влево / вправо</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>,</kbd></td>
+              <td class="action">Поглотить окно в колонку</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>.</kbd></td>
+              <td class="action">Изгнать окно из колонки</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Presets -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-purple">
+          <div class="card-title">
+            <span class="icon">📐</span> Пресеты размеров
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>B</kbd></td>
+              <td class="action">Сменить пресет ширины колонки</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >B</kbd
+                >
+              </td>
+              <td class="action">Пресет ширины колонки (назад)</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Alt</kbd>+<kbd
+                  >R</kbd
+                >
+              </td>
+              <td class="action">Сменить пресет высоты окна</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Alt</kbd>+<kbd
+                  class="mod"
+                  >Shift</kbd
+                >+<kbd>R</kbd>
+              </td>
+              <td class="action">Сбросить высоту окна</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Maximize / Fullscreen -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-red">
+          <div class="card-title">
+            <span class="icon">⛶</span> Максимизация / Полный экран
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>F</kbd></td>
+              <td class="action">Максимизировать колонку</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >F</kbd
+                >
+              </td>
+              <td class="action">Полный экран окна</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>M</kbd></td>
+              <td class="action">Растянуть окно до краёв</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >F</kbd
+                >
+              </td>
+              <td class="action">Расширить колонку на доступную ширину</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Center -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-cyan">
+          <div class="card-title">
+            <span class="icon">🎯</span> Центрирование
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >C</kbd
+                >
+              </td>
+              <td class="action">Центрировать колонку</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  class="mod"
+                  >Shift</kbd
+                >+<kbd>C</kbd>
+              </td>
+              <td class="action">Центрировать видимые колонки</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Size Adjustments -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-orange">
+          <div class="card-title">
+            <span class="icon">↔️</span> Размеры: точная подстройка
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd>[</kbd> / <kbd>]</kbd>
+              </td>
+              <td class="action">Ширина колонки −10% / +10%</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >[</kbd
+                >
+                / <kbd>]</kbd>
+              </td>
+              <td class="action">Высота окна −10% / +10%</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Floating / Tiling -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-green">
+          <div class="card-title">
+            <span class="icon">🪁</span> Плавающие / тайлинг
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Y</kbd></td>
+              <td class="action">Переключить плавающее окно</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >Y</kbd
+                >
+              </td>
+              <td class="action">Фокус между плавающим/тайлингом</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Tabbed / Layout -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-blue">
+          <div class="card-title">
+            <span class="icon">🗂️</span> Вкладки / Раскладка
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >T</kbd
+                >
+              </td>
+              <td class="action">Переключить табовый режим колонки</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Space</kbd></td>
+              <td class="action">Следующая раскладка</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >Space</kbd
+                >
+              </td>
+              <td class="action">Предыдущая раскладка</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Overview -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-purple">
+          <div class="card-title">
+            <span class="icon">👁️</span> Обзор (Overview)
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>`</kbd></td>
+              <td class="action">Переключить обзор</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>O</kbd></td>
+              <td class="action">Переключить обзор</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Screenshots -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-yellow">
+          <div class="card-title"><span class="icon">📸</span> Скриншоты</div>
+          <table>
+            <tr>
+              <td class="keys"><kbd>Print</kbd></td>
+              <td class="action">Скриншот области</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Shift</kbd>+<kbd>Print</kbd>
+              </td>
+              <td class="action">Полный скриншот</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Print</kbd></td>
+              <td class="action">Загрузить скриншот</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd class="mod">Ctrl</kbd>+<kbd>Print</kbd></td>
+              <td class="action">Сканировать QR-код</td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >Print</kbd
+                >
+              </td>
+              <td class="action">Меню скриншотов</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Volume -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-green">
+          <div class="card-title">
+            <span class="icon">🔊</span> Громкость
+            <span class="hint" style="font-size: 0.7rem; color: var(--comment)"
+              >(работает при блокировке)</span
+            >
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd>Vol +</kbd></td>
+              <td class="action">Громкость +5%</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd>Vol −</kbd></td>
+              <td class="action">Громкость −5%</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd>Mute</kbd></td>
+              <td class="action">Включить/выключить звук</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd>Mic Mute</kbd></td>
+              <td class="action">Включить/выключить микрофон</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Media -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-cyan">
+          <div class="card-title">
+            <span class="icon">🎵</span> Медиа
+            <span class="hint" style="font-size: 0.7rem; color: var(--comment)"
+              >(работает при блокировке)</span
+            >
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd>▶</kbd> / <kbd>⏸</kbd></td>
+              <td class="action">Play / Pause</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd>⏹</kbd></td>
+              <td class="action">Stop</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd>⏮</kbd> / <kbd>⏭</kbd></td>
+              <td class="action">Предыдущий / Следующий трек</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Brightness -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-yellow">
+          <div class="card-title">
+            <span class="icon">☀️</span> Яркость
+            <span class="hint" style="font-size: 0.7rem; color: var(--comment)"
+              >(работает при блокировке)</span
+            >
+          </div>
+          <table>
+            <tr>
+              <td class="keys"><kbd>Bright +</kbd></td>
+              <td class="action">Яркость +10%</td>
+            </tr>
+            <tr>
+              <td class="keys"><kbd>Bright −</kbd></td>
+              <td class="action">Яркость −10%</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Lock / Power -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-red">
+          <div class="card-title">
+            <span class="icon">🔒</span> Блокировка / Питание
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd
+                  >L</kbd
+                >
+              </td>
+              <td class="action">
+                Заблокировать экран <span class="hint">(swaylock)</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  class="mod"
+                  >Ctrl</kbd
+                >+<kbd>P</kbd>
+              </td>
+              <td class="action">Выключить мониторы</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Inhibitor -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-orange">
+          <div class="card-title">
+            <span class="icon">🛡️</span> Ингибитор горячих клавиш
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd
+                  >Esc</kbd
+                >
+              </td>
+              <td class="action">Переключить блокировку горячих клавиш</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- ═══════════════════════════════════════════════════ -->
+        <!-- Input -->
+        <!-- ═══════════════════════════════════════════════════ -->
+        <div class="card c-blue">
+          <div class="card-title">
+            <span class="icon">⌨️</span> Раскладка клавиатуры
+          </div>
+          <table>
+            <tr>
+              <td class="keys">
+                <kbd class="mod">Alt</kbd>+<kbd class="mod">Shift</kbd>
+              </td>
+              <td class="action">
+                Переключить раскладку <span class="hint">(us ↔ ru)</span>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
+
+      <footer>
+        Сгенерировано из
+        <code style="color: var(--blue)"
+          >home-manager/modules/desktop/niri.nix</code
+        >
+        · Catppuccin Macchiato
+      </footer>
     </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Workspaces DP-2 -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-purple">
-      <div class="card-title"><span class="icon">🖥️</span> Воркспейсы DP-2 (правый монитор)</div>
-      <div class="ws-grid">
-        <table>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>6</kbd></td><td class="action">六</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>7</kbd></td><td class="action">七</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>8</kbd></td><td class="action">八</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>9</kbd></td><td class="action">九</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>0</kbd></td><td class="action">十</td></tr>
-        </table>
-        <table>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>6</kbd></td><td class="action">→ 六</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>7</kbd></td><td class="action">→ 七</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>8</kbd></td><td class="action">→ 八</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>9</kbd></td><td class="action">→ 九</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>0</kbd></td><td class="action">→ 十</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Named Workspaces -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-green">
-      <div class="card-title"><span class="icon">🏷️</span> Именованные воркспейсы</div>
-      <div class="ws-grid">
-        <table>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>W</kbd></td><td class="action">web</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>G</kbd></td><td class="action">minecraft</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>F1</kbd></td><td class="action">discord</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>F2</kbd></td><td class="action">localsend</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>F3</kbd></td><td class="action">superprod</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>E</kbd></td><td class="action">easyeffects</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>R</kbd></td><td class="action">chatterino</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>T</kbd></td><td class="action">telegram</td></tr>
-        </table>
-        <table>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>W</kbd></td><td class="action">→ web</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>G</kbd></td><td class="action">→ minecraft</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>F1</kbd></td><td class="action">→ discord</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>F2</kbd></td><td class="action">→ localsend</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>F3</kbd></td><td class="action">→ superprod</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>E</kbd></td><td class="action">→ easyeffects</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>R</kbd></td><td class="action">→ chatterino</td></tr>
-          <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>T</kbd></td><td class="action">→ telegram</td></tr>
-        </table>
-      </div>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Consume / Expel -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-yellow">
-      <div class="card-title"><span class="icon">🔀</span> Поглощение / изгнание колонок</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>[</kbd> / <kbd>]</kbd></td><td class="action">Поглотить/изгнать окно влево / вправо</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>,</kbd></td><td class="action">Поглотить окно в колонку</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>.</kbd></td><td class="action">Изгнать окно из колонки</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Presets -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-purple">
-      <div class="card-title"><span class="icon">📐</span> Пресеты размеров</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>B</kbd></td><td class="action">Сменить пресет ширины колонки</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>B</kbd></td><td class="action">Пресет ширины колонки (назад)</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Alt</kbd>+<kbd>R</kbd></td><td class="action">Сменить пресет высоты окна</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Alt</kbd>+<kbd class="mod">Shift</kbd>+<kbd>R</kbd></td><td class="action">Сбросить высоту окна</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Maximize / Fullscreen -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-red">
-      <div class="card-title"><span class="icon">⛶</span> Максимизация / Полный экран</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>F</kbd></td><td class="action">Максимизировать колонку</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>F</kbd></td><td class="action">Полный экран окна</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>M</kbd></td><td class="action">Растянуть окно до краёв</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>F</kbd></td><td class="action">Расширить колонку на доступную ширину</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Center -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-cyan">
-      <div class="card-title"><span class="icon">🎯</span> Центрирование</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>C</kbd></td><td class="action">Центрировать колонку</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd class="mod">Shift</kbd>+<kbd>C</kbd></td><td class="action">Центрировать видимые колонки</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Size Adjustments -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-orange">
-      <div class="card-title"><span class="icon">↔️</span> Размеры: точная подстройка</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>[</kbd> / <kbd>]</kbd></td><td class="action">Ширина колонки −10% / +10%</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>[</kbd> / <kbd>]</kbd></td><td class="action">Высота окна −10% / +10%</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Floating / Tiling -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-green">
-      <div class="card-title"><span class="icon">🪁</span> Плавающие / тайлинг</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Y</kbd></td><td class="action">Переключить плавающее окно</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>Y</kbd></td><td class="action">Фокус между плавающим/тайлингом</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Tabbed / Layout -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-blue">
-      <div class="card-title"><span class="icon">🗂️</span> Вкладки / Раскладка</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>T</kbd></td><td class="action">Переключить табовый режим колонки</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Space</kbd></td><td class="action">Следующая раскладка</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>Space</kbd></td><td class="action">Предыдущая раскладка</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Overview -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-purple">
-      <div class="card-title"><span class="icon">👁️</span> Обзор (Overview)</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>`</kbd></td><td class="action">Переключить обзор</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>O</kbd></td><td class="action">Переключить обзор</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Screenshots -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-yellow">
-      <div class="card-title"><span class="icon">📸</span> Скриншоты</div>
-      <table>
-        <tr><td class="keys"><kbd>Print</kbd></td><td class="action">Скриншот области</td></tr>
-        <tr><td class="keys"><kbd class="mod">Shift</kbd>+<kbd>Print</kbd></td><td class="action">Полный скриншот</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd>Print</kbd></td><td class="action">Загрузить скриншот</td></tr>
-        <tr><td class="keys"><kbd class="mod">Ctrl</kbd>+<kbd>Print</kbd></td><td class="action">Сканировать QR-код</td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>Print</kbd></td><td class="action">Меню скриншотов</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Volume -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-green">
-      <div class="card-title"><span class="icon">🔊</span> Громкость <span class="hint" style="font-size:0.7rem;color:var(--comment)">(работает при блокировке)</span></div>
-      <table>
-        <tr><td class="keys"><kbd>Vol +</kbd></td><td class="action">Громкость +5%</td></tr>
-        <tr><td class="keys"><kbd>Vol −</kbd></td><td class="action">Громкость −5%</td></tr>
-        <tr><td class="keys"><kbd>Mute</kbd></td><td class="action">Включить/выключить звук</td></tr>
-        <tr><td class="keys"><kbd>Mic Mute</kbd></td><td class="action">Включить/выключить микрофон</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Media -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-cyan">
-      <div class="card-title"><span class="icon">🎵</span> Медиа <span class="hint" style="font-size:0.7rem;color:var(--comment)">(работает при блокировке)</span></div>
-      <table>
-        <tr><td class="keys"><kbd>▶</kbd> / <kbd>⏸</kbd></td><td class="action">Play / Pause</td></tr>
-        <tr><td class="keys"><kbd>⏹</kbd></td><td class="action">Stop</td></tr>
-        <tr><td class="keys"><kbd>⏮</kbd> / <kbd>⏭</kbd></td><td class="action">Предыдущий / Следующий трек</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Brightness -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-yellow">
-      <div class="card-title"><span class="icon">☀️</span> Яркость <span class="hint" style="font-size:0.7rem;color:var(--comment)">(работает при блокировке)</span></div>
-      <table>
-        <tr><td class="keys"><kbd>Bright +</kbd></td><td class="action">Яркость +10%</td></tr>
-        <tr><td class="keys"><kbd>Bright −</kbd></td><td class="action">Яркость −10%</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Lock / Power -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-red">
-      <div class="card-title"><span class="icon">🔒</span> Блокировка / Питание</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>L</kbd></td><td class="action">Заблокировать экран <span class="hint">(swaylock)</span></td></tr>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd class="mod">Ctrl</kbd>+<kbd>P</kbd></td><td class="action">Выключить мониторы</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Inhibitor -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-orange">
-      <div class="card-title"><span class="icon">🛡️</span> Ингибитор горячих клавиш</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Mod</kbd>+<kbd class="mod">Shift</kbd>+<kbd>Esc</kbd></td><td class="action">Переключить блокировку горячих клавиш</td></tr>
-      </table>
-    </div>
-
-    <!-- ═══════════════════════════════════════════════════ -->
-    <!-- Input -->
-    <!-- ═══════════════════════════════════════════════════ -->
-    <div class="card c-blue">
-      <div class="card-title"><span class="icon">⌨️</span> Раскладка клавиатуры</div>
-      <table>
-        <tr><td class="keys"><kbd class="mod">Alt</kbd>+<kbd class="mod">Shift</kbd></td><td class="action">Переключить раскладку <span class="hint">(us ↔ ru)</span></td></tr>
-      </table>
-    </div>
-
-  </div>
-
-  <footer>
-    Сгенерировано из <code style="color:var(--blue)">home-manager/modules/desktop/niri.nix</code> · Catppuccin Macchiato
-  </footer>
-
-</div>
-</body>
+  </body>
 </html>

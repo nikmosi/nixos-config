@@ -80,7 +80,7 @@
   # Configure git hooks
   git-hooks.hooks = {
     # Format Nix code
-    nixfmt.enable = true;
+    nixfmt-rfc-style.enable = true;
 
     # Lint Nix code
     statix.enable = true;

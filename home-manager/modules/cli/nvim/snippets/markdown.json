@@ -13,27 +13,17 @@
   },
   "Callout": {
     "prefix": "callout",
-    "body": [
-      "> [!${1:NOTE}]",
-      "> ${2:message}",
-      "$0"
-    ],
+    "body": ["> [!${1:NOTE}]", "> ${2:message}", "$0"],
     "description": "Markdown callout"
   },
   "Task": {
     "prefix": "task",
-    "body": [
-      "- [ ] ${1:todo}"
-    ],
+    "body": ["- [ ] ${1:todo}"],
     "description": "Markdown task list item"
   },
   "Table 2x2": {
     "prefix": "table2",
-    "body": [
-      "| ${1:Col1} | ${2:Col2} |",
-      "| --- | --- |",
-      "| ${3:} | ${4:} |"
-    ],
+    "body": ["| ${1:Col1} | ${2:Col2} |", "| --- | --- |", "| ${3:} | ${4:} |"],
     "description": "2 column markdown table"
   },
   "Table 3x2": {
@@ -47,11 +37,7 @@
   },
   "Code Block": {
     "prefix": "codeblock",
-    "body": [
-      "```$1",
-      "$0",
-      "```"
-    ],
+    "body": ["```$1", "$0", "```"],
     "description": "Fenced code block"
   }
 }

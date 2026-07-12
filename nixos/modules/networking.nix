@@ -1,20 +1,14 @@
-{ userSettings, ... }:
+{ userSettings, config, ... }:
 {
   networking = {
     hostName = userSettings.hostname;
     domain = "home.lan";
-    wireguard.enable = false;
     networkmanager = {
       enable = true;
       dns = "none";
     };
-    dhcpcd.extraConfig = "nohook resolv.conf";
     enableIPv6 = false;
-    extraHosts = ''
-      192.168.3.3 home
-      127.0.0.1 rustek.localhost
-      127.0.0.1 auth.rustek.localhost
-    '';
+    extraHosts = config.nik.networking.extraHosts;
     # interfaces.eno1.ipv6.addresses = [ ];
 
     nameservers = [

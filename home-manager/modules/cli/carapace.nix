@@ -1,6 +1,9 @@
+{ config, lib, ... }:
 {
-  programs.carapace = {
-    enable = true;
-    enableNushellIntegration = true;
+  config = lib.mkIf config.local.cli.carapace.enable {
+    programs.carapace = {
+      enable = true;
+      enableNushellIntegration = true;
+    };
   };
 }

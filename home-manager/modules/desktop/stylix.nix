@@ -1,86 +1,101 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  config,
+  lib,
+  ...
+}:
 {
   imports = [ inputs.stylix.homeModules.stylix ];
 
-  home.packages = with pkgs; [
-    dejavu_fonts
-    jetbrains-mono
-    noto-fonts
-    noto-fonts-lgc-plus
-    texlivePackages.hebrew-fonts
-    noto-fonts-color-emoji
-    font-awesome
-    powerline-fonts
-    powerline-symbols
-    nerd-fonts.symbols-only
-  ];
-
-  stylix = {
-    enable = true;
-    polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
-
-    targets = {
-      neovim = {
-        enable = false;
-      };
-      fzf = {
-        enable = false;
-      };
-      alacritty = {
-        enable = false;
-      };
-      kitty = {
-        enable = false;
-      };
-      firefox = {
-        enable = false;
-      };
-      rofi = {
-        enable = false;
-      };
-    };
-
-    cursor = {
-      package = pkgs.numix-cursor-theme;
-      name = "Numix-Cursor-Light";
-      size = 24;
-    };
-
-    fonts = {
-      emoji = {
-        name = "Noto Color Emoji";
-        package = pkgs.noto-fonts-color-emoji;
-      };
-      monospace = {
-        name = "JetBrains Mono";
-        package = pkgs.jetbrains-mono;
-      };
-      sansSerif = {
-        name = "Noto Sans";
-        package = pkgs.noto-fonts;
-      };
-      serif = {
-        name = "Noto Serif";
-        package = pkgs.noto-fonts;
-      };
-
-      sizes = {
-        terminal = 13;
-        applications = 11;
-      };
-    };
-
-    icons = {
+  config = lib.mkIf config.local.desktop.stylix.enable {
+    catppuccin = {
       enable = true;
-      package = pkgs.papirus-icon-theme;
-      dark = "Papirus-Dark";
-      light = "Papirus-Light";
+      autoEnable = false;
+      flavor = "macchiato";
+      accent = "mauve";
     };
 
-    image = pkgs.fetchurl {
-      url = "https://codeberg.org/lunik1/nixos-logo-gruvbox-wallpaper/raw/branch/master/png/gruvbox-dark-rainbow.png";
-      sha256 = "036gqhbf6s5ddgvfbgn6iqbzgizssyf7820m5815b2gd748jw8zc";
+    home.packages = with pkgs; [
+      dejavu_fonts
+      jetbrains-mono
+      noto-fonts
+      noto-fonts-lgc-plus
+      texlivePackages.hebrew-fonts
+      noto-fonts-color-emoji
+      font-awesome
+      powerline-fonts
+      powerline-symbols
+      nerd-fonts.symbols-only
+    ];
+
+    stylix = {
+      enable = true;
+      polarity = "dark";
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+
+      targets = {
+        neovim = {
+          enable = false;
+        };
+        fzf = {
+          enable = false;
+        };
+        alacritty = {
+          enable = false;
+        };
+        kitty = {
+          enable = false;
+        };
+        firefox = {
+          enable = false;
+        };
+        rofi = {
+          enable = false;
+        };
+      };
+
+      cursor = {
+        package = pkgs.numix-cursor-theme;
+        name = "Numix-Cursor-Light";
+        size = 24;
+      };
+
+      fonts = {
+        emoji = {
+          name = "Noto Color Emoji";
+          package = pkgs.noto-fonts-color-emoji;
+        };
+        monospace = {
+          name = "JetBrains Mono";
+          package = pkgs.jetbrains-mono;
+        };
+        sansSerif = {
+          name = "Noto Sans";
+          package = pkgs.noto-fonts;
+        };
+        serif = {
+          name = "Noto Serif";
+          package = pkgs.noto-fonts;
+        };
+
+        sizes = {
+          terminal = 13;
+          applications = 11;
+        };
+      };
+
+      icons = {
+        enable = true;
+        package = pkgs.papirus-icon-theme;
+        dark = "Papirus-Dark";
+        light = "Papirus-Light";
+      };
+
+      image = pkgs.fetchurl {
+        url = "https://codeberg.org/lunik1/nixos-logo-gruvbox-wallpaper/raw/branch/master/png/gruvbox-dark-rainbow.png";
+        sha256 = "036gqhbf6s5ddgvfbgn6iqbzgizssyf7820m5815b2gd748jw8zc";
+      };
     };
   };
 }

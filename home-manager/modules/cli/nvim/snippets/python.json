@@ -1,10 +1,7 @@
 {
   "ifmain": {
     "prefix": "ifmain",
-    "body": [
-      "if __name__ == \"__main__\":",
-      "    ${0:main()}"
-    ],
+    "body": ["if __name__ == \"__main__\":", "    ${0:main()}"],
     "description": "Main entry guard"
   },
   "dataclass": {
@@ -21,10 +18,7 @@
   },
   "pytest": {
     "prefix": "pytest",
-    "body": [
-      "def test_${1:name}():",
-      "    ${0:assert True}"
-    ],
+    "body": ["def test_${1:name}():", "    ${0:assert True}"],
     "description": "pytest test function"
   },
   "logger": {

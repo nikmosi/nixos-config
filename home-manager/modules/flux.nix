@@ -15,7 +15,7 @@
           - encrypted_regex: "^(data|stringData)$"
             age: ${config.sops.placeholder."age/flux/public"}
       '';
-      path = "/home/nik/git-repos/flux/.sops.yaml";
+      path = "${config.home.homeDirectory}/git-repos/flux/.sops.yaml";
       mode = "0644";
     };
   };

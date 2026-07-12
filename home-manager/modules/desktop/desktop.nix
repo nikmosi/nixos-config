@@ -1,73 +1,80 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  config = lib.mkIf config.local.desktop.desktop.enable {
 
-  programs.chromium = {
-    enable = true;
-    package = pkgs.chromium.override {
-      commandLineArgs = [
-        "--ignore-gpu-blocklist"
-        "--enable-gpu-rasterization"
-        "--enable-zero-copy"
-        "--ozone-platform=wayland"
-        "--enable-features=UseOzonePlatform,VaapiVideoDecoder"
-      ];
+    programs.chromium = {
+      enable = true;
+      package = pkgs.chromium.override {
+        commandLineArgs = [
+          "--ignore-gpu-blocklist"
+          "--enable-gpu-rasterization"
+          "--enable-zero-copy"
+          "--ozone-platform=wayland"
+          "--enable-features=UseOzonePlatform,VaapiVideoDecoder"
+        ];
+      };
     };
-  };
 
-  programs.firefox = {
-    enable = true;
-    configPath = "${config.xdg.configHome}/mozilla/firefox";
-    profiles = {
-      default = {
-        id = 0;
-        name = "default";
-        isDefault = true;
-        path = "tetr027g.default";
-        settings = {
-          "gfx.webrender.all" = true;
-          "media.ffmpeg.vaapi.enabled" = true;
+    programs.firefox = {
+      enable = true;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
+      profiles = {
+        default = {
+          id = 0;
+          name = "default";
+          isDefault = true;
+          path = "tetr027g.default";
+          settings = {
+            "gfx.webrender.all" = true;
+            "media.ffmpeg.vaapi.enabled" = true;
 
-          # Опционально: если видео глючит, можно отключить песочницу для RDD процесса
-          # "widget.dmabuf.force-enabled" = true;
+            # Опционально: если видео глючит, можно отключить песочницу для RDD процесса
+            # "widget.dmabuf.force-enabled" = true;
+          };
+        };
+
+        for_jeens = {
+          id = 1;
+          name = "for_jeens";
+          path = "dcuriwka.for_jeens";
         };
       };
+    };
 
-      for_jeens = {
-        id = 1;
-        name = "for_jeens";
-        path = "dcuriwka.for_jeens";
+    xdg.desktopEntries = {
+      chromium-custom = {
+        name = "Chromium";
+        genericName = "Web Browser";
+        exec = "${pkgs.chromium}/bin/chromium %U";
+        terminal = false;
+        icon = "chromium";
+        categories = [
+          "Application"
+          "Network"
+          "WebBrowser"
+        ];
+        mimeType = [
+          "text/html"
+          "text/xml"
+          "x-scheme-handler/http"
+          "x-scheme-handler/https"
+        ];
       };
-    };
-  };
 
-  xdg.desktopEntries = {
-    chromium-custom = {
-      name = "Chromium";
-      genericName = "Web Browser";
-      exec = "${pkgs.chromium}/bin/chromium %U";
-      terminal = false;
-      icon = "chromium";
-      categories = [
-        "Application"
-        "Network"
-        "WebBrowser"
-      ];
-      mimeType = [
-        "text/html"
-        "text/xml"
-        "x-scheme-handler/http"
-        "x-scheme-handler/https"
-      ];
-    };
-
-    modrinthapp = {
-      name = "Modrinth App";
-      comment = "Minecraft mod manager";
-      exec = "ModrinthApp";
-      icon = "/home/nik/.local/share/icons/modrinth.png";
-      terminal = false;
-      type = "Application";
-      categories = [ "Game" ];
+      modrinthapp = {
+        name = "Modrinth App";
+        comment = "Minecraft mod manager";
+        exec = "ModrinthApp";
+        icon = "${config.home.homeDirectory}/.local/share/icons/modrinth.png";
+        terminal = false;
+        type = "Application";
+        categories = [ "Game" ];
+      };
     };
   };
 }
