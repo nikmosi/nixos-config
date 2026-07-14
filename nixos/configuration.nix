@@ -38,6 +38,7 @@
         "https://cache.nixos.org/"
         "https://cache.garnix.io"
         "https://noctalia.cachix.org"
+        "https://ayugram-desktop.cachix.org"
       ];
       trusted-users = [
         "root"
@@ -46,6 +47,7 @@
       trusted-public-keys = [
         "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+        "ayugram-desktop.cachix.org:AZ5EqHrJsAKL5YkZYLPEsb1FdD9QlypUwQ0REcJftgA="
       ];
     };
     optimise = {
