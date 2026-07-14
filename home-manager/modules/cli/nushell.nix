@@ -409,6 +409,19 @@
             cat $file | to_clip
           }
 
+          def "gptcommit" [] {
+              # Получаем изменения из индекса
+              let diff = (^git diff --cached | str trim)
+              
+              if ($diff | is-empty) {
+                  print "Нет файлов в индексе для коммита."
+                  return
+              }
+              
+              # Передаем инструкцию OpenCode через CLI-аргумент
+              ^opencode run -m "opencode/big-pickle" "Read the staged changes. Generate a concise commit message using the Conventional Commits standard. Ask for my confirmation, then execute the commit."
+          }
+
           def t [] {
             sesh connect .
           }

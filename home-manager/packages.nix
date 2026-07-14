@@ -111,6 +111,7 @@
       handy
       pi-coding-agent
       nodejs
+      colmena
 
       # 🧠 Development Tools
       insomnia
