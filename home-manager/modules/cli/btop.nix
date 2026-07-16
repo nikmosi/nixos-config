@@ -1,4 +1,28 @@
-{ config, lib, ... }:
+{
+  config,
+  hostConfig,
+  lib,
+  ...
+}:
+let
+  gpu = hostConfig.nik.hardware.gpu or "none";
+  gpuConfig =
+    if gpu == "nvidia" then
+      ''
+        shown_gpus = "nvidia amd intel apple"
+        custom_gpu_name0 = "nvidia"
+      ''
+    else if gpu == "amd" then
+      ''
+        shown_gpus = "amd intel apple"
+        custom_gpu_name0 = ""
+      ''
+    else
+      ''
+        shown_gpus = "amd intel apple"
+        custom_gpu_name0 = ""
+      '';
+in
 {
   config = lib.mkIf config.local.cli.btop.enable {
     xdg.configFile."btop/btop.conf" = {
@@ -85,8 +109,7 @@
         nvml_measure_pcie_speeds = true
         rsmi_measure_pcie_speeds = true
         gpu_mirror_graph = true
-        shown_gpus = "nvidia amd intel apple"
-        custom_gpu_name0 = "nvidia"
+        ${gpuConfig}
         custom_gpu_name1 = ""
         custom_gpu_name2 = ""
         custom_gpu_name3 = ""

@@ -14,6 +14,45 @@
       '';
     };
 
+    hardware = {
+      gpu = lib.mkOption {
+        type = lib.types.enum [
+          "nvidia"
+          "amd"
+          "none"
+        ];
+        default = "none";
+        description = "GPU vendor for hardware-specific configuration.";
+      };
+      printer = lib.mkOption {
+        type = lib.types.bool;
+        default = false;
+        description = "Enable printer drivers (hplip, gutenprint, cups).";
+      };
+    };
+
+    virtualization = {
+      docker.storageDriver = lib.mkOption {
+        type = lib.types.str;
+        default = "btrfs";
+        description = "Docker storage driver.";
+      };
+      virtualbox.enable = lib.mkEnableOption "VirtualBox host" // {
+        default = true;
+      };
+    };
+
+    services = {
+      endlessh.enable = lib.mkEnableOption "endlessh tarpit" // {
+        default = true;
+      };
+      openssh.port = lib.mkOption {
+        type = lib.types.port;
+        default = 22000;
+        description = "SSH daemon port.";
+      };
+    };
+
     user.gpgKey = lib.mkOption {
       type = lib.types.str;
       default = "B77DD388609E81892CBC2D6AB9CF67BBE64E1273";

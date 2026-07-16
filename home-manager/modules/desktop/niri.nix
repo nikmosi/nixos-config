@@ -37,6 +37,7 @@ let
   # Monitor config from NixOS options
   monitors = hostConfig.nik.monitors or [ ];
   hasMonitors = builtins.length monitors > 0;
+  hasSecondMonitor = builtins.length monitors >= 2;
   monitorOutputs = map (
     m:
     {
@@ -51,6 +52,68 @@ let
     })
   ) monitors;
   monitorFirst = if hasMonitors then builtins.head monitors else null;
+  monitorSecondName =
+    if hasSecondMonitor then
+      (builtins.elemAt monitors 1).name
+    else
+      (if hasMonitors then monitorFirst.name else "eDP-1");
+
+  # Workspace names
+  wsFirst = [
+    "一"
+    "二"
+    "三"
+    "四"
+    "五"
+  ];
+  wsSecond = [
+    "六"
+    "七"
+    "八"
+    "九"
+    "十"
+  ];
+
+  # Build workspace entries for a given output name and workspace name list
+  mkWorkspaces =
+    output: names:
+    map (name: {
+      _args = [ name ];
+      open-on-output = output;
+    }) names;
+
+  # App-specific workspaces (always on second monitor if present, else first)
+  appOutput =
+    if hasSecondMonitor then
+      monitorSecondName
+    else
+      (if hasMonitors then monitorFirst.name else "eDP-1");
+  appWorkspaces = [
+    {
+      _args = [ ws.discord ];
+      open-on-output = appOutput;
+    }
+    {
+      _args = [ ws.telegram ];
+      open-on-output = appOutput;
+    }
+    {
+      _args = [ ws.chatterino ];
+      open-on-output = appOutput;
+    }
+    {
+      _args = [ ws.localsend ];
+      open-on-output = appOutput;
+    }
+    {
+      _args = [ ws.superprod ];
+      open-on-output = appOutput;
+    }
+    {
+      _args = [ ws.easyeffects ];
+      open-on-output = appOutput;
+    }
+  ];
 in
 {
   config = lib.mkIf config.local.desktop.niri.enable {
@@ -77,82 +140,29 @@ in
         };
 
         # ── Named workspaces ───────────────────────────────────
-        # DP-1 (left): 一-六 + web + minecraft
-        workspace = [
-          {
-            _args = [ "一" ];
-            open-on-output = "DP-1";
-          }
-          {
-            _args = [ "二" ];
-            open-on-output = "DP-1";
-          }
-          {
-            _args = [ "三" ];
-            open-on-output = "DP-1";
-          }
-          {
-            _args = [ "四" ];
-            open-on-output = "DP-1";
-          }
-          {
-            _args = [ "五" ];
-            open-on-output = "DP-1";
-          }
-          {
-            _args = [ ws.web ];
-            open-on-output = "DP-1";
-          }
-          {
-            _args = [ ws.minecraft ];
-            open-on-output = "DP-1";
-          }
-          # DP-2 (right): 七-十二 + app-specific
-          {
-            _args = [ "六" ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ "七" ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ "八" ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ "九" ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ "十" ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ ws.discord ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ ws.telegram ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ ws.chatterino ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ ws.localsend ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ ws.superprod ];
-            open-on-output = "DP-2";
-          }
-          {
-            _args = [ ws.easyeffects ];
-            open-on-output = "DP-2";
-          }
-        ];
+        # First monitor: 一-五 + web + minecraft
+        # Second monitor (if present): 六-十 + app-specific
+        # Single monitor: all workspaces on first output
+        workspace =
+          let
+            firstOutput = if hasMonitors then monitorFirst.name else "eDP-1";
+            secondOutput = if hasSecondMonitor then monitorSecondName else firstOutput;
+          in
+          lib.optionals hasMonitors (
+            (mkWorkspaces firstOutput wsFirst)
+            ++ [
+              {
+                _args = [ ws.web ];
+                open-on-output = firstOutput;
+              }
+              {
+                _args = [ ws.minecraft ];
+                open-on-output = firstOutput;
+              }
+            ]
+            ++ (mkWorkspaces secondOutput wsSecond)
+            ++ appWorkspaces
+          );
 
         # ── Layout ─────────────────────────────────────────────
         layout = {

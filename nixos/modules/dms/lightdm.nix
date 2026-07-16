@@ -20,7 +20,7 @@ lib.mkIf (config.nik.display.backend == "x11") {
         };
       };
     };
-    sessionCommands =
+    sessionCommands = lib.optionalString (builtins.length config.nik.monitors >= 2) (
       let
         monitors = config.nik.monitors;
         m0 = builtins.head monitors;
@@ -30,7 +30,8 @@ lib.mkIf (config.nik.display.backend == "x11") {
         xrandr --output ${m1.name} --mode 2560x1440 --rate 165 --pos ${toString m1.x}+${toString m1.y} \
         --output ${m0.name} --mode 2560x1440 --rate 165 --pos ${toString m0.x}+${toString m0.y} --primary;
         xrandr --output ${m0.name} --left-of ${m1.name};
-      '';
+      ''
+    );
 
     startx.enable = true;
   };

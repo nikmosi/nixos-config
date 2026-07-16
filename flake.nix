@@ -88,23 +88,28 @@
             };
           };
 
-          # Load host-specific settings
-          hostConfig = import ./hosts/nixos/default.nix;
-          userSettings = import ./hosts/nixos/user.nix;
-        in
-        {
-          nixosConfigurations = {
-            "${userSettings.hostname}" = stable.lib.nixosSystem {
+          # Hosts to generate configurations for
+          hostNames = [
+            "nixos"
+            "note-nixos"
+          ];
+
+          # Build a NixOS configuration for a single host
+          mkNixos =
+            name:
+            let
+              userSettings = import ./hosts/${name}/user.nix;
+              hostConfig = import ./hosts/${name}/default.nix;
+            in
+            stable.lib.nixosSystem {
               specialArgs = {
-                inherit inputs;
-                inherit userSettings;
+                inherit inputs userSettings hostConfig;
               };
               modules = [
                 ./nixos/configuration.nix
+                ./hosts/${name}/hardware-configuration.nix
+                ./hosts/${name}/hardware.nix
                 inputs.sops-nix.nixosModules.sops
-                inputs.nixos-hardware.nixosModules.common-cpu-intel
-                inputs.nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
-                inputs.nixos-hardware.nixosModules.common-pc-ssd
                 hostConfig
                 {
                   nixpkgs.hostPlatform = userSettings.system;
@@ -119,10 +124,15 @@
                 }
               ];
             };
-          };
 
-          homeConfigurations = {
-            "${userSettings.username}" = home-manager.lib.homeManagerConfiguration {
+          # Build a Home Manager configuration for a single host
+          mkHome =
+            name:
+            let
+              userSettings = import ./hosts/${name}/user.nix;
+              hostConfig = import ./hosts/${name}/default.nix;
+            in
+            home-manager.lib.homeManagerConfiguration {
               pkgs = stable.legacyPackages.${userSettings.system}.extend (
                 stable.lib.composeManyExtensions [
                   inputs.nur.overlays.default
@@ -130,7 +140,6 @@
                 ]
               );
               modules = [
-                # { home-manager.backupFileExtension = "backup"; }
                 inputs.sops-nix.homeManagerModules.sops
                 inputs.niri-nix.homeModules.default
                 inputs.catppuccin.homeModules.catppuccin
@@ -139,11 +148,13 @@
               extraSpecialArgs = {
                 inherit inputs;
                 telegrams = inputs."ayugram-desktop";
-                inherit userSettings;
-                inherit hostConfig;
+                inherit userSettings hostConfig;
               };
             };
-          };
+        in
+        {
+          nixosConfigurations = stable.lib.genAttrs hostNames mkNixos;
+          homeConfigurations = stable.lib.genAttrs hostNames mkHome;
         };
     };
 }

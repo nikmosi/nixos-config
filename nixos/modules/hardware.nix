@@ -1,5 +1,10 @@
-{ config, ... }:
 {
+  config,
+  lib,
+  ...
+}:
+
+lib.mkIf (config.nik.hardware.gpu == "nvidia") {
   hardware.graphics.enable = true;
   hardware.nvidia = {
     modesetting.enable = true;

@@ -1,18 +1,32 @@
 # nikmosi's NixOS Configuration
 
-NixOS + Home Manager flake configuration for a desktop workstation.
+NixOS + Home Manager flake configuration for multiple hosts (desktop + laptop).
+
+## Hosts
+
+| Host         | Hardware                          | Role    |
+| ------------ | --------------------------------- | ------- |
+| `nixos`      | Intel + NVIDIA, 2 monitors, btrfs | Desktop |
+| `note-nixos` | AMD Ryzen 3500U, 1 monitor, ext4  | Laptop  |
 
 ## Structure
 
 ```
-flake.nix           — flake entry (flake-parts)
+flake.nix           — flake entry (flake-parts, multi-host)
 devenv.nix          — dev shell (formatters, linters, scripts)
-nixos/              — NixOS system configuration
-  configuration.nix  — system entry
-  hardware-configuration.nix — generated hardware config
+hosts/              — per-host configuration
+  nixos/            — desktop host
+    default.nix     — monitors, networking, GPU, location
+    user.nix        — username, hostname, stateVersion
+    hardware-configuration.nix — generated hardware config
+    hardware.nix    — nixos-hardware modules (Intel, NVIDIA, SSD)
+  note-nixos/       — laptop host
+    ...             — same structure
+nixos/              — shared NixOS system configuration
+  configuration.nix — system entry
   packages.nix      — system packages
   modules/          — NixOS modules (audio, boot, networking, etc.)
-home-manager/       — Home Manager user configuration
+home-manager/       — shared Home Manager user configuration
   home.nix          — HM entry
   packages.nix      — user packages
   modules/          — HM modules
@@ -23,7 +37,7 @@ home-manager/       — Home Manager user configuration
     desktop/        — desktop configs (niri, rofi, stylix, etc.)
     apps/           — GUI apps (kitty, mpv, zathura)
 assets/             — wallpapers, rofi themes
-secrets/            — sops-encrypted secrets (PGP)
+secrets/            — sops-encrypted secrets (PGP + age)
 ```
 
 ## Commands
@@ -32,13 +46,13 @@ secrets/            — sops-encrypted secrets (PGP)
 # Enter dev shell (auto via direnv)
 cd ~/.flake
 
-# Rebuild NixOS
-nh os switch . -H nixos
-# or: sudo nixos-rebuild switch --flake .#nixos
+# Rebuild NixOS (auto-detects hostname)
+nh os switch . -H $(hostname)
+# or: sudo nixos-rebuild switch --flake .#$(hostname)
 
 # Rebuild Home Manager
-nh home switch . -c nik
-# or: home-manager switch --flake .#nik
+nh home switch . -c $(hostname)
+# or: home-manager switch --flake .#$(hostname)
 
 # Update flake inputs
 nix flake update

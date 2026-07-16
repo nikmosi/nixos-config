@@ -5,7 +5,7 @@
 }:
 
 lib.mkIf (config.nik.display.backend == "x11") {
-  hardware.nvidia.forceFullCompositionPipeline = true;
+  hardware.nvidia.forceFullCompositionPipeline = lib.mkIf (config.nik.hardware.gpu == "nvidia") true;
 
   services.xserver = {
     enable = true;

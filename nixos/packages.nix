@@ -1,6 +1,11 @@
-{ pkgs, ... }:
 {
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
+{
   environment.systemPackages =
     (with pkgs.unstable; [
       sing-box
@@ -17,9 +22,6 @@
       home-manager
 
       # 🧰 Build & Printing Stack
-      hplip
-      gutenprint
-      cups
       librsvg
       gdk-pixbuf
 
@@ -48,5 +50,13 @@
       # 🔧 Utils for Tmux
       bc
       jq
-    ]);
+    ])
+    ++ lib.optionals config.nik.hardware.printer (
+      with pkgs;
+      [
+        hplip
+        gutenprint
+        cups
+      ]
+    );
 }

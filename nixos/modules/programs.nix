@@ -1,10 +1,15 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  userSettings,
+  ...
+}:
 {
   programs = {
     nh = {
       enable = true;
       clean.enable = false;
-      flake = "${config.users.users.nik.home}/.flake";
+      flake = "${config.users.users.${userSettings.username}.home}/.flake";
     };
 
     nix-index = {

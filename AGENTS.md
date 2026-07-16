@@ -5,17 +5,19 @@ Instructions for AI agents working with this NixOS flake configuration.
 ## Build Commands
 
 ```bash
-# Build NixOS configuration
+# Build NixOS configuration (per-host)
 nix build .#nixosConfigurations.nixos.config.system.build.toplevel
+nix build .#nixosConfigurations.note-nixos.config.system.build.toplevel
 
-# Build Home Manager configuration
-nix build .#homeConfigurations.nik.activationPackage
+# Build Home Manager configuration (per-host)
+nix build .#homeConfigurations.nixos.activationPackage
+nix build .#homeConfigurations.note-nixos.activationPackage
 
-# Apply NixOS
-nh os switch . -H nixos
+# Apply NixOS (auto-detects hostname)
+nh os switch . -H $(hostname)
 
 # Apply Home Manager
-nh home switch . -c nik
+nh home switch . -c $(hostname)
 ```
 
 ## Lint & Format
@@ -34,12 +36,13 @@ nix flake check
 
 ## Structure
 
-- NixOS modules: `nixos/modules/`
-- Home Manager modules: `home-manager/modules/`
+- Per-host config: `hosts/<hostname>/` (default.nix, user.nix, hardware-configuration.nix, hardware.nix)
+- Shared NixOS modules: `nixos/modules/`
+- Shared Home Manager modules: `home-manager/modules/`
 - All HM modules have `mkEnableOption` toggles in `home-manager/modules/options.nix`
 - Catppuccin palette: `config.dotfiles.palette` (from `home-manager/modules/palette.nix`)
-- Custom NixOS options: `nik.display.backend` (wayland|x11)
-- Secrets: sops-nix with PGP key, config in `.sops.yaml`
+- Custom NixOS options: `nik.display.backend` (wayland|x11), `nik.hardware.gpu` (nvidia|amd|none), `nik.hardware.printer`, `nik.virtualization.*`, `nik.services.openssh.port`, `nik.services.endlessh.enable`
+- Secrets: sops-nix with PGP key + age per-host, config in `.sops.yaml`
 
 ## Conventions
 

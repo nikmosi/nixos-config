@@ -1,17 +1,17 @@
 {
-  # Host-specific NixOS settings for the desktop workstation
+  # Host-specific NixOS settings for the laptop (AMD Ryzen 5 3500U)
   nik = {
     hardware = {
-      gpu = "nvidia";
-      printer = true;
+      gpu = "amd";
+      printer = false;
     };
     virtualization = {
-      docker.storageDriver = "btrfs";
-      virtualbox.enable = true;
+      docker.storageDriver = "overlay2";
+      virtualbox.enable = false;
     };
     services = {
-      endlessh.enable = true;
-      openssh.port = 22000;
+      endlessh.enable = false;
+      openssh.port = 63544;
     };
 
     location = {
@@ -19,7 +19,7 @@
       longitude = 82.9;
     };
     networking = {
-      uplinkInterface = "eno1";
+      uplinkInterface = "wlp2s0";
       extraHosts = ''
         192.168.3.3 home
         127.0.0.1 rustek.localhost
@@ -32,19 +32,11 @@
     ];
     monitors = [
       {
-        name = "DP-1";
-        mode = "2560x1440@180.000";
+        name = "eDP-1";
+        mode = "1920x1080@60.000";
         x = 0;
         y = 0;
         wallpaper = ../../assets/wallpapers/xiaomi.jpg;
-      }
-      {
-        name = "DP-2";
-        mode = "2560x1440@165.000";
-        x = 2560;
-        y = 0;
-        wallpaper = ../../assets/wallpapers/philips.jpg;
-        vrr = false;
       }
     ];
   };

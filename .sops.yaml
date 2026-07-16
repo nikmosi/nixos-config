@@ -1,6 +1,7 @@
 keys:
   - &admin_nik B77DD388609E81892CBC2D6AB9CF67BBE64E1273
   - &host_nixos age15nc9s9pdpsav408csuy7x0d3ntf8mrah5g2l66xt9hdk3suytf0qqeyfx9
+  - &host_note_nixos age153q2qcz0j67szjcwusaey7g7q82mygv3tqx52jlzrue0gzl0c56qgenawn
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
@@ -8,3 +9,4 @@ creation_rules:
           - *admin_nik
         age:
           - *host_nixos
+          - *host_note_nixos

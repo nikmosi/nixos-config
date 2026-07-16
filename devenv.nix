@@ -33,19 +33,19 @@
   # https://devenv.sh/scripts/
   scripts = {
     rebuild.exec = ''
-      nh os switch . -H nixos
+      nh os switch . -H $(hostname)
     '';
 
     "rebuild-fallback".exec = ''
-      sudo nixos-rebuild switch --flake .#nixos
+      sudo nixos-rebuild switch --flake .#$(hostname)
     '';
 
     home.exec = ''
-      nh home switch . -c nik
+      nh home switch . -c $(hostname)
     '';
 
     "home-fallback".exec = ''
-      home-manager switch --flake .#nik
+      home-manager switch --flake .#$(hostname)
     '';
 
     update.exec = ''

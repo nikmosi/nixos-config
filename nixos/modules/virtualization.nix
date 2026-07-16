@@ -2,6 +2,7 @@
   userSettings,
   pkgs,
   config,
+  lib,
   ...
 }:
 {
@@ -15,7 +16,7 @@
       enable = true;
       qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
     };
-    virtualbox = {
+    virtualbox = lib.mkIf config.nik.virtualization.virtualbox.enable {
       host = {
         enable = true;
         enableExtensionPack = true;
@@ -23,7 +24,7 @@
     };
     docker = {
       enable = true;
-      storageDriver = "btrfs";
+      storageDriver = config.nik.virtualization.docker.storageDriver;
       rootless = {
         enable = false;
         setSocketVariable = true;
@@ -32,8 +33,8 @@
     };
   };
 
-  users.extraGroups.vboxusers.members = [ userSettings.username ];
+  users.extraGroups.vboxusers.members = lib.optional config.nik.virtualization.virtualbox.enable userSettings.username;
   users.extraGroups.libvirtd.members = [ userSettings.username ];
 
-  hardware.nvidia-container-toolkit.enable = true;
+  hardware.nvidia-container-toolkit.enable = lib.mkIf (config.nik.hardware.gpu == "nvidia") true;
 }

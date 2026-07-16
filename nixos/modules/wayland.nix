@@ -40,10 +40,12 @@ lib.mkIf (config.nik.display.backend == "wayland") {
     MOZ_ENABLE_WAYLAND = "1";
     QT_QPA_PLATFORM = "wayland";
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
+    XCURSOR_THEME = "Numix-Cursor-Light";
+    XCURSOR_SIZE = "24";
+  }
+  // lib.optionalAttrs (config.nik.hardware.gpu == "nvidia") {
     LIBVA_DRIVER_NAME = "nvidia";
     GBM_BACKEND = "nvidia-drm";
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-    XCURSOR_THEME = "Numix-Cursor-Light";
-    XCURSOR_SIZE = "24";
   };
 }

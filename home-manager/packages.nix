@@ -1,6 +1,8 @@
 {
   pkgs,
   telegrams,
+  hostConfig,
+  lib,
   ...
 }:
 {
@@ -145,7 +147,6 @@
         super-productivity
         discord
         vesktop
-        hyperhdr
         imv
         meld
         obs-studio
@@ -153,7 +154,6 @@
         pavucontrol
         prismlauncher
         qbittorrent-enhanced
-        vial
         chatterino2
         zotero
         thunderbird
@@ -253,5 +253,12 @@
       ++ [
         telegrams.packages.${pkgs.stdenv.hostPlatform.system}.ayugram-desktop
       ]
+      ++ lib.optionals ((hostConfig.nik.hardware.gpu or "none") == "nvidia") (
+        with pkgs;
+        [
+          hyperhdr
+          vial
+        ]
+      )
     );
 }

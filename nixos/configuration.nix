@@ -11,8 +11,6 @@
   imports = [
     ./modules
     ./packages.nix
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
   ];
 
   specialisation.x11-awesome.configuration = {
