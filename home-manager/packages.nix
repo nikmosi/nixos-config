@@ -157,7 +157,7 @@
         chatterino2
         zotero
         thunderbird
-        rustdesk
+        # rustdesk
 
         # 🔠 Fonts
         material-icons
