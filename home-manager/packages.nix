@@ -62,7 +62,7 @@
       nil
       nixd
       pyright
-      python312Packages.python-lsp-server
+      # python312Packages.python-lsp-server
       ruff
       yaml-language-server
 
@@ -95,7 +95,7 @@
       xh
       httpie
       translate-shell
-      zbar
+      # zbar
       croc
       curtail
       sesh
@@ -119,7 +119,7 @@
       insomnia
       devenv
       typst
-      minikube
+      # minikube
       kubectl
       kubecm
       terraform
@@ -213,7 +213,7 @@
         handbrake
 
         # 🧰 Dev Utilities
-        jetbrains.datagrip
+        # jetbrains.datagrip
         playwright
         playwright-driver
         playwright-mcp
@@ -250,7 +250,7 @@
         wtype
         wl-clipboard
       ]
-      ++ [
+      ++ lib.optionals ((hostConfig.nik.hardware.gpu or "none") == "nvidia") [
         telegrams.packages.${pkgs.stdenv.hostPlatform.system}.ayugram-desktop
       ]
       ++ lib.optionals ((hostConfig.nik.hardware.gpu or "none") == "nvidia") (

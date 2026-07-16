@@ -55,11 +55,11 @@
         };
       };
 
-      cursor = {
-        package = pkgs.numix-cursor-theme;
-        name = "Numix-Cursor-Light";
-        size = 24;
-      };
+      # cursor = {
+      #   package = pkgs.numix-cursor-theme;
+      #   name = "Numix-Cursor-Light";
+      #   size = 24;
+      # };
 
       fonts = {
         emoji = {
