@@ -9,6 +9,7 @@
     permittedInsecurePackages = [ "electron-38.8.4" ];
   };
   xdg.enable = true;
+  home-manager.backupFileExtension = "backup";
   home = {
     inherit (userSettings) username;
     homeDirectory = "/home/${userSettings.username}";
