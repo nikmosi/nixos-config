@@ -41,11 +41,11 @@
     '';
 
     home.exec = ''
-      nh home switch . -c $(hostname)
+      nh home switch . -c $(hostname) -b backup
     '';
 
     "home-fallback".exec = ''
-      home-manager switch --flake .#$(hostname)
+      home-manager switch -b backup --flake .#$(hostname)
     '';
 
     update.exec = ''
