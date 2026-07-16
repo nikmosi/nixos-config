@@ -10,7 +10,7 @@ in
   sops = {
     defaultSopsFile = ../../secrets/personal.yaml;
     age.generateKey = false;
-    age.ageFile = /var/lib/sops-nix/age/keys.txt;
+    age.keyFile = /var/lib/sops-nix/age/keys.txt;
 
     secrets.${passwordKey} = {
       neededForUsers = true;
