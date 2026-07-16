@@ -1,4 +1,8 @@
-{ config, userSettings, ... }:
+{
+  config,
+  userSettings,
+  ...
+}:
 let
   passwordKey = "user/${userSettings.username}/password";
 in
@@ -6,6 +10,7 @@ in
   sops = {
     defaultSopsFile = ../../secrets/personal.yaml;
     age.generateKey = false;
+    age.ageFile = /var/lib/sops-nix/age/keys.txt;
 
     secrets.${passwordKey} = {
       neededForUsers = true;
