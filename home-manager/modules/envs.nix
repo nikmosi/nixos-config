@@ -6,7 +6,6 @@ in
 {
   sops = {
     defaultSopsFile = ../../secrets/personal.yaml;
-    gnupg.home = "${config.home.homeDirectory}/.gnupg";
     age.keyFile = "/var/lib/sops-nix/age/keys.txt";
 
     secrets = {
