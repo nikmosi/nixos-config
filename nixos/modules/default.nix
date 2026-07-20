@@ -27,6 +27,7 @@
     ./services/logind.nix
     ./services/openssh.nix
     ./services/picom.nix
+    ./services/xray.nix
     ./services/sing.nix
   ];
 }

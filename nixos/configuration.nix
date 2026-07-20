@@ -12,6 +12,7 @@
     ./modules
     ./packages.nix
   ];
+  services.upower.enable = true;
 
   specialisation.x11-awesome.configuration = {
     system.nixos.tags = [ "x11-awesome" ];

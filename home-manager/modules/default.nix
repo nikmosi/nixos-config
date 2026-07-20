@@ -10,5 +10,7 @@
     ./ssh_keys.nix
     ./envs.nix
     ./flux.nix
+
+    ./services/k3s.nix
   ];
 }

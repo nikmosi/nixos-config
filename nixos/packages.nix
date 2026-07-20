@@ -7,10 +7,8 @@
 
 {
   environment.systemPackages =
-    (with pkgs.unstable; [
-      sing-box
-      sing-geoip
-      sing-geosite
+    (with pkgs; [
+      xray
     ])
     ++ (with pkgs; [
       # 🧠 Development Tools

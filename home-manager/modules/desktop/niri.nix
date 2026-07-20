@@ -136,6 +136,7 @@ in
           };
           touchpad = {
             accel-profile = "flat";
+            tap = [ ];
           };
         };
 
