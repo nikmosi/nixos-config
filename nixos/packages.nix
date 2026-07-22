@@ -7,7 +7,7 @@
 
 {
   environment.systemPackages =
-    (with pkgs; [
+    (with pkgs.unstable; [
       xray
     ])
     ++ (with pkgs; [
@@ -18,6 +18,7 @@
       lcov
       python314
       home-manager
+      jqp
 
       # 🧰 Build & Printing Stack
       librsvg

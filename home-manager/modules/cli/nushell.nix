@@ -200,7 +200,7 @@
           use ($custom_completions | path join "pass/pass-completions.nu") *
           use ($custom_completions | path join "rg/rg-completions.nu") *
           use ($custom_completions | path join "nix/nix-completions.nu") *
-          use ($module_nu_scripts | path join "modules/argx") *
+          use ($module_nu_scripts | path join "modules/argx")
           use ($module_nu_scripts | path join "modules/lg") *
           use ($module_nu_scripts | path join "modules/kubernetes") *
           use ($custom_completions | path join "uv/uv-completions.nu") *

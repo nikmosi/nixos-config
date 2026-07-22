@@ -16,6 +16,7 @@
   };
 
   fonts.fontconfig.enable = true;
+  wayland.windowManager.hyprland.configType = "lua";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

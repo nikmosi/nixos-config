@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ pkgs, config, ... }:
 let
   xrayAssets = ../../assets/xray;
 in
@@ -29,7 +29,7 @@ in
 
       routing = {
         domainStrategy = "AsIs";
-        rules = [];
+        rules = [ ];
         final = "vless-ollama";
       };
 
