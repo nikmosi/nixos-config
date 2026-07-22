@@ -76,7 +76,7 @@
 
               # 2. Передаем в carapace наш модифицированный массив (modified_spans вместо spans)
               let raw = ( carapace $modified_spans.0 nushell ...$modified_spans | from json )
-                
+
               let completions = (
                   if ($raw | get value | into string | where $it =~ '^-.*ERR$' | is-empty) {
                       $raw
@@ -412,12 +412,12 @@
           def "gptcommit" [] {
               # Получаем изменения из индекса
               let diff = (^git diff --cached | str trim)
-              
+
               if ($diff | is-empty) {
                   print "Нет файлов в индексе для коммита."
                   return
               }
-              
+
               # Передаем инструкцию OpenCode через CLI-аргумент
               ^opencode run -m "opencode/big-pickle" "Read the staged changes. Generate a concise commit message using the Conventional Commits standard. Ask for my confirmation, then execute the commit."
           }
