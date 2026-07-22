@@ -22,7 +22,6 @@
     ruff
     yaml-language-server
     taplo
-    python311Packages.debugpy
     hadolint
     stylua
     convco
@@ -80,7 +79,7 @@
   # Configure git hooks
   git-hooks.hooks = {
     # Format Nix code
-    nixfmt-rfc-style.enable = true;
+    nixfmt.enable = true;
 
     # Lint Nix code
     statix.enable = true;

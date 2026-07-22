@@ -3,156 +3,160 @@ let
   xrayAssets = ../../assets/xray;
 in
 {
-  sops.secrets."xray/inbound/user" = { };
-  sops.secrets."xray/inbound/pass" = { };
-  sops.secrets."xray/ollama/address" = { };
-  sops.secrets."xray/ollama/uuid" = { };
-  sops.secrets."xray/ollama/encryption" = { };
-  sops.secrets."xray/finka/address" = { };
-  sops.secrets."xray/finka/uuid" = { };
-  sops.secrets."xray/finka/encryption" = { };
+  sops = {
+    secrets = {
+      "xray/inbound/user" = { };
+      "xray/inbound/pass" = { };
+      "xray/ollama/address" = { };
+      "xray/ollama/uuid" = { };
+      "xray/ollama/encryption" = { };
+      "xray/finka/address" = { };
+      "xray/finka/uuid" = { };
+      "xray/finka/encryption" = { };
+    };
 
-  sops.templates."xray-config.json" = {
-    content = builtins.toJSON {
-      log = {
-        loglevel = "info";
-      };
+    templates."xray-config.json" = {
+      content = builtins.toJSON {
+        log = {
+          loglevel = "info";
+        };
 
-      assetPath = "${xrayAssets}";
+        assetPath = "${xrayAssets}";
 
-      dns = {
-        servers = [
-          "1.1.1.1"
-          "localhost"
+        dns = {
+          servers = [
+            "1.1.1.1"
+            "localhost"
+          ];
+        };
+
+        routing = {
+          domainStrategy = "AsIs";
+          rules = [ ];
+          final = "vless-ollama";
+        };
+
+        inbounds = [
+          {
+            tag = "mixed-in";
+            port = 26666;
+            listen = "127.0.0.1";
+            protocol = "mixed";
+            settings = {
+              auth = "password";
+              accounts = [
+                {
+                  user = config.sops.placeholder."xray/inbound/user";
+                  pass = config.sops.placeholder."xray/inbound/pass";
+                }
+              ];
+              udp = true;
+            };
+            sniffing = {
+              enabled = true;
+              destOverride = [
+                "http"
+                "tls"
+              ];
+            };
+          }
+        ];
+
+        outbounds = [
+          {
+            tag = "vless-ollama";
+            protocol = "vless";
+            settings = {
+              vnext = [
+                {
+                  address = config.sops.placeholder."xray/ollama/address";
+                  port = 443;
+                  users = [
+                    {
+                      id = config.sops.placeholder."xray/ollama/uuid";
+                      encryption = config.sops.placeholder."xray/ollama/encryption";
+                    }
+                  ];
+                }
+              ];
+            };
+            streamSettings = {
+              network = "xhttp";
+              security = "tls";
+              tlsSettings = {
+                serverName = "ollama.nikflora.ru";
+                fingerprint = "firefox";
+                alpn = [
+                  "h2"
+                  "http/1.1"
+                ];
+              };
+              xhttpSettings = {
+                mode = "auto";
+                path = "/";
+                host = "";
+                extra = {
+                  mode = "auto";
+                  xPaddingBytes = "100-1000";
+                  xPaddingObfsMode = true;
+                };
+              };
+            };
+          }
+
+          {
+            tag = "vless-finka";
+            protocol = "vless";
+            settings = {
+              vnext = [
+                {
+                  address = config.sops.placeholder."xray/finka/address";
+                  port = 443;
+                  users = [
+                    {
+                      id = config.sops.placeholder."xray/finka/uuid";
+                      encryption = config.sops.placeholder."xray/finka/encryption";
+                    }
+                  ];
+                }
+              ];
+            };
+            streamSettings = {
+              network = "xhttp";
+              security = "tls";
+              tlsSettings = {
+                serverName = "finka.fluxus.org";
+                fingerprint = "firefox";
+                alpn = [
+                  "h2"
+                  "http/1.1"
+                ];
+              };
+              xhttpSettings = {
+                mode = "auto";
+                path = "/";
+                host = "";
+                extra = {
+                  mode = "auto";
+                  xPaddingBytes = "100-1000";
+                };
+              };
+            };
+          }
+
+          {
+            tag = "direct";
+            protocol = "freedom";
+            settings = { };
+          }
+
+          {
+            tag = "block";
+            protocol = "blackhole";
+            settings = { };
+          }
         ];
       };
-
-      routing = {
-        domainStrategy = "AsIs";
-        rules = [ ];
-        final = "vless-ollama";
-      };
-
-      inbounds = [
-        {
-          tag = "mixed-in";
-          port = 26666;
-          listen = "127.0.0.1";
-          protocol = "mixed";
-          settings = {
-            auth = "password";
-            accounts = [
-              {
-                user = config.sops.placeholder."xray/inbound/user";
-                pass = config.sops.placeholder."xray/inbound/pass";
-              }
-            ];
-            udp = true;
-          };
-          sniffing = {
-            enabled = true;
-            destOverride = [
-              "http"
-              "tls"
-            ];
-          };
-        }
-      ];
-
-      outbounds = [
-        {
-          tag = "vless-ollama";
-          protocol = "vless";
-          settings = {
-            vnext = [
-              {
-                address = config.sops.placeholder."xray/ollama/address";
-                port = 443;
-                users = [
-                  {
-                    id = config.sops.placeholder."xray/ollama/uuid";
-                    encryption = config.sops.placeholder."xray/ollama/encryption";
-                  }
-                ];
-              }
-            ];
-          };
-          streamSettings = {
-            network = "xhttp";
-            security = "tls";
-            tlsSettings = {
-              serverName = "ollama.nikflora.ru";
-              fingerprint = "firefox";
-              alpn = [
-                "h2"
-                "http/1.1"
-              ];
-            };
-            xhttpSettings = {
-              mode = "auto";
-              path = "/";
-              host = "";
-              extra = {
-                mode = "auto";
-                xPaddingBytes = "100-1000";
-                xPaddingObfsMode = true;
-              };
-            };
-          };
-        }
-
-        {
-          tag = "vless-finka";
-          protocol = "vless";
-          settings = {
-            vnext = [
-              {
-                address = config.sops.placeholder."xray/finka/address";
-                port = 443;
-                users = [
-                  {
-                    id = config.sops.placeholder."xray/finka/uuid";
-                    encryption = config.sops.placeholder."xray/finka/encryption";
-                  }
-                ];
-              }
-            ];
-          };
-          streamSettings = {
-            network = "xhttp";
-            security = "tls";
-            tlsSettings = {
-              serverName = "finka.fluxus.org";
-              fingerprint = "firefox";
-              alpn = [
-                "h2"
-                "http/1.1"
-              ];
-            };
-            xhttpSettings = {
-              mode = "auto";
-              path = "/";
-              host = "";
-              extra = {
-                mode = "auto";
-                xPaddingBytes = "100-1000";
-              };
-            };
-          };
-        }
-
-        {
-          tag = "direct";
-          protocol = "freedom";
-          settings = { };
-        }
-
-        {
-          tag = "block";
-          protocol = "blackhole";
-          settings = { };
-        }
-      ];
     };
   };
 
